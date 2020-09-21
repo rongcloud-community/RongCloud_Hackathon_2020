@@ -1,0 +1,25 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <label>
+        User ID:
+        <input type="text" formControlName="userId">
+    </label>
+    <label>
+        Nickname:
+        <input type="text" formControlName="nickname">
+    </label>
+    <label>
+        Avatar URI:
+        <input type="text" formControlName="portraitUri">
+    </label>
+    <div formGroupName="passwords">
+    <label>
+        Password:
+        <input type="password" formControlName="password">
+    </label>
+    <label>
+        Confirm Password:
+        <input type="password" formControlName="password2">
+    </label>
+    </div>
+    <button type="submit" [disabled]="!registerForm.valid">Submit</button>
+</form>
