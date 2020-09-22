@@ -93,9 +93,3 @@ func addNewUser(db *sql.DB, err error, data *userForm) (*sql.DB, error) {
 	_, err = newUser.Exec(data.UserID, data.Nickname, data.PortraitURI, password, time.Now(), result.Token)
 	return db, err
 }
-
-func checkErr(err interface{}) {
-	if err != nil {
-		panic(err)
-	}
-}

@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"net/http"
 	"time"
 
@@ -11,6 +12,7 @@ import (
 )
 
 func login(w http.ResponseWriter, r *http.Request) {
+	fmt.Println(r.Header.Get("X-FORWARDED-FOR"), r.RemoteAddr)
 	db, err := sql.Open("postgres", psqlInfo)
 
 	checkErr(err)
@@ -50,13 +52,14 @@ func userLogin(db *sql.DB, err error, data *loginForm, w http.ResponseWriter) (*
 }
 
 // TODO: session ID creation and store, I'll combine it with the IP
-// func createSessionTable(db *sql.DB, err error) (*sql.DB, error) {
-// 	crt, err := db.Prepare(`CREATE TABLE IF NOT EXISTS sessions (
-// 		sessionID varchar(128) UNIQUE PRIMARY KEY,
-// 		userinDB SERIAL UNIQUE NOT NULL,
-// 		expiration date NOT NULL
-// 		)`)
-// 	checkErr(err)
-// 	_, err = crt.Exec()
-// 	return db, err
-// }
+func createSessionTable(db *sql.DB, err error) (*sql.DB, error) {
+	crt, err := db.Prepare(`CREATE TABLE IF NOT EXISTS sessions (
+		sessionID varchar(128) UNIQUE PRIMARY KEY,
+		userinDB SERIAL NOT NULL,
+		expiration date,
+		remote inet NOT NULL
+	)`)
+	checkErr(err)
+	_, err = crt.Exec()
+	return db, err
+}
