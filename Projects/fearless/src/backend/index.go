@@ -6,6 +6,7 @@ import (
 )
 
 func main() {
+	http.HandleFunc("/userinfo", userInfo)
 	http.HandleFunc("/login", login)
 	http.HandleFunc("/register", register)
 	http.HandleFunc("/", homepage)
