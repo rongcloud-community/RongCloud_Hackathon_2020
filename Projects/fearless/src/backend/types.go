@@ -7,6 +7,8 @@ type userForm struct {
 	PortraitURI string
 }
 
+// TODO: Add Role in accounts database
+
 type userDB struct {
 	UserID      string
 	Nickname    string

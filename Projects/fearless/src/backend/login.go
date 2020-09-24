@@ -13,6 +13,8 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
+// TODO: Add Role in accounts database
+
 func login(w http.ResponseWriter, r *http.Request) {
 	db, err := sql.Open("postgres", psqlInfo)
 

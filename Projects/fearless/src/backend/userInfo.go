@@ -8,6 +8,8 @@ import (
 	"strings"
 )
 
+// TODO: Add Role in accounts database
+
 func userInfo(w http.ResponseWriter, r *http.Request) {
 	sessionID, _ := r.Cookie("SESSIONID")
 	w.Header().Set("Content-Type", "application/json")
