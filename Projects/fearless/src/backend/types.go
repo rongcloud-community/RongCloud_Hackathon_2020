@@ -25,3 +25,9 @@ type userRes struct {
 	UserID string `json:"userId"`
 	Token  string `json:"token"`
 }
+
+type userSession struct {
+	sessionID string
+	userinDB  string
+	remote    string
+}
