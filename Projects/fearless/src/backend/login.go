@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"net/http"
 	"strings"
 	"time"
@@ -45,7 +46,9 @@ func userLogin(db *sql.DB, err error, data *loginForm, w http.ResponseWriter, r 
 	if bcrypt.CompareHashAndPassword([]byte(currentUser.Password), []byte(data.Password)) == nil {
 		db, err = createSessionTable(db, err)
 		db, session, err := addToSessionTable(db, err, r, &currentUser)
-		http.SetCookie(w, &http.Cookie{Name: "SESSIONID", Value: session, Expires: time.Now().Add(24 * time.Hour), Path: "/"})
+		if session != "" {
+			http.SetCookie(w, &http.Cookie{Name: "SESSIONID", Value: session, Expires: time.Now().Add(24 * time.Hour), Path: "/"})
+		}
 		return db, currentUser, err
 	}
 	return db, currentUser, errors.New("password not matched")
@@ -66,6 +69,26 @@ func createSessionTable(db *sql.DB, err error) (*sql.DB, error) {
 }
 
 func addToSessionTable(db *sql.DB, err error, r *http.Request, user *userDB) (*sql.DB, string, error) {
+	check, err := db.Query(`SELECT sessionID, userinDB, remote FROM sessions WHERE userinDB='` + user.UserID + `';`)
+	if err != nil {
+		return db, "", err
+	}
+	var currentUserSessions []userSession
+	// TODO: no more than 3 sessions from a same user
+	for check.Next() {
+		var currentUser userSession
+		check.Scan(&currentUser.sessionID, &currentUser.userinDB, &currentUser.remote)
+		currentUserSessions = append(currentUserSessions, currentUser)
+	}
+	for len(currentUserSessions) >= 3 {
+		_, err := db.Exec(fmt.Sprintf(`DELETE FROM sessions WHERE sessionID='%s';`, currentUserSessions[0].sessionID))
+		if err != nil {
+			return db, "", err
+		}
+		currentUserSessions = deleteFromArray(currentUserSessions, 0)
+		fmt.Println(currentUserSessions, len(currentUserSessions))
+	}
+
 	newS, err := db.Prepare(`INSERT INTO sessions (sessionID, userinDB, expiration, remote) VALUES ($1, $2, $3, $4);`)
 	if err != nil {
 		return db, "", err
