@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AcccountManagementService } from '../account-management.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { userInfo } from '../data'
 
 @Component({
@@ -9,9 +9,15 @@ import { userInfo } from '../data'
   styleUrls: ['./home.component.styl']
 })
 export class HomeComponent implements OnInit {
-  finalUserInfo: userInfo;
+  finalUserInfo: userInfo = {
+    userID: '',
+    nickname: '',
+    portraitUri: '',
+    token: ''
+  }
+  from: string = this.route.url['_value'].map(seg => seg.toString()).join('/')
 
-  constructor(private accSer: AcccountManagementService, private router: Router) { 
+  constructor(private accSer: AcccountManagementService, private router: Router, private route: ActivatedRoute) { 
   }
 
   ngOnInit() {
