@@ -35,11 +35,7 @@ func register(w http.ResponseWriter, r *http.Request) {
 	db, err = addNewUser(db, err, &requestBody)
 	w.Header().Set("Content-Type", "application/json")
 	if err != nil {
-		if strings.Contains(err.Error(), "duplicate") && strings.Contains(err.Error(), "userid") {
-			json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": "userID already in use"})
-		} else {
-			json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
-		}
+		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 	} else {
 		json.NewEncoder(w).Encode(map[string]string{"status": "success", "statusText": "Registration successful."})
 	}
@@ -66,6 +62,25 @@ func createUserTable(db *sql.DB, err error) (*sql.DB, error) {
 }
 
 func addNewUser(db *sql.DB, err error, data *userForm) (*sql.DB, error) {
+	if theUser, err := db.Query(fmt.Sprintf(`SELECT userID FROM accounts WHERE userID='%s';`, data.UserID)); err == nil {
+		theUser.Next()
+		var userNow userDB
+		if theUser.Scan(&userNow.UserID); userNow.UserID != "" {
+			return db, fmt.Errorf(`userID %s already in use`, data.UserID)
+		}
+		return db, err
+	}
+
+	result := registerAPI(data)
+	newUser, err := db.Prepare(`INSERT INTO accounts(userID, nickname, portraitURI, password, created, token) VALUES($1, $2, $3, $4, $5, $6);`)
+	checkErr(err)
+	password, err := bcrypt.GenerateFromPassword([]byte(data.Password), bcrypt.DefaultCost)
+	checkErr(err)
+	_, err = newUser.Exec(data.UserID, data.Nickname, data.PortraitURI, password, time.Now(), result.Token)
+	return db, err
+}
+
+func registerAPI(data *userForm) userRes {
 	client := &http.Client{}
 	rand.Seed(64)
 
@@ -88,10 +103,6 @@ func addNewUser(db *sql.DB, err error, data *userForm) (*sql.DB, error) {
 	var result userRes
 	err = json.Unmarshal(body, &result)
 	checkErr(err)
-	newUser, err := db.Prepare(`INSERT INTO accounts(userID, nickname, portraitURI, password, created, token) VALUES($1, $2, $3, $4, $5, $6);`)
-	checkErr(err)
-	password, err := bcrypt.GenerateFromPassword([]byte(data.Password), bcrypt.DefaultCost)
-	checkErr(err)
-	_, err = newUser.Exec(data.UserID, data.Nickname, data.PortraitURI, password, time.Now(), result.Token)
-	return db, err
+
+	return result
 }
