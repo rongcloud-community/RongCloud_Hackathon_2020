@@ -16,5 +16,9 @@ export class AcccountManagementService {
     return this.http.post('/api/register', option)
   }
 
+  userinfo(): Observable<any> {
+    return this.http.get('/api/userinfo')
+  }
+
   constructor(private http: HttpClient) { }
 }

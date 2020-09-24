@@ -4,3 +4,10 @@ export interface userManagementForm {
 	Password: string
 	PortraitUri?: string
 }
+
+export interface userInfo {
+	userID: string
+	nickname: string
+	portraitUri: string
+	token: string
+}
