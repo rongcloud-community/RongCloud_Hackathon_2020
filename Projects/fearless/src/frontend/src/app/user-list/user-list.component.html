@@ -1,0 +1,2 @@
+<p *ngIf="finalUserInfo.isAdmin else regular">hello admin!</p>
+<ng-template #regular>Hello {{finalUserInfo.nickname}}!</ng-template>
