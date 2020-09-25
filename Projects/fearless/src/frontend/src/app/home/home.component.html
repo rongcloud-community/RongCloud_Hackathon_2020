@@ -1,2 +1,7 @@
-<p>你好，{{finalUserInfo.nickname}}. <a [routerLink]="['/editMyInfo', {from: from}]">修改个人信息</a></p>
+<div>你好，{{finalUserInfo.nickname}}. 
+    <ul>
+        <li><a [routerLink]="['/editMyInfo', {from: from}]">修改个人信息</a></li>
+        <li *ngIf="finalUserInfo.isAdmin"><a>查看用户列表</a></li>
+    </ul>
+</div>
 <p><a routerLink="/singleChat">开始聊天吧！</a></p>
