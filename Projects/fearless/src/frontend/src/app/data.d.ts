@@ -7,7 +7,7 @@ export interface userManagementForm {
 
 export interface userInfo {
 	userID: string
-	nickname: string
-	portraitUri: string
+	nickname?: string
+	portraitUri?: string
 	token?: string
 }

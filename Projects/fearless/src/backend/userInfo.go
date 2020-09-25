@@ -38,7 +38,7 @@ func userInfo(w http.ResponseWriter, r *http.Request) {
 		checkErr(err)
 		userQuery.Next()
 		userQuery.Scan(&curUser.UserID, &curUser.Nickname, &curUser.PortraitURI, &curUser.Token, &curUser.isAdmin)
-		json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "userInfo": map[string]interface{}{"userID": curUser.UserID, "nickname": curUser.Nickname, "portraitURI": curUser.PortraitURI, "token": curUser.Token, "isAdmin": curUser.isAdmin}})
+		json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "userInfo": map[string]interface{}{"userID": curUser.UserID, "nickname": curUser.Nickname, "portraitUri": curUser.PortraitURI, "token": curUser.Token, "isAdmin": curUser.isAdmin}})
 	} else {
 		json.NewEncoder(w).Encode(map[string]string{"status": "failure"})
 	}
@@ -56,7 +56,11 @@ func changeUserInfoSelf(w http.ResponseWriter, r *http.Request) {
 	if res.Code == 200 {
 		db, err := sql.Open("postgres", psqlInfo)
 		checkErr(err)
-		_, err = db.Exec(fmt.Sprintf(`UPDATE accounts SET nickname='%s', portraituri='%s' WHERE userid='%s';`, userCur.Nickname, userCur.PortraitURI, userCur.UserID))
+		if userCur.PortraitURI != "" {
+			_, err = db.Exec(fmt.Sprintf(`UPDATE accounts SET nickname='%s', portraituri='%s' WHERE userid='%s';`, userCur.Nickname, userCur.PortraitURI, userCur.UserID))
+		} else {
+			_, err = db.Exec(fmt.Sprintf(`UPDATE accounts SET nickname='%s' WHERE userid='%s';`, userCur.Nickname, userCur.UserID))
+		}
 		if err != nil {
 			json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
 			panic(err)

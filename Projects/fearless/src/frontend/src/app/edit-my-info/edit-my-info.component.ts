@@ -18,8 +18,8 @@ export class EditMyInfoComponent implements OnInit {
   }
 
   infoForm = this.fb.group({
-    nickname: new FormControl(this.finalUserInfo.nickname, [Validators.required, Validators.maxLength(128)]),
-    portraitUri: new FormControl(this.finalUserInfo.portraitUri, Validators.maxLength(1024))
+    nickname: new FormControl('', [Validators.required, Validators.maxLength(128)]),
+    portraitUri: new FormControl('', Validators.maxLength(1024))
   })
 
   constructor(private accSer: AcccountManagementService, private router: Router, private fb: FormBuilder, private route: ActivatedRoute) {}
@@ -37,7 +37,14 @@ export class EditMyInfoComponent implements OnInit {
 
   onSubmit() {
     // console.log(this.infoForm.value)
-    this.accSer.userinfoSelfChange({userID: this.finalUserInfo.userID, nickname: this.infoForm.value['nickname'], portraitUri: this.infoForm.value['portraitUri']}).subscribe(res => {
+    var finalValue : userInfo = {userID: this.finalUserInfo.userID}
+    if (this.infoForm.value['nickname']) {
+      finalValue['nickname'] = this.infoForm.value['nickname']
+    }
+    if (this.infoForm.value['portraitUri']) {
+      finalValue['portraitUri'] = this.infoForm.value['portraitUri']
+    }
+    this.accSer.userinfoSelfChange(finalValue).subscribe(res => {
       if (res.status == "success") {
         this.router.navigateByUrl(this.route.params['value']['from'])
       }
