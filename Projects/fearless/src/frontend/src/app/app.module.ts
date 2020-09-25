@@ -10,6 +10,7 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { SingleChatComponent } from './single-chat/single-chat.component';
 import { EditMyInfoComponent } from './edit-my-info/edit-my-info.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +19,13 @@ import { EditMyInfoComponent } from './edit-my-info/edit-my-info.component';
     RegisterComponent,
     HomeComponent,
     SingleChatComponent,
-    EditMyInfoComponent
+    EditMyInfoComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
+      {path: 'userList', component: UserListComponent},
       {path: 'editMyInfo', component: EditMyInfoComponent},
       {path: 'singleChat', component: SingleChatComponent},
       {path: 'login', component: LoginComponent},
