@@ -48,10 +48,11 @@ func userInfo(w http.ResponseWriter, r *http.Request) {
 
 // TODO: Change User Info for self and admin
 
-// func changeUserInfoSelf(w http.ResponseWriter, r *http.Request) {
-// 	var userCur userDB
-// 	json.NewDecoder(r.Body).Decode(&userCur)
-// }
+func changeUserInfoSelf(w http.ResponseWriter, r *http.Request) {
+	var userCur userDB
+	json.NewDecoder(r.Body).Decode(&userCur)
+	json.NewEncoder(w).Encode(userCur)
+}
 
 // func changeUserInfoOther(w http.ResponseWriter, r *http.Request) {
 // 	var userCur userDB

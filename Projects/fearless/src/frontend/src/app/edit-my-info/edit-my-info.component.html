@@ -1,0 +1,11 @@
+<form [formGroup]="infoForm" (ngSubmit)="onSubmit()">
+    <label>
+        Nickname:
+        <input formControlName="nickname" type="text" />
+    </label>
+    <label>
+        Portrait URI:
+        <input formControlName="portraitUri" type="text" />
+    </label>
+    <button type="submit" [disabled]="!infoForm.valid">Submit</button>
+</form>
