@@ -15,6 +15,7 @@ type userDB struct {
 	Password    string
 	PortraitURI string
 	Token       string
+	isAdmin     bool
 }
 
 type loginForm struct {
