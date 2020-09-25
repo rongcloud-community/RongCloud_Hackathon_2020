@@ -51,7 +51,21 @@ func userInfo(w http.ResponseWriter, r *http.Request) {
 func changeUserInfoSelf(w http.ResponseWriter, r *http.Request) {
 	var userCur userDB
 	json.NewDecoder(r.Body).Decode(&userCur)
-	json.NewEncoder(w).Encode(userCur)
+	res := changeSelfInfoAPI(&userCur)
+
+	if res.Code == 200 {
+		db, err := sql.Open("postgres", psqlInfo)
+		checkErr(err)
+		_, err = db.Exec(fmt.Sprintf(`UPDATE accounts SET nickname='%s', portraituri='%s' WHERE userid='%s';`, userCur.Nickname, userCur.PortraitURI, userCur.UserID))
+		if err != nil {
+			json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
+			panic(err)
+		} else {
+			json.NewEncoder(w).Encode(map[string]string{"status": "success"})
+		}
+	} else {
+		json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
+	}
 }
 
 // func changeUserInfoOther(w http.ResponseWriter, r *http.Request) {

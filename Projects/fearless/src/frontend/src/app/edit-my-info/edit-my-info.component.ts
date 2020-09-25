@@ -37,6 +37,10 @@ export class EditMyInfoComponent implements OnInit {
 
   onSubmit() {
     // console.log(this.infoForm.value)
-    this.accSer.userinfoSelfChange({userID: this.finalUserInfo.userID, nickname: this.infoForm.value['nickname'], portraitUri: this.infoForm.value['portraitUri']}).subscribe(res => console.log(res))
+    this.accSer.userinfoSelfChange({userID: this.finalUserInfo.userID, nickname: this.infoForm.value['nickname'], portraitUri: this.infoForm.value['portraitUri']}).subscribe(res => {
+      if (res.status == "success") {
+        this.router.navigateByUrl(this.route.params['value']['from'])
+      }
+    })
   }
 }
