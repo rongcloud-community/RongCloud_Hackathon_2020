@@ -62,7 +62,6 @@ func createUserTable(db *sql.DB, err error) (*sql.DB, error) {
 }
 
 func addNewUser(db *sql.DB, err error, data *userForm) (*sql.DB, userDB, error) {
-	fmt.Println("add new user")
 	if theUser, err := db.Query(fmt.Sprintf(`SELECT userID FROM accounts WHERE userID='%s';`, data.UserID)); err == nil {
 		theUser.Next()
 		var userNow userDB

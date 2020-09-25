@@ -14,7 +14,6 @@ import (
 )
 
 func registerAPI(data *userForm) userRes {
-	fmt.Println("register")
 	theData := url.Values{}
 	theData.Set("userId", data.UserID)
 	theData.Set("name", data.Nickname)

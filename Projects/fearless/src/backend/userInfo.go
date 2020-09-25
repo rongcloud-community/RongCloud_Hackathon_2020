@@ -34,11 +34,11 @@ func userInfo(w http.ResponseWriter, r *http.Request) {
 	var curUser userDB
 
 	if remote == session.remote {
-		userQuery, err := db.Query(fmt.Sprintf(`SELECT userid, nickname, portraituri, token FROM accounts WHERE userid='%s';`, session.userinDB))
+		userQuery, err := db.Query(fmt.Sprintf(`SELECT userid, nickname, portraituri, token, isAdmin FROM accounts WHERE userid='%s';`, session.userinDB))
 		checkErr(err)
 		userQuery.Next()
-		userQuery.Scan(&curUser.UserID, &curUser.Nickname, &curUser.PortraitURI, &curUser.Token)
-		json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "userInfo": map[string]string{"userID": curUser.UserID, "nickname": curUser.Nickname, "portraitURI": curUser.PortraitURI, "token": curUser.Token}})
+		userQuery.Scan(&curUser.UserID, &curUser.Nickname, &curUser.PortraitURI, &curUser.Token, &curUser.isAdmin)
+		json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "userInfo": map[string]interface{}{"userID": curUser.UserID, "nickname": curUser.Nickname, "portraitURI": curUser.PortraitURI, "token": curUser.Token, "isAdmin": curUser.isAdmin}})
 	} else {
 		json.NewEncoder(w).Encode(map[string]string{"status": "failure"})
 	}
