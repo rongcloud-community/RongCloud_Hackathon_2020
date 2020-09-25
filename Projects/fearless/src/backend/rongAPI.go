@@ -14,6 +14,7 @@ import (
 )
 
 func registerAPI(data *userForm) userRes {
+	fmt.Println("register")
 	theData := url.Values{}
 	theData.Set("userId", data.UserID)
 	theData.Set("name", data.Nickname)
@@ -63,7 +64,7 @@ func requestRongAPI(reqType string, data *url.Values, url string) (result userRe
 
 	err = json.Unmarshal(body, &result)
 
-	fmt.Println("code: ", result.Code, "userID: ", result.UserID, "token: ", result.Token)
+	// fmt.Println("code: ", result.Code, "userID: ", result.UserID, "token: ", result.Token)
 
 	return result, err
 }

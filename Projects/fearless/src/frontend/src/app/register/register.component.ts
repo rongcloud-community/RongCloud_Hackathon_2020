@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { AcccountManagementService } from '../account-management.service'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-register',
@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
     }, {validators: this.checkPasswords})
   })
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private accountSer: AcccountManagementService) { }
+  constructor(private fb: FormBuilder, private accountSer: AcccountManagementService, private router: Router) { }
 
   checkPasswords(group: FormGroup) {
     let password = group.get('password').value, password2 = group.get('password2').value
@@ -32,7 +32,13 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     console.warn(this.registerForm.value)
-    this.accountSer.register({userId: this.registerForm.value.userId, Nickname: this.registerForm.value.nickname, Password: this.registerForm.value.passwords.password, PortraitUri: this.registerForm.value.portraitUri}).subscribe(res => console.log(res))
+    this.accountSer.register({userId: this.registerForm.value.userId, Nickname: this.registerForm.value.nickname, Password: this.registerForm.value.passwords.password, PortraitUri: this.registerForm.value.portraitUri}).subscribe(res => {
+      if (res['status'] == 'success') {
+        this.router.navigateByUrl('/')
+      } else {
+        console.log(res)
+      }
+    })
   }
 
 }
