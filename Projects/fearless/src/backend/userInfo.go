@@ -11,25 +11,10 @@ import (
 // TODO: Add Role in accounts database
 
 func userInfo(w http.ResponseWriter, r *http.Request) {
-	sessionID, _ := r.Cookie("SESSIONID")
 	w.Header().Set("Content-Type", "application/json")
 
-	db, err := sql.Open("postgres", psqlInfo)
+	db, session, remote, err := sessionInfoAndTrueRemote(r)
 	checkErr(err)
-
-	sessionQuery, err := db.Query(fmt.Sprintf(`SELECT sessionid, userinDB, remote FROM sessions WHERE sessionid='%s';`, sessionID.Value))
-	checkErr(err)
-	var session userSession
-	sessionQuery.Next()
-	sessionQuery.Scan(&session.sessionID, &session.userinDB, &session.remote)
-
-	var remote string
-
-	if xFor := r.Header.Get("X-FORWARDED-FOR"); xFor != "" {
-		remote = xFor
-	} else {
-		remote = strings.Split(r.RemoteAddr, ":")[0]
-	}
 
 	var curUser userDB
 
@@ -46,9 +31,8 @@ func userInfo(w http.ResponseWriter, r *http.Request) {
 	db.Close()
 }
 
-// TODO: Change User Info for self and admin
-
 func changeUserInfoSelf(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
 	var userCur userDB
 	json.NewDecoder(r.Body).Decode(&userCur)
 	res := changeSelfInfoAPI(&userCur)
@@ -72,7 +56,32 @@ func changeUserInfoSelf(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// TODO: Change User Info for self and admin
 // func changeUserInfoOther(w http.ResponseWriter, r *http.Request) {
 // 	var userCur userDB
 // 	json.NewDecoder(r.Body).Decode(&userCur)
 // }
+
+// func userList(w http.Response, r *http.Request) {
+// 	w.Header().Set("Content-Type", "application/json")
+
+// }
+
+func sessionInfoAndTrueRemote(r *http.Request) (db *sql.DB, session userSession, remote string, err error) {
+	sessionID, _ := r.Cookie("SESSIONID")
+	db, err = sql.Open("postgres", psqlInfo)
+	checkErr(err)
+
+	sessionQuery, err := db.Query(fmt.Sprintf(`SELECT sessionid, userinDB, remote FROM sessions WHERE sessionid='%s';`, sessionID.Value))
+	checkErr(err)
+	sessionQuery.Next()
+	sessionQuery.Scan(&session.sessionID, &session.userinDB, &session.remote)
+
+	if xFor := r.Header.Get("X-FORWARDED-FOR"); xFor != "" {
+		remote = xFor
+	} else {
+		remote = strings.Split(r.RemoteAddr, ":")[0]
+	}
+
+	return
+}
