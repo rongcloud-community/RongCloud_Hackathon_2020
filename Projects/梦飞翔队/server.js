@@ -9,7 +9,12 @@ app.get("/getappkey", (_, res) => {
 });
 app.get("/gettoken", (_, res) => {
     console.log("token");
-    res.end("EWLDZ2YIlwdKGmOqybWfkQulLePhbGSlx4Ux2P5WdA4=@fy51.cn.rongnav.com;fy51.cn.rongcfg.com");
+    res.end(getToken());
+});
+app.get("/exit", (req, res) => {
+    console.log("exit", req.query.token);
+    onExit(req.query.token);
+    res.end();
 });
 // app.use(express.urlencoded({ extended: false }));
 // app.use(express.json());
@@ -20,28 +25,54 @@ app.listen(8080, () => {
 
 var Message = RongSDK.Message;
 var Chatroom = Message.Chatroom;
-// RongSDK.Chatroom.create({
-//     id: 'chr001',
-//     name: 'danmaku'
-// });
 var User = RongSDK.User;
 
-// var user = {
-// 	id: 'ujadk90ha',
-// 	name: 'Maritn',
-// 	portrait: 'http://7xogjk.com1.z0.glb.clouddn.com/IuDkFprSQ1493563384017406982'
-// };
-// User.register(user).then(result => {
-// 	console.log(result);
-// }, error => { 
-// 	console.log(error);
-// });
+RongSDK.Chatroom.create({
+    id: 'danmaku',
+    name: 'danmaku'
+});
+
+var users = [];
+for (var i = 0; i < 10; i++) {
+    var id = 'user' + i;
+    User.register({
+        id: id,
+        name: id,
+        portrait: '.'
+    }).then(result => {
+        if (result.code == 200) {
+            users.push(result);
+        }
+    }, error => {
+        console.log(error);
+    });
+}
+
+function getToken() {
+    for (var i = 0; i < users.length; i++) {
+        if (users[i].code > 0) {
+            users[i].code = 0;
+            return users[i].token;
+        }
+    }
+}
+
+function onExit(token) {
+    var user = users.find(u => u.token == token);
+    if (user) {
+        console.log("exit", user.userId);
+        user.code = 200;
+    }
+    var count = 0;
+    users.forEach(u => u.code == 0 ? count++ : 0);
+    console.log("在线用户", count);
+}
 
 app.get("/test", (_, res) => {
     res.end();
     console.log("test");
     Chatroom.send({
-        senderId: 'wfajawdo',
+        senderId: 'admin',
         targetId: 'danmaku',
         objectName: 'RC:TxtMsg',
         content: {

@@ -30,6 +30,11 @@ $.get('/getappkey', function (appkey) {
             token: token
         }).then(function (user) {
             console.log('链接成功, 链接用户 id 为: ', user.id);
+            //通知服务端离开
+            window.onbeforeunload = function () {
+                $.get("/exit?token=" + token);
+            }
+            //加入聊天室
             chatRoom = im.ChatRoom.get({
                 id: 'danmaku'
             });
@@ -56,7 +61,7 @@ $("#send").click(function () {
         console.log('发送文字消息成功', message);
     });
 });
-
+//api测试
 $("#test").click(function () {
     $.get("/test");
 });
