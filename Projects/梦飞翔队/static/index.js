@@ -6,6 +6,25 @@ $.get('/getappkey', function (appkey) {
     console.log('获得key', appkey);
 
     var im = RongIMLib.init({ appkey: appkey });
+    var conversationList = []; // 当前已存在的会话列表
+    im.watch({
+        conversation: function (event) {
+            var updatedConversationList = event.updatedConversationList; // 更新的会话列表
+            console.log('更新会话汇总:', updatedConversationList);
+            console.log('最新会话列表:', im.Conversation.merge({
+                conversationList,
+                updatedConversationList
+            }));
+        },
+        message: function (event) {
+            var message = event.message;
+            console.log('收到新消息:', message);
+        },
+        status: function (event) {
+            var status = event.status;
+            console.log('连接状态码:', status);
+        }
+    });
     $.get('/gettoken', function (token) {
         im.connect({
             token: token
@@ -15,7 +34,7 @@ $.get('/getappkey', function (appkey) {
                 id: 'danmaku'
             });
             chatRoom.join({
-                count: 20 // 进入后, 自动拉取 20 条聊天室最新消息
+                count: 10 // 进入后, 自动拉取 10 条聊天室最新消息
             }).then(function () {
                 console.log('加入聊天室成功');
             }).catch(function (error) {
