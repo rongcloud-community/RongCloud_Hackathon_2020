@@ -1,2 +1,10 @@
-<p *ngIf="finalUserInfo.isAdmin else regular">hello admin!</p>
+<div *ngIf="finalUserInfo.isAdmin else regular">
+    <p>hello admin {{finalUserInfo.nickname}}!</p>
+    <table>
+        <tbody>
+            <tr><td>user ID</td><td>Nickname</td><td>is admin</td></tr>
+            <tr *ngFor="let user of userList"><td>{{user.UserID}}</td><td>{{user.Nickname}}</td><td>{{user.IsAdmin}}</td></tr>
+        </tbody>
+    </table>
+</div>
 <ng-template #regular>Hello {{finalUserInfo.nickname}}!</ng-template>

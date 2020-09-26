@@ -25,7 +25,7 @@ func userInfo(w http.ResponseWriter, r *http.Request) {
 		userQuery.Scan(&curUser.UserID, &curUser.Nickname, &curUser.PortraitURI, &curUser.Token, &curUser.isAdmin)
 		json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "userInfo": map[string]interface{}{"userID": curUser.UserID, "nickname": curUser.Nickname, "portraitUri": curUser.PortraitURI, "token": curUser.Token, "isAdmin": curUser.isAdmin}})
 	} else {
-		json.NewEncoder(w).Encode(map[string]string{"status": "failure"})
+		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": "Session expired."})
 	}
 
 	db.Close()
@@ -62,10 +62,32 @@ func changeUserInfoSelf(w http.ResponseWriter, r *http.Request) {
 // 	json.NewDecoder(r.Body).Decode(&userCur)
 // }
 
-// func userList(w http.Response, r *http.Request) {
-// 	w.Header().Set("Content-Type", "application/json")
-
-// }
+func userList(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	db, session, remote, _ := sessionInfoAndTrueRemote(r)
+	if remote == session.remote {
+		curUserQuery, err := db.Query(fmt.Sprintf(`SELECT isadmin FROM accounts WHERE userid='%s';`, session.userinDB))
+		checkErr(err)
+		curUserQuery.Next()
+		var curUser userDB
+		curUserQuery.Scan(&curUser.isAdmin)
+		if curUser.isAdmin {
+			var userList []listedUser
+			userListQuery, err := db.Query(`SELECT userid, nickname, portraituri, isadmin FROM accounts;`)
+			checkErr(err)
+			for userListQuery.Next() {
+				var theUser listedUser
+				userListQuery.Scan(&theUser.UserID, &theUser.Nickname, &theUser.PortraitURI, &theUser.IsAdmin)
+				userList = append(userList, theUser)
+			}
+			json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "data": userList})
+		} else {
+			json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": "Sorry, you are not in the admin group!"})
+		}
+	} else {
+		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": "Session expired."})
+	}
+}
 
 func sessionInfoAndTrueRemote(r *http.Request) (db *sql.DB, session userSession, remote string, err error) {
 	sessionID, _ := r.Cookie("SESSIONID")

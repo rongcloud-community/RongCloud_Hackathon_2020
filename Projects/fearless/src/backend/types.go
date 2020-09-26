@@ -18,6 +18,13 @@ type userDB struct {
 	isAdmin     bool
 }
 
+type listedUser struct {
+	UserID      string
+	Nickname    string
+	PortraitURI string
+	IsAdmin     bool
+}
+
 type loginForm struct {
 	UserID   string
 	Password string

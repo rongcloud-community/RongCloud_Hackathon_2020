@@ -9,6 +9,13 @@ export interface userInfo {
 	userID: string
 	nickname?: string
 	portraitUri?: string
-	token?: string,
+	token?: string
 	isAdmin?: boolean
+}
+
+export interface userInfoOnList {
+	UserID: string
+	Nickname?: string
+	PortraitURI?: string
+	IsAdmin?: boolean
 }

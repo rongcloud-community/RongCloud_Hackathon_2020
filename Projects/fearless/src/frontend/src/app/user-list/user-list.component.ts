@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
-import { userInfo } from '../data'
+import { userInfo, userInfoOnList } from '../data'
 import { AcccountManagementService } from '../account-management.service'
 
 @Component({
@@ -16,6 +16,8 @@ export class UserListComponent implements OnInit {
     token: ''
   }
 
+  userList: userInfoOnList[]
+
   constructor(private accSer: AcccountManagementService, private router: Router) { }
 
   ngOnInit() {
@@ -24,6 +26,12 @@ export class UserListComponent implements OnInit {
         this.finalUserInfo = res.userInfo
       } else {
         this.router.navigateByUrl('/login')
+      }
+    })
+    this.accSer.userList().subscribe(res => {
+      if (res.status == "success") {
+        console.log(res)
+        this.userList = res.data;
       }
     })
   }

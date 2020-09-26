@@ -24,5 +24,9 @@ export class AcccountManagementService {
     return this.http.post('/api/userinfo/changeSelf', option)
   }
 
+  userList(): Observable<any> {
+    return this.http.get('/api/userList')
+  }
+
   constructor(private http: HttpClient) { }
 }
