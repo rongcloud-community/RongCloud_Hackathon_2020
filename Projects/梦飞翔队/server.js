@@ -4,8 +4,14 @@ var express = require('express');
 var app = express();
 
 app.get("/getappkey", (_, res) => {
+    console.log("key");
     res.end(apikey.appkey);
 });
+app.get("/gettoken", (_, res) => {
+    console.log("token");
+    res.end("EWLDZ2YIlwdKGmOqybWfkQulLePhbGSlx4Ux2P5WdA4=@fy51.cn.rongnav.com;fy51.cn.rongcfg.com");
+});
+app.use(express.static("static"));
 app.listen(8080, () => {
     console.log("listening 8080");
 });
