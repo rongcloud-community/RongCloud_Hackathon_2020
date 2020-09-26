@@ -1,6 +1,13 @@
-var RongSDK = require('rongcloud-sdk')({
-    appkey: '',
-    secret: ''
+var apikey = require('./key');
+var RongSDK = require('rongcloud-sdk')(apikey);
+var express = require('express');
+var app = express();
+
+app.get("/getappkey", (_, res) => {
+    res.end(apikey.appkey);
+});
+app.listen(8080, () => {
+    console.log("listening 8080");
 });
 
 var Message = RongSDK.Message;
