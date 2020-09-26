@@ -1,1 +1,14 @@
-<p>edit-other-info works!</p>
+<div *ngIf="err.length else regular"></div>
+<ng-template #regular>
+    <form [formGroup]="infoForm" (ngSubmit)="onSubmit()">
+    <label>
+        Nickname:
+        <input formControlName="nickname" [placeholder]="finalUserInfo.nickname" type="text" />
+    </label>
+    <label>
+        Portrait URI:
+        <input formControlName="portraitUri" [placeholder]="finalUserInfo.portraitUri" type="text" />
+    </label>
+    <button type="submit" [disabled]="!infoForm.valid">Submit</button>
+</form>
+</ng-template>

@@ -1,6 +1,6 @@
 <div>你好，{{finalUserInfo.nickname}}. 
     <ul>
-        <li><a [routerLink]="['/editMyInfo', {from: from}]">修改个人信息</a></li>
+        <li><a [routerLink]="['/editInfo', {from: from}]">修改个人信息</a></li>
         <li *ngIf="finalUserInfo.isAdmin"><a routerLink="/userList">查看用户列表</a></li>
     </ul>
 </div>

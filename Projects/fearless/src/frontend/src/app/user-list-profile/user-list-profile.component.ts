@@ -14,6 +14,8 @@ export class UserListProfileComponent implements OnInit {
   }
 
   err: string = ''
+  
+  from: string = this.route.url['_value'].map(seg => seg.toString()).join('/')
 
   constructor(private route: ActivatedRoute, private accSer: AcccountManagementService) {
     

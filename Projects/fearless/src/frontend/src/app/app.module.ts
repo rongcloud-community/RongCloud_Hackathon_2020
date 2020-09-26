@@ -31,8 +31,8 @@ import { EditOtherInfoComponent } from './edit-other-info/edit-other-info.compon
     RouterModule.forRoot([
       {path: 'userList/:userid', component: UserListProfileComponent},
       {path: 'userList', component: UserListComponent},
-      {path: 'editOtherInfo', component: EditOtherInfoComponent},
-      {path: 'editMyInfo', component: EditMyInfoComponent},
+      {path: 'editInfo/:userid', component: EditOtherInfoComponent},
+      {path: 'editInfo', component: EditMyInfoComponent},
       {path: 'singleChat', component: SingleChatComponent},
       {path: 'login', component: LoginComponent},
       {path: 'register', component: RegisterComponent},
