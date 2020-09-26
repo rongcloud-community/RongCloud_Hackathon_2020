@@ -12,6 +12,7 @@ import { SingleChatComponent } from './single-chat/single-chat.component';
 import { EditMyInfoComponent } from './edit-my-info/edit-my-info.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserListProfileComponent } from './user-list-profile/user-list-profile.component';
+import { EditOtherInfoComponent } from './edit-other-info/edit-other-info.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +23,15 @@ import { UserListProfileComponent } from './user-list-profile/user-list-profile.
     SingleChatComponent,
     EditMyInfoComponent,
     UserListComponent,
-    UserListProfileComponent
+    UserListProfileComponent,
+    EditOtherInfoComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       {path: 'userList/:userid', component: UserListProfileComponent},
       {path: 'userList', component: UserListComponent},
+      {path: 'editOtherInfo', component: EditOtherInfoComponent},
       {path: 'editMyInfo', component: EditMyInfoComponent},
       {path: 'singleChat', component: SingleChatComponent},
       {path: 'login', component: LoginComponent},
