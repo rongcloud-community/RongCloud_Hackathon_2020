@@ -37,7 +37,8 @@ var User = RongSDK.User;
 // 	console.log(error);
 // });
 
-app.get("/test", () => {
+app.get("/test", (_, res) => {
+    res.end();
     console.log("test");
     Chatroom.send({
         senderId: 'wfajawdo',
