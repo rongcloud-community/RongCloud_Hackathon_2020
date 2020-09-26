@@ -11,8 +11,6 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-// TODO: Add Role in accounts database
-
 func register(w http.ResponseWriter, r *http.Request) {
 	db, err := sql.Open("postgres", psqlInfo)
 
@@ -62,12 +60,10 @@ func createUserTable(db *sql.DB, err error) (*sql.DB, error) {
 }
 
 func addNewUser(db *sql.DB, err error, data *userForm) (*sql.DB, userDB, error) {
-	if theUser, err := db.Query(fmt.Sprintf(`SELECT userID FROM accounts WHERE userID='%s';`, data.UserID)); err == nil {
-		theUser.Next()
-		var userNow userDB
-		if theUser.Scan(&userNow.UserID); userNow.UserID != "" {
-			return db, userNow, fmt.Errorf(`userID %s already in use`, data.UserID)
-		}
+	var userNew userDB
+	db, err = queryUserDB(db, data.UserID, &userNew)
+	if userNew.UserID != "" {
+		return db, userNew, fmt.Errorf(`userID %s already in use`, data.UserID)
 	}
 
 	result := registerAPI(data)

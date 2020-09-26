@@ -13,8 +13,6 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-// TODO: Add Role in accounts database
-
 func login(w http.ResponseWriter, r *http.Request) {
 	db, err := sql.Open("postgres", psqlInfo)
 
@@ -35,17 +33,11 @@ func login(w http.ResponseWriter, r *http.Request) {
 }
 
 func userLogin(db *sql.DB, err error, data *loginForm, w http.ResponseWriter, r *http.Request) (*sql.DB, userDB, error) {
-	theUser, err := db.Query(`SELECT nickname, password, portraituri, userid, token FROM accounts WHERE userID='` + data.UserID + `';`)
 	var currentUser userDB
-	if err != nil {
-		return db, currentUser, err
-	}
-	theUser.Next()
-
-	if err := theUser.Scan(&currentUser.Nickname, &currentUser.Password, &currentUser.PortraitURI, &currentUser.UserID, &currentUser.Token); err != nil {
-		return db, currentUser, err
-	}
-	if bcrypt.CompareHashAndPassword([]byte(currentUser.Password), []byte(data.Password)) == nil {
+	db, err = queryUserDB(db, data.UserID, &currentUser)
+	if currentUser.UserID == "" {
+		return db, currentUser, errors.New("no corresponding user found")
+	} else if bcrypt.CompareHashAndPassword([]byte(currentUser.Password), []byte(data.Password)) == nil {
 		db, err = createSessionTable(db, err)
 		db, session, err := addToSessionTable(db, err, r, &currentUser)
 		if session != "" {
