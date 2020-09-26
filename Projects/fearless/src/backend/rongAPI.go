@@ -25,7 +25,7 @@ func registerAPI(data *userForm) userRes {
 	return result
 }
 
-func changeSelfInfoAPI(data *userDB) userRes {
+func changeInfoAPI(data *userDB) userRes {
 	theData := url.Values{}
 	theData.Set("userId", data.UserID)
 	theData.Set("name", data.Nickname)

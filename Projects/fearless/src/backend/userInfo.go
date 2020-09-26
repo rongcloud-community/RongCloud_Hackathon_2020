@@ -8,26 +8,56 @@ import (
 	"strings"
 )
 
-// TODO: Add Role in accounts database
-
 func userInfo(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
 	db, session, remote, err := sessionInfoAndTrueRemote(r)
-	checkErr(err)
-
-	var curUser userDB
-
-	if remote == session.remote {
-		userQuery, err := db.Query(fmt.Sprintf(`SELECT userid, nickname, portraituri, token, isAdmin FROM accounts WHERE userid='%s';`, session.userinDB))
-		checkErr(err)
-		userQuery.Next()
-		userQuery.Scan(&curUser.UserID, &curUser.Nickname, &curUser.PortraitURI, &curUser.Token, &curUser.isAdmin)
-		json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "userInfo": map[string]interface{}{"userID": curUser.UserID, "nickname": curUser.Nickname, "portraitUri": curUser.PortraitURI, "token": curUser.Token, "isAdmin": curUser.isAdmin}})
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 	} else {
-		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": "Session expired."})
-	}
+		var curUser userDB
 
+		if remote == session.remote {
+			userQuery, err := db.Query(fmt.Sprintf(`SELECT userid, nickname, portraituri, token, isAdmin FROM accounts WHERE userid='%s';`, session.userinDB))
+			checkErr(err)
+			userQuery.Next()
+			userQuery.Scan(&curUser.UserID, &curUser.Nickname, &curUser.PortraitURI, &curUser.Token, &curUser.isAdmin)
+			json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "userInfo": map[string]interface{}{"userID": curUser.UserID, "nickname": curUser.Nickname, "portraitUri": curUser.PortraitURI, "token": curUser.Token, "isAdmin": curUser.isAdmin}})
+		} else {
+			json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": "Session expired."})
+		}
+	}
+	db.Close()
+}
+
+func userInfoOther(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+
+	db, session, remote, err := sessionInfoAndTrueRemote(r)
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
+	} else {
+		if remote == session.remote {
+			curUserQuery, err := db.Query(fmt.Sprintf(`SELECT isadmin FROM accounts WHERE userid='%s';`, session.userinDB))
+			checkErr(err)
+			curUserQuery.Next()
+			var curUser userDB
+			curUserQuery.Scan(&curUser.isAdmin)
+			if curUser.isAdmin {
+				var targetUser userDB
+				json.NewDecoder(r.Body).Decode(&targetUser)
+				userQuery, err := db.Query(fmt.Sprintf(`SELECT userid, nickname, portraituri, isAdmin FROM accounts WHERE userid='%s';`, targetUser.UserID))
+				checkErr(err)
+				userQuery.Next()
+				userQuery.Scan(&targetUser.UserID, &targetUser.Nickname, &targetUser.PortraitURI, &targetUser.isAdmin)
+				json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "userInfo": map[string]interface{}{"userID": targetUser.UserID, "nickname": targetUser.Nickname, "portraitUri": targetUser.PortraitURI, "isAdmin": targetUser.isAdmin}})
+			} else {
+				json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": "Sorry, you are not in the admin group!"})
+			}
+		} else {
+			json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": "Session expired."})
+		}
+	}
 	db.Close()
 }
 
@@ -35,20 +65,26 @@ func changeUserInfoSelf(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	var userCur userDB
 	json.NewDecoder(r.Body).Decode(&userCur)
-	res := changeSelfInfoAPI(&userCur)
+	res := changeInfoAPI(&userCur)
 
 	if res.Code == 200 {
 		db, err := sql.Open("postgres", psqlInfo)
 		checkErr(err)
 		if userCur.PortraitURI != "" {
-			_, err = db.Exec(fmt.Sprintf(`UPDATE accounts SET nickname='%s', portraituri='%s' WHERE userid='%s';`, userCur.Nickname, userCur.PortraitURI, userCur.UserID))
-		} else {
-			_, err = db.Exec(fmt.Sprintf(`UPDATE accounts SET nickname='%s' WHERE userid='%s';`, userCur.Nickname, userCur.UserID))
+			_, err = db.Exec(fmt.Sprintf(`UPDATE accounts SET portraituri='%s' WHERE userid='%s';`, userCur.PortraitURI, userCur.UserID))
+			if err != nil {
+				json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
+				panic(err)
+			}
 		}
-		if err != nil {
-			json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
-			panic(err)
-		} else {
+		if userCur.Nickname != "" {
+			_, err = db.Exec(fmt.Sprintf(`UPDATE accounts SET nickname='%s' WHERE userid='%s';`, userCur.Nickname, userCur.UserID))
+			if err != nil {
+				json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
+				panic(err)
+			}
+		}
+		if err == nil {
 			json.NewEncoder(w).Encode(map[string]string{"status": "success"})
 		}
 	} else {
@@ -56,11 +92,52 @@ func changeUserInfoSelf(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// TODO: Change User Info for self and admin
-// func changeUserInfoOther(w http.ResponseWriter, r *http.Request) {
-// 	var userCur userDB
-// 	json.NewDecoder(r.Body).Decode(&userCur)
-// }
+func changeUserInfoOther(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	var userCur userDB
+	json.NewDecoder(r.Body).Decode(&userCur)
+
+	db, session, remote, _ := sessionInfoAndTrueRemote(r)
+	if remote == session.remote {
+		curUserQuery, err := db.Query(fmt.Sprintf(`SELECT isadmin FROM accounts WHERE userid='%s';`, session.userinDB))
+		checkErr(err)
+		curUserQuery.Next()
+		var curUser userDB
+		curUserQuery.Scan(&curUser.isAdmin)
+		if curUser.isAdmin {
+			res := changeInfoAPI(&userCur)
+
+			if res.Code == 200 {
+				db, err := sql.Open("postgres", psqlInfo)
+				checkErr(err)
+				if userCur.PortraitURI != "" {
+					_, err = db.Exec(fmt.Sprintf(`UPDATE accounts SET portraituri='%s' WHERE userid='%s';`, userCur.PortraitURI, userCur.UserID))
+					if err != nil {
+						json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
+						panic(err)
+					}
+				}
+				if userCur.Nickname != "" {
+					_, err = db.Exec(fmt.Sprintf(`UPDATE accounts SET nickname='%s' WHERE userid='%s';`, userCur.Nickname, userCur.UserID))
+					if err != nil {
+						json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
+						panic(err)
+					}
+				}
+				if err == nil {
+					json.NewEncoder(w).Encode(map[string]string{"status": "success"})
+				}
+			} else {
+				json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
+			}
+		} else {
+			json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": "Sorry, you are not in the admin group!"})
+		}
+	} else {
+		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": "Session expired."})
+	}
+
+}
 
 func userList(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
@@ -90,20 +167,25 @@ func userList(w http.ResponseWriter, r *http.Request) {
 }
 
 func sessionInfoAndTrueRemote(r *http.Request) (db *sql.DB, session userSession, remote string, err error) {
-	sessionID, _ := r.Cookie("SESSIONID")
 	db, err = sql.Open("postgres", psqlInfo)
 	checkErr(err)
-
-	sessionQuery, err := db.Query(fmt.Sprintf(`SELECT sessionid, userinDB, remote FROM sessions WHERE sessionid='%s';`, sessionID.Value))
-	checkErr(err)
-	sessionQuery.Next()
-	sessionQuery.Scan(&session.sessionID, &session.userinDB, &session.remote)
 
 	if xFor := r.Header.Get("X-FORWARDED-FOR"); xFor != "" {
 		remote = xFor
 	} else {
 		remote = strings.Split(r.RemoteAddr, ":")[0]
 	}
+
+	sessionID, err := r.Cookie("SESSIONID")
+	if err != nil && strings.Contains(err.Error(), "not present") {
+		err = fmt.Errorf(`Session ID not existed`)
+		return
+	}
+
+	sessionQuery, err := db.Query(fmt.Sprintf(`SELECT sessionid, userinDB, remote FROM sessions WHERE sessionid='%s';`, sessionID.Value))
+	checkErr(err)
+	sessionQuery.Next()
+	sessionQuery.Scan(&session.sessionID, &session.userinDB, &session.remote)
 
 	return
 }

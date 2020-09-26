@@ -76,7 +76,9 @@ func addToSessionTable(db *sql.DB, err error, r *http.Request, user *userDB) (*s
 		return db, "", err
 	}
 	var currentUserSessions []userSession
-	// TODO: no more than 3 sessions from a same user
+
+	// no more than 3 sessions from a same user
+
 	for check.Next() {
 		var currentUser userSession
 		check.Scan(&currentUser.sessionID, &currentUser.userinDB, &currentUser.remote)
@@ -88,7 +90,6 @@ func addToSessionTable(db *sql.DB, err error, r *http.Request, user *userDB) (*s
 			return db, "", err
 		}
 		currentUserSessions = deleteFromArray(currentUserSessions, 0)
-		fmt.Println(currentUserSessions, len(currentUserSessions))
 	}
 
 	newS, err := db.Prepare(`INSERT INTO sessions (sessionID, userinDB, expiration, remote) VALUES ($1, $2, $3, $4);`)
