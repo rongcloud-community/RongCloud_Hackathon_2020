@@ -1,0 +1,14 @@
+{
+  "name": "danmaku-chatroom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "author": "flaribbit",
+  "license": "MIT",
+  "dependencies": {
+    "rongcloud-sdk": "^3.1.1"
+  }
+}
