@@ -1,0 +1,13 @@
+<div *ngIf="err.length else user">
+    {{err}}
+</div>
+<ng-template #user>
+    <table>
+        <tbody>
+            <tr><td>Name: </td><td>{{curUserInfo.nickname}}</td></tr>
+            <tr><td>Portrait URI: </td><td>{{curUserInfo.portraitUri}}</td></tr>
+            <tr><td>Is Admin: </td><td>{{curUserInfo.isAdmin}}</td></tr>
+            <tr><td colspan="2">Edit This Profile</td></tr>
+        </tbody>
+    </table>
+</ng-template>

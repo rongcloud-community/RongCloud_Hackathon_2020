@@ -2,8 +2,8 @@
     <p>hello admin {{finalUserInfo.nickname}}!</p>
     <table>
         <tbody>
-            <tr><td>user ID</td><td>Nickname</td><td>is admin</td></tr>
-            <tr *ngFor="let user of userList"><td>{{user.UserID}}</td><td>{{user.Nickname}}</td><td>{{user.IsAdmin}}</td></tr>
+            <tr><td>user ID</td><td>Nickname</td><td>is admin</td><td>Profile</td></tr>
+            <tr *ngFor="let user of userList"><td>{{user.UserID}}</td><td>{{user.Nickname}}</td><td>{{user.IsAdmin}}</td><td><a [routerLink]='["/userList", user.UserID]'>See Profile</a></td></tr>
         </tbody>
     </table>
 </div>

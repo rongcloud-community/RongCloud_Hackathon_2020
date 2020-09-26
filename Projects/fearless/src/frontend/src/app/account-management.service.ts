@@ -20,6 +20,10 @@ export class AcccountManagementService {
     return this.http.get('/api/userinfo')
   }
 
+  userinfoOther(option: userInfo): Observable<any> {
+    return this.http.post('api/userinfoOther', option)
+  }
+
   userinfoSelfChange(option: userInfo): Observable<any> {
     return this.http.post('/api/userinfo/changeSelf', option)
   }

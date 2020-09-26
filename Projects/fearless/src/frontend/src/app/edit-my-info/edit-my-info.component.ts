@@ -25,7 +25,6 @@ export class EditMyInfoComponent implements OnInit {
   constructor(private accSer: AcccountManagementService, private router: Router, private fb: FormBuilder, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    console.log(this.route.params['value'])
     this.accSer.userinfo().subscribe(res => {
       if (res.status == "success") {
         this.finalUserInfo = res.userInfo

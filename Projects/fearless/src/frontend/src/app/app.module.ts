@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { SingleChatComponent } from './single-chat/single-chat.component';
 import { EditMyInfoComponent } from './edit-my-info/edit-my-info.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { UserListProfileComponent } from './user-list-profile/user-list-profile.component';
 
 @NgModule({
   declarations: [
@@ -20,11 +21,13 @@ import { UserListComponent } from './user-list/user-list.component';
     HomeComponent,
     SingleChatComponent,
     EditMyInfoComponent,
-    UserListComponent
+    UserListComponent,
+    UserListProfileComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
+      {path: 'userList/:userid', component: UserListProfileComponent},
       {path: 'userList', component: UserListComponent},
       {path: 'editMyInfo', component: EditMyInfoComponent},
       {path: 'singleChat', component: SingleChatComponent},
