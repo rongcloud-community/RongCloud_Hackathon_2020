@@ -11,6 +11,8 @@ app.get("/gettoken", (_, res) => {
     console.log("token");
     res.end("EWLDZ2YIlwdKGmOqybWfkQulLePhbGSlx4Ux2P5WdA4=@fy51.cn.rongnav.com;fy51.cn.rongcfg.com");
 });
+// app.use(express.urlencoded({ extended: false }));
+// app.use(express.json());
 app.use(express.static("static"));
 app.listen(8080, () => {
     console.log("listening 8080");
@@ -34,16 +36,19 @@ var User = RongSDK.User;
 // }, error => { 
 // 	console.log(error);
 // });
-var message = {
-    senderId: 'admin',
-    targetId: 'chr001',
-    objectName: 'RC:TxtMsg',
-    content: {
-        content: 'aaaaaaaaaa'
-    }
-};
-Chatroom.send(message).then(result => {
-    console.log(result);
-}, error => {
-    console.log(error);
+
+app.get("/test", () => {
+    console.log("test");
+    Chatroom.send({
+        senderId: 'wfajawdo',
+        targetId: 'danmaku',
+        objectName: 'RC:TxtMsg',
+        content: {
+            content: 'aaaaaaaaaa'
+        }
+    }).then(result => {
+        console.log(result);
+    }, error => {
+        console.log(error);
+    });
 });
