@@ -6,10 +6,12 @@ d3.select("div")
     .attr("width", width)
     .attr("height", height);
 
-function addDanmaku(text,delay) {
+function addDanmaku(text, self, delay) {
     var e = d3.select("svg")
         .append("text")
         .text(text);
+    if (self)
+        e.style("text-decoration", "underline");
     e
         .attr("x", width)
         .attr("y", random(0, height))
@@ -42,10 +44,10 @@ $.get('/getappkey', function (appkey) {
         message: function (event) {
             var message = event.message;
             console.log('收到新消息:', message);
-            if(message.isOffLineMessage){
-                addDanmaku(message.content.content,random(0,4000));
-            }else{
-                addDanmaku(message.content.content,0);
+            if (message.isOffLineMessage) {
+                addDanmaku(message.content.content, false, random(0, 4000));
+            } else {
+                addDanmaku(message.content.content, false, 0);
             }
         },
         status: function (event) {
@@ -86,6 +88,7 @@ $("#send").click(function () {
             content: $("#text").val()
         }
     }).then(function (message) {
+        addDanmaku(message.content.content, true, 0);
         console.log('发送文字消息成功', message);
     });
 });
