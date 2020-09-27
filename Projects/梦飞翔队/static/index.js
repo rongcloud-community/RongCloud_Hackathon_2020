@@ -1,3 +1,26 @@
+var width = 640;
+var height = 480;
+
+d3.select("div")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+function addDanmaku(text,delay) {
+    var e = d3.select("svg")
+        .append("text")
+        .text(text);
+    e
+        .attr("x", width)
+        .attr("y", random(0, height))
+        .transition()
+        .delay(delay)
+        .duration(4000)
+        .ease(d3.easeLinear)
+        .attr("x", -e.node().getComputedTextLength())
+        .remove();
+}
+
 var chatRoom;
 $.get('/getappkey', function (appkey) {
     if (!appkey) {
@@ -19,6 +42,11 @@ $.get('/getappkey', function (appkey) {
         message: function (event) {
             var message = event.message;
             console.log('收到新消息:', message);
+            if(message.isOffLineMessage){
+                addDanmaku(message.content.content,random(0,4000));
+            }else{
+                addDanmaku(message.content.content,0);
+            }
         },
         status: function (event) {
             var status = event.status;
@@ -65,3 +93,7 @@ $("#send").click(function () {
 $("#test").click(function () {
     $.get("/test");
 });
+
+function random(a, b) {
+    return a + (b - a) * Math.random();
+}
