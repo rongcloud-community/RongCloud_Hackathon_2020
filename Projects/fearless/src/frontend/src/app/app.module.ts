@@ -15,6 +15,8 @@ import { UserListProfileComponent } from './user-list-profile/user-list-profile.
 import { EditOtherInfoComponent } from './edit-other-info/edit-other-info.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './app.effects';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { reducers, metaReducers } from './reducers';
     HttpClientModule,
     StoreModule.forRoot(reducers, {
       metaReducers
-    })
+    }),
+    EffectsModule.forRoot([AppEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
