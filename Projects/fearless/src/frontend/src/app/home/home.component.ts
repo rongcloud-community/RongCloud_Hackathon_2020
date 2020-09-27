@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AcccountManagementService } from '../account-management.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store'
+import { Observable } from 'rxjs'
 import { userInfo } from '../data'
 
 @Component({
@@ -15,18 +17,28 @@ export class HomeComponent implements OnInit {
     portraitUri: '',
     token: ''
   }
+  userAuth: boolean
+  userAuth$: Observable<boolean> = this.store.select(state => state['userAuth'])
+  finalUserInfo$: Observable<userInfo> = this.store.select(state => state['userInfo'])
   from: string = this.route.url['_value'].map(seg => seg.toString()).join('/')
 
-  constructor(private accSer: AcccountManagementService, private router: Router, private route: ActivatedRoute) { 
+  constructor(private accSer: AcccountManagementService, private router: Router, private route: ActivatedRoute, private store: Store) { 
   }
 
   ngOnInit() {
-    this.accSer.userinfo().subscribe(res => {
-      if (res.status == "success") {
-        this.finalUserInfo = res.userInfo
-      } else {
-        this.router.navigateByUrl('/login')
+    this.userAuth$.subscribe(res => {
+      if (!res) {
+        this.store.dispatch({ type: 'Loading user info' })
       }
+      this.finalUserInfo$.subscribe(res => {
+        if (res && res.userID.length) {
+          this.userAuth = true
+          this.finalUserInfo = res
+          console.log('用户校验成功')
+        } else if (res) {
+          this.router.navigateByUrl('/login')
+        }
+      })
     })
   }
 
