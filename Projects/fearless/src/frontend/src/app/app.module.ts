@@ -13,6 +13,8 @@ import { EditMyInfoComponent } from './edit-my-info/edit-my-info.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserListProfileComponent } from './user-list-profile/user-list-profile.component';
 import { EditOtherInfoComponent } from './edit-other-info/edit-other-info.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,10 @@ import { EditOtherInfoComponent } from './edit-other-info/edit-other-info.compon
       {path: '', component: HomeComponent}
     ]),
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
