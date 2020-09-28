@@ -15,7 +15,7 @@
 ## 项目截图
 
 ![image](https://github.com/zhangxianhongx/RongCloud_Hackathon_2020/blob/master/Projects/MAXFLOAT/1.jpg)
-![image](https://github.com/zhangxianhongx/RongCloud_Hackathon_2020/blob/master/Projects/MAXFLOAT/2.jpg)
+![image](https://github.com/zhangxianhongx/RongCloud_Hackathon_2020/blob/master/Projects/MAXFLOAT/2.png)
 ![image](https://github.com/zhangxianhongx/RongCloud_Hackathon_2020/blob/master/Projects/MAXFLOAT/3.jpg)
 ![image](https://github.com/zhangxianhongx/RongCloud_Hackathon_2020/blob/master/Projects/MAXFLOAT/4.jpg)
 
