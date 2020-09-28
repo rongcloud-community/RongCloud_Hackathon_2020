@@ -179,7 +179,8 @@ func sessionInfoAndTrueRemote(r *http.Request) (db *sql.DB, session userSession,
 	checkErr(err)
 
 	if xFor := r.Header.Get("X-FORWARDED-FOR"); xFor != "" {
-		remote = xFor
+		remoteArray := strings.Split(xFor, ", ")
+		remote = remoteArray[len(remote)-1]
 	} else {
 		remote = strings.Split(r.RemoteAddr, ":")[0]
 	}
