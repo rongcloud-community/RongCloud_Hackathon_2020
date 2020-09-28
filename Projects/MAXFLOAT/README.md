@@ -14,10 +14,10 @@
 ### 8，分享模块
 ## 项目截图
 
-![image](/MAXFLOAT/1.jpg)
-![image](/MAXFLOAT/2.jpg)
-![image](/MAXFLOAT/3.jpg)
-![image](/MAXFLOAT/4.jpg)
+![image](https://github.com/zhangxianhongx/RongCloud_Hackathon_2020/blob/master/Projects/MAXFLOAT/1.jpg)
+![image](https://github.com/zhangxianhongx/RongCloud_Hackathon_2020/blob/master/Projects/MAXFLOAT/2.jpg)
+![image](https://github.com/zhangxianhongx/RongCloud_Hackathon_2020/blob/master/Projects/MAXFLOAT/3.jpg)
+![image](https://github.com/zhangxianhongx/RongCloud_Hackathon_2020/blob/master/Projects/MAXFLOAT/4.jpg)
 
 
 
