@@ -90,7 +90,8 @@ func addToSessionTable(db *sql.DB, err error, r *http.Request, user *userDB) (*s
 	}
 	var remote string
 	if theRem := r.Header.Get("X-FORWARDED-FOR"); theRem != "" {
-		remote = theRem
+		remoteArray := strings.Split(theRem, ", ")
+		remote = remoteArray[len(remoteArray)-1]
 	} else {
 		remote = strings.Split(r.RemoteAddr, ":")[0]
 	}
