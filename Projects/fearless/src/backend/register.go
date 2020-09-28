@@ -26,7 +26,9 @@ func register(w http.ResponseWriter, r *http.Request) {
 	db, user, err := addNewUser(db, err, &requestBody)
 	w.Header().Set("Content-Type", "application/json")
 	if err != nil {
-		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
+		panic(err)
+
+		// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 	} else {
 		db, user, err = userLogin(db, err, &loginForm{user.UserID, user.Password}, w, r)
 		if err != nil {

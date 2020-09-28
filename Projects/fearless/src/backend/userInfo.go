@@ -19,7 +19,8 @@ func userInfo(w http.ResponseWriter, r *http.Request) {
 		if remote == session.remote {
 			db, err = queryUserDB(db, session.userinDB, &curUser)
 			if err != nil {
-				json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
+				panic(err)
+				// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 			} else {
 				json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "userInfo": map[string]interface{}{"userID": curUser.UserID, "nickname": curUser.Nickname, "portraitUri": curUser.PortraitURI, "token": curUser.Token, "isAdmin": curUser.isAdmin}})
 			}
@@ -35,19 +36,22 @@ func userInfoOther(w http.ResponseWriter, r *http.Request) {
 
 	db, session, remote, err := sessionInfoAndTrueRemote(r)
 	if err != nil {
-		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
+		panic(err)
+		// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 	} else {
 		if remote == session.remote {
 			var curUser userDB
 			db, err = queryUserDB(db, session.userinDB, &curUser)
 			if err != nil {
-				json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
+				panic(err)
+				// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 			} else if curUser.isAdmin {
 				var targetUser userDB
 				json.NewDecoder(r.Body).Decode(&targetUser)
 				db, err = queryUserDB(db, targetUser.UserID, &targetUser)
 				if err != nil {
-					json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
+					panic(err)
+					// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 				} else {
 					json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "userInfo": map[string]interface{}{"userID": targetUser.UserID, "nickname": targetUser.Nickname, "portraitUri": targetUser.PortraitURI, "isAdmin": targetUser.isAdmin}})
 				}
@@ -73,15 +77,15 @@ func changeUserInfoSelf(w http.ResponseWriter, r *http.Request) {
 		if userCur.PortraitURI != "" {
 			_, err = db.Exec(fmt.Sprintf(`UPDATE accounts SET portraituri='%s' WHERE userid='%s';`, userCur.PortraitURI, userCur.UserID))
 			if err != nil {
-				json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
 				panic(err)
+				// json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
 			}
 		}
 		if userCur.Nickname != "" {
 			_, err = db.Exec(fmt.Sprintf(`UPDATE accounts SET nickname='%s' WHERE userid='%s';`, userCur.Nickname, userCur.UserID))
 			if err != nil {
-				json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
 				panic(err)
+				// json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
 			}
 		}
 		if err == nil {
@@ -102,7 +106,9 @@ func changeUserInfoOther(w http.ResponseWriter, r *http.Request) {
 		var curUser userDB
 		_, err := queryUserDB(db, session.userinDB, &curUser)
 		if err != nil {
-			json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
+			panic(err)
+
+			// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 		} else if curUser.isAdmin {
 			res := changeInfoAPI(&userCur)
 
@@ -112,14 +118,14 @@ func changeUserInfoOther(w http.ResponseWriter, r *http.Request) {
 				if userCur.PortraitURI != "" {
 					_, err = db.Exec(fmt.Sprintf(`UPDATE accounts SET portraituri='%s' WHERE userid='%s';`, userCur.PortraitURI, userCur.UserID))
 					if err != nil {
-						json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
+						// json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
 						panic(err)
 					}
 				}
 				if userCur.Nickname != "" {
 					_, err = db.Exec(fmt.Sprintf(`UPDATE accounts SET nickname='%s' WHERE userid='%s';`, userCur.Nickname, userCur.UserID))
 					if err != nil {
-						json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
+						// json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
 						panic(err)
 					}
 				}
@@ -145,7 +151,8 @@ func userList(w http.ResponseWriter, r *http.Request) {
 		var curUser userDB
 		db, err := queryUserDB(db, session.userinDB, &curUser)
 		if err != nil {
-			json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
+			panic(err)
+			// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 		} else if curUser.isAdmin {
 			var userList []listedUser
 			userListQuery, err := db.Query(`SELECT userid, nickname, portraituri, isadmin FROM accounts;`)
@@ -192,7 +199,6 @@ func sessionInfoAndTrueRemote(r *http.Request) (db *sql.DB, session userSession,
 	}
 
 	sessionQuery, err := db.Query(fmt.Sprintf(`SELECT sessionid, userinDB, remote FROM sessions WHERE sessionid='%s';`, sessionID.Value))
-	checkErr(err)
 	sessionQuery.Next()
 	sessionQuery.Scan(&session.sessionID, &session.userinDB, &session.remote)
 
