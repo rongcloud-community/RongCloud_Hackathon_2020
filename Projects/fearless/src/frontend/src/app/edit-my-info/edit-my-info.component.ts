@@ -32,17 +32,27 @@ export class EditMyInfoComponent implements OnInit {
   ngOnInit() {
     this.userAuth$.subscribe(res => {
       if (!res) {
-        this.store.dispatch({ type: 'Loading user info' })
+        this.accSer.userinfo().subscribe(res => {
+          if (res.status == 'success') {
+            this.finalUserInfo = res['userInfo']
+            this.store.dispatch({ type: 'Loading user info success', payloads: res['userInfo'] })
+          } else {
+            this.router.navigateByUrl('/login')
+          }
+        })
+      } else {
+        this.finalUserInfo$.subscribe(res => {
+          if (res && res.userID.length) {
+            this.userAuth = true
+            if (res) {
+              this.finalUserInfo = res
+              console.log('用户校验成功')
+            }
+          } else {
+            this.router.navigateByUrl('/login')
+          }
+        })
       }
-      this.finalUserInfo$.subscribe(res => {
-        if (res && res.userID.length) {
-          this.userAuth = true
-          this.finalUserInfo = res
-          console.log('用户校验成功')
-        } else if (res) {
-          this.router.navigateByUrl('/login')
-        }
-      })
     })
   }
 
@@ -57,7 +67,7 @@ export class EditMyInfoComponent implements OnInit {
     }
     this.accSer.userinfoSelfChange(finalValue).subscribe(res => {
       if (res.status == "success") {
-        this.store.dispatch({ type: 'Loading user info' })
+        this.store.dispatch({ type: 'Loading user info success', payloads: finalValue })
         this.router.navigateByUrl(this.route.params['value']['from'])
       }
     })

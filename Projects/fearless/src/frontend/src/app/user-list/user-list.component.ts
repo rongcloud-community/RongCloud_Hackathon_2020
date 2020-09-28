@@ -26,20 +26,46 @@ export class UserListComponent implements OnInit {
   constructor(private accSer: AcccountManagementService, private router: Router, private store: Store) { }
 
   ngOnInit() {
+    // this.userAuth$.subscribe(res => {
+    //   if (!res) {
+    //     this.store.dispatch({ type: 'Loading user info' })
+    //   }
+    //   this.finalUserInfo$.subscribe(res => {
+    //     if (res && res.userID.length) {
+    //       this.userAuth = true
+    //       this.finalUserInfo = res
+    //       console.log('用户校验成功')
+    //       this.fetchUserList()
+    //     } else if (res) {
+    //       this.router.navigateByUrl('/login')
+    //     }
+    //   })
+    // })
     this.userAuth$.subscribe(res => {
       if (!res) {
-        this.store.dispatch({ type: 'Loading user info' })
+        this.accSer.userinfo().subscribe(res => {
+          if (res.status == 'success') {
+            this.finalUserInfo = res['userInfo']
+            this.store.dispatch({ type: 'Loading user info success', payloads: res['userInfo'] })
+            this.fetchUserList()
+          } else {
+            this.router.navigateByUrl('/login')
+          }
+        })
+      } else {
+        this.finalUserInfo$.subscribe(res => {
+          if (res && res.userID.length) {
+            this.userAuth = true
+            if (res) {
+              this.finalUserInfo = res
+              console.log('用户校验成功')
+              this.fetchUserList()
+            }
+          } else {
+            this.router.navigateByUrl('/login')
+          }
+        })
       }
-      this.finalUserInfo$.subscribe(res => {
-        if (res && res.userID.length) {
-          this.userAuth = true
-          this.finalUserInfo = res
-          console.log('用户校验成功')
-          this.fetchUserList()
-        } else if (res) {
-          this.router.navigateByUrl('/login')
-        }
-      })
     })
     
   }
