@@ -70,6 +70,9 @@ func requestRongAPI(reqType string, data *url.Values, url string) (result userRe
 	err = json.Unmarshal(body, &result)
 
 	// fmt.Println("code: ", result.Code, "userID: ", result.UserID, "token: ", result.Token)
+	if result.Code != 200 {
+		return result, fmt.Errorf(`Registration failure, code %d`, result.Code)
+	}
 
 	return result, err
 }
