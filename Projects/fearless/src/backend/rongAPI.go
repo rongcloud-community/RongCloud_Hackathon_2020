@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"math"
 	"math/rand"
 	"net/http"
@@ -54,6 +55,11 @@ func requestRongAPI(reqType string, data *url.Values, url string) (result userRe
 	req.Header.Set("Nonce", nonce)
 	req.Header.Set("Timestamp", timestamp)
 	req.Header.Set("Signature", sig)
+
+	log.Output(1, "App-Key: "+appKey)
+	log.Output(1, "Nonce: "+nonce)
+	log.Output(1, "Timestamp: "+timestamp)
+	log.Output(1, "Signature: "+sig)
 
 	resp, err := client.Do(req)
 	checkErr(err)
