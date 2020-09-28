@@ -6,6 +6,7 @@ import (
 )
 
 func main() {
+	rongIns.PrivateURI("https://api-sg01.ronghub.com", "http://api.sms.ronghub.com")
 	http.HandleFunc("/userinfo/changeOthers", changeUserInfoOther)
 	http.HandleFunc("/userinfo/changeSelf", changeUserInfoSelf)
 	http.HandleFunc("/userinfoOther", userInfoOther)
