@@ -56,7 +56,7 @@ class LookRtcBaseVC: UIViewController {
         if let chatid = dic?["roomid"] as? String {
             currentRoomid = "\(chatid)"
             //设置消息静默
-            PlayRtcOC.setNoVoice(userInfo.userid)
+            
             //加入对应的聊天室
             RCIMClient.shared()?.joinChatRoom("\(chatid)", messageCount: 1, success: {
                 self.joinChatRoomSuccess()
