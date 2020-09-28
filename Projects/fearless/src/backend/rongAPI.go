@@ -15,15 +15,19 @@ import (
 )
 
 func registerAPI(data *userForm) userRes {
+	fmt.Println(rongIns)
+
 	theData := url.Values{}
 	theData.Set("userId", data.UserID)
 	theData.Set("name", data.Nickname)
 	theData.Set("portraitURI", data.PortraitURI)
 
-	result, err := requestRongAPI("POST", &theData, "/user/getToken.json")
+	// result, err := requestRongAPI("POST", &theData, "/user/getToken.json")
+	// checkErr(err)
+	user, err := rongIns.UserRegister(data.UserID, data.Nickname, data.PortraitURI)
 	checkErr(err)
 
-	return result
+	return userRes{user.Status, user.UserID, user.Token}
 }
 
 func changeInfoAPI(data *userDB) userRes {
