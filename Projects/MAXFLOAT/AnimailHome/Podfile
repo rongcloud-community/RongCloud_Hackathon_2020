@@ -1,0 +1,13 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'AnimailHome' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for AnimailHome
+
+  pod 'RongCloudIM', '~> 4.0.2'
+  pod 'RongCloudRTC', '~> 4.0.2.1'
+ 
+end

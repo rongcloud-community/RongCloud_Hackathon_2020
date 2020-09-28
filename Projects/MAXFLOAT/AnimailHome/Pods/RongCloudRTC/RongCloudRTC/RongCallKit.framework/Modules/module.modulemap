@@ -1,0 +1,6 @@
+framework module RongCallKit {
+  umbrella header "RongCallKit.h"
+
+  export *
+  module * { export * }
+}
