@@ -17,7 +17,6 @@ func login(w http.ResponseWriter, r *http.Request) {
 	db, err := sql.Open("postgres", psqlInfo)
 
 	checkErr(err)
-	defer db.Close()
 
 	var requestBody loginForm
 	err = json.NewDecoder(r.Body).Decode(&requestBody)
@@ -30,6 +29,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 	} else {
 		json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "statusText": "Login successful."})
 	}
+	db.Close()
 }
 
 func userLogin(db *sql.DB, err error, data *loginForm, w http.ResponseWriter, r *http.Request) (*sql.DB, userDB, error) {

@@ -15,7 +15,6 @@ func register(w http.ResponseWriter, r *http.Request) {
 	db, err := sql.Open("postgres", psqlInfo)
 
 	checkErr(err)
-	defer db.Close()
 
 	db, err = createUserTable(db, err)
 	checkErr(err)
@@ -36,6 +35,7 @@ func register(w http.ResponseWriter, r *http.Request) {
 			json.NewEncoder(w).Encode(map[string]string{"status": "success", "statusText": "Registration successful."})
 		}
 	}
+	db.Close()
 }
 
 func homepage(w http.ResponseWriter, r *http.Request) {
