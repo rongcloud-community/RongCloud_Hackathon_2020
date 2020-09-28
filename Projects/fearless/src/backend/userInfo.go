@@ -93,7 +93,7 @@ func changeUserInfoSelf(w http.ResponseWriter, r *http.Request) {
 		}
 	} else {
 		panic(res)
-		json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
+		// json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
 	}
 }
 
