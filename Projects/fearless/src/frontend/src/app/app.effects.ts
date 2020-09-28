@@ -51,8 +51,8 @@ export class AppEffects {
   //   )
   // )
 
-  imConnect = (im, userID) => from(im.connect(userID))
-  imDisconnect = (im) => from(im.disconnect())
+  // imConnect = (im, userID) => from(im.connect(userID))
+  // imDisconnect = (im) => from(im.disconnect())
 
   constructor(private actions$: Actions, private accSer: AcccountManagementService, private store: Store) {}
 }

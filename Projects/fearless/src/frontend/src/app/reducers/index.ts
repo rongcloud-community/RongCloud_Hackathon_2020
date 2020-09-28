@@ -16,7 +16,7 @@ function userInfo(reducer: ActionReducer<any>): ActionReducer<any> {
         state = {...state, userInfo: state['userInfo'] ? {...state['userInfo'], ...action['payloads']} : action['payloads'], userAuth: true}
         break
       case 'Logging into Rongcloud IM success':
-        state = {...state, userRongAuth: true, userRongObj: action['payloads'].im}
+        state = {...state, userRongAuth: true}
         break
       default:
         break
