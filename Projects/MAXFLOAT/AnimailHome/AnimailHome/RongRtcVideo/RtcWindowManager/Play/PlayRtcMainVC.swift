@@ -12,6 +12,8 @@ class PlayRtcMainVC: PlayRtcBaseVC {
     
     var sinputView:MsgInputButtomView?
     var tabview:MsgListTabView?
+    var topRightView:RtcTopRightView?
+    var pListView:RoomPersonListView?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,33 +34,58 @@ class PlayRtcMainVC: PlayRtcBaseVC {
         sinputView = MsgInputButtomView(frame: CGRect.init(x: 0, y: kScreenHeight-CGFloat(bottomspace), width: kScreenWidth-100, height: 30))
         self.contentBgView?.addSubview(sinputView!)
         sinputView?.btn?.addTarget(self, action: #selector(sendAction(btn:)), for: .touchUpInside)
-        //头像昵称
-        let imgV = UIImageView.init(frame: CGRect.init())
-        imgV.layer.cornerRadius = 20
-        imgV.layer.masksToBounds = true
-        self.contentBgView?.addSubview(imgV)
-        imgV.sd_setImage(with: URL.init(string:BaseImgUrl + userInfo.imgUrl))
-        let namelabel = UILabel.init()
-        namelabel.textColor = .white
-        namelabel.font = .systemFont(ofSize: 12)
-        self.contentBgView?.addSubview(namelabel)
-        namelabel.text = userInfo.name
-        
-        imgV.snp_makeConstraints { (make) in
+        sinputView?.liwuBtn?.setBackgroundImage(UIImage.init(named: "live_renshu"), for: .normal)
+        sinputView?.liwuBtn?.addTarget(self, action: #selector(showChatRoomPersonList), for: .touchUpInside)
+        //顶部右侧视图
+        topRightView = RtcTopRightView.init(frame: CGRect.zero)
+        topRightView?.pBtn.addTarget(self, action: #selector(showChatRoomPersonList), for: .touchUpInside)
+        self.contentBgView?.addSubview(topRightView!)
+        topRightView?.snp_makeConstraints({ (make) in
             make.right.equalTo(-10)
             make.top.equalTo(34)
+            make.width.equalTo(100)
+            make.height.equalTo(50)
+        })
+        //静音按钮
+        let voiceBtn = UIButton.init(type: .custom)
+        self.contentBgView?.addSubview(voiceBtn)
+        voiceBtn.addTarget(self, action: #selector(changeVoiceBtn(btn:)), for: .touchUpInside)
+        voiceBtn.setBackgroundImage(UIImage.init(named: "live_voiceclose"), for: .normal)
+        voiceBtn.setBackgroundImage(UIImage.init(named: "live_voiceopen"), for: .selected)
+        //切换摄像头按钮
+        let carmaBtn = UIButton.init(type: .custom)
+        self.contentBgView?.addSubview(carmaBtn)
+        carmaBtn.addTarget(self, action: #selector(changeCarma), for: .touchUpInside)
+        carmaBtn.setBackgroundImage(UIImage.init(named: "live_carma"), for: .normal)
+        
+        voiceBtn.snp_makeConstraints { (make) in
+            make.bottom.equalTo((self.contentBgView?.snp_centerY)!).offset(-10)
+            make.right.equalTo(-10)
             make.width.height.equalTo(40)
         }
-        namelabel.snp_makeConstraints { (make) in
-            make.right.equalTo(imgV.snp_left).offset(-10)
-            make.centerY.equalTo(imgV.snp_centerY)
+        carmaBtn.snp_makeConstraints { (make) in
+            make.top.equalTo((self.contentBgView?.snp_centerY)!).offset(10)
+            make.right.equalTo(-10)
+            make.width.height.equalTo(40)
         }
+        //聊天室人员列表
+        pListView = RoomPersonListView.init(frame: CGRect.init(x: 0, y: kScreenHeight, width: kScreenWidth, height: kScreenHeight/2))
+        self.contentBgView?.addSubview(pListView!)
+        
+        
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(contentBgViewTap))
         tap.numberOfTouchesRequired = 1
         tap.numberOfTapsRequired = 1
         self.contentBgView?.addGestureRecognizer(tap)
     }
-    
+    override func sendChatMsg() {
+        //群发自己的魅力值，让聊天室中成员更新
+        
+        sendMsg(txt: TxtMsgKeyType.mlCountKey.rawValue, extra: "\((self.topRightView?.mlCount)!)")
+        self.topRightView?.pCount = (pListView?.dataArr?.count)!
+        self.topRightView?.pBtn.setTitle( "\((self.topRightView?.pCount)!)" + "人", for: .normal)
+        sendMsg(txt: TxtMsgKeyType.persionCountKey.rawValue, extra: "\((self.topRightView?.pCount)!)")
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -72,7 +99,25 @@ class PlayRtcMainVC: PlayRtcBaseVC {
     }
     @objc func contentBgViewTap(){
         sinputView?.textF?.resignFirstResponder()
+        hiddenChatRoomPersonList()
     }
+    @objc func showChatRoomPersonList(){
+        sinputView?.textF?.resignFirstResponder()
+        UIView.animate(withDuration: 0.35) {
+            var rect = self.pListView?.frame
+            rect?.origin.y = kScreenHeight-(self.pListView?.height)!
+            self.pListView?.frame = rect!
+        }
+    }
+    @objc func hiddenChatRoomPersonList(){
+        sinputView?.textF?.resignFirstResponder()
+        UIView.animate(withDuration: 0.35) {
+            var rect = self.pListView?.frame
+            rect?.origin.y = kScreenHeight
+            self.pListView?.frame = rect!
+        }
+    }
+    
     deinit{
         if (self.timer != nil){
             self.timer?.invalidate()

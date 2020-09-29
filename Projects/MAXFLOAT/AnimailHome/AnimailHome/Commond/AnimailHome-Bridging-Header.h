@@ -28,3 +28,4 @@
 #import <SMS_SDK/SMSSDK.h>
 #import <RongIMKit/RongIMKit.h>
 #import <RongRTCLib/RongRTCLib.h>
+#import <RongCallKit/RongCallKit.h>

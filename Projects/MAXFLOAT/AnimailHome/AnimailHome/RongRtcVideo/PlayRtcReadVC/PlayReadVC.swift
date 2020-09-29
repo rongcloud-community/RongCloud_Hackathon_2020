@@ -45,6 +45,8 @@ class PlayReadVC: BaseViewController {
                 }
                 rtcWindowManager.dic = parma
                 rtcWindowManager.showPlayRtcVC()
+            }else{
+                self.showAlerController(title: "请求出错", message: "封面图过大")
             }
         }
     }

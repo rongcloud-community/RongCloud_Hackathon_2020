@@ -28,6 +28,10 @@
 		90353C54251E2CAA00F911AD /* Live_List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90353C53251E2CAA00F911AD /* Live_List.swift */; };
 		90353C562520388300F911AD /* RtcWindowBgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90353C552520388300F911AD /* RtcWindowBgView.swift */; };
 		90353C5825208B3500F911AD /* RtcLiveWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90353C5725208B3500F911AD /* RtcLiveWindow.swift */; };
+		90353C5D252305A200F911AD /* RtcTopRightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90353C5C252305A200F911AD /* RtcTopRightView.swift */; };
+		90353C60252374DE00F911AD /* RoomPersonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90353C5F252374DE00F911AD /* RoomPersonListView.swift */; };
+		90353C65252389A500F911AD /* RoomPersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90353C63252389A500F911AD /* RoomPersonTableViewCell.swift */; };
+		90353C66252389A500F911AD /* RoomPersonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90353C64252389A500F911AD /* RoomPersonTableViewCell.xib */; };
 		904EB2172079F27A00F4435E /* ZYMarkqueeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904EB2162079F27A00F4435E /* ZYMarkqueeView.swift */; };
 		904EB21D207A4D0000F4435E /* UserInfoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904EB21C207A4D0000F4435E /* UserInfoObject.swift */; };
 		904EB222207A4DE400F4435E /* RigisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904EB221207A4DE400F4435E /* RigisterViewController.swift */; };
@@ -279,6 +283,10 @@
 		90353C53251E2CAA00F911AD /* Live_List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Live_List.swift; sourceTree = "<group>"; };
 		90353C552520388300F911AD /* RtcWindowBgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RtcWindowBgView.swift; sourceTree = "<group>"; };
 		90353C5725208B3500F911AD /* RtcLiveWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RtcLiveWindow.swift; sourceTree = "<group>"; };
+		90353C5C252305A200F911AD /* RtcTopRightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RtcTopRightView.swift; sourceTree = "<group>"; };
+		90353C5F252374DE00F911AD /* RoomPersonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPersonListView.swift; sourceTree = "<group>"; };
+		90353C63252389A500F911AD /* RoomPersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPersonTableViewCell.swift; sourceTree = "<group>"; };
+		90353C64252389A500F911AD /* RoomPersonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomPersonTableViewCell.xib; sourceTree = "<group>"; };
 		904EB2162079F27A00F4435E /* ZYMarkqueeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZYMarkqueeView.swift; sourceTree = "<group>"; };
 		904EB21C207A4D0000F4435E /* UserInfoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoObject.swift; sourceTree = "<group>"; };
 		904EB221207A4DE400F4435E /* RigisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RigisterViewController.swift; sourceTree = "<group>"; };
@@ -690,13 +698,51 @@
 			path = ZYSengMentBtn;
 			sourceTree = "<group>";
 		};
-		90353C50251E24FE00F911AD /* bottomView */ = {
+		90353C50251E24FE00F911AD /* lwbottomView */ = {
 			isa = PBXGroup;
 			children = (
 				90353C51251E254900F911AD /* LookLWBottomView.swift */,
 				90353C53251E2CAA00F911AD /* Live_List.swift */,
 			);
-			path = bottomView;
+			path = lwbottomView;
+			sourceTree = "<group>";
+		};
+		90353C5B2523056A00F911AD /* toprightview */ = {
+			isa = PBXGroup;
+			children = (
+				90353C5C252305A200F911AD /* RtcTopRightView.swift */,
+			);
+			path = toprightview;
+			sourceTree = "<group>";
+		};
+		90353C5E252374BE00F911AD /* CahtRoomPersonListView */ = {
+			isa = PBXGroup;
+			children = (
+				90353C5F252374DE00F911AD /* RoomPersonListView.swift */,
+				90353C63252389A500F911AD /* RoomPersonTableViewCell.swift */,
+				90353C64252389A500F911AD /* RoomPersonTableViewCell.xib */,
+			);
+			path = CahtRoomPersonListView;
+			sourceTree = "<group>";
+		};
+		90353C6125237AD100F911AD /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				908801E3251790B400965A38 /* PlayRtcBaseVC+RtcDelegate.swift */,
+				90353C4E251B921A00F911AD /* SendMsg+PlayRtcMain.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+		90353C6225237B1C00F911AD /* subview */ = {
+			isa = PBXGroup;
+			children = (
+				90353C5E252374BE00F911AD /* CahtRoomPersonListView */,
+				90353C5B2523056A00F911AD /* toprightview */,
+				90353C50251E24FE00F911AD /* lwbottomView */,
+				9086F8D4251A314500D959AF /* msglist */,
+			);
+			path = subview;
 			sourceTree = "<group>";
 		};
 		904EB2152079F25A00F4435E /* ZYMarkqueeView */ = {
@@ -743,9 +789,8 @@
 			isa = PBXGroup;
 			children = (
 				908801DD25178CA500965A38 /* PlayRtcBaseVC.swift */,
-				908801E3251790B400965A38 /* PlayRtcBaseVC+RtcDelegate.swift */,
 				908801D925178B5700965A38 /* PlayRtcMainVC.swift */,
-				90353C4E251B921A00F911AD /* SendMsg+PlayRtcMain.swift */,
+				90353C6125237AD100F911AD /* extension */,
 				9086F8C125199A3400D959AF /* PlayRtcOC.h */,
 				9086F8C225199A3400D959AF /* PlayRtcOC.m */,
 			);
@@ -755,7 +800,6 @@
 		9086F8C82519D0BF00D959AF /* look */ = {
 			isa = PBXGroup;
 			children = (
-				90353C50251E24FE00F911AD /* bottomView */,
 				908801DF25178CB500965A38 /* LookRtcBaseVC.swift */,
 				908801DB25178B6B00965A38 /* LookRtcMainVC.swift */,
 				90353C4C251B915300F911AD /* SendMsg+LookRtcMain.swift */,
@@ -828,7 +872,7 @@
 		908801D42514DE1E00965A38 /* RtcWindowManager */ = {
 			isa = PBXGroup;
 			children = (
-				9086F8D4251A314500D959AF /* msglist */,
+				90353C6225237B1C00F911AD /* subview */,
 				9086F8C82519D0BF00D959AF /* look */,
 				9086F8C72519D0A500D959AF /* Play */,
 				908801D52514E95A00965A38 /* RtcWindowManager.swift */,
@@ -1743,6 +1787,7 @@
 				90B50F50208D7127002E6159 /* photo_delete@2x.png in Resources */,
 				900ED3D7207E4C1C009B04A8 /* newsceen@2x.png in Resources */,
 				90ABA858207B282F00721981 /* ShareSDKUI.bundle in Resources */,
+				90353C66252389A500F911AD /* RoomPersonTableViewCell.xib in Resources */,
 				90B34E062076379A0075F57B /* Assets.xcassets in Resources */,
 				90ABA875207B558B00721981 /* 002@2x.png in Resources */,
 				90B34F5520763D010075F57B /* IQKeyboardManager.bundle in Resources */,
@@ -1869,6 +1914,7 @@
 				90B34F3C20763D010075F57B /* AFURLSessionManager.m in Sources */,
 				90B34F4D20763D010075F57B /* IQKeyboardManager.m in Sources */,
 				90ABA886207B6CB900721981 /* ZYLoginViewController.swift in Sources */,
+				90353C65252389A500F911AD /* RoomPersonTableViewCell.swift in Sources */,
 				90B34F4320763D010075F57B /* UIButton+AFNetworking.m in Sources */,
 				90B34E4920763A100075F57B /* ZYViewControllerExtension.swift in Sources */,
 				908801DE25178CA500965A38 /* PlayRtcBaseVC.swift in Sources */,
@@ -1891,6 +1937,7 @@
 				90353C54251E2CAA00F911AD /* Live_List.swift in Sources */,
 				9099E86F207CF9B800895B4F /* ExtensionMyViewController.swift in Sources */,
 				90B50F52208D7127002E6159 /* TZAssetModel.m in Sources */,
+				90353C5D252305A200F911AD /* RtcTopRightView.swift in Sources */,
 				9034DFE5209456790010194D /* AnimalListTableViewCell.swift in Sources */,
 				90B34F1620763D010075F57B /* MJRefreshNormalHeader.m in Sources */,
 				90B34F5120763D010075F57B /* IQBarButtonItem.m in Sources */,
@@ -1924,6 +1971,7 @@
 				90353C52251E254900F911AD /* LookLWBottomView.swift in Sources */,
 				90B34F4F20763D010075F57B /* IQSegmentedNextPrevious.m in Sources */,
 				90B34F5020763D010075F57B /* IQTextView.m in Sources */,
+				90353C60252374DE00F911AD /* RoomPersonListView.swift in Sources */,
 				90353C4D251B915300F911AD /* SendMsg+LookRtcMain.swift in Sources */,
 				90B34FB420764CD10075F57B /* LayoutConstraintItem.swift in Sources */,
 				90B50F58208D7127002E6159 /* TZPhotoPreviewController.m in Sources */,

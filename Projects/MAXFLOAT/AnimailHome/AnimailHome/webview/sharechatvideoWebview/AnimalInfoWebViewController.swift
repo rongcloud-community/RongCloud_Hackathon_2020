@@ -108,6 +108,7 @@ class AnimalInfoWebViewController: BaseViewController ,WKUIDelegate,WKNavigation
             return
         }
         if userInfo.userid == targetId {
+            self.showAlerController(title: "您不能和自己通话", message: "")
             return
         }
         let viewC = CBChatVC.init(conversationType: .ConversationType_PRIVATE, targetId: targetId)
@@ -117,6 +118,28 @@ class AnimalInfoWebViewController: BaseViewController ,WKUIDelegate,WKNavigation
         
     }
     func tovideo(){
+        var targetId = "";
+
+        if let animaldic = dic?["user"] as? Dictionary<String,Any> {
+            if let tid = animaldic["id"] as? NSNumber {
+                targetId = "\(tid)";
+            }
+      
+        }else if let animaldic = dic?["pub_user"] as? Dictionary<String,Any> {
+            if let tid = animaldic["id"] as? NSNumber {
+                targetId = "\(tid)";
+            }
+           
+        }
+        if userInfo.isLogin == false {
+            self.showAlerController(title: "您未登录", message: "请先去登陆")
+            return
+        }
+        if userInfo.userid == targetId {
+            self.showAlerController(title: "您不能和自己通话", message: "")
+            return
+        }
+        RCCall.shared()?.startSingleCall(targetId, mediaType: .video)
         
     }
     

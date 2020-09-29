@@ -14,6 +14,7 @@ class LookRtcMainVC: LookRtcBaseVC {
     var sinputView:MsgInputButtomView?
     var tabview:MsgListTabView?
     var bottomView:LookLWBottomView?
+    var topRightView:RtcTopRightView?
     override func viewDidLoad() {
         super.viewDidLoad()
         //接收消息中心
@@ -41,32 +42,18 @@ class LookRtcMainVC: LookRtcBaseVC {
         imgV.layer.cornerRadius = 20
         imgV.layer.masksToBounds = true
         self.contentBgView?.addSubview(imgV)
-        if let userInfo = dic?["pub_user"] {
-            let userDic = userInfo as! Dictionary<String,Any>
-            if let imgurl = userDic["fileurl"] as? String{
-                imgV.sd_setImage(with: URL.init(string:BaseImgUrl + imgurl))
-            }
-        }
-        let namelabel = UILabel.init()
-        namelabel.textColor = .white
-        namelabel.font = .systemFont(ofSize: 12)
-        self.contentBgView?.addSubview(namelabel)
-        if let userInfo = dic?["pub_user"] {
-            let userDic = userInfo as! Dictionary<String,Any>
-            if let nickname = userDic["name"] as? String{
-                namelabel.text = nickname
-            }
-        }
         
-        imgV.snp_makeConstraints { (make) in
+        //顶部右侧视图
+        topRightView = RtcTopRightView.init(frame: CGRect.zero)
+        self.contentBgView?.addSubview(topRightView!)
+        topRightView?.setDataDic(self.dic ?? ["":""])
+        topRightView?.snp_makeConstraints({ (make) in
             make.right.equalTo(-10)
             make.top.equalTo(34)
-            make.width.height.equalTo(40)
-        }
-        namelabel.snp_makeConstraints { (make) in
-            make.right.equalTo(imgV.snp_left).offset(-10)
-            make.centerY.equalTo(imgV.snp_centerY)
-        }
+            make.width.equalTo(100)
+            make.height.equalTo(50)
+        })
+        
         //底部礼物试图
         bottomView = LookLWBottomView.init(frame: CGRect.init(x: 0, y: kScreenHeight, width: kScreenWidth, height: CGFloat(bottomViewHeight)))
         self.contentBgView?.addSubview(bottomView!)
@@ -94,7 +81,16 @@ class LookRtcMainVC: LookRtcBaseVC {
         DispatchQueue.main.async {
             let txt = "加入了房间"
             self.tabview?.addMsg(txt: userInfo.name + txt)
-            self.sendmsg(txt: txt)
+            self.sendmsg(txt: txt,extra: "")
+            
+            self.sendmsg(txt: TxtMsgKeyType.joinChatRoomKey.rawValue, extra: "")
+        }
+        
+    }
+    override func closeWindow() {
+        super.closeWindow()
+         DispatchQueue.main.async {
+            self.sendmsg(txt: TxtMsgKeyType.quitChatRoomKey.rawValue, extra: "")
         }
         
     }
@@ -107,6 +103,7 @@ class LookRtcMainVC: LookRtcBaseVC {
         }
     }
     @objc func showBottomView(){
+        sinputView?.textF?.resignFirstResponder()
         UIView.animate(withDuration: 0.35) {
             var rect = self.bottomView?.frame
             rect?.origin.y = kScreenHeight-(self.bottomView?.height)!

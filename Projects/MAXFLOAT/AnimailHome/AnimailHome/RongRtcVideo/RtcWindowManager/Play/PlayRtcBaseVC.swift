@@ -43,7 +43,13 @@ class PlayRtcBaseVC: UIViewController, RCRTCRoomEventDelegate {
         if self.live_id != nil{
             CoreWork.updateLive(id: live_id ?? "", isShow: "1") { (obj) in
             }
+            
+            sendChatMsg()
         }
+    }
+    @objc func sendChatMsg(){
+        //群发自己的魅力值，让聊天室中成员更新
+        //子类继承
     }
     // MARK: -close
     @objc func closeBtnAction(btn:UIButton){
@@ -56,6 +62,7 @@ class PlayRtcBaseVC: UIViewController, RCRTCRoomEventDelegate {
     
     //MARK: -离开房间
     func leaveChannel(){
+        RCIM.shared()?.disableMessageAlertSound = false
         if timer != nil {
             timer?.invalidate()
         }
@@ -85,6 +92,7 @@ class PlayRtcBaseVC: UIViewController, RCRTCRoomEventDelegate {
     }
     // MARK: - 创建一个直播类型的房间
     func creatLiveRoom(){
+        RCIM.shared()?.disableMessageAlertSound = true
         let config = RCRTCRoomConfig.init()
         config.roomType = .live //房间类型 直播
         config.liveType = .audioVideo//当前直播为音视频
@@ -130,7 +138,7 @@ class PlayRtcBaseVC: UIViewController, RCRTCRoomEventDelegate {
             self?.dic?["liveurl"] = (liveInfo?.liveUrl)!
             self?.pubToService()
             self?.currentRoomid = userInfo.userid
-            RCIMClient.shared()?.joinChatRoom(self?.currentRoomid, messageCount: 1, success: {
+            RCIMClient.shared()?.joinChatRoom(self?.currentRoomid, messageCount: -1, success: {
             
                                                             }, error: { (code) in
             
@@ -166,6 +174,26 @@ class PlayRtcBaseVC: UIViewController, RCRTCRoomEventDelegate {
             
         }
     }
-    
+    /// MARK: - 切换摄像头
+   @objc func changeCarma(){
+        if RCRTCEngine.sharedInstance().defaultVideoStream.cameraPosition == .captureDeviceBack {
+            RCRTCEngine.sharedInstance().defaultVideoStream.cameraPosition = .captureDeviceFront
+        }else{
+            RCRTCEngine.sharedInstance().defaultVideoStream.cameraPosition = .captureDeviceBack
+        }
+        
+    }
+    @objc func changeVoiceBtn(btn:UIButton){
+        btn.isSelected = !btn.isSelected
+        voiceIsOpen(isOpen: btn.isSelected)
+    }
+    /// MARK: - 是否静音
+    func voiceIsOpen(isOpen:Bool){
+        if isOpen == true{
+            RCRTCEngine.sharedInstance().defaultAudioStream.recordingVolume = 0
+        }else{
+            RCRTCEngine.sharedInstance().defaultAudioStream.recordingVolume = 100
+        }
+    }
     
 }

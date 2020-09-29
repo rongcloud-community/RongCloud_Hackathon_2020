@@ -19,6 +19,8 @@ class LookRtcBaseVC: UIViewController {
     var videoStream : RCRTCVideoInputStream?
     override func viewDidLoad() {
         super.viewDidLoad()
+        RCIM.shared()?.disableMessageAlertSound = true
+        
         contentBgView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: kScreenHeight))
         contentBgView?.backgroundColor = .clear
         self.view.addSubview(contentBgView!)
@@ -33,6 +35,9 @@ class LookRtcBaseVC: UIViewController {
     }
     // MARK: -close
     @objc func closeBtnAction(btn:UIButton){
+        RCIM.shared()?.disableMessageAlertSound = false
+        closeWindow()
+        
         RCRTCEngine.sharedInstance().unsubscribeLiveStream(liveUrl) { (isSuccess, code) in
             
         }
@@ -43,6 +48,9 @@ class LookRtcBaseVC: UIViewController {
         }, error: { (code) in
             
         })
+    }
+    func closeWindow(){
+        
     }
     func joinChatRoomSuccess(){
         
@@ -58,7 +66,7 @@ class LookRtcBaseVC: UIViewController {
             //设置消息静默
             
             //加入对应的聊天室
-            RCIMClient.shared()?.joinChatRoom("\(chatid)", messageCount: 1, success: {
+            RCIMClient.shared()?.joinChatRoom("\(chatid)", messageCount: -1, success: {
                 self.joinChatRoomSuccess()
 
             }, error: { (code) in

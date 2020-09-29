@@ -18,6 +18,8 @@ class MsgListTabView: UITableView ,UITableViewDelegate,UITableViewDataSource{
         self.delegate = self;
         self.dataSource = self;
         self.backgroundColor = .clear
+        self.showsVerticalScrollIndicator = false
+        self.showsHorizontalScrollIndicator = false
         
         self.tableFooterView = UIView()
         dataArr = Array.init()
