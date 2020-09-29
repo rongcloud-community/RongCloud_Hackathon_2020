@@ -22,12 +22,13 @@ func registerAPI(data *userForm) userRes {
 	theData.Set("name", data.Nickname)
 	theData.Set("portraitURI", data.PortraitURI)
 
-	// result, err := requestRongAPI("POST", &theData, "/user/getToken.json")
-	// checkErr(err)
-	user, err := rongIns.UserRegister(data.UserID, data.Nickname, data.PortraitURI)
+	result, err := requestRongAPI("POST", &theData, "/user/getToken.json")
 	checkErr(err)
+	// user, err := rongIns.UserRegister(data.UserID, data.Nickname, data.PortraitURI)
+	// checkErr(err)
 
-	return userRes{user.Status, user.UserID, user.Token}
+	// return userRes{user.Status, user.UserID, user.Token}
+	return result
 }
 
 func changeInfoAPI(data *userDB) userRes {
@@ -59,11 +60,17 @@ func requestRongAPI(reqType string, data *url.Values, url string) (result userRe
 	req.Header.Set("Nonce", nonce)
 	req.Header.Set("Timestamp", timestamp)
 	req.Header.Set("Signature", sig)
+	if url == "/user/getToken.json" {
+		log.Output(1, "[Request Header] Content-Type: "+req.Header.Get("Content-Type"))
+		log.Output(1, "[Request Header] App-Key: "+req.Header.Get("App-Key"))
+		log.Output(1, "[Request Header] Nonce: "+req.Header.Get("Nonce"))
+		log.Output(1, "[Request Header] Timestamp: "+req.Header.Get("Timestamp"))
+		log.Output(1, "[Request Header] Signature: "+req.Header.Get("Signature"))
 
-	log.Output(1, "App-Key: "+appKey)
-	log.Output(1, "Nonce: "+nonce)
-	log.Output(1, "Timestamp: "+timestamp)
-	log.Output(1, "Signature: "+sig)
+		log.Output(1, "[Request] userId: "+data.Get("userId"))
+		log.Output(1, "[Request] name: "+data.Get("name"))
+		log.Output(1, "[Request] portraitURI: "+data.Get("portraitURI"))
+	}
 
 	resp, err := client.Do(req)
 	checkErr(err)
@@ -72,6 +79,12 @@ func requestRongAPI(reqType string, data *url.Values, url string) (result userRe
 	checkErr(err)
 
 	err = json.Unmarshal(body, &result)
+
+	if url == "/user/getToken.json" {
+		log.Output(1, fmt.Sprintf("[Responce] code: %d", result.Code))
+		log.Output(1, "[Responce] userId: "+result.UserID)
+		log.Output(1, "[Responce] token: "+result.Token)
+	}
 
 	// fmt.Println("code: ", result.Code, "userID: ", result.UserID, "token: ", result.Token)
 	if result.Code != 200 {

@@ -31,9 +31,9 @@ type loginForm struct {
 }
 
 type userRes struct {
-	Code   interface{} `json:"code"`
-	UserID string      `json:"userId"`
-	Token  string      `json:"token"`
+	Code   int    `json:"code"`
+	UserID string `json:"userId"`
+	Token  string `json:"token"`
 }
 
 type userSession struct {
