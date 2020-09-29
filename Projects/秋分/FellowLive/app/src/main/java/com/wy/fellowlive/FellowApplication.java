@@ -13,6 +13,8 @@ import io.rong.imlib.RongIMClient;
 public class FellowApplication extends Application {
 
     public static FellowApplication instance;
+
+    private String mUserID;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -23,16 +25,16 @@ public class FellowApplication extends Application {
 
 
     private void initUserID(){
-        String userID = (String) SharedPreferencesUtils.getData(this,Constant.SHAREDPREF_KEY_USERID,"");
+        mUserID = (String) SharedPreferencesUtils.getData(this,Constant.SHAREDPREF_KEY_USERID,"");
 
-        if(TextUtils.isEmpty(userID)){
-            SharedPreferencesUtils.setData(this,Constant.SHAREDPREF_KEY_USERID, UUID.randomUUID().toString());
+        if(TextUtils.isEmpty(mUserID)){
+            mUserID = UUID.randomUUID().toString();
+            SharedPreferencesUtils.setData(this,Constant.SHAREDPREF_KEY_USERID, mUserID);
         }
     }
 
     public String getUserID(){
-        String userID = (String) SharedPreferencesUtils.getData(this,Constant.SHAREDPREF_KEY_USERID,"");
-        return userID;
+        return mUserID;
     }
 
     public String getToken(){
