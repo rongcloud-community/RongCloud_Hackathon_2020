@@ -69,7 +69,7 @@ class RegisterView: UIView {
             
             self?.hud?.hide(animated: true)
             if obj is Dictionary<String,Any>{
-                if Int(obj["code"] as! String) == 200{
+                if Int(obj["code"] as! String) == 0{
                     let alert = UIAlertController.init(title: "注册成功", message: "", preferredStyle: .alert)
                     let action = UIAlertAction.init(title: "确定", style: .default, handler: { (action) in
                         self?.zytviewController()?.navigationController?.popToRootViewController(animated: true)
