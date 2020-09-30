@@ -14,7 +14,21 @@ class CBChatVC: RCConversationViewController {
         super.viewDidLoad()
 //是否显示发送者的名字
         self.displayUserNameInCell = false;
-       
+        if targetId == nil {
+            
+            return
+        }
+       if let sendUser = RCIM.shared()?.getUserInfoCache(targetId){
+        
+           if let imgurl = sendUser.portraitUri {
+               if imgurl.contains("https://") == false{
+                   let newimgurl = BaseImgUrl + imgurl
+                   sendUser.portraitUri = newimgurl
+                   RCIM.shared()?.refreshUserInfoCache(sendUser, withUserId: targetId)
+               }
+           }
+           
+       }
     }
     
     override func viewWillAppear(_ animated: Bool) {

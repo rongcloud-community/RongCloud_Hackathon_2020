@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RCIMUserInfoDataSource,RC
     //接收消息的监听
     func onRCIMReceive(_ message: RCMessage!, left: Int32) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "receivemessage"), object: message)
+        
     }
     
 
@@ -65,6 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RCIMUserInfoDataSource,RC
         RCIM.shared()?.receiveMessageDelegate = self
         RCIM.shared()?.connectionStatusDelegate = self
         RCIM.shared()?.enablePersistentUserInfoCache = true
+        RCIM.shared()?.disableMessageAlertSound = false
         shareSDK()
         //自动登录
        
