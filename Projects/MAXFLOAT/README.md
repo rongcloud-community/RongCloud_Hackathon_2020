@@ -5,40 +5,40 @@
 测试账号 2，宠物医生 123 密码1234<br>
 
 ## 主体功能简介
-### 1，用户信息模块
-### 2，宠物信息模块
-### 3，资讯，常识，公告模块
-### 4，宠物救助模块
-### 5，宠物医生模块
-### 6，IM单聊模块
-### 7，RTCLib直播模块
-### 8，分享模块
+#### 1，用户信息模块
+#### 2，宠物信息模块
+#### 3，资讯，常识，公告模块
+#### 4，宠物救助模块
+#### 5，宠物医生模块
+#### 6，IM单聊模块
+#### 7，RTCLib直播模块
+#### 8，分享模块
 ## 项目文件结构
 ### 一：用户信息及登录注册
-/AnimalilHome/UserInfoViewController 为其主目录<br>
-/ChangeUserInfo 修改用户信息<br>
-/BackPassword 为修改密码<br>
-/RegisterView 用户注册<br>
-/LogIn 用户登录<br>
-UserInfoObject.swift 文件为用户信息管理模型 <br>
+##### /AnimalilHome/UserInfoViewController 为其主目录<br>
+##### /ChangeUserInfo 修改用户信息<br>
+##### /BackPassword 为修改密码<br>
+##### /RegisterView 用户注册<br>
+##### /LogIn 用户登录<br>
+##### UserInfoObject.swift 文件为用户信息管理模型 <br>
 ### 二：首页
-/AnimalilHome/Home 为首页主目录HomeViewController.swift为首页主控制器
-/AnimalListViewController 为宠物列表页，List形式展示宠物大概信息<br>
-/HomeFloorView为首页楼层文件夹，其中包括热门宠物，资讯，宠物常识和banner<br>
+##### /AnimalilHome/Home 为首页主目录HomeViewController.swift为首页主控制器
+##### /AnimalListViewController 为宠物列表页，List形式展示宠物大概信息<br>
+##### /HomeFloorView为首页楼层文件夹，其中包括热门宠物，资讯，宠物常识和banner<br>
 ### 三：救助
-/AnimalilHome/CommentViewController 宠物救助主目录 HelpMainViewController.swift为主控制器<br>
-DoctorViewController为宠物医生列表<br>
+##### /AnimalilHome/CommentViewController 宠物救助主目录 ##### HelpMainViewController.swift为主控制器<br>
+##### DoctorViewController为宠物医生列表<br>
 ### 四：个人中心
-/My 个人中心主目录，MyViewController.swift 为主控制器<br>
-/PubListViewController 选择发布类型，救助，招领，领养等类型<br>
-/PubViewController 发布页面<br>
-/AboutUs 关于我们<br>
-/PersonInfoViewController 个人信息展示页面<br>
-/MyHomeSubViews 个人中心头部信息展示 <br>
+##### /My 个人中心主目录，MyViewController.swift 为主控制器<br>
+##### /PubListViewController 选择发布类型，救助，招领，领养等类型<br>
+##### /PubViewController 发布页面<br>
+##### /AboutUs 关于我们<br>
+##### /PersonInfoViewController 个人信息展示页面<br>
+##### /MyHomeSubViews 个人中心头部信息展示 <br>
 ### 五：聊天
-/IMChat 为聊天相关的主目录<br>
-/ChatViewController 为单聊聊天页面<br>
-/ChatListViewController 为会话列表页<br>
+##### /IMChat 为聊天相关的主目录<br>
+##### /ChatViewController 为单聊聊天页面<br>
+##### /ChatListViewController 为会话列表页<br>
 ### 六：直播
 
 ## 项目截图
