@@ -3,7 +3,7 @@
 开发环境：Xcode 11.4 MacOS 10.15.5<br>
 测试账号 1，普通用户 111 密码111<br>
 测试账号 2，宠物医生 123 密码1234<br>
-![image](https://github.com/zhangxianhongx/RongCloud_Hackathon_2020/blob/master/Projects/MAXFLOAT/宠宝儿架构图.png)
+
 ## 主体功能简介
 #### 1，用户信息模块
 #### 2，宠物信息模块
@@ -13,6 +13,8 @@
 #### 6，IM单聊模块
 #### 7，RTCLib直播模块
 #### 8，分享模块
+## 项目架构思维导图
+![image](https://github.com/zhangxianhongx/RongCloud_Hackathon_2020/blob/master/Projects/MAXFLOAT/宠宝儿架构图.png)
 ## 项目文件结构
 ### 一：用户信息及登录注册
 ##### /AnimalilHome/UserInfoViewController 为其主目录<br>
