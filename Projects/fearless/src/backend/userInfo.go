@@ -17,7 +17,7 @@ func userInfo(w http.ResponseWriter, r *http.Request) {
 	} else {
 		var curUser userDB
 		if remote == session.remote {
-			db, err = queryUserDB(db, session.userinDB, &curUser)
+			db, err = curUser.queryUserDB(db, session.userinDB)
 			if err != nil {
 				panic(err)
 				// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
@@ -41,14 +41,14 @@ func userInfoOther(w http.ResponseWriter, r *http.Request) {
 	} else {
 		if remote == session.remote {
 			var curUser userDB
-			db, err = queryUserDB(db, session.userinDB, &curUser)
+			db, err = curUser.queryUserDB(db, session.userinDB)
 			if err != nil {
 				panic(err)
 				// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 			} else if curUser.isAdmin {
 				var targetUser userDB
 				json.NewDecoder(r.Body).Decode(&targetUser)
-				db, err = queryUserDB(db, targetUser.UserID, &targetUser)
+				db, err = targetUser.queryUserDB(db, targetUser.UserID)
 				if err != nil {
 					panic(err)
 					// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
@@ -105,7 +105,7 @@ func changeUserInfoOther(w http.ResponseWriter, r *http.Request) {
 	db, session, remote, _ := sessionInfoAndTrueRemote(r)
 	if remote == session.remote {
 		var curUser userDB
-		_, err := queryUserDB(db, session.userinDB, &curUser)
+		_, err := curUser.queryUserDB(db, session.userinDB)
 		if err != nil {
 			panic(err)
 
@@ -151,7 +151,7 @@ func userList(w http.ResponseWriter, r *http.Request) {
 	db, session, remote, _ := sessionInfoAndTrueRemote(r)
 	if remote == session.remote {
 		var curUser userDB
-		db, err := queryUserDB(db, session.userinDB, &curUser)
+		db, err := curUser.queryUserDB(db, session.userinDB)
 		if err != nil {
 			panic(err)
 			// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
@@ -171,16 +171,6 @@ func userList(w http.ResponseWriter, r *http.Request) {
 	} else {
 		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": "Session expired."})
 	}
-}
-
-func queryUserDB(db *sql.DB, user string, curUser *userDB) (*sql.DB, error) {
-	userQuery, err := db.Query(fmt.Sprintf(`SELECT userid, nickname, password, portraituri, token, isAdmin FROM accounts WHERE userid='%s';`, user))
-	if err != nil {
-		return db, err
-	}
-	userQuery.Next()
-	userQuery.Scan(&curUser.UserID, &curUser.Nickname, &curUser.Password, &curUser.PortraitURI, &curUser.Token, &curUser.isAdmin)
-	return db, err
 }
 
 func sessionInfoAndTrueRemote(r *http.Request) (db *sql.DB, session userSession, remote string, err error) {
