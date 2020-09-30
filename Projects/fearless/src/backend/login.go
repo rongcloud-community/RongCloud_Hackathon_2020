@@ -11,11 +11,11 @@ func login(w http.ResponseWriter, r *http.Request) {
 
 	checkErr(err)
 
-	var requestBody loginForm
+	var requestBody userDB
 	err = json.NewDecoder(r.Body).Decode(&requestBody)
 	checkErr(err)
 
-	db, _, err = requestBody.userLogin(db, err, w, r)
+	err = requestBody.userLogin(db, w, r)
 	w.Header().Set("Content-Type", "application/json")
 	if err != nil {
 		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
@@ -25,7 +25,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 	db.Close()
 }
 
-func createSessionTable(db *sql.DB, err error) (*sql.DB, error) {
+func createSessionTable(db *sql.DB) error {
 	crt, err := db.Prepare(`CREATE TABLE IF NOT EXISTS sessions (
 		sessionID varchar(128) UNIQUE PRIMARY KEY,
 		userinDB varchar(64) NOT NULL,
@@ -33,8 +33,8 @@ func createSessionTable(db *sql.DB, err error) (*sql.DB, error) {
 		remote inet NOT NULL
 	)`)
 	if err != nil {
-		return db, err
+		return err
 	}
 	_, err = crt.Exec()
-	return db, err
+	return err
 }

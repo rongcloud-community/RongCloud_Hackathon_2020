@@ -9,111 +9,123 @@ import (
 )
 
 func userInfo(w http.ResponseWriter, r *http.Request) {
+	db, err := sql.Open("postgres", psqlInfo)
+	checkErr(err)
+
 	w.Header().Set("Content-Type", "application/json")
 
-	db, session, remote, err := sessionInfoAndTrueRemote(r)
+	session, err := sessionInfoAndTrueRemote(db, r)
 	if err != nil {
 		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 	} else {
 		var curUser userDB
-		if remote == session.remote {
-			db, err = curUser.queryUserDB(db, session.userinDB)
-			if err != nil {
-				panic(err)
-				// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
-			} else {
-				json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "userInfo": map[string]interface{}{"userID": curUser.UserID, "nickname": curUser.Nickname, "portraitUri": curUser.PortraitURI, "token": curUser.Token, "isAdmin": curUser.isAdmin}})
-			}
+		curUser.UserID = session.userinDB
+		err = curUser.queryUserDB(db)
+		if err != nil {
+			panic(err)
+			// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 		} else {
-			json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": "Session expired."})
+			json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "userInfo": map[string]interface{}{"userID": curUser.UserID, "nickname": curUser.Nickname, "portraitUri": curUser.PortraitURI, "token": curUser.Token, "isAdmin": curUser.isAdmin}})
 		}
 	}
 	db.Close()
 }
 
 func userInfoOther(w http.ResponseWriter, r *http.Request) {
+	db, err := sql.Open("postgres", psqlInfo)
+	checkErr(err)
+
 	w.Header().Set("Content-Type", "application/json")
 
-	db, session, remote, err := sessionInfoAndTrueRemote(r)
+	session, err := sessionInfoAndTrueRemote(db, r)
 	if err != nil {
-		panic(err)
-		// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
+		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 	} else {
-		if remote == session.remote {
-			var curUser userDB
-			db, err = curUser.queryUserDB(db, session.userinDB)
+		var curUser userDB
+		curUser.UserID = session.userinDB
+		err = curUser.queryUserDB(db)
+		if err != nil {
+			panic(err)
+			// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
+		} else if curUser.isAdmin {
+			var targetUser userDB
+			json.NewDecoder(r.Body).Decode(&targetUser)
+			err = targetUser.queryUserDB(db)
 			if err != nil {
 				panic(err)
 				// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
-			} else if curUser.isAdmin {
-				var targetUser userDB
-				json.NewDecoder(r.Body).Decode(&targetUser)
-				db, err = targetUser.queryUserDB(db, targetUser.UserID)
-				if err != nil {
-					panic(err)
-					// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
-				} else {
-					json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "userInfo": map[string]interface{}{"userID": targetUser.UserID, "nickname": targetUser.Nickname, "portraitUri": targetUser.PortraitURI, "isAdmin": targetUser.isAdmin}})
-				}
 			} else {
-				json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": "Sorry, you are not in the admin group!"})
+				json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "userInfo": map[string]interface{}{"userID": targetUser.UserID, "nickname": targetUser.Nickname, "portraitUri": targetUser.PortraitURI, "isAdmin": targetUser.isAdmin}})
 			}
 		} else {
-			json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": "Session expired."})
+			json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": "Sorry, you are not in the admin group!"})
 		}
 	}
 	db.Close()
 }
 
 func changeUserInfoSelf(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-	var userCur userDB
-	json.NewDecoder(r.Body).Decode(&userCur)
-	res := changeInfoAPI(&userCur)
+	db, err := sql.Open("postgres", psqlInfo)
+	checkErr(err)
 
-	if res.Code == 200 {
-		db, err := sql.Open("postgres", psqlInfo)
-		checkErr(err)
-		if userCur.PortraitURI != "" {
-			_, err = db.Exec(fmt.Sprintf(`UPDATE accounts SET portraituri='%s' WHERE userid='%s';`, userCur.PortraitURI, userCur.UserID))
-			if err != nil {
-				panic(err)
-				// json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
-			}
-		}
-		if userCur.Nickname != "" {
-			_, err = db.Exec(fmt.Sprintf(`UPDATE accounts SET nickname='%s' WHERE userid='%s';`, userCur.Nickname, userCur.UserID))
-			if err != nil {
-				panic(err)
-				// json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
-			}
-		}
-		if err == nil {
-			json.NewEncoder(w).Encode(map[string]string{"status": "success"})
-		}
+	_, err = sessionInfoAndTrueRemote(db, r)
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 	} else {
-		panic(res)
-		// json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
+		w.Header().Set("Content-Type", "application/json")
+		var userCur userDB
+		json.NewDecoder(r.Body).Decode(&userCur)
+		err = userCur.changeInfoAPI()
+
+		if err == nil {
+			if userCur.PortraitURI != "" {
+				_, err = db.Exec(fmt.Sprintf(`UPDATE accounts SET portraituri='%s' WHERE userid='%s';`, userCur.PortraitURI, userCur.UserID))
+				if err != nil {
+					panic(err)
+					// json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
+				}
+			}
+			if userCur.Nickname != "" {
+				_, err = db.Exec(fmt.Sprintf(`UPDATE accounts SET nickname='%s' WHERE userid='%s';`, userCur.Nickname, userCur.UserID))
+				if err != nil {
+					panic(err)
+					// json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
+				}
+			}
+			if err == nil {
+				json.NewEncoder(w).Encode(map[string]string{"status": "success"})
+			}
+		} else {
+			// panic(fmt.Sprintf(`Error: %d`, userCur.code))
+			json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": err.Error()})
+		}
 	}
+	db.Close()
 }
 
 func changeUserInfoOther(w http.ResponseWriter, r *http.Request) {
+	db, err := sql.Open("postgres", psqlInfo)
+	checkErr(err)
+
 	w.Header().Set("Content-Type", "application/json")
 	var userCur userDB
 	json.NewDecoder(r.Body).Decode(&userCur)
 
-	db, session, remote, _ := sessionInfoAndTrueRemote(r)
-	if remote == session.remote {
+	session, err := sessionInfoAndTrueRemote(db, r)
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
+	} else {
 		var curUser userDB
-		_, err := curUser.queryUserDB(db, session.userinDB)
+		curUser.UserID = session.userinDB
+		err = curUser.queryUserDB(db)
 		if err != nil {
 			panic(err)
 
 			// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 		} else if curUser.isAdmin {
-			res := changeInfoAPI(&userCur)
+			err = userCur.changeInfoAPI()
 
-			if res.Code == 200 {
+			if err == nil {
 				db, err := sql.Open("postgres", psqlInfo)
 				checkErr(err)
 				if userCur.PortraitURI != "" {
@@ -134,24 +146,28 @@ func changeUserInfoOther(w http.ResponseWriter, r *http.Request) {
 					json.NewEncoder(w).Encode(map[string]string{"status": "success"})
 				}
 			} else {
-				panic(err)
-				// json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
+				// panic(fmt.Sprintf(`Error %d`, curUser.code))
+				json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": err.Error()})
 			}
 		} else {
 			json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": "Sorry, you are not in the admin group!"})
 		}
-	} else {
-		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": "Session expired."})
 	}
-
+	db.Close()
 }
 
 func userList(w http.ResponseWriter, r *http.Request) {
+	db, err := sql.Open("postgres", psqlInfo)
+	checkErr(err)
+
 	w.Header().Set("Content-Type", "application/json")
-	db, session, remote, _ := sessionInfoAndTrueRemote(r)
-	if remote == session.remote {
+	session, err := sessionInfoAndTrueRemote(db, r)
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
+	} else {
 		var curUser userDB
-		db, err := curUser.queryUserDB(db, session.userinDB)
+		curUser.UserID = session.userinDB
+		err = curUser.queryUserDB(db)
 		if err != nil {
 			panic(err)
 			// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
@@ -168,15 +184,12 @@ func userList(w http.ResponseWriter, r *http.Request) {
 		} else {
 			json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": "Sorry, you are not in the admin group!"})
 		}
-	} else {
-		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": "Session expired."})
 	}
+	db.Close()
 }
 
-func sessionInfoAndTrueRemote(r *http.Request) (db *sql.DB, session userSession, remote string, err error) {
-	db, err = sql.Open("postgres", psqlInfo)
-	checkErr(err)
-
+func sessionInfoAndTrueRemote(db *sql.DB, r *http.Request) (session userSession, err error) {
+	var remote string
 	if xFor := r.Header.Get("X-FORWARDED-FOR"); xFor != "" {
 		remoteArray := strings.Split(xFor, ", ")
 		remote = remoteArray[len(remoteArray)-1]
@@ -193,6 +206,10 @@ func sessionInfoAndTrueRemote(r *http.Request) (db *sql.DB, session userSession,
 	sessionQuery, err := db.Query(fmt.Sprintf(`SELECT sessionid, userinDB, remote FROM sessions WHERE sessionid='%s';`, sessionID.Value))
 	sessionQuery.Next()
 	sessionQuery.Scan(&session.sessionID, &session.userinDB, &session.remote)
+
+	if session.remote != remote {
+		err = fmt.Errorf(`Session remote not matched`)
+	}
 
 	return
 }

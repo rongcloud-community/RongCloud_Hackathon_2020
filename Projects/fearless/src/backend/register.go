@@ -14,22 +14,21 @@ func register(w http.ResponseWriter, r *http.Request) {
 
 	checkErr(err)
 
-	db, err = createUserTable(db, err)
+	err = createUserTable(db)
 	checkErr(err)
 
-	var requestBody userForm
+	var requestBody userDB
 	err = json.NewDecoder(r.Body).Decode(&requestBody)
 	checkErr(err)
 
-	db, user, err := requestBody.addNewUser(db, err)
+	err = requestBody.addNewUser(db)
 	w.Header().Set("Content-Type", "application/json")
 	if err != nil {
-		panic(err)
+		// panic(err)
 
-		// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
+		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 	} else {
-		loginInfo := loginForm{user.UserID, user.Password}
-		db, user, err = loginInfo.userLogin(db, err, w, r)
+		err = requestBody.userLogin(db, w, r)
 		if err != nil {
 			json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 		} else {
@@ -40,11 +39,10 @@ func register(w http.ResponseWriter, r *http.Request) {
 }
 
 func homepage(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("index")
 	fmt.Fprintf(w, "This is my personal backend.")
 }
 
-func createUserTable(db *sql.DB, err error) (*sql.DB, error) {
+func createUserTable(db *sql.DB) error {
 	crt, err := db.Prepare(`CREATE TABLE IF NOT EXISTS accounts(
 		id SERIAL PRIMARY KEY,
 		userID varchar(64) UNIQUE NOT NULL,
@@ -57,5 +55,5 @@ func createUserTable(db *sql.DB, err error) (*sql.DB, error) {
 		)`)
 	checkErr(err)
 	_, err = crt.Exec()
-	return db, err
+	return err
 }
