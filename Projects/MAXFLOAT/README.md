@@ -40,6 +40,17 @@
 ##### /ChatViewController 为单聊聊天页面<br>
 ##### /ChatListViewController 为会话列表页<br>
 ### 六：直播
+##### /RongRtcVideo 为直播相关功能主文件夹<br>
+##### /PlayRtcReadVC 为发布直播时的预设置页面，直播标题和封面图<br>
+##### /RtcListVC 为当前所有在线直播的列表<br>
+##### /RtcWindowManager 为直播时的窗口管理<br>
+##### /look 为观看直播时的逻辑<br>
+##### /Play 为直播的逻辑<br>
+##### /subview为直播中所用到功能的逻辑<br>
+##### /subview/ChatRoomPersonListView 为直播中所有观看人员列表<br>
+##### /subview/toprightview 为右上角主播信息，魅力值，观看人数逻辑<br>
+##### /subview/lwbotomview 为礼物展示等逻辑<br>
+##### /subview/msglist 为直播中观看人员发送的消息逻辑<br>
 
 ## 项目截图
 
