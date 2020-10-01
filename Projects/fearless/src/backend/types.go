@@ -194,3 +194,19 @@ type userSession struct {
 	userinDB  string
 	remote    string
 }
+
+// userRelation
+// subjectID: the user ID of subjective
+// objectID: the user ID of objective
+// relation: the relation between the two users (-1 - blacklisted; 1 - friend)
+
+type userRelation struct {
+	subjectID string
+	objectID  string
+	relation  int
+}
+
+func (relation *userRelation) write(db *sql.DB) (err error) {
+	_, err = db.Exec(fmt.Sprintf(`INSERT INTO userRelation (subjectID, objectID, relation) VALUES (%s, %s, %d);`, relation.subjectID, relation.objectID, relation.relation))
+	return
+}
