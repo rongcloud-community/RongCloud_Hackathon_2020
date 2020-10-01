@@ -201,12 +201,51 @@ type userSession struct {
 // relation: the relation between the two users (-1 - blacklisted; 1 - friend)
 
 type userRelation struct {
-	subjectID string
-	objectID  string
-	relation  int
+	id        int
+	SubjectID string
+	ObjectID  string
+	Relation  int
 }
 
 func (relation *userRelation) write(db *sql.DB) (err error) {
-	_, err = db.Exec(fmt.Sprintf(`INSERT INTO userRelation (subjectID, objectID, relation) VALUES (%s, %s, %d);`, relation.subjectID, relation.objectID, relation.relation))
+	relationExisted := userRelation{}
+	relationExisted.ObjectID, relationExisted.SubjectID = relation.ObjectID, relation.SubjectID
+	err = relationExisted.query(db)
+	if err != nil {
+		return fmt.Errorf(`Database Query Error: %s`, err.Error())
+	}
+	if relation.id == relationExisted.id {
+		writePre, err := db.Prepare(`INSERT INTO userRelation (subjectID, objectID, relation) VALUES ($1, $2, $3);`)
+		if err != nil {
+			return fmt.Errorf(`Prepare Error: %s`, err.Error())
+		}
+		_, err = writePre.Exec(relation.SubjectID, relation.ObjectID, relation.Relation)
+		if err != nil {
+			return fmt.Errorf(`Execute Error: %s`, err.Error())
+		}
+	} else {
+		writePre, err := db.Prepare(`UPDATE userRelation SET subjectID=$1, objectID=$2, relation=$3 WHERE id=$4;`)
+		if err != nil {
+			return fmt.Errorf(`Prepare Error: %s`, err.Error())
+		}
+		_, err = writePre.Exec(relation.SubjectID, relation.ObjectID, relation.Relation, relationExisted.id)
+		if err != nil {
+			return fmt.Errorf(`Execute Error: %s`, err.Error())
+		}
+	}
+	return
+}
+
+func (relation *userRelation) query(db *sql.DB) (err error) {
+	relationQueryPre, err := db.Prepare(`SELECT id, relation FROM userRelation WHERE subjectID = $1 AND objectID = $2;`)
+	if err != nil {
+		return
+	}
+	relationQuery, err := relationQueryPre.Query(relation.SubjectID, relation.ObjectID)
+	if err != nil {
+		return
+	}
+	relationQuery.Next()
+	relationQuery.Scan(&relation.id, &relation.Relation)
 	return
 }

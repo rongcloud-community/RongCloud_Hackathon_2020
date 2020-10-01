@@ -7,7 +7,15 @@
             <tr><td>Name: </td><td>{{curUserInfo.nickname}}</td></tr>
             <tr><td>Portrait URI: </td><td>{{curUserInfo.portraitUri}}</td></tr>
             <tr><td>Is Admin: </td><td>{{curUserInfo.isAdmin}}</td></tr>
-            <tr><td colspan="2"><a [routerLink]="['/editInfo', curUserInfo.userID, {from: from}]">Edit This Profile</a></td></tr>
+            <tr>
+                <td colspan="2">
+                <ul>
+                    <li><a [routerLink]="['/editInfo', curUserInfo.userID, {from: from}]">Edit This Profile</a></li>
+                    <li><a (click)="curUserInfo.relation == 1 ? changeRelation(0) : changeRelation(1)">{{curUserInfo.relation == 1 ? 'Unfriend' : 'Add as a friend'}}</a></li>
+                </ul>
+                </td>
+            </tr>
         </tbody>
     </table>
 </ng-template>
+

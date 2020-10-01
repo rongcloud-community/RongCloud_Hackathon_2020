@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { userManagementForm, userInfo } from './data'
+import { userManagementForm, userInfo, userRelation } from './data'
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -34,6 +34,10 @@ export class AcccountManagementService {
 
   userList(): Observable<any> {
     return this.http.get('/api/userList')
+  }
+
+  userRelationChange(option: userRelation): Observable<any> {
+    return this.http.post('/api/userRelationChange', option)
   }
 
   constructor(private http: HttpClient) { }

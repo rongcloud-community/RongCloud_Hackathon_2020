@@ -47,7 +47,7 @@ func userInfoOther(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			panic(err)
 			// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
-		} else if curUser.isAdmin {
+		} else {
 			var targetUser userDB
 			json.NewDecoder(r.Body).Decode(&targetUser)
 			err = targetUser.queryUserDB(db)
@@ -55,10 +55,14 @@ func userInfoOther(w http.ResponseWriter, r *http.Request) {
 				panic(err)
 				// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 			} else {
-				json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "userInfo": map[string]interface{}{"userID": targetUser.UserID, "nickname": targetUser.Nickname, "portraitUri": targetUser.PortraitURI, "isAdmin": targetUser.isAdmin}})
+				curRelation := userRelation{}
+				curRelation.SubjectID, curRelation.ObjectID = curUser.UserID, targetUser.UserID
+				err = curRelation.query(db)
+				if err != nil {
+					panic(err)
+				}
+				json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "userInfo": map[string]interface{}{"userID": targetUser.UserID, "nickname": targetUser.Nickname, "portraitUri": targetUser.PortraitURI, "isAdmin": targetUser.isAdmin, "relation": curRelation.Relation}})
 			}
-		} else {
-			json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": "Sorry, you are not in the admin group!"})
 		}
 	}
 	db.Close()

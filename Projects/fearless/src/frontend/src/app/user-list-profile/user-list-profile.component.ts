@@ -21,6 +21,14 @@ export class UserListProfileComponent implements OnInit {
     
   }
 
+  changeRelation(status: number) {
+    this.accSer.userRelationChange({objectID: this.curUserInfo.userID, relation: status}).subscribe(res => {
+      if (res.status == "success") {
+        this.curUserInfo.relation = status
+      }
+    })
+  }
+
   ngOnInit() {
     this.accSer.userinfoOther(this.curUserInfo).subscribe(res => {
       if (res.status == "success") {

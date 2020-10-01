@@ -11,6 +11,7 @@ export interface userInfo {
 	portraitUri?: string
 	token?: string
 	isAdmin?: boolean
+	relation?: number
 }
 
 export interface userInfoOnList {
@@ -18,4 +19,10 @@ export interface userInfoOnList {
 	Nickname?: string
 	PortraitURI?: string
 	IsAdmin?: boolean
+}
+
+export interface userRelation {
+	subjectID?: string
+	objectID: string
+	relation: number
 }

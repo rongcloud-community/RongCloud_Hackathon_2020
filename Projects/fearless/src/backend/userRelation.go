@@ -16,7 +16,7 @@ func userRelationAction(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
-	w.Header().Set("application/type", "json")
+	w.Header().Set("Content-Type", "application/json")
 	session, err := sessionInfoAndTrueRemote(db, r)
 	if err != nil {
 		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
@@ -28,8 +28,9 @@ func userRelationAction(w http.ResponseWriter, r *http.Request) {
 			panic(err)
 		} else if curUser.Token != "" {
 			relation := userRelation{}
+			relation.SubjectID = curUser.UserID
 			json.NewDecoder(r.Body).Decode(&relation)
-			if curUser.UserID == relation.subjectID || curUser.isAdmin {
+			if curUser.UserID == relation.SubjectID || curUser.isAdmin {
 				err = relation.write(db)
 				if err != nil {
 					panic(err)
@@ -46,8 +47,8 @@ func userRelationAction(w http.ResponseWriter, r *http.Request) {
 func createUserRelationTable(db *sql.DB) error {
 	crt, err := db.Prepare(`CREATE TABLE IF NOT EXISTS userRelation(
 		id SERIAL PRIMARY KEY,
-		subjectID int NOT NULL,
-		objectID int NOT NULL,
+		subjectID varchar(64) NOT NULL,
+		objectID varchar(64) NOT NULL,
 		relation int NOT NULL
 		)`)
 	checkErr(err)
