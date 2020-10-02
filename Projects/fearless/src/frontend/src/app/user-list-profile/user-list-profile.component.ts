@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { AcccountManagementService } from '../account-management.service'
 import { userInfo } from '../data';
 
@@ -17,7 +17,7 @@ export class UserListProfileComponent implements OnInit {
   
   from: string = this.route.url['_value'].map(seg => seg.toString()).join('/')
 
-  constructor(private route: ActivatedRoute, private accSer: AcccountManagementService) {
+  constructor(private route: ActivatedRoute, private router: Router, private accSer: AcccountManagementService) {
     
   }
 
@@ -35,6 +35,9 @@ export class UserListProfileComponent implements OnInit {
         this.curUserInfo = res['userInfo']
       } else {
         this.err = res['statusText']
+        if (this.err.search('Session ID')+1) {
+          this.router.navigate(['login'])
+        }
       }
     })
   }
