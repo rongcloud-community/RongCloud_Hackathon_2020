@@ -66,10 +66,11 @@ func (user *userDB) addNewUser(db *sql.DB) error {
 }
 
 func (user *userDB) addToSessionTable(db *sql.DB, r *http.Request) (string, error) {
-	check, err := db.Query(`SELECT sessionID, userinDB, remote FROM sessions WHERE userinDB='` + user.UserID + `';`)
+	chkfmt, err := db.Prepare(`SELECT sessionID, userinDB, remote FROM sessions WHERE userinDB=$1;`)
 	if err != nil {
 		return "", err
 	}
+	check, err := chkfmt.Query(user.UserID)
 	var currentUserSessions []userSession
 
 	// no more than 3 sessions from a same user
@@ -80,7 +81,11 @@ func (user *userDB) addToSessionTable(db *sql.DB, r *http.Request) (string, erro
 		currentUserSessions = append(currentUserSessions, currentUser)
 	}
 	for len(currentUserSessions) >= 3 {
-		_, err := db.Exec(fmt.Sprintf(`DELETE FROM sessions WHERE sessionID='%s';`, currentUserSessions[0].sessionID))
+		delfmt, err := db.Prepare(`DELETE FROM sessions WHERE sessionID=$1;`)
+		if err != nil {
+			return "", err
+		}
+		_, err = delfmt.Exec(currentUserSessions[0].sessionID)
 		if err != nil {
 			return "", err
 		}
@@ -105,7 +110,11 @@ func (user *userDB) addToSessionTable(db *sql.DB, r *http.Request) (string, erro
 }
 
 func (user *userDB) queryUserDB(db *sql.DB) (err error) {
-	userQuery, err := db.Query(fmt.Sprintf(`SELECT userid, nickname, password, portraituri, token, isAdmin FROM accounts WHERE userid='%s';`, user.UserID))
+	qfmt, err := db.Prepare(`SELECT userid, nickname, password, portraituri, token, isAdmin FROM accounts WHERE userid=$1;`)
+	if err != nil {
+		return
+	}
+	userQuery, err := qfmt.Query(user.UserID)
 	if err != nil {
 		return
 	}

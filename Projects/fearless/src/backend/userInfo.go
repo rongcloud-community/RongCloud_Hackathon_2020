@@ -83,14 +83,24 @@ func changeUserInfoSelf(w http.ResponseWriter, r *http.Request) {
 
 		if err == nil {
 			if userCur.PortraitURI != "" {
-				_, err = db.Exec(fmt.Sprintf(`UPDATE accounts SET portraituri='%s' WHERE userid='%s';`, userCur.PortraitURI, userCur.UserID))
+				ufmt, err := db.Prepare(`UPDATE accounts SET portraituri=$1 WHERE userid=$2;`)
+				if err != nil {
+					panic(err)
+					// json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
+				}
+				_, err = ufmt.Exec(userCur.PortraitURI, userCur.UserID)
 				if err != nil {
 					panic(err)
 					// json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
 				}
 			}
 			if userCur.Nickname != "" {
-				_, err = db.Exec(fmt.Sprintf(`UPDATE accounts SET nickname='%s' WHERE userid='%s';`, userCur.Nickname, userCur.UserID))
+				ufmt, err := db.Prepare(`UPDATE accounts SET nickname=$1 WHERE userid=$2;`)
+				if err != nil {
+					panic(err)
+					// json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
+				}
+				_, err = ufmt.Exec(userCur.Nickname, userCur.UserID)
 				if err != nil {
 					panic(err)
 					// json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
@@ -133,17 +143,27 @@ func changeUserInfoOther(w http.ResponseWriter, r *http.Request) {
 				db, err := sql.Open("postgres", psqlInfo)
 				checkErr(err)
 				if userCur.PortraitURI != "" {
-					_, err = db.Exec(fmt.Sprintf(`UPDATE accounts SET portraituri='%s' WHERE userid='%s';`, userCur.PortraitURI, userCur.UserID))
+					ufmt, err := db.Prepare(`UPDATE accounts SET portraituri=$1 WHERE userid=$2;`)
 					if err != nil {
-						// json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
 						panic(err)
+						// json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
+					}
+					_, err = ufmt.Exec(userCur.PortraitURI, userCur.UserID)
+					if err != nil {
+						panic(err)
+						// json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
 					}
 				}
 				if userCur.Nickname != "" {
-					_, err = db.Exec(fmt.Sprintf(`UPDATE accounts SET nickname='%s' WHERE userid='%s';`, userCur.Nickname, userCur.UserID))
+					ufmt, err := db.Prepare(`UPDATE accounts SET nickname=$1 WHERE userid=$2;`)
 					if err != nil {
-						// json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
 						panic(err)
+						// json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
+					}
+					_, err = ufmt.Exec(userCur.Nickname, userCur.UserID)
+					if err != nil {
+						panic(err)
+						// json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": "check the backend log"})
 					}
 				}
 				if err == nil {
@@ -207,7 +227,10 @@ func sessionInfoAndTrueRemote(db *sql.DB, r *http.Request) (session userSession,
 		return
 	}
 
-	sessionQuery, err := db.Query(fmt.Sprintf(`SELECT sessionid, userinDB, remote FROM sessions WHERE sessionid='%s';`, sessionID.Value))
+	sessionFmt, err := db.Prepare(`SELECT sessionid, userinDB, remote FROM sessions WHERE sessionid=$1;`)
+	checkErr(err)
+	sessionQuery, err := sessionFmt.Query(sessionID.Value)
+	checkErr(err)
 	sessionQuery.Next()
 	sessionQuery.Scan(&session.sessionID, &session.userinDB, &session.remote)
 
