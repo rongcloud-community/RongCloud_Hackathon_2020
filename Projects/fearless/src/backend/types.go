@@ -120,6 +120,15 @@ func (user *userDB) queryUserDB(db *sql.DB) (err error) {
 	}
 	userQuery.Next()
 	userQuery.Scan(&user.UserID, &user.Nickname, &user.Password, &user.PortraitURI, &user.Token, &user.isAdmin)
+	var forkArea string
+	if strings.Contains(rongURI, "cn") {
+		forkArea = "cn"
+	} else {
+		forkArea = "sg"
+	}
+	if !strings.Contains(user.Token, forkArea) && user.registerAPI() != nil {
+		panic(err)
+	}
 	return
 }
 
