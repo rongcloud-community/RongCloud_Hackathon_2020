@@ -1,1 +1,15 @@
 <p>single-chat works!</p>
+<!-- conversation list -->
+<div>
+    <div *ngFor="let conv of conversationList">{{conv.targetId}]</div>
+</div>
+<!-- current conversation -->
+<div>
+    <div *ngIf="currentCon"></div>
+    <div>
+        <form [formGroup]="messageForm" (ngSubmit)="onSub()">
+            <textarea formControlName="message" type="text"></textarea>
+            <button type="submit" [disabled]="!messageForm.valid" >Submit</button>
+        </form>
+    </div>
+</div>

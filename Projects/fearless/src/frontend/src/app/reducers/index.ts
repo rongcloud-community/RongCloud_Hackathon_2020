@@ -22,8 +22,8 @@ function userInfo(reducer: ActionReducer<any>): ActionReducer<any> {
         break
     }
 
-    console.log(state, 'state')
-    console.log(action, 'action')
+    // console.log(state, 'state')
+    // console.log(action, 'action')
  
     return reducer(state, action);
   };

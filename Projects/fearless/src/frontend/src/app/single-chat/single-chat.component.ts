@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'
+import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms'
 import { Store } from '@ngrx/store'
 import { Observable, from } from 'rxjs'
-import RongIMLib from '../RongIMLib-3.0.7-dev.es.js'
+import { RongCloudService } from '../rong-cloud.service'
 import { AcccountManagementService } from '../account-management.service'
 import { userInfo } from '../data'
+import RongIMLib from '../RongIMLib-3.0.7-dev.es.js'
 
 declare global {
   interface Window { rongIm: any; }
@@ -31,36 +33,21 @@ export class SingleChatComponent implements OnInit {
   rongConfig = {
     appkey: 'sfci50a7sx2ri',
   }
+  conveInput: string
   // im = RongIMLib.init(this.rongConfig)
   conversationList = []
+  currentCon = {}
+  messageForm = this.fb.group({
+    message: this.fb.control('', [Validators.required])
+  })
 
-  constructor(private router: Router, private accSer: AcccountManagementService, private store: Store) { }
+  constructor(private route: ActivatedRoute, private router: Router, private accSer: AcccountManagementService, private rongSer: RongCloudService, private fb: FormBuilder, private store: Store) { }
 
   ngOnInit() {
-    // this.userAuth$.subscribe(res => {
-    //   if (!res) {
-    //     this.store.dispatch({ type: 'Loading user info' })
-    //   }
-    //   this.finalUserInfo$.subscribe(res => {
-    //     if (res && res.userID.length) {
-    //       this.userAuth = true
-    //       this.finalUserInfo = res
-    //       console.log('用户校验成功')
-    //       if (this.finalUserInfo.token.length){
-    //         this.im.connect(this.finalUserInfo).then(function(user) {
-    //           console.log('链接成功, 链接用户 id 为: ', user.id);
-    //         }).catch(function(error) {
-    //           console.log('链接失败: ', error.code, error.msg);
-    //         });
-    //         this.store.dispatch({ type: 'Logging out of Rongcloud IM'})
-            
-    //       }
-    //     } else if (res) {
-    //       this.router.navigateByUrl('/login')
-    //     }
-    //   })
-    // })
-
+    console.log(this.route)
+    if (this.route.params['_value']['chat']) {
+      this.currentCon['userID'] = this.route.params['_value']['chat']
+    }
     this.userAuth$.subscribe(res => {
       if (!res) {
         this.accSer.userinfo().subscribe(res => {
@@ -78,24 +65,22 @@ export class SingleChatComponent implements OnInit {
             if (res) {
               this.finalUserInfo = res
               console.log('用户校验成功')
-              var that = this
               this.userRongAuth$.subscribe(res => {
                 if (!res) {
-                  const rongConfig = {
-                    appkey: 'sfci50a7sx2ri',
-                  }, im = RongIMLib.init(rongConfig)
-                  im.connect(this.finalUserInfo).then(function(user) {
+                  var things = this.rongSer.rongInit(this.finalUserInfo), that = this
+                  things[0].then(function(user) {
                     console.log('链接成功, 链接用户 id 为: ', user.id)
                     that.store.dispatch({ type: 'Logging into Rongcloud IM success' })
-                    // have to use this since the object cannot be stored into ngrx
-                    
-                    window['rongIm'] = im
+                    window['rongIm'] = things[1]
+                    window['rongIm'].Conversation.getList({}).then(function(conversationList) {
+                      console.log('获取会话列表成功', conversationList);
+                    });
                   }).catch(function(error) {
                     console.log('链接失败: ', error.code, error.msg);
-                  });
+                  })
                 } else if (window['rongIm']) {
-                  window['rongIm'].disconnect().then(function() {
-                    console.log('断开链接成功');
+                  window['rongIm'].Conversation.getList({}).then(function(conversationList) {
+                    console.log('获取会话列表成功', conversationList);
                   });
                 }
               })
@@ -108,55 +93,44 @@ export class SingleChatComponent implements OnInit {
     })
 
 
-    // this.im.watch({
-    //   conversation: function(event){
-    //     var updatedConversationList = event.updatedConversationList; // 更新的会话列表
-    //     console.log('更新会话汇总:', updatedConversationList);
-    //     console.log('最新会话列表:', this.im.Conversation.merge({
-    //       conversationList: this.conversationList,
-    //       updatedConversationList
-    //     }));
-    //   },
-    //   message: function(event){
-    //     var message = event.message;
-    //     console.log('收到新消息:', message);
-    //   },
-    //   status: function(event){
-    //     var status = event.status;
-    //     console.log('连接状态码:', status);
-    //   },
-    //   expansion: function(event) {
-    //     var updatedExpansion = event.updatedExpansion;
-    //     var deletedExpansion = event.deletedExpansion;
-    //     console.log('消息扩展已更新', updatedExpansion);
-    //     /*
-    //       {
-    //         expansion: { key: 'value' }, // 设置或更新的扩展值
-    //         messageUId: 'URIT-URIT-ODMF-DURR' // 设置或更新扩展的消息 uid
-    //       }
-    //     */
-    //     console.log('消息扩展被删除', deletedExpansion);
-    //     /*
-    //       {
-    //         deletedKeys: ['key1', 'key2'], // 删除的扩展键值集合
-    //         messageUId: 'URIT-URIT-ODMF-DURR' // 删除扩展的消息 uid
-    //       }
-    //     */
-    //   },
-    //   chatroom: function(event) {
-    //     var updatedEntries = event.updatedEntries;
-    //     console.log('聊天室 KV 存储监听更新:', updatedEntries);
-    //     /* 
-    //       [{
-    //         "key": "name",
-    //         "value": "我是小融融",
-    //         "timestamp": 1597591258338, 
-    //         "chatroomId": "z002", 
-    //         "type": 1 // 1: 更新（ 含:修改和新增 ）、2: 删除
-    //     }]
-    //     */
-    //   }
-    // })
+    
+  }
+  onSub() {
+    var that = this
+    function send(onerr) {
+      var conversation = window['rongIm'].Conversation.get({
+        targetId: that.currentCon['userID'],
+        type: RongIMLib.CONVERSATION_TYPE.PRIVATE
+      });
+      conversation.send({
+        messageType: 's:person',
+        content: {content: that.messageForm.value['message']}
+      }).then(message => {
+        console.log("信息发送成功，", message)
+      }, err => {
+        onerr(err)
+      })
+    }
+    function connect(callback) {
+      var things = that.rongSer.rongInit(that.finalUserInfo)
+      things[0].then(function(user) {
+        console.log('链接成功, 链接用户 id 为: ', user.id)
+        that.store.dispatch({ type: 'Logging into Rongcloud IM success' })
+        window['rongIm'] = things[1]
+        callback()
+      }).catch(function(error) {
+        console.log('链接失败: ', error.code, error.msg);
+      })
+    }
+    if (window['rongIm']) {
+      send((err) => {
+        console.error(err)
+        connect(() => send(err => console.error(err)))
+      })
+    } else {
+      connect(() => send(err => console.error(err)))
+    }
+    console.warn(this.messageForm.value)
   }
 
 }
