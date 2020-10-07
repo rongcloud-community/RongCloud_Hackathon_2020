@@ -5,3 +5,5 @@ func checkErr(err interface{}) {
 		panic(err)
 	}
 }
+
+//TODO: add error logging

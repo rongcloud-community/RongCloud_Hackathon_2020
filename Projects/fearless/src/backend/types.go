@@ -267,3 +267,155 @@ func (relation *userRelation) query(db *sql.DB) (err error) {
 	relationQuery.Scan(&relation.id, &relation.Relation)
 	return
 }
+
+type messageContent struct {
+	Content string
+}
+
+type message struct {
+	ID                  int
+	Type                int
+	TargetID            string
+	MessageType         string
+	MessageUID          string
+	IsPersited          bool
+	IsCounted           bool
+	IsStatusMessage     bool
+	SenderUserID        string
+	Content             messageContent
+	SentTime            int
+	ReceivedTime        int
+	MessageDirection    int
+	IsOffLineMessage    bool
+	DisableNotification bool
+	CanIncludeExpansion bool
+	Expansion           interface{}
+}
+
+// message sent
+func (mes *message) send(db *sql.DB) error {
+	insertPre, err := db.Prepare(`INSERT INTO message (Type, TargetID, MessageType, MessageUID, IsPersited, IsCounted, IsStatusMessage, SenderUserID, Content, SentTime, ReceivedTime, MessageDirection, IsOffLineMessage, DisableNotification, CanIncludeExpansion, Expansion) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16);`)
+	if err != nil {
+		panic(err)
+	}
+	content, err := json.Marshal(&mes.Content)
+	checkErr(err)
+	fmt.Println(mes.Content, string(content))
+	_, err = insertPre.Exec(mes.Type, mes.TargetID, mes.MessageType, mes.MessageUID, mes.IsPersited, mes.IsCounted, mes.IsStatusMessage, mes.SenderUserID, string(content), mes.SentTime, mes.ReceivedTime, mes.MessageDirection, mes.IsOffLineMessage, mes.DisableNotification, mes.CanIncludeExpansion, mes.Expansion)
+	return err
+}
+
+// message read
+func (mes *message) read(db *sql.DB) error {
+	updatePre, err := db.Prepare(`UPDATE message SET IsCounted=$1 WHERE id =$2;`)
+	if err != nil {
+		panic(err)
+	}
+	_, err = updatePre.Exec(false, mes.ID)
+	return err
+}
+
+type messageRes struct {
+	Type                int
+	TargetID            string
+	MessageType         string
+	MessageUID          string
+	IsPersited          bool
+	IsCounted           bool
+	IsStatusMessage     bool
+	SenderUserID        string
+	Content             messageContent
+	SentTime            int
+	ReceivedTime        int
+	MessageDirection    int
+	IsOffLineMessage    bool
+	DisableNotification bool
+	CanIncludeExpansion bool
+	Expansion           interface{}
+}
+
+type conversation struct {
+	ID                 int
+	SenderUserID       string
+	UnreadMessageCount int
+	HasMentiond        bool
+	MentiondInfo       mentionedList
+	LastUnreadTime     int
+	NotificationStatus int
+	IsTop              int
+	Type               int
+	TargetID           string
+	LatestMessage      message
+	HasMentioned       bool
+	MentionedInfo      mentionedList
+	UpdateTime         int
+}
+
+func (con *conversation) query(db *sql.DB) error {
+	queryFmt, err := db.Prepare(`SELECT ID, LatestMessage, UnreadMessageCount, HasMentiond, MentiondInfo, LastUnreadTime, NotificationStatus, IsTop, Type, HasMentioned, MentionedInfo FROM conversation WHERE SenderUserID=$1 AND TargetID=$2;`)
+	if err != nil {
+		panic(err)
+	}
+	if targetCon, err := queryFmt.Query(con.SenderUserID, con.TargetID); err != nil {
+		panic(err)
+	} else {
+		targetCon.Next()
+		targetCon.Scan(&con.ID, &con.LatestMessage, &con.UnreadMessageCount, &con.HasMentiond, &con.MentiondInfo, &con.LastUnreadTime, &con.NotificationStatus, &con.IsTop, &con.Type, &con.HasMentioned, &con.MentionedInfo)
+	}
+	return err
+}
+
+func (con *conversation) update(db *sql.DB) error {
+	conQuery := conversation{}
+	conQuery.SenderUserID = con.SenderUserID
+	conQuery.TargetID = con.TargetID
+	err := conQuery.query(db)
+	checkErr(err)
+	if conQuery.ID == 0 {
+		// INSERT
+		insertPre, err := db.Prepare(`INSERT INTO conversation (SenderUserID, LatestMessage, UnreadMessageCount, HasMentiond, MentiondInfo, LastUnreadTime, NotificationStatus, IsTop, Type, TargetID, HasMentioned, MentionedInfo, UpdateTime) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13);`)
+		if err != nil {
+			panic(err)
+		}
+		latestMes, err := json.Marshal(&con.LatestMessage)
+		checkErr(err)
+		mentiondInfo, err := json.Marshal(&con.MentiondInfo)
+		checkErr(err)
+		mentionedInfo, err := json.Marshal(&con.MentionedInfo)
+		checkErr(err)
+		_, err = insertPre.Exec(con.SenderUserID, latestMes, con.UnreadMessageCount, con.HasMentiond, mentiondInfo, con.LastUnreadTime, con.NotificationStatus, con.IsTop, con.Type, con.TargetID, con.HasMentioned, mentionedInfo, con.LatestMessage.ReceivedTime)
+		return err
+	}
+	// UPDATE
+	updatePre, err := db.Prepare(`UPDATE conversation SET UnreadMessageCount=$1, HasMentiond=$2, MentiondInfo=$3, LastUnreadTime=$4, NotificationStatus=$5, IsTop=$6, Type=$7, HasMentioned=$8, MentionedInfo=$9, LatestMessage=$10, UpdateTime=$11 WHERE id =$12;`)
+	if err != nil {
+		panic(err)
+	}
+	latestMes, err := json.Marshal(&con.LatestMessage)
+	checkErr(err)
+	mentiondInfo, err := json.Marshal(&con.MentiondInfo)
+	checkErr(err)
+	mentionedInfo, err := json.Marshal(&con.MentionedInfo)
+	checkErr(err)
+	_, err = updatePre.Exec(con.UnreadMessageCount, con.HasMentiond, mentiondInfo, con.LastUnreadTime, con.NotificationStatus, con.IsTop, con.Type, con.HasMentioned, mentionedInfo, latestMes, con.LatestMessage.ReceivedTime, conQuery.ID)
+	return err
+}
+
+type mentionedList struct {
+	Type       int
+	UserIDList []string
+}
+
+type conversationRes struct {
+	UnreadMessageCount int
+	HasMentiond        bool
+	MentiondInfo       mentionedList
+	LastUnreadTime     int
+	NotificationStatus int
+	IsTop              int
+	Type               int
+	TargetID           string
+	LatestMessage      messageRes
+	HasMentioned       bool
+	MentionedInfo      mentionedList
+}

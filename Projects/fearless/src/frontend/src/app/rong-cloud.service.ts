@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import RongIMLib from './RongIMLib-3.0.7-dev.es.js'
 import { Store } from '@ngrx/store'
-import { userInfo } from './data'
+import { userInfo, conversation, message } from './data'
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,13 @@ export class RongCloudService {
   rongInit(finalUserInfo: userInfo) {
     const rongConfig = {
       appkey: '25wehl3u20uaw',
-    }, im = RongIMLib.init(rongConfig)
-    this.watch(im)
+    }, im = RongIMLib.init(rongConfig), that = this
+    this.getConversation().subscribe(res => {
+      if (res['status'] == 'success') {
+        that.conversationList = res['conversations']
+        that.watch(im)
+      }
+    })
     return [im.connect(finalUserInfo), im]
     // .then(function(user) {
     //   console.log('链接成功, 链接用户 id 为: ', user.id)
@@ -24,12 +30,32 @@ export class RongCloudService {
     // })
   }
 
+  getConversation() {
+    return this.http.get('/api/getConversation')
+  }
+
+  updateConversation(con: conversation[]) {
+    return this.http.post('/api/updateConversation', con)
+  }
+
+  sendMessage(mes: message) {
+    return this.http.post('/api/sendMessage', mes)
+  }
+
+  readMessage(mes: message) {
+    return this.http.post('/api/readMessage', mes)
+  }
+
   watch(im: any) {
     var that = this
     im.watch({
       conversation: function(event){
         var updatedConversationList = event.updatedConversationList; // 更新的会话列表
-        console.log('更新会话汇总:', updatedConversationList);
+        that.updateConversation(updatedConversationList).subscribe(res => {
+          if (res['status'] == 'success') {
+            console.log('更新会话汇总:', updatedConversationList);
+          }
+        })
         console.log('最新会话列表:', im.Conversation.merge({
           conversationList: that.conversationList,
           updatedConversationList
@@ -77,5 +103,5 @@ export class RongCloudService {
     })
   }
 
-  constructor(private store: Store) { }
+  constructor(private store: Store, private http: HttpClient) { }
 }

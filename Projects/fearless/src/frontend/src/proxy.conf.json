@@ -1,11 +1,10 @@
 {
     "/api": {
-      "target": "https://rong-be.babybichu.cn",
-      "secure": true,
+      "target": "http://localhost:8081",
+      "secure": false,
       "pathRewrite": {
         "^/api": ""
       },
-      "changeOrigin": true,
-      "logLevel": "debug"
+    "logLevel": "debug"
     }
   }

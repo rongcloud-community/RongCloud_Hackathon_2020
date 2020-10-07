@@ -106,7 +106,11 @@ export class SingleChatComponent implements OnInit {
         messageType: 's:person',
         content: {content: that.messageForm.value['message']}
       }).then(message => {
-        console.log("信息发送成功，", message)
+        that.rongSer.sendMessage(message).subscribe(res => {
+          if (res['status'] == 'success') {
+            console.log("信息发送成功，", message)
+          }
+        })
       }, err => {
         onerr(err)
       })
