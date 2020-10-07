@@ -14,6 +14,6 @@ JavaScript
 
 # 其他说明
     歌曲是从网易云音乐mp3地址转换所得。
-如果您有什么好的想法或者建议，欢迎交流，喜欢的可以点亮星星😯✨~
+如果您有什么好的想法或者建议，欢迎交流，喜欢的可以点亮星星😯✨~~
 
 ![image-20201007121100774](C:\Users\lenovo1\AppData\Roaming\Typora\typora-user-images\image-20201007121100774.png)
