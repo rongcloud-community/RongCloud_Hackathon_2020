@@ -75,7 +75,14 @@ func conversationGet(w http.ResponseWriter, r *http.Request) {
 		checkErr(err)
 		for queryRes.Next() {
 			conCur := conversationRes{}
-			queryRes.Scan(&conCur.UnreadMessageCount, &conCur.LatestMessage, &conCur.TargetID, &conCur.HasMentiond, &conCur.MentiondInfo, &conCur.LastUnreadTime, &conCur.NotificationStatus, &conCur.IsTop, &conCur.Type, &conCur.HasMentioned, &conCur.MentionedInfo)
+			var latestMessage, mentiondInfo, mentionedInfo string
+			queryRes.Scan(&conCur.UnreadMessageCount, &latestMessage, &conCur.TargetID, &conCur.HasMentiond, &mentiondInfo, &conCur.LastUnreadTime, &conCur.NotificationStatus, &conCur.IsTop, &conCur.Type, &conCur.HasMentioned, &mentionedInfo)
+			err = json.Unmarshal([]byte(latestMessage), &conCur.LatestMessage)
+			checkErr(err)
+			err = json.Unmarshal([]byte(mentiondInfo), &conCur.MentiondInfo)
+			checkErr(err)
+			err = json.Unmarshal([]byte(mentionedInfo), &conCur.MentionedInfo)
+			checkErr(err)
 			finalCons = append(finalCons, conCur)
 		}
 		w.Header().Set("Content-Type", "application/json")
