@@ -48,7 +48,7 @@ $.get("/getappkey", function (appkey) {
         console.log(token.token);
 
         window.onbeforeunload = function () {
-            $.get("/exit?token=" + token.token);
+            $.get("/exit?token=" + encodeURIComponent(token.token));
             return "确认退出";
         }
 
