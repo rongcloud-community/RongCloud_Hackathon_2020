@@ -44,8 +44,8 @@ function getToken() {
                 var user1 = queue.shift();
                 var user2 = queue.shift();
                 match.push([user1, user2]);
-                sendMessage(user1, "oppo:" + user2.userId);
-                sendMessage(user2, "oppo:" + user1.userId);
+                sendMessage(user1, "oppo:1:" + user2.userId);
+                sendMessage(user2, "oppo:2:" + user1.userId);
                 console.log(user1.userId, "<>", user2.userId);
             }
             return JSON.stringify(users[i]);

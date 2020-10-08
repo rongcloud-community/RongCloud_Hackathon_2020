@@ -2,13 +2,15 @@ function Game() {
     this.board = [];
     this.oppo = "";
     this.result = "";
+    this.color = 0;
     this.ctx = document.querySelector("#board").getContext("2d");
     this.conversation = null;
 }
-Game.prototype.Init = function (oppo, conversation) {
+Game.prototype.Init = function (oppo, conversation, color) {
     this.board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
     this.oppo = oppo;
     this.result = ""
+    this.color = color;
     this.conversation = conversation;
 }
 Game.prototype.Send = function (text) {
@@ -30,6 +32,9 @@ Game.prototype.Draw = function () {
         context.lineTo(380, 20 + i * 120);
         context.stroke();
     }
+}
+Game.prototype.Place = function (i, j) {
+    this.board[i][j] = this.color;
 }
 var game = new Game();
 game.Draw();
@@ -57,14 +62,20 @@ $.get("/getappkey", function (appkey) {
             var message = event.message;
             console.log("收到新消息:", message);
             if (message.senderUserId == "game") {
-                var oppo = message.content.content.match(/oppo:(.+)/);
+                var oppo = message.content.content.match(/oppo:(.):(.+)/);
                 if (oppo) {
-                    console.log("开始游戏" + oppo);
-                    game.Init(oppo[1], im.Conversation.get({
-                        targetId: oppo[1],
+                    console.log("颜色", oppo[1]);
+                    console.log("开始游戏", oppo[2]);
+                    game.Init(oppo[2], im.Conversation.get({
+                        targetId: oppo[2],
                         type: RongIMLib.CONVERSATION_TYPE.PRIVATE
-                    }));
+                    }), oppo[1]);
                     game.Send("你好");
+                }
+            } else {
+                var pos = message.content.content.match(/play:(\\d)(\\d)/);
+                if (pos) {
+                    console.log(pos[1], pos[2]);
                 }
             }
         },
