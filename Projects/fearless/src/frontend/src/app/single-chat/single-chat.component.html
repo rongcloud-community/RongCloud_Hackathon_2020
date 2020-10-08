@@ -1,11 +1,15 @@
 <p>single-chat works!</p>
 <!-- conversation list -->
 <div>
-    <div *ngFor="let conv of conversationList">{{conv.targetId}]</div>
+    <div>Conversation List</div>
+    <div *ngFor="let conv of rongSer.conversationList; index as i" (click)="changeCurCon(i)">{{conv.targetId}}: {{conv.latestMessage.content.content}}</div>
 </div>
 <!-- current conversation -->
 <div>
-    <div *ngIf="currentCon"></div>
+    <div *ngIf="currentCon.targetId && currentCon.targetId.length">
+        <div>Receiver ID: {{currentCon.targetId}}</div>
+        <div>LatestMessage: {{currentCon.latestMessage ? currentCon.latestMessage.content.content : 'null'}}</div>
+    </div>
     <div>
         <form [formGroup]="messageForm" (ngSubmit)="onSub()">
             <textarea formControlName="message" type="text"></textarea>

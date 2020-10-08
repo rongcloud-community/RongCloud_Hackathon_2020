@@ -68,22 +68,26 @@ func conversationGet(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 	} else {
-		var finalCons []conversationRes
+		var finalCons []map[string]interface{}
 		queryFmt, err := db.Prepare(`SELECT UnreadMessageCount, LatestMessage, TargetID, HasMentiond, MentiondInfo, LastUnreadTime, NotificationStatus, IsTop, Type, HasMentioned, MentionedInfo FROM conversation WHERE SenderUserID=$1 ORDER BY UpdateTime DESC;`)
 		checkErr(err)
 		queryRes, err := queryFmt.Query(session.userinDB)
 		checkErr(err)
 		for queryRes.Next() {
-			conCur := conversationRes{}
+			conCur := conversation{}
 			var latestMessage, mentiondInfo, mentionedInfo string
 			queryRes.Scan(&conCur.UnreadMessageCount, &latestMessage, &conCur.TargetID, &conCur.HasMentiond, &mentiondInfo, &conCur.LastUnreadTime, &conCur.NotificationStatus, &conCur.IsTop, &conCur.Type, &conCur.HasMentioned, &mentionedInfo)
 			err = json.Unmarshal([]byte(latestMessage), &conCur.LatestMessage)
 			checkErr(err)
+			finalLatestMessage := map[string]interface{}{"type": conCur.LatestMessage.Type, "targetId": conCur.LatestMessage.TargetID, "messageType": conCur.LatestMessage.MessageType, "messageUId": conCur.LatestMessage.MessageUID, "isPersited": conCur.LatestMessage.IsPersited, "isCounted": conCur.LatestMessage.IsCounted, "isStatusMessage": conCur.LatestMessage.IsStatusMessage, "senderUserId": conCur.LatestMessage.SenderUserID, "content": map[string]string{"content": conCur.LatestMessage.Content.Content}, "sentTime": conCur.LatestMessage.SentTime, "receivedTime": conCur.LatestMessage.ReceivedTime, "messageDirection": conCur.LatestMessage.MessageDirection, "isOffLineMessage": conCur.LatestMessage.IsOffLineMessage, "disableNotification": conCur.LatestMessage.DisableNotification, "canIncludeExpansion": conCur.LatestMessage.CanIncludeExpansion, "expansion": conCur.LatestMessage.Expansion}
 			err = json.Unmarshal([]byte(mentiondInfo), &conCur.MentiondInfo)
 			checkErr(err)
+			finalMentiondInfo := map[string]interface{}{"type": conCur.MentiondInfo.Type, "userIdList": conCur.MentiondInfo.UserIDList}
 			err = json.Unmarshal([]byte(mentionedInfo), &conCur.MentionedInfo)
 			checkErr(err)
-			finalCons = append(finalCons, conCur)
+			finalMentionedInfo := map[string]interface{}{"type": conCur.MentionedInfo.Type, "userIdList": conCur.MentionedInfo.UserIDList}
+			finalCon := map[string]interface{}{"unreadMessageCount": conCur.UnreadMessageCount, "latestMessage": finalLatestMessage, "targetId": conCur.TargetID, "hasMentiond": conCur.HasMentiond, "mentiondInfo": finalMentiondInfo, "lastUnreadTime": conCur.LastUnreadTime, "notificationStatus": conCur.NotificationStatus, "isTop": conCur.IsTop, "type": conCur.Type, "hasMentioned": conCur.HasMentioned, "mentionedInfo": finalMentionedInfo}
+			finalCons = append(finalCons, finalCon)
 		}
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "conversations": finalCons})

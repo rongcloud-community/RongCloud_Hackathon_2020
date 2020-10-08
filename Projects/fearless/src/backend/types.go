@@ -126,7 +126,6 @@ func (user *userDB) queryUserDB(db *sql.DB) (err error) {
 	} else {
 		forkArea = "sg"
 	}
-	fmt.Println(user.Token, forkArea, strings.Contains(user.Token, forkArea))
 	if !strings.Contains(user.Token, forkArea) {
 		err = user.registerAPI()
 		checkErr(err)
@@ -424,18 +423,4 @@ func (con *conversation) update(db *sql.DB) error {
 type mentionedList struct {
 	Type       int
 	UserIDList []string
-}
-
-type conversationRes struct {
-	UnreadMessageCount int
-	HasMentiond        bool
-	MentiondInfo       mentionedList
-	LastUnreadTime     int
-	NotificationStatus int
-	IsTop              int
-	Type               int
-	TargetID           string
-	LatestMessage      messageRes
-	HasMentioned       bool
-	MentionedInfo      mentionedList
 }

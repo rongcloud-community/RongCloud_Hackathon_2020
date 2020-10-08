@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store'
 import { Observable, from } from 'rxjs'
 import { RongCloudService } from '../rong-cloud.service'
 import { AcccountManagementService } from '../account-management.service'
-import { userInfo } from '../data'
+import { userInfo, conversation } from '../data'
 import RongIMLib from '../RongIMLib-3.0.7-dev.es.js'
 
 declare global {
@@ -46,7 +46,7 @@ export class SingleChatComponent implements OnInit {
   ngOnInit() {
     console.log(this.route)
     if (this.route.params['_value']['chat']) {
-      this.currentCon['userID'] = this.route.params['_value']['chat']
+      this.currentCon['targetId'] = this.route.params['_value']['chat']
     }
     this.userAuth$.subscribe(res => {
       if (!res) {
@@ -72,16 +72,15 @@ export class SingleChatComponent implements OnInit {
                     console.log('链接成功, 链接用户 id 为: ', user.id)
                     that.store.dispatch({ type: 'Logging into Rongcloud IM success' })
                     window['rongIm'] = things[1]
-                    window['rongIm'].Conversation.getList({}).then(function(conversationList) {
-                      console.log('获取会话列表成功', conversationList);
-                    });
+                    console.log('获取会话列表成功', that.rongSer.conversationList);
                   }).catch(function(error) {
                     console.log('链接失败: ', error.code, error.msg);
                   })
                 } else if (window['rongIm']) {
-                  window['rongIm'].Conversation.getList({}).then(function(conversationList) {
-                    console.log('获取会话列表成功', conversationList);
-                  });
+                  // window['rongIm'].Conversation.getList({}).then(function(conversationList) {
+                  //   console.log('获取会话列表成功', conversationList);
+                  // });
+                  console.log('获取会话列表成功', this.rongSer.conversationList);
                 }
               })
             }
@@ -99,7 +98,7 @@ export class SingleChatComponent implements OnInit {
     var that = this
     function send(onerr) {
       var conversation = window['rongIm'].Conversation.get({
-        targetId: that.currentCon['userID'],
+        targetId: that.currentCon['targetId'],
         type: RongIMLib.CONVERSATION_TYPE.PRIVATE
       });
       conversation.send({
@@ -135,6 +134,11 @@ export class SingleChatComponent implements OnInit {
       connect(() => send(err => console.error(err)))
     }
     console.warn(this.messageForm.value)
+  }
+
+  changeCurCon(i: number) {
+    this.currentCon = this.rongSer.conversationList[i]
+    console.log(i, this.rongSer.conversationList[i], this.currentCon)
   }
 
 }

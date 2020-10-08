@@ -54,12 +54,14 @@ export class RongCloudService {
         that.updateConversation(updatedConversationList).subscribe(res => {
           if (res['status'] == 'success') {
             console.log('更新会话汇总:', updatedConversationList);
+            that.conversationList = im.Conversation.merge({
+              conversationList: that.conversationList,
+              updatedConversationList
+            })
+            console.log('最新会话列表:', that.conversationList);
           }
         })
-        console.log('最新会话列表:', im.Conversation.merge({
-          conversationList: that.conversationList,
-          updatedConversationList
-        }));
+        
       },
       message: function(event){
         var message = event.message;

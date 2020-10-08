@@ -29,13 +29,13 @@ export interface userRelation {
 
 export interface message {
 	type: number
-	targetID: string
+	targetId: string
 	messageType: string
-	messageUID: string
+	messageUId: string
 	isPersited: boolean
 	isCounted: boolean
 	isStatusMessage: boolean
-	senderUserID: string
+	senderUserId: string
 	content: any
 	sentTime: number
 	receivedTime: number
@@ -47,21 +47,21 @@ export interface message {
 }
 
 export interface mentionedList {
-	Type: number
-	UserIDList: string[]
+	type: number
+	userIdList: string[]
 }
 
 export interface conversation {
-	SenderUserID: string
-	UnreadMessageCount: number
-	HasMentiond: boolean
-	MentiondInfo: mentionedList
-	LastUnreadTime: number
-	NotificationStatus: number
-	IsTop: number
-	Type: number
-	TargetID: string
-	HasMentioned: boolean
-	MentionedInfo: mentionedList
-	LatestMessage: message
+	senderUserId: string
+	unreadMessageCount: number
+	hasMentiond: boolean
+	mentiondInfo: mentionedList
+	lastUnreadTime: number
+	notificationStatus: number
+	isTop: number
+	type: number
+	targetID: string
+	hasMentioned: boolean
+	mentionedInfo: mentionedList
+	latestMessage: message
 }
