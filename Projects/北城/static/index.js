@@ -1,3 +1,4 @@
+var conversation;
 $.get("/getappkey", function (appkey) {
     if (!appkey) {
         alert("获取appkey失败");
@@ -21,11 +22,61 @@ $.get("/getappkey", function (appkey) {
             //收到新消息
             var message = event.message;
             console.log("收到新消息:", message);
+            if (message.senderUserId == "info") {
+                var oppo = message.content.content.match(/oppo:(.+)/);
+                if (oppo) {
+                    console.log("对方", oppo[1]);
+                    conversation = im.Conversation.get({
+                        targetId: oppo[1],
+                        type: RongIMLib.CONVERSATION_TYPE.PRIVATE
+                    });
+                }
+            }
         },
         status: function (event) {
             //状态改变
             var status = event.status;
             console.log("连接状态码:", status);
         }
+    });
+
+    $.getJSON("/gettoken", function (token) {
+        if (token.token == "") {
+            alert("获取token失败！");
+            return;
+        }
+        console.log(token.token);
+
+        window.onbeforeunload = function () {
+            $.get("/exit?token=" + token.token);
+            return "确认退出";
+        }
+
+        $("#send").click(function () {
+            if (conversation) {
+                var text = $("inputmessage").val();
+                if (text) {
+                    conversation.send({
+                        messageType: RongIMLib.MESSAGE_TYPE.TEXT,
+                        content: {
+                            content: text
+                        }
+                    }).then(function (message) {
+                        console.log("发送文字消息成功", message);
+                    });
+                }
+            } else {
+                alert("连接成功才能发消息哦");
+            }
+        });
+
+        //连接实时消息
+        im.connect({
+            token: token.token
+        }).then(function (user) {
+            console.log("链接成功, 链接用户 id 为: ", user.id);
+        }).catch(function (error) {
+            alert("链接失败: " + error.code + error.msg);
+        });
     });
 });
