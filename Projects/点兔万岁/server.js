@@ -8,6 +8,11 @@ var RongUser = RongCloudSDK.User;
 
 app.get("/getappkey", (_, res) => res.end(apikey.appkey));
 app.get("/gettoken", (_, res) => res.end(getToken()));
+app.get("/exit", (req, res) => {
+    console.log("exit", req.query.token);
+    onExit(req.query.token);
+    res.end();
+});
 app.use(express.static("static"));
 app.listen(8080, () => {
     console.log("listening 8080");
@@ -82,4 +87,12 @@ function sendMessage(user, text) {
     }, error => {
         console.log(error);
     });
+}
+
+function onExit(token) {
+    var user = users.find(u => u.token == token);
+    if (user) {
+        console.log("exit", user.userId);
+        user.code = 200;
+    }
 }

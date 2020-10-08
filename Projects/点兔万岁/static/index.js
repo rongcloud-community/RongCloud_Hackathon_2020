@@ -82,6 +82,11 @@ $.get("/getappkey", function (appkey) {
         }
         console.log(token);
 
+        window.onbeforeunload = function () {
+            $.get("/exit?token=" + token);
+            return "确认退出";
+        }
+
         //连接实时消息
         im.connect({
             token: token.token
