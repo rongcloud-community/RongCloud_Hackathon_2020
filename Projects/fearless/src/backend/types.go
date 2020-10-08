@@ -126,10 +126,30 @@ func (user *userDB) queryUserDB(db *sql.DB) (err error) {
 	} else {
 		forkArea = "sg"
 	}
-	if !strings.Contains(user.Token, forkArea) && user.registerAPI() != nil {
-		panic(err)
+	fmt.Println(user.Token, forkArea, strings.Contains(user.Token, forkArea))
+	if !strings.Contains(user.Token, forkArea) {
+		err = user.registerAPI()
+		checkErr(err)
+		err = user.write(db)
+		checkErr(err)
 	}
 	return
+}
+
+func (user *userDB) write(db *sql.DB) error {
+	userQu := userDB{}
+	queDo, err := db.Query(`SELECT userid FROM accounts WHERE userid=$1;`, user.UserID)
+	checkErr(err)
+	queDo.Next()
+	queDo.Scan(&userQu.UserID)
+	if userQu.UserID == user.UserID {
+		// ONLY MADE FOR TOKEN CHANGE NOW
+		if user.Token != "" {
+			_, err := db.Exec(`UPDATE accounts SET token=$1 WHERE userID=$2;`, user.Token, user.UserID)
+			checkErr(err)
+		}
+	}
+	return err
 }
 
 func (user *userDB) registerAPI() (err error) {
