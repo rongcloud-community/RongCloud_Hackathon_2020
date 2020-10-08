@@ -1,6 +1,6 @@
 $.get("/getappkey", function (appkey) {
     if (!appkey) {
-        console.log("获取appkey失败");
+        alert("获取appkey失败");
     }
     console.log(appkey);
 
@@ -30,6 +30,10 @@ $.get("/getappkey", function (appkey) {
     });
 
     $.getJSON("/gettoken", function (token) {
+        if (token.token == "") {
+            alert("获取token失败！");
+            return;
+        }
         console.log(token);
     });
 });

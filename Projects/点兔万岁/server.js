@@ -37,6 +37,14 @@ function getToken() {
     for (var i = 0; i < users.length; i++) {
         if (users[i].code > 0) {
             users[i].code = 0;
+            queue.push(users[i]);
+            console.log(users[i].userId, "enter");
+            if (queue.length > 1) {
+                var user1 = queue.shift();
+                var user2 = queue.shift();
+                match.push([user1, user2]);
+                console.log(user1.userId, "<>", user2.userId);
+            }
             return JSON.stringify(users[i]);
         }
     }
