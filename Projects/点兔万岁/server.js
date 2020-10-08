@@ -13,6 +13,9 @@ app.listen(8080, () => {
     console.log("listening 8080");
 });
 
+var queue = [];
+var match = [];
+
 var users = [];
 for (var i = 0; i < 10; i++) {
     var id = "ttt" + i;
@@ -21,6 +24,7 @@ for (var i = 0; i < 10; i++) {
         name: id,
         portrait: "."
     }).then(result => {
+        console.log(result);
         if (result.code == 200) {
             users.push(result);
         }
@@ -33,7 +37,12 @@ function getToken() {
     for (var i = 0; i < users.length; i++) {
         if (users[i].code > 0) {
             users[i].code = 0;
-            return users[i].token;
+            return JSON.stringify(users[i]);
         }
     }
+    return JSON.stringify({
+        code: 404,
+        userId: "",
+        token: ""
+    });
 }
