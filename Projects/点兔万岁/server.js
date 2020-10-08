@@ -43,6 +43,8 @@ function getToken() {
                 var user1 = queue.shift();
                 var user2 = queue.shift();
                 match.push([user1, user2]);
+                sendMessage(user1, "oppo:" + user2.userId);
+                sendMessage(user2, "oppo:" + user1.userId);
                 console.log(user1.userId, "<>", user2.userId);
             }
             return JSON.stringify(users[i]);
@@ -66,11 +68,11 @@ function findOppo(userId) {
     return { serId: "" };
 }
 
-function sendMessage(id, text) {
-    console.log(`向${id}发送${text}`);
+function sendMessage(user, text) {
+    console.log(`向${user.userId}发送${text}`);
     Private.send({
         senderId: "game",
-        targetId: id,
+        targetId: user.userId,
         objectName: "RC:TxtMsg",
         content: {
             content: text
