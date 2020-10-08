@@ -2,6 +2,7 @@ function Game() {
     this.board = [];
     this.oppo = "";
     this.result = "";
+    this.ctx = document.querySelector("#board").getContext("2d");
     this.conversation = null;
 }
 Game.prototype.Init = function (oppo, conversation) {
@@ -20,7 +21,18 @@ Game.prototype.Send = function (text) {
         console.log('发送文字消息成功', message);
     });
 }
+Game.prototype.Draw = function () {
+    var context = this.ctx;
+    for (var i = 0; i < 4; i++) {
+        context.moveTo(20 + i * 120, 20);
+        context.lineTo(20 + i * 120, 380);
+        context.moveTo(20, 20 + i * 120);
+        context.lineTo(380, 20 + i * 120);
+        context.stroke();
+    }
+}
 var game = new Game();
+game.Draw();
 $.get("/getappkey", function (appkey) {
     if (!appkey) {
         alert("获取appkey失败");
