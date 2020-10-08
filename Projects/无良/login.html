@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <script src="//cdn.ronghub.com/RongIMLib-2.4.0.js"></script>
+        <script src="//cdn.ronghub.com/RongRTC-3.0.4.js"></script>
+        <script src="//cdn.ronghub.com/RongCallLib-3.1.5.js"></script>
+    
+        <script src="./im.js"></script>
+        <script src="./calllib.js"></script>
+		<meta charset="utf-8">
+		<title></title>
+        <style type="text/css">
+        body{
+            background-image: url("img/t016a5c7260045f5ebe.jpg");
+        }
+			.box{
+				width:300px;
+				height:420px;
+				border:1px solid blue;
+				margin:0 auto;
+			}
+			.inTer{
+				width:280px;
+				height:280px;
+				border:1px solid deeppink;
+				margin:0 auto;
+				margin-top:10px;
+				overflow-y:auto;
+			}
+			textarea{
+				display:block;
+				width: 276px;
+				height:65px;
+				margin:0 auto;
+				margin-top:5px;
+			}
+			#btn{
+				display:block;
+				float:right;
+				margin-right:10px;
+				margin-top:5px;
+			}
+			p{
+				display:inline-block;
+				border-radius:5px;
+				background:#dcdcdc;
+				font-size:12px;
+				padding:5px 5px;
+				margin:5px 0;
+				margin-left:5px;
+				max-width:140px;
+				word-wrap: break-word;
+            }
+           
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="inTer" id="father">
+					<p>你好</p ></br>
+					<p>你好</p ></br>
+					<p>你好</p ></br>
+					<p>可以视频吗</p ></br>
+			</div>
+			<textarea style="resize: none;" id="txt">
+            </textarea>
+            <div id="Rong" align="left" style="float: left;">
+                <button id="call" onclick="call()">视频通话</button>
+            </div>
+     <div id="RringDiv" class="hide" align="right" >
+         <button id="accept" onclick="accept()">接听</button>
+     </div>
+     <div id="box" align="right"></div>
+			<input style="margin:auto" type="button" id="btn" value="发送" />
+		</div>
+	</body>
+</html>
+<script>
+    
+	var btn = document.getElementById("btn");
+	var txt = document.getElementById("txt");
+	var father = document.getElementById("father")
+	var p = document.getElementsByTagName("p");
+	btn.onclick=function(){
+		if(txt.value==""){
+			alert("请勿发送空内容");
+		}
+		else{
+			var son = document.createElement("p");
+			son.style.backgroundColor="yellowgreen";
+			son.style.clear="both";
+			son.style.float="right";
+			son.style.marginRight="5px";
+			son.innerText=txt.value;
+			father.appendChild(son);
+			txt.value="";
+			son.scrollIntoView();
+		}
+		
+	}
+		document.onkeydown=function(evt){
+		var e = evt || event;
+		e.keyCode=e.which=e.charCode;
+		if(e.keyCode==13 || e.keyCode==10){
+			if(txt.value==""){
+				alert("请勿发送空内容");
+			}
+			else{
+				var son = document.createElement("p");
+				son.style.backgroundColor="yellowgreen";
+				son.style.clear="both";
+				son.style.float="right";
+				son.style.marginRight="5px";
+				son.innerText=txt.value;
+				father.appendChild(son);
+				txt.value="";
+				son.scrollIntoView();
+			}
+		}
+	}
+	</script>
