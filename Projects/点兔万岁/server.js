@@ -3,7 +3,7 @@ var RongCloudSDK = require("rongcloud-sdk")(apikey);
 var express = require("express");
 var app = express();
 var RongMessage = RongCloudSDK.Message;
-var RongChatroom = RongMessage.Chatroom;
+var Private = RongMessage.Private;
 var RongUser = RongCloudSDK.User;
 
 app.get("/getappkey", (_, res) => res.end(apikey.appkey));
@@ -52,5 +52,32 @@ function getToken() {
         code: 404,
         userId: "",
         token: ""
+    });
+}
+
+function findOppo(userId) {
+    for (var i = 0; i < match.length; i++) {
+        if (match[i][0].userId == userId) {
+            return match[i][1];
+        } else if (match[i][1].userId == userId) {
+            return match[i][0];
+        }
+    }
+    return { serId: "" };
+}
+
+function sendMessage(id, text) {
+    console.log(`向${id}发送${text}`);
+    Private.send({
+        senderId: "game",
+        targetId: id,
+        objectName: "RC:TxtMsg",
+        content: {
+            content: text
+        }
+    }).then(result => {
+        console.log(result);
+    }, error => {
+        console.log(error);
     });
 }

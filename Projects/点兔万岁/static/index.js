@@ -35,5 +35,14 @@ $.get("/getappkey", function (appkey) {
             return;
         }
         console.log(token);
+
+        //连接实时消息
+        im.connect({
+            token: token.token
+        }).then(function (user) {
+            console.log("链接成功, 链接用户 id 为: ", user.id);
+        }).catch(function (error) {
+            alert("链接失败: " + error.code + error.msg);
+        });
     });
 });
