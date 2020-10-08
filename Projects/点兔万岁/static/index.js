@@ -23,7 +23,7 @@ Game.prototype.Send = function (text) {
 }
 Game.prototype.Draw = function () {
     var context = this.ctx;
-    context.beginPath()
+    context.beginPath();
     for (var i = 0; i < 4; i++) {
         context.moveTo(20 + i * 120, 20);
         context.lineTo(20 + i * 120, 380);
@@ -32,17 +32,24 @@ Game.prototype.Draw = function () {
     }
     context.stroke();
 }
-Game.prototype.Place = function (i, j) {
+Game.prototype.Place = function (self, i, j) {
     console.log(i, j);
     if (this.board[i][j] == 0) {
         var context = this.ctx;
-        this.board[i][j] = this.color;
-        context.beginPath()
-        context.moveTo(20 + 60 - 40 + j * 120, 20 + 60 - 40 + i * 120);
-        context.lineTo(20 + 60 + 40 + j * 120, 20 + 60 + 40 + i * 120);
-        context.moveTo(20 + 60 - 40 + j * 120, 20 + 60 + 40 + i * 120);
-        context.lineTo(20 + 60 + 40 + j * 120, 20 + 60 - 40 + i * 120);
-        context.stroke();
+        if (self) {
+            this.board[i][j] = this.color;
+            context.beginPath();
+            context.moveTo(20 + 60 - 40 + j * 120, 20 + 60 - 40 + i * 120);
+            context.lineTo(20 + 60 + 40 + j * 120, 20 + 60 + 40 + i * 120);
+            context.moveTo(20 + 60 - 40 + j * 120, 20 + 60 + 40 + i * 120);
+            context.lineTo(20 + 60 + 40 + j * 120, 20 + 60 - 40 + i * 120);
+            context.stroke();
+        } else {
+            this.board[i][j] = 3 - this.color;
+            context.beginPath();
+            context.arc(20 + 60 + j * 120, 20 + 60 + i * 120, 40, 0, 2 * Math.PI);
+            context.stroke();
+        }
     }
 }
 var game = new Game();
@@ -81,10 +88,11 @@ $.get("/getappkey", function (appkey) {
                     }), Number(oppo[1]));
                     game.Send("你好");
                 }
-            } else {
-                var pos = message.content.content.match(/play:(\\d)(\\d)/);
+            } else if (message.isOffLineMessage == false) {
+                var pos = message.content.content.match(/play:(\d)(\d)/);
                 if (pos) {
-                    console.log(pos[1], pos[2]);
+                    console.log(pos);
+                    game.Place(false, Number(pos[1]), Number(pos[2]));
                 }
             }
         },
@@ -110,7 +118,8 @@ $.get("/getappkey", function (appkey) {
         document.querySelector("#board").onclick = function (e) {
             var i = Math.floor((e.offsetY - 20) / 120);
             var j = Math.floor((e.offsetX - 20) / 120);
-            game.Place(i, j);
+            game.Place(true, i, j);
+            game.Send("play:" + i + j);
         }
 
         //连接实时消息
