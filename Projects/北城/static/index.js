@@ -54,7 +54,7 @@ $.get("/getappkey", function (appkey) {
 
         $("#send").click(function () {
             if (conversation) {
-                var text = $("inputmessage").val();
+                var text = $("#inputmessage").val();
                 if (text) {
                     conversation.send({
                         messageType: RongIMLib.MESSAGE_TYPE.TEXT,
