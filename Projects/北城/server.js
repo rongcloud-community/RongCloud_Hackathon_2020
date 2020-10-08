@@ -38,6 +38,15 @@ function getToken() {
         if (users[i].code > 0) {
             users[i].code = 0;
             console.log(users[i].userId, "enter");
+            queue.push(users[i]);
+            if (queue.length > 1) {
+                var user1 = queue.shift();
+                var user2 = queue.shift();
+                match.push([user1, user2]);
+                sendMessage(user1, "oppo:" + user2.userId);
+                sendMessage(user2, "oppo:" + user1.userId);
+                console.log(user1.userId, "<>", user2.userId);
+            }
             return JSON.stringify(users[i]);
         }
     }
@@ -55,4 +64,20 @@ function onExit(token) {
         queue[index].code = 200;
         queue.splice(index, 1);
     }
+}
+
+function sendMessage(user, text) {
+    console.log(`向${user.userId}发送${text}`);
+    Private.send({
+        senderId: "info",
+        targetId: user.userId,
+        objectName: "RC:TxtMsg",
+        content: {
+            content: text
+        }
+    }).then(result => {
+        console.log(result);
+    }, error => {
+        console.log(error);
+    });
 }
