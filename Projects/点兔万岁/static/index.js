@@ -80,10 +80,10 @@ $.get("/getappkey", function (appkey) {
             alert("获取token失败！");
             return;
         }
-        console.log(token);
+        console.log(token.token);
 
         window.onbeforeunload = function () {
-            $.get("/exit?token=" + token);
+            $.get("/exit?token=" + token.token);
             return "确认退出";
         }
 

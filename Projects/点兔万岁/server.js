@@ -8,11 +8,7 @@ var RongUser = RongCloudSDK.User;
 
 app.get("/getappkey", (_, res) => res.end(apikey.appkey));
 app.get("/gettoken", (_, res) => res.end(getToken()));
-app.get("/exit", (req, res) => {
-    console.log("exit", req.query.token);
-    onExit(req.query.token);
-    res.end();
-});
+app.get("/exit", (req, res) => res.end(onExit(req.query.token)));
 app.use(express.static("static"));
 app.listen(8080, () => {
     console.log("listening 8080");
@@ -62,17 +58,6 @@ function getToken() {
     });
 }
 
-function findOppo(userId) {
-    for (var i = 0; i < match.length; i++) {
-        if (match[i][0].userId == userId) {
-            return match[i][1];
-        } else if (match[i][1].userId == userId) {
-            return match[i][0];
-        }
-    }
-    return { serId: "" };
-}
-
 function sendMessage(user, text) {
     console.log(`向${user.userId}发送${text}`);
     Private.send({
@@ -90,9 +75,10 @@ function sendMessage(user, text) {
 }
 
 function onExit(token) {
-    var user = users.find(u => u.token == token);
-    if (user) {
-        console.log("exit", user.userId);
-        user.code = 200;
+    var index = queue.findIndex(u => u.token == token);
+    if (index > -1) {
+        console.log("exit", queue[index].userId);
+        queue[index].code = 200;
+        queue.splice(index, 1);
     }
 }
