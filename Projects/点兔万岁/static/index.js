@@ -1,14 +1,12 @@
 function Game() {
     this.board = [];
-    this.oppo = "";
     this.result = "";
     this.color = 0;
     this.ctx = document.querySelector("#board").getContext("2d");
     this.conversation = null;
 }
-Game.prototype.Init = function (oppo, conversation, color) {
+Game.prototype.Init = function (conversation, color) {
     this.board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
-    this.oppo = oppo;
     this.result = ""
     this.color = color;
     this.conversation = conversation;
@@ -25,16 +23,27 @@ Game.prototype.Send = function (text) {
 }
 Game.prototype.Draw = function () {
     var context = this.ctx;
+    context.beginPath()
     for (var i = 0; i < 4; i++) {
         context.moveTo(20 + i * 120, 20);
         context.lineTo(20 + i * 120, 380);
         context.moveTo(20, 20 + i * 120);
         context.lineTo(380, 20 + i * 120);
-        context.stroke();
     }
+    context.stroke();
 }
 Game.prototype.Place = function (i, j) {
-    this.board[i][j] = this.color;
+    console.log(i, j);
+    if (this.board[i][j] == 0) {
+        var context = this.ctx;
+        this.board[i][j] = this.color;
+        context.beginPath()
+        context.moveTo(20 + 60 - 40 + j * 120, 20 + 60 - 40 + i * 120);
+        context.lineTo(20 + 60 + 40 + j * 120, 20 + 60 + 40 + i * 120);
+        context.moveTo(20 + 60 - 40 + j * 120, 20 + 60 + 40 + i * 120);
+        context.lineTo(20 + 60 + 40 + j * 120, 20 + 60 - 40 + i * 120);
+        context.stroke();
+    }
 }
 var game = new Game();
 game.Draw();
@@ -66,10 +75,10 @@ $.get("/getappkey", function (appkey) {
                 if (oppo) {
                     console.log("颜色", oppo[1]);
                     console.log("开始游戏", oppo[2]);
-                    game.Init(oppo[2], im.Conversation.get({
+                    game.Init(im.Conversation.get({
                         targetId: oppo[2],
                         type: RongIMLib.CONVERSATION_TYPE.PRIVATE
-                    }), oppo[1]);
+                    }), Number(oppo[1]));
                     game.Send("你好");
                 }
             } else {
@@ -96,6 +105,12 @@ $.get("/getappkey", function (appkey) {
         window.onbeforeunload = function () {
             $.get("/exit?token=" + token.token);
             return "确认退出";
+        }
+
+        document.querySelector("#board").onclick = function (e) {
+            var i = Math.floor((e.offsetY - 20) / 120);
+            var j = Math.floor((e.offsetX - 20) / 120);
+            game.Place(i, j);
         }
 
         //连接实时消息
