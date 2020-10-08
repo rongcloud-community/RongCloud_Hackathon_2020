@@ -7,5 +7,9 @@
     "test": "node server.js"
   },
   "author": "yuxuan",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "rongcloud-sdk": "^3.1.1"
+  }
 }
