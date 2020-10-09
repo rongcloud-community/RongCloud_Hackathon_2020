@@ -45,9 +45,9 @@ function getToken() {
 }
 
 function onExit(token) {
-    var users = users.findIndex(u => u.token == token);
+    var index = users.findIndex(u => u.token == token);
     if (index > -1) {
         console.log("exit", users[index].userId);
-        users.splice(index, 1);
+        users[index].code = 200;
     }
 }
