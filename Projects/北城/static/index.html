@@ -43,20 +43,18 @@
 </head>
 
 <body>
-    <h2>anonychat</h2>
-    <p id="info">等待其他用户加入...</p>
-    <div id="messagelist" style="height:480px;width:480px;overflow:auto;background:red;">
-        <div class="message">
-            <div class="arrow"></div>
-            <p>22222222</p>
+    <div id="app">
+        <h2>anonychat</h2>
+        <p id="info">{{status}}</p>
+        <div id="messagelist" style="height:480px;width:480px;overflow:auto;background:red;">
+            <div v-for="e in message" class="message">
+                <div :class="e.class"></div>
+                <p>{{e.text}}</p>
+            </div>
         </div>
-        <div class="message">
-            <div class="arrow right"></div>
-            <p>22222222</p>
-        </div>
+        <input type="text" name="inputmessage" id="inputmessage">
+        <input type="button" id="send" value="发送">
     </div>
-    <input type="text" name="inputmessage" id="inputmessage">
-    <input type="button" id="send" value="发送">
 </body>
 
 </html>

@@ -80,3 +80,20 @@ $.get("/getappkey", function (appkey) {
         });
     });
 });
+
+var app = new Vue({
+    el: '#app',
+    data: {
+        status: "等待其他用户加入...",
+        message: [],
+    }
+});
+appendMessage("aaaaaaaaaaaaaaa")
+appendMessage("aaaaaaaaaaaaaaa",true)
+
+function appendMessage(text, self) {
+    app.message.push({
+        text: text,
+        class: self ? "arrow right" : "arrow"
+    });
+}
