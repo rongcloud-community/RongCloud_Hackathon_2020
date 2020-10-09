@@ -26,11 +26,14 @@ $.get("/getappkey", function (appkey) {
                 var oppo = message.content.content.match(/oppo:(.+)/);
                 if (oppo) {
                     console.log("对方", oppo[1]);
+                    app.status = "匹配成功，现在可以开始聊天了！";
                     conversation = im.Conversation.get({
                         targetId: oppo[1],
                         type: RongIMLib.CONVERSATION_TYPE.PRIVATE
                     });
                 }
+            } else {
+                appendMessage(message.content.content, false);
             }
         },
         status: function (event) {
@@ -56,6 +59,7 @@ $.get("/getappkey", function (appkey) {
             if (conversation) {
                 var text = $("#inputmessage").val();
                 if (text) {
+                    appendMessage(text, true);
                     conversation.send({
                         messageType: RongIMLib.MESSAGE_TYPE.TEXT,
                         content: {
@@ -88,12 +92,18 @@ var app = new Vue({
         message: [],
     }
 });
-appendMessage("aaaaaaaaaaaaaaa")
-appendMessage("aaaaaaaaaaaaaaa",true)
 
 function appendMessage(text, self) {
     app.message.push({
         text: text,
         class: self ? "arrow right" : "arrow"
     });
+    autoScroll();
+}
+
+function autoScroll() {
+    var e = $(".message:last")[0];
+    if (e) {
+        e.scrollIntoViewIfNeeded();
+    }
 }
