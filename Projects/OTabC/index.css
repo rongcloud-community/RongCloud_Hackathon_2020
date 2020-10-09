@@ -1,0 +1,64 @@
+body{
+    font-size:12px;  
+    font-family:"微软雅黑";
+    color:#FFFFFF;
+}
+*{  
+    padding:0px;
+    margin:0px;   
+}
+#cac{   
+    width:830px;
+    height:500px;
+    background:beige;
+    margin:0 auto;
+    padding:10px;
+}
+#cac .c_show .s_text{
+    width:810px;
+    height:80px;
+    border:none;
+    line-height:42px;
+    text-align:right;
+    padding-right:18px;
+    font-size:40px;
+    color:#000000;
+}
+#cac h2{    
+    font-size:26px;
+    color:#000;
+    font-weight:500;
+	text-align: center;
+    padding: 0px 0px 10px 0px;
+    cursor:move;
+}
+#cac .c_key ul{ 
+    border:3px solid beige;
+    overflow:auto;
+    margin:10px auto;
+}
+#cac .c_key ul li{  
+    float:left;
+    width:140px;
+    height:65px;
+    background:#696969;
+    margin:11px;
+    text-align:center;
+    line-height:65px;
+    font-size:32px;
+    cursor:pointer;
+    list-style:none;
+    /* border:1px solid #fff; */
+}
+#cac .c_key ul .c_tool{ 
+    background:#FF9900;
+    color:#fff;
+}
+#cac .c_key ul .c_result{   
+    background:red;
+    color:#fff;
+}
+#cac .c_key ul li:hover{    
+    background:#FFFFFF;
+    color:#000000;
+}
