@@ -31,6 +31,11 @@ $.get("/getappkey", function (appkey) {
                         targetId: oppo[1],
                         type: RongIMLib.CONVERSATION_TYPE.PRIVATE
                     });
+                } else {
+                    if (message.content.content == "end") {
+                        app.status = "对方已退出，刷新页面可以重新匹配";
+                        alert(app.status);
+                    }
                 }
             } else {
                 appendMessage(message.content.content, false);
