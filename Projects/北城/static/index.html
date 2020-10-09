@@ -46,7 +46,7 @@
     <div id="app">
         <h2>anonychat</h2>
         <p id="info">{{status}}</p>
-        <div id="messagelist" style="height:480px;width:480px;overflow:auto;background:red;">
+        <div id="messagelist" style="height:480px;width:480px;overflow:auto;">
             <div v-for="e in message" class="message">
                 <div :class="e.class"></div>
                 <p>{{e.text}}</p>
