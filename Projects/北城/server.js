@@ -89,11 +89,11 @@ function exitMatch(token) {
         if (match[i][0].token == token) {
             sendMessage(match[i][1], "exit", match[i][0].userId, "<>", match[i][1].userId, "end");
             match[i][0].code = 200;
-            match.splice(i, 0);
+            match.splice(i, 1);
         } else if (match[i][1].token == token) {
             sendMessage(match[i][0], "exit", match[i][0].userId, "<>", match[i][1].userId, "end");
             match[i][1].code = 200;
-            match.splice(i, 0);
+            match.splice(i, 1);
         }
     }
 }
