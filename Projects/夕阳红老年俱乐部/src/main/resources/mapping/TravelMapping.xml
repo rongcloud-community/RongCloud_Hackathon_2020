@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pyblind.dao.ITravelDao">
+
+    <resultMap id="BaseResultMap" type="User">
+        <result column="tid" jdbcType="BIGINT" property="tid"/>
+        <result column="origin" jdbcType="VARCHAR" property="origin"/>
+        <result column="terminal" jdbcType="VARCHAR" property="terminal"/>
+        <result column="starttime" jdbcType="TIMESTAMP" property="starttime"/>
+        <result column="finishtime" jdbcType="TIMESTAMP" property="finishtime"/>
+        <result column="distance" jdbcType="VARCHAR" property="distance"/>
+        <result column="eid" jdbcType="VARCHAR" property="eid"/>
+    </resultMap>
+
+    <select id="SelEid"  parameterType="string" resultType="Travel">
+        select * from travel where eid = #{eid}
+    </select>
+    <select id="getTList" parameterType="string" resultType="Travel">
+        select * from travel where  eid = #{eid}
+        <if test="d != null and d != ''">
+            and(starttime like "%"#{d}"%" or finishtime like "%"#{d}"%")
+        </if>
+        <if test="search != null and search != ''">
+            and(origin like "%"#{search}"%" or terminal like "%"#{search}"%")
+        </if>
+
+
+    </select>
+</mapper>
+<!--        and (starttime like "%"#{d}"%" or finishtime like "%"#{d}"%" or origin like "%"#{search}"%" or terminal like "%"#{search}"%");-->

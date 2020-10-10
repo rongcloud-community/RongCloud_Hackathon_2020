@@ -1,0 +1,15 @@
+package com.pyblind.blind;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+
+@SpringBootApplication
+@ComponentScan(basePackages = {"com.pyblind.*"})
+public class BlindApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(BlindApplication.class, args);
+    }
+
+}

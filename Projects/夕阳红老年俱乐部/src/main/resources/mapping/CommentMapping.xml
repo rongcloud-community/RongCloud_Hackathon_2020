@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pyblind.dao.ICommentDao">
+
+    <resultMap id="BaseResultMap" type="Comment">
+        <result column="commentid" jdbcType="BIGINT" property="commentid"/>
+        <result column="comment" jdbcType="VARCHAR" property="comment"/>
+        <result column="id" jdbcType="BIGINT" property="id"/>
+        <result column="sendid" jdbcType="BIGINT" property="sendid"/>
+        <result column="cotime" jdbcType="VARCHAR" property="cotime"/>
+    </resultMap>
+
+    <select id="getList" resultType="Comment">
+        select * from comment where comment.sendid=#{sendid};
+    </select>
+    <insert id="insertNew" >
+       insert into comment(comment,id,sendid,cotime)
+        values(#{comment},#{id},#{sendid},#{nowtime})
+    </insert>
+
+</mapper>

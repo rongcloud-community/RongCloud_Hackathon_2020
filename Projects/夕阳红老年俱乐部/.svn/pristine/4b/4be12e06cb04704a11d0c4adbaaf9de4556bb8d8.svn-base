@@ -1,0 +1,27 @@
+package com.pyblind.web.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@Controller
+@RequestMapping("/index")
+public class test {
+
+    @RequestMapping(value = "/test")
+    @ResponseBody
+    public Map<String,Object> testc(){
+        Map<String,Object> map = new HashMap<>();
+        map.put("DES","SUCCESS");
+        return map;
+    }
+
+    @RequestMapping(value = "/wel")
+    public String jumpp(){
+        System.out.println("adsads");
+        return "welcome";
+    }
+}
