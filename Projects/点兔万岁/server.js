@@ -8,7 +8,7 @@ var RongUser = RongCloudSDK.User;
 
 app.get("/getappkey", (_, res) => res.end(apikey.appkey));
 app.get("/gettoken", (_, res) => res.end(getToken()));
-app.get("/exit", (req, res) => res.end(onExit(req.query.token)));
+app.get("/exit", (req, res) => res.end(onExit(decodeURIComponent(req.query.token))));
 app.use(express.static("static"));
 app.listen(8080, () => {
     console.log("listening 8080");
