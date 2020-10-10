@@ -1,14 +1,16 @@
 function Game() {
     this.board = [];
-    this.result = "";
     this.color = 0;
     this.ctx = document.querySelector("#board").getContext("2d");
     this.conversation = null;
+    this.start = false;
+    this.turn = 0;
 }
 Game.prototype.Init = function (conversation, color) {
     this.board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
-    this.result = ""
     this.color = color;
+    this.start = true;
+    this.turn = 1;
     this.conversation = conversation;
 }
 Game.prototype.Send = function (text) {
@@ -36,7 +38,7 @@ Game.prototype.Place = function (color, i, j) {
     console.log(i, j);
     if (this.board[i][j] == 0) {
         var context = this.ctx;
-        this.board[i][j] = this.color;
+        this.board[i][j] = color;
         if (color == 1) {
             context.beginPath();
             context.moveTo(20 + 60 - 40 + j * 120, 20 + 60 - 40 + i * 120);
@@ -44,11 +46,46 @@ Game.prototype.Place = function (color, i, j) {
             context.moveTo(20 + 60 - 40 + j * 120, 20 + 60 + 40 + i * 120);
             context.lineTo(20 + 60 + 40 + j * 120, 20 + 60 - 40 + i * 120);
             context.stroke();
-        } else {
+        } else if (color == 2) {
             context.beginPath();
             context.arc(20 + 60 + j * 120, 20 + 60 + i * 120, 40, 0, 2 * Math.PI);
             context.stroke();
         }
+        this.turn = 3 - this.turn;
+    }
+}
+Game.prototype.myTurn = function () {
+    return game.start && game.turn == game.color;
+}
+Game.prototype.check = function () {
+    var b = this.board;
+    var x = 3 - this.color;
+    var y = this.color;
+    if (b[0][0] == x && b[0][1] == x && b[0][2] == x ||
+        b[1][0] == x && b[1][1] == x && b[1][2] == x ||
+        b[2][0] == x && b[2][1] == x && b[2][2] == x ||
+        b[0][0] == x && b[1][0] == x && b[2][0] == x ||
+        b[0][1] == x && b[1][1] == x && b[2][1] == x ||
+        b[0][2] == x && b[1][2] == x && b[2][2] == x ||
+        b[0][0] == x && b[1][1] == x && b[2][2] == x ||
+        b[0][2] == x && b[1][1] == x && b[2][0] == x) {
+        this.start = false;
+        setTimeout(function () {
+            alert("你赢了");
+        }, 200);
+    } else if (
+        b[0][0] == y && b[0][1] == y && b[0][2] == y ||
+        b[1][0] == y && b[1][1] == y && b[1][2] == y ||
+        b[2][0] == y && b[2][1] == y && b[2][2] == y ||
+        b[0][0] == y && b[1][0] == y && b[2][0] == y ||
+        b[0][1] == y && b[1][1] == y && b[2][1] == y ||
+        b[0][2] == y && b[1][2] == y && b[2][2] == y ||
+        b[0][0] == y && b[1][1] == y && b[2][2] == y ||
+        b[0][2] == y && b[1][1] == y && b[2][0] == y) {
+        this.start = false;
+        setTimeout(function () {
+            alert("你输了");
+        }, 200);
     }
 }
 var game = new Game();
@@ -92,6 +129,7 @@ $.get("/getappkey", function (appkey) {
                 if (pos) {
                     console.log(pos);
                     game.Place(game.color, Number(pos[1]), Number(pos[2]));
+                    game.check();
                 }
             }
         },
@@ -115,10 +153,13 @@ $.get("/getappkey", function (appkey) {
         }
 
         document.querySelector("#board").onclick = function (e) {
-            var i = Math.floor((e.offsetY - 20) / 120);
-            var j = Math.floor((e.offsetX - 20) / 120);
-            game.Place(3 - game.color, i, j);
-            game.Send("play:" + i + j);
+            if (game.myTurn()) {
+                var i = Math.floor((e.offsetY - 20) / 120);
+                var j = Math.floor((e.offsetX - 20) / 120);
+                game.Place(3 - game.color, i, j);
+                game.Send("play:" + i + j);
+                game.check();
+            }
         }
 
         //连接实时消息
