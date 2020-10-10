@@ -9,11 +9,11 @@ function Game() {
 Game.prototype.DrawBoard = function () {
     var context = this.ctx;
     context.beginPath();
-    for (var i = 0; i < 16; i++) {
+    for (var i = 0; i < 15; i++) {
         context.moveTo(20 + i * 24, 20);
-        context.lineTo(20 + i * 24, 380);
+        context.lineTo(20 + i * 24, 356);
         context.moveTo(20, 20 + i * 24);
-        context.lineTo(380, 20 + i * 24);
+        context.lineTo(356, 20 + i * 24);
     }
     context.stroke();
 }
@@ -40,7 +40,28 @@ Game.prototype.Send = function (text) {
         console.log('发送文字消息成功', message);
     });
 }
+Game.prototype.Place = function (color, i, j) {
+    console.log(i, j);
+    if (this.board[i][j] == 0) {
+        var context = this.ctx;
+        this.board[i][j] = color;
+        if (color == 1) {
+            context.fillStyle = "black";
+        } else if (color == 2) {
+            context.fillStyle = "white";
+        }
+        context.beginPath();
+        context.arc(20 + j * 24, 20 + i * 24, 10, 0, 2 * Math.PI);
+        context.fill();
+        context.stroke();
+        this.turn = 3 - this.turn;
+    }
+}
+Game.prototype.myTurn = function () {
+    return game.start && game.turn == game.color;
+}
 var game = new Game();
+game.Init();
 game.DrawBoard();
 $.get("/getappkey", function (appkey) {
     if (!appkey) {
@@ -83,6 +104,17 @@ $.get("/getappkey", function (appkey) {
         window.onbeforeunload = function () {
             $.get("/exit?token=" + encodeURIComponent(token.token));
             return "确认退出";
+        }
+
+        document.querySelector("#board").onclick = function (e) {
+            // if (game.myTurn()) {
+            var i = Math.floor((e.offsetY - 20 + 12) / 24);
+            var j = Math.floor((e.offsetX - 20 + 12) / 24);
+            if (i >= 0 && i < 15 && j >= 0 && j < 15) {
+                game.Place(2, i, j);
+            }
+            // game.Send("play:" + i + "," + j);
+            // }
         }
 
         //连接实时消息
