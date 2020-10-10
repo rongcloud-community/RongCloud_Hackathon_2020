@@ -52,3 +52,12 @@ $.get("/getappkey", function (appkey) {
         });
     });
 });
+function addoption() {
+    var node = document.createElement("div");
+    node.className = "option";
+    node.innerHTML = '<input type="text"><input type="button" value="删除" onclick="this.parentElement.remove();">';
+    document.querySelector("#optionlist").appendChild(node);
+}
+function submit() {
+    console.log("提交");
+}

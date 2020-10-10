@@ -7,38 +7,7 @@
     <script src="http://cdn.ronghub.com/RongIMLib-3.0.5-dev.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
     <script src="index.js" defer></script>
-    <style>
-        .message {
-            word-break: break-all;
-            position: relative;
-            /* width: 150px; */
-            background: #F8C301;
-            border-radius: 5px;
-            margin: 8px 32px;
-            padding: 0.5em;
-        }
-
-        .message p {
-            margin: 0;
-        }
-
-        .message .arrow {
-            position: absolute;
-            top: 8px;
-            left: -16px;
-            width: 0;
-            height: 0;
-            border: solid 8px;
-            border-color: #4D494800 #F8C301 #4D494800 #4D494800;
-        }
-
-        .message .arrow.right {
-            left: auto;
-            right: -16px;
-            border-color: #4D494800 #4D494800 #4D494800 #F8C301;
-        }
-    </style>
-    <title>anonychat</title>
+    <title>ivote</title>
 </head>
 
 <body>
@@ -46,6 +15,19 @@
     <p>输入投票id</p>
     <input type="text" name="voteinput" id="voteinput">
     <input type="button" id="send" value="投票">
+    <div>
+        <p>投票标题</p>
+        <input type="text" name="title" id="title">
+        <p>投票选项</p>
+        <div id="optionlist">
+            <div class="option">
+                <input type="text">
+                <input type="button" value="删除" onclick="this.parentElement.remove();">
+            </div>
+        </div>
+        <input type="button" value="增加" onclick="addoption();">
+        <input type="button" value="提交" onclick="submit();">
+    </div>
 </body>
 
 </html>
