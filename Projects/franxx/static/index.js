@@ -59,5 +59,14 @@ function addoption() {
     document.querySelector("#optionlist").appendChild(node);
 }
 function submit() {
+    var data = {
+        data: document.querySelector("#title").value,
+        option: []
+    };
+    var items = document.querySelectorAll(".option");
+    for (var i = 0; i < items.length; i++) {
+        data.option.push(items[i].firstElementChild.value);
+    }
     console.log("提交");
+    $.post("/newvote", data);
 }
