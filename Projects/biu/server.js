@@ -1,6 +1,8 @@
 var apikey = require("./key");
 var RongCloudSDK = require("rongcloud-sdk")(apikey);
 var RongUser = RongCloudSDK.User;
+var RongMessage = RongCloudSDK.Message;
+var Private = RongMessage.Private;
 var express = require("express");
 var app = express();
 
@@ -38,6 +40,8 @@ function getToken() {
                 var user1 = queue.shift();
                 var user2 = queue.shift();
                 match.push([user1, user2]);
+                sendMessage(user1, "oppo:1:" + user2.userId);
+                sendMessage(user2, "oppo:2:" + user1.userId);
                 console.log(user1.userId, "<>", user2.userId);
             }
             return JSON.stringify(users[i]);
@@ -64,11 +68,29 @@ function onExit(token) {
 function exitMatch(token) {
     for (var i = 0; i < match.length; i++) {
         if (match[i][0].token == token) {
+            sendMessage(match[i][1], "exit", match[i][0].userId, "<>", match[i][1].userId, "end");
             match[i][0].code = 200;
             match.splice(i, 1);
         } else if (match[i][1].token == token) {
+            sendMessage(match[i][0], "exit", match[i][0].userId, "<>", match[i][1].userId, "end");
             match[i][1].code = 200;
             match.splice(i, 1);
         }
     }
+}
+
+function sendMessage(user, text) {
+    console.log(`向${user.userId}发送${text}`);
+    Private.send({
+        senderId: "game",
+        targetId: user.userId,
+        objectName: "RC:TxtMsg",
+        content: {
+            content: text
+        }
+    }).then(result => {
+        console.log(result);
+    }, error => {
+        console.log(error);
+    });
 }
