@@ -1,3 +1,47 @@
+function Game() {
+    this.board = [];
+    this.color = 0;
+    this.ctx = document.querySelector("#board").getContext("2d");
+    this.conversation = null;
+    this.start = false;
+    this.turn = 0;
+}
+Game.prototype.DrawBoard = function () {
+    var context = this.ctx;
+    context.beginPath();
+    for (var i = 0; i < 16; i++) {
+        context.moveTo(20 + i * 24, 20);
+        context.lineTo(20 + i * 24, 380);
+        context.moveTo(20, 20 + i * 24);
+        context.lineTo(380, 20 + i * 24);
+    }
+    context.stroke();
+}
+Game.prototype.Init = function (conversation, color) {
+    this.board = [];
+    for (var i = 0; i < 15; i++) {
+        this.board[i] = [];
+        for (var j = 0; j < 15; j++) {
+            this.board[i][j] = 0;
+        }
+    }
+    this.color = color;
+    this.start = true;
+    this.turn = 1;
+    this.conversation = conversation;
+}
+Game.prototype.Send = function (text) {
+    this.conversation.send({
+        messageType: RongIMLib.MESSAGE_TYPE.TEXT,
+        content: {
+            content: text
+        }
+    }).then(function (message) {
+        console.log('发送文字消息成功', message);
+    });
+}
+var game = new Game();
+game.DrawBoard();
 $.get("/getappkey", function (appkey) {
     if (!appkey) {
         alert("获取appkey失败");
