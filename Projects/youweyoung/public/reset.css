@@ -1,0 +1,50 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+html {
+  min-height: 100%;
+  display: flex;
+}
+body {
+  flex: 1;
+  color-adjust: economy;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-color: black;
+}
+/* 字体重置 */
+@media (max-width: 360px) {
+  body,
+  html {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 390px) {
+  body,
+  html {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 600px) {
+  body,
+  html {
+    font-size: 15px;
+  }
+}
+@media (min-width: 1000px) {
+  body,
+  html {
+    font-size: 16px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
