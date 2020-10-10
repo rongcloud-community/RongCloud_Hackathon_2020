@@ -25,10 +25,8 @@ for (var i = 0; i < 10; i++) {
         name: id,
         portrait: "."
     }).then(result => {
-        console.log(result);
-        if (result.code == 200) {
-            users.push(result);
-        }
+        // console.log(result);
+        users.push(result);
     }, error => {
         console.log(error);
     });
@@ -68,7 +66,7 @@ function sendMessage(user, text) {
             content: text
         }
     }).then(result => {
-        // console.log(result);
+        console.log(result);
     }, error => {
         console.log(error);
     });
