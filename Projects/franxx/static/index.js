@@ -75,6 +75,7 @@ function addoption() {
 }
 function submit() {
     var data = {
+        voteid: randomID(),
         data: document.querySelector("#title").value,
         option: []
     };
@@ -83,5 +84,10 @@ function submit() {
         data.option.push(items[i].firstElementChild.value);
     }
     console.log("提交");
+    myVote.push(data.voteid);
+    localStorage.setItem("vote", JSON.stringify(myVote));
     $.post("/newvote", data);
+}
+function randomID() {
+    return Math.random().toFixed(6).substr(2);
 }

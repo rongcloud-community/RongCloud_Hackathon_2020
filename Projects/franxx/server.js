@@ -10,7 +10,7 @@ app.get("/exit", (req, res) => res.end(onExit(decodeURIComponent(req.query.token
 app.post("/newvote", express.urlencoded({ extended: false }), (req, res) => {
     console.log(req.body);
     votes.push({
-        voteid: randomID(),
+        voteid: req.body.voteid,
         data: req.body.data,
         options: req.body["options[]"]
     });
@@ -61,8 +61,4 @@ function onExit(token) {
         console.log("exit", users[index].userId);
         users[index].code = 200;
     }
-}
-
-function randomID() {
-    return Math.random().toFixed(6).substr(2);
 }
