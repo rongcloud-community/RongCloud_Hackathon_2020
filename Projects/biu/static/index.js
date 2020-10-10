@@ -86,6 +86,25 @@ $.get("/getappkey", function (appkey) {
             //收到新消息
             var message = event.message;
             console.log("收到新消息:", message);
+            if (message.senderUserId == "game") {
+                var oppo = message.content.content.match(/oppo:(.):(.+)/);
+                if (oppo) {
+                    console.log("颜色", oppo[1]);
+                    console.log("开始游戏", oppo[2]);
+                    game.Init(im.Conversation.get({
+                        targetId: oppo[2],
+                        type: RongIMLib.CONVERSATION_TYPE.PRIVATE
+                    }), Number(oppo[1]));
+                    game.Send("你好");
+                }
+            } else if (message.isOffLineMessage == false) {
+                var pos = message.content.content.match(/play:(\d+),(\d+)/);
+                if (pos) {
+                    console.log(pos);
+                    game.Place(3 - game.color, Number(pos[1]), Number(pos[2]));
+                    // game.check();
+                }
+            }
         },
         status: function (event) {
             //状态改变
@@ -107,14 +126,14 @@ $.get("/getappkey", function (appkey) {
         }
 
         document.querySelector("#board").onclick = function (e) {
-            // if (game.myTurn()) {
-            var i = Math.floor((e.offsetY - 20 + 12) / 24);
-            var j = Math.floor((e.offsetX - 20 + 12) / 24);
-            if (i >= 0 && i < 15 && j >= 0 && j < 15) {
-                game.Place(2, i, j);
+            if (game.myTurn()) {
+                var i = Math.floor((e.offsetY - 20 + 12) / 24);
+                var j = Math.floor((e.offsetX - 20 + 12) / 24);
+                if (i >= 0 && i < 15 && j >= 0 && j < 15) {
+                    game.Place(game.color, i, j);
+                }
+                game.Send("play:" + i + "," + j);
             }
-            // game.Send("play:" + i + "," + j);
-            // }
         }
 
         //连接实时消息
