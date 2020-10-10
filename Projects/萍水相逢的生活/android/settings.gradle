@@ -1,0 +1,10 @@
+include ':CallKit'
+include ':CallLib'
+include ':IMKit'
+include ':IMLib'
+include ':app'
+project(':IMLib').projectDir = new File(rootDir, 'Rong_Cloud_SDK/v4_0_3_Dev/IMLib/')
+project(':IMKit').projectDir = new File(rootDir, 'Rong_Cloud_SDK/v4_0_3_Dev/IMKit/')
+project(':CallLib').projectDir = new File(rootDir, 'Rong_Cloud_SDK/v4_0_3_Dev/CallLib/')
+project(':CallKit').projectDir = new File(rootDir, 'Rong_Cloud_SDK/v4_0_3_Dev/CallKit/')
+rootProject.name = "场信"
