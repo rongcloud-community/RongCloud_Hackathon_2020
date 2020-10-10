@@ -1,3 +1,4 @@
+console.log = function () { };
 function Game() {
     this.board = [];
     this.color = 0;
@@ -61,7 +62,6 @@ Game.prototype.myTurn = function () {
     return game.start && game.turn == game.color;
 }
 var game = new Game();
-game.Init();
 game.DrawBoard();
 $.get("/getappkey", function (appkey) {
     if (!appkey) {
@@ -96,13 +96,17 @@ $.get("/getappkey", function (appkey) {
                         type: RongIMLib.CONVERSATION_TYPE.PRIVATE
                     }), Number(oppo[1]));
                     game.Send("你好");
+                    $("#status").text("游戏开始");
+                } else if (message.content.content == "exit") {
+                    $("#status").text("刷新页面重新匹配");
+                    alert("对方已退出");
                 }
             } else if (message.isOffLineMessage == false) {
                 var pos = message.content.content.match(/play:(\d+),(\d+)/);
                 if (pos) {
                     console.log(pos);
                     game.Place(3 - game.color, Number(pos[1]), Number(pos[2]));
-                    // game.check();
+                    $("#status").text("你的回合");
                 }
             }
         },
@@ -131,8 +135,9 @@ $.get("/getappkey", function (appkey) {
                 var j = Math.floor((e.offsetX - 20 + 12) / 24);
                 if (i >= 0 && i < 15 && j >= 0 && j < 15) {
                     game.Place(game.color, i, j);
+                    game.Send("play:" + i + "," + j);
+                    $("#status").text("对方的回合");
                 }
-                game.Send("play:" + i + "," + j);
             }
         }
 
