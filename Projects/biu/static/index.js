@@ -28,4 +28,26 @@ $.get("/getappkey", function (appkey) {
             console.log("连接状态码:", status);
         }
     });
+
+    $.getJSON("/gettoken", function (token) {
+        if (token.token == "") {
+            alert("获取token失败！");
+            return;
+        }
+        console.log(token.token);
+
+        window.onbeforeunload = function () {
+            $.get("/exit?token=" + encodeURIComponent(token.token));
+            return "确认退出";
+        }
+
+        //连接实时消息
+        im.connect({
+            token: token.token
+        }).then(function (user) {
+            console.log("链接成功, 链接用户 id 为: ", user.id);
+        }).catch(function (error) {
+            alert("链接失败: " + error.code + error.msg);
+        });
+    });
 });
