@@ -32,12 +32,12 @@ Game.prototype.Draw = function () {
     }
     context.stroke();
 }
-Game.prototype.Place = function (self, i, j) {
+Game.prototype.Place = function (color, i, j) {
     console.log(i, j);
     if (this.board[i][j] == 0) {
         var context = this.ctx;
-        if (self) {
-            this.board[i][j] = this.color;
+        this.board[i][j] = this.color;
+        if (color == 1) {
             context.beginPath();
             context.moveTo(20 + 60 - 40 + j * 120, 20 + 60 - 40 + i * 120);
             context.lineTo(20 + 60 + 40 + j * 120, 20 + 60 + 40 + i * 120);
@@ -45,7 +45,6 @@ Game.prototype.Place = function (self, i, j) {
             context.lineTo(20 + 60 + 40 + j * 120, 20 + 60 - 40 + i * 120);
             context.stroke();
         } else {
-            this.board[i][j] = 3 - this.color;
             context.beginPath();
             context.arc(20 + 60 + j * 120, 20 + 60 + i * 120, 40, 0, 2 * Math.PI);
             context.stroke();
@@ -92,7 +91,7 @@ $.get("/getappkey", function (appkey) {
                 var pos = message.content.content.match(/play:(\d)(\d)/);
                 if (pos) {
                     console.log(pos);
-                    game.Place(false, Number(pos[1]), Number(pos[2]));
+                    game.Place(game.color, Number(pos[1]), Number(pos[2]));
                 }
             }
         },
@@ -118,7 +117,7 @@ $.get("/getappkey", function (appkey) {
         document.querySelector("#board").onclick = function (e) {
             var i = Math.floor((e.offsetY - 20) / 120);
             var j = Math.floor((e.offsetX - 20) / 120);
-            game.Place(true, i, j);
+            game.Place(3 - game.color, i, j);
             game.Send("play:" + i + j);
         }
 
