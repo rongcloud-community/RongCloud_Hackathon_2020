@@ -68,7 +68,7 @@ function sendMessage(user, text) {
             content: text
         }
     }).then(result => {
-        console.log(result);
+        // console.log(result);
     }, error => {
         console.log(error);
     });
@@ -80,5 +80,21 @@ function onExit(token) {
         console.log("exit", queue[index].userId);
         queue[index].code = 200;
         queue.splice(index, 1);
+    } else {
+        exitMatch(token);
+    }
+}
+
+function exitMatch(token) {
+    for (var i = 0; i < match.length; i++) {
+        if (match[i][0].token == token) {
+            sendMessage(match[i][1], "exit", match[i][0].userId, "<>", match[i][1].userId, "end");
+            match[i][0].code = 200;
+            match.splice(i, 0);
+        } else if (match[i][1].token == token) {
+            sendMessage(match[i][0], "exit", match[i][0].userId, "<>", match[i][1].userId, "end");
+            match[i][1].code = 200;
+            match.splice(i, 0);
+        }
     }
 }
