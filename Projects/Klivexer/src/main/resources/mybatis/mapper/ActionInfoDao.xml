@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aihome.aihomesys.dao.IActionInfoDao">
+
+    <select id="selectByclassId" resultType="ActionInfo">
+        SELECT * FROM ACTION_INFO WHERE classId = #{classId} AND actionValid = 0;
+    </select>
+
+    <select id="selectById" resultType="ActionInfo">
+        SELECT * FROM ACTION_INFO WHERE actionId = #{actionId} AND actionValid = 0;
+    </select>
+
+    <select id="getAllitems" resultType="ActionInfo">
+        SELECT * FROM ACTION_INFO WHERE actionValid= 0;
+    </select>
+
+    <select id="countById"  resultType="java.lang.Integer">
+        SELECT count(1) FROM ACTION_INFO WHERE classId = #{classId} AND actionValid= 0;
+    </select>
+
+    <select id="randGetpos"  resultType="ActionInfo">
+       SELECT
+                *
+            FROM
+                action_info AS t1
+            JOIN (
+                SELECT
+                    ROUND(
+                        RAND() * (
+                            (SELECT MAX(actionId) FROM action_info) - (SELECT MIN(actionId) FROM action_info)
+                        ) + (SELECT MIN(actionId) FROM action_info)
+                    ) AS id
+            ) AS t2
+            WHERE
+                t1.actionId >= t2.id
+            ORDER BY
+                t1.actionId
+            LIMIT 4;
+    </select>
+
+</mapper>

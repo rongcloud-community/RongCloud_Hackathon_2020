@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aihome.aihomesys.dao.IFitnessRecordDao">
+
+    <insert id="recordInsert" useGeneratedKeys="true">
+            INSERT INTO FITNESS_RECORD(userId,recordTime,fitnessTime,cumFatB,fkId,fkType,score)
+        VALUES(#{userId},#{recordTime},#{fitnessTime},#{cumFatB},#{fkId},#{fkType},#{score})
+    </insert>
+
+    <select id="countFitnessTime"  resultType="java.lang.Integer">
+        SELECT IFNULL(sum(fitnessTime),0) FROM FITNESS_RECORD WHERE userId = #{userId};
+    </select>
+
+    <select id="countCumFatB"  resultType="java.lang.Integer">
+        SELECT IFNULL(sum(cumFatB),0) FROM FITNESS_RECORD WHERE userId = #{userId};
+    </select>
+
+    <select id="countCumFatBToday"  resultType="java.lang.Integer">
+        SELECT IFNULL(sum(cumFatB),0) FROM FITNESS_RECORD WHERE userId = #{userId} AND TO_DAYS(recordTime) = TO_DAYS(NOW());
+    </select>
+
+    <select id="countEchartFatB"  resultType="java.lang.Integer">
+        SELECT IFNULL(sum(cumFatB),0) FROM FITNESS_RECORD WHERE userId = #{userId} AND TO_DAYS(recordTime) = TO_DAYS(#{recordTime});
+    </select>
+
+    <select id="countEchartFitnessTime"  resultType="java.lang.Integer">
+        SELECT IFNULL(sum(fitnessTime),0) FROM FITNESS_RECORD WHERE userId = #{userId} AND TO_DAYS(recordTime) = TO_DAYS(#{recordTime});
+    </select>
+
+    <select id="countEchartPlan"  resultType="java.lang.Integer">
+        SELECT count(*) FROM FITNESS_RECORD WHERE userId = #{userId} AND TO_DAYS(recordTime) = TO_DAYS(#{recordTime}) AND fkType = 0;
+    </select>
+
+    <select id="countCumday"  resultType="java.lang.Integer">
+        select count(*) from(select recordTime from fitness_record where userId = #{userId} Group by TO_DAYS(recordTime))subQuery;
+    </select>
+
+    <select id="countPerfect"  resultType="java.lang.Integer">
+        select count(*) FROM FITNESS_RECORD WHERE userId = #{userId} AND score <![CDATA[ >= ]]> 90 AND fkType = 1;
+    </select>
+
+    <select id="countGood"  resultType="java.lang.Integer">
+        select count(*) FROM FITNESS_RECORD WHERE userId = #{userId} AND (score <![CDATA[ >= ]]> 70 AND score <![CDATA[ < ]]> 90) AND fkType = 1;
+    </select>
+
+    <select id="countBad"  resultType="java.lang.Integer">
+        select count(*) FROM FITNESS_RECORD WHERE userId = #{userId} AND score <![CDATA[ < ]]> 70 AND fkType = 1;
+    </select>
+
+    <select id="count69"  resultType="java.lang.Integer">
+       select count(*) from fitness_record
+       where userId = #{userId}
+       AND FROM_UNIXTIME(UNIX_TIMESTAMP(recordTime),'%H:%i:%s')<![CDATA[ >= ]]> "06:00:00"
+       AND FROM_UNIXTIME(UNIX_TIMESTAMP(recordTime),'%H:%i:%s')<![CDATA[ < ]]>"09:00:00";
+    </select>
+
+    <select id="count912"  resultType="java.lang.Integer">
+        select count(*) from fitness_record
+       where userId = #{userId}
+       AND FROM_UNIXTIME(UNIX_TIMESTAMP(recordTime),'%H:%i:%s')<![CDATA[ >= ]]> "09:00:00"
+       AND FROM_UNIXTIME(UNIX_TIMESTAMP(recordTime),'%H:%i:%s')<![CDATA[ < ]]>"12:00:00";
+    </select>
+
+    <select id="count1215"  resultType="java.lang.Integer">
+        select count(*) from fitness_record
+       where userId = #{userId}
+       AND FROM_UNIXTIME(UNIX_TIMESTAMP(recordTime),'%H:%i:%s')<![CDATA[ >= ]]> "12:00:00"
+       AND FROM_UNIXTIME(UNIX_TIMESTAMP(recordTime),'%H:%i:%s')<![CDATA[ < ]]>"15:00:00";
+    </select>
+
+    <select id="count1518"  resultType="java.lang.Integer">
+        select count(*) from fitness_record
+       where userId = #{userId}
+       AND FROM_UNIXTIME(UNIX_TIMESTAMP(recordTime),'%H:%i:%s')<![CDATA[ >= ]]> "15:00:00"
+       AND FROM_UNIXTIME(UNIX_TIMESTAMP(recordTime),'%H:%i:%s')<![CDATA[ < ]]>"18:00:00";
+    </select>
+
+    <select id="count1821"  resultType="java.lang.Integer">
+        select count(*) from fitness_record
+       where userId = #{userId}
+       AND FROM_UNIXTIME(UNIX_TIMESTAMP(recordTime),'%H:%i:%s')<![CDATA[ >= ]]> "18:00:00"
+       AND FROM_UNIXTIME(UNIX_TIMESTAMP(recordTime),'%H:%i:%s')<![CDATA[ < ]]>"21:00:00";
+    </select>
+
+    <select id="count210"  resultType="java.lang.Integer">
+        select count(*) from fitness_record
+       where userId = #{userId}
+       AND FROM_UNIXTIME(UNIX_TIMESTAMP(recordTime),'%H:%i:%s')<![CDATA[ >= ]]> "21:00:00"
+       AND FROM_UNIXTIME(UNIX_TIMESTAMP(recordTime),'%H:%i:%s')<![CDATA[ < ]]>"00:00:00";
+    </select>
+
+    <select id="count0after"  resultType="java.lang.Integer">
+        select count(*) from fitness_record
+       where userId = #{userId}
+       AND FROM_UNIXTIME(UNIX_TIMESTAMP(recordTime),'%H:%i:%s')<![CDATA[ >= ]]> "00:00:00"
+       AND FROM_UNIXTIME(UNIX_TIMESTAMP(recordTime),'%H:%i:%s')<![CDATA[ < ]]>"06:00:00";
+    </select>
+
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aihome.aihomesys.dao.IMealInfoDao">
+
+    <select id="getMealList" resultType="MealInfo">
+        SELECT * FROM MEAL_INFO WHERE mealType = #{mealType}
+        AND hotelId = #{hotelId};
+    </select>
+
+    <select id="getCommMeal" resultType="MealInfo">
+        SELECT * FROM MEAL_INFO as t1 WHERE mealType = #{mealType}
+        AND hotelId = #{hotelId} ORDER BY RAND() LIMIT 1;
+    </select>
+
+</mapper>

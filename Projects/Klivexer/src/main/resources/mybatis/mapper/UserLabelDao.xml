@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aihome.aihomesys.dao.IUserLabelDao">
+
+    <select id="getAllitems" resultType="UserLabel">
+        SELECT * FROM USER_LABEL WHERE userId = #{userId}
+    </select>
+
+    <insert id="insertForeach" parameterType="java.util.List" useGeneratedKeys="true">
+        INSERT INTO USER_LABEL
+        (userId,typeId,typeName)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.userId},
+            #{item.typeId},
+            #{item.typeName})
+        </foreach>
+    </insert>
+</mapper>

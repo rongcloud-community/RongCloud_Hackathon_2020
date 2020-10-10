@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aihome.aihomesys.dao.IHotelInfoDao">
+
+    <select id="isIn"  resultType="java.lang.Integer">
+        SELECT count(1) FROM HOTEL_INFO WHERE hotelId = #{hotelId};
+    </select>
+
+    <select id="getHotelInfo"  resultType="HotelInfo">
+        SELECT h.* FROM HOTEL_INFO as h,USER_ENROLL as u WHERE userId = #{userId} AND u.hotelId = h.hotelId;
+    </select>
+
+    <update id="setHotelInfo">
+        update HOTEL_INFO set
+            hotelNotice = #{hotelNotice}
+          where hotelId = #{hotelId}
+    </update>
+
+</mapper>

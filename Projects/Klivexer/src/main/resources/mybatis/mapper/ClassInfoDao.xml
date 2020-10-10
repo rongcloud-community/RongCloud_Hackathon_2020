@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aihome.aihomesys.dao.IClassInfoDao">
+
+    <select id="selectByKeys" resultType="ClassInfo">
+        SELECT * FROM CLASS_INFO WHERE classLabel LIKE CONCAT('%',#{classLabel},'%') AND classValid = 0 ORDER BY classTrainnumber DESC ,classId DESC LIMIT 0,4;
+    </select>
+
+    <select id="getAllitems" resultType="ClassInfo">
+        SELECT * FROM CLASS_INFO WHERE classValid = 0 ORDER BY classTrainnumber DESC ,classId DESC LIMIT #{page},#{number};
+    </select>
+
+    <select id="getAllCounts"  resultType="java.lang.Integer">
+        SELECT count(1) FROM CLASS_INFO WHERE classValid = 0;
+    </select>
+
+    <select id="getSearch" resultType="ClassInfo">
+        SELECT * FROM CLASS_INFO WHERE (classTitle LIKE CONCAT('%',#{val},'%') or className LIKE CONCAT('%',#{val},'%')) AND classValid = 0 ORDER BY classTrainnumber DESC ,classId DESC;
+    </select>
+
+    <select id="selectByTitle" resultType="ClassInfo">
+        SELECT * FROM CLASS_INFO WHERE classTitle LIKE CONCAT('%',#{classTitle},'%') AND classValid = 0 ORDER BY classTrainnumber DESC ,classId DESC LIMIT #{page},#{number};
+    </select>
+
+    <select id="countByTitle" resultType="java.lang.Integer">
+        SELECT count(1) FROM CLASS_INFO WHERE classTitle LIKE CONCAT('%',#{classTitle},'%') AND classValid = 0;
+    </select>
+
+    <select id="selectById" resultType="ClassInfo">
+        SELECT * FROM CLASS_INFO WHERE classId = #{classId} AND classValid = 0;
+    </select>
+
+    <select id="selectByUserId" resultType="ClassInfo">
+        SELECT DISTINCT c.* FROM CLASS_INFO as c,USER_PLAN AS u WHERE u.userId = #{userId} AND u.classId = c.classId  AND classValid = 0;
+    </select>
+
+    <update id="updateSub">
+        update CLASS_INFO set classTrainnumber = classTrainnumber+1 where classId = #{classId}
+    </update>
+
+</mapper>

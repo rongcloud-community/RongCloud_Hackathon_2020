@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aihome.aihomesys.dao.IUserPlanDao">
+
+    <insert id="infoinsert" useGeneratedKeys="true">
+            INSERT INTO USER_PLAN(userId,classId,subTime)
+        VALUES(#{userId},#{classId},#{subTime})
+    </insert>
+
+    <select id="countById"  resultType="java.lang.Integer">
+        SELECT count(1) FROM USER_PLAN WHERE classId = #{classId} AND userId = #{userId}
+    </select>
+
+    <select id="countTodayIsCom"  resultType="java.lang.Integer">
+        SELECT count(1) FROM USER_PLAN WHERE classId = #{classId} AND userId = #{userId} AND todayComplete=1
+    </select>
+
+    <select id="countMyClassNum"  resultType="java.lang.Integer">
+        SELECT count(1) FROM USER_PLAN WHERE userId = #{userId}
+    </select>
+
+    <update id="updateOneClass">
+        update USER_PLAN set comTime = comTime+1,todayComplete=1,todayTime=#{todayTime},totalFatB=totalFatB+#{totalFatB} where classId = #{classId} AND userId = #{userId}
+    </update>
+
+    <update id="updateIsCom">
+        update USER_PLAN set isComplete = 1 where classId = #{classId} AND userId = #{userId}
+    </update>
+
+    <update id="updateFatB">
+        update USER_PLAN set totalFatB = totalFatB + #{totalFatB},todayTime = #{todayTime} where classId = #{classId} AND userId = #{userId}
+    </update>
+
+    <select id="selectTodayTask" resultType="UserPlan">
+        SELECT up.*,ci.className as className,ci.classImg as classImg,ci.classTime as classTime FROM USER_PLAN AS up,CLASS_INFO AS ci WHERE userId = #{userId} AND up.classId = ci.classId AND isComplete = 0 AND todayComplete = 0;
+    </select>
+
+    <select id="selectByClassIdAndUserId" resultType="UserPlan">
+        SELECT up.*,ci.className as className,ci.classImg as classImg,ci.classTime as classTime FROM USER_PLAN AS up,CLASS_INFO AS ci WHERE userId = #{userId} AND up.classId = #{classId} AND up.classId = ci.classId;
+    </select>
+
+    <select id="selectMyTask" resultType="UserPlan">
+        SELECT up.*,ci.className as className,ci.classImg as classImg,ci.classTime as classTime FROM USER_PLAN AS up,CLASS_INFO AS ci WHERE userId = #{userId} AND up.classId = ci.classId;
+    </select>
+
+</mapper>
