@@ -12,10 +12,12 @@
 
 <body>
     <h2>ivote</h2>
+    <h4>创建/参与投票</h4>
     <p>输入投票id</p>
     <input type="text" name="voteinput" id="voteinput">
     <input type="button" id="send" value="投票">
-    <div>
+    <h4>创建投票</h4>
+    <div id="create">
         <p>投票标题</p>
         <input type="text" name="title" id="title">
         <p>投票选项</p>
@@ -31,6 +33,26 @@
         </div>
         <input type="button" value="增加" onclick="addoption();">
         <input type="button" value="提交" onclick="submit();">
+    </div>
+    <div id="result">
+        <h4>投票结果</h4>
+        <div id="resultlist">
+            <div>选项1</div>
+            <div>选项2</div>
+        </div>
+    </div>
+    <div id="dovote">
+        <h4>参与投票</h4>
+        <div id="votelist">
+            <div class="voteitem">
+                <input type="button" value="√">
+                <span>选项1</span>
+            </div>
+            <div class="voteitem">
+                <input type="button" value="√">
+                <span>选项2</span>
+            </div>
+        </div>
     </div>
 </body>
 
