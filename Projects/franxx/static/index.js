@@ -1,4 +1,19 @@
 var conversation;
+var myVote = localStorage.getItem("vote");
+if (myVote) {
+    myVote = JSON.parse(myVote);
+} else {
+    myVote = [];
+}
+var voted = localStorage.getItem("voted");
+if (voted) {
+    voted = JSON.parse(voted);
+} else {
+    voted = [];
+}
+for (var i = 0; i < myVote.length; i++) {
+    console.log(myVote.length);
+}
 $.get("/getappkey", function (appkey) {
     if (!appkey) {
         alert("获取appkey失败");
