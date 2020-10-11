@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//cdn.ronghub.com/RongIMLib-2.4.0.js"></script>
+    <script src="//cdn.ronghub.com/RongRTC-3.0.4.js"></script>
+    <script src="//cdn.ronghub.com/RongCallLib-3.1.5.js"></script>
+
+    <script src="./im.js"></script>
+    <script src="./calllib.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>
+        CallLib-Demo
+    </h1>
+     <!-- 发起通话按钮-->
+     <button id="call" onclick="call()">视频通话</button>
+    
+     <!-- 接听通话按钮-->
+     <div id="RringDiv" class="hide">
+         收到音视频呼叫是否接听？
+         <button id="accept" onclick="accept()">接听</button>
+     </div>
+     
+     <!-- 用于添加 video-->
+     <div id="box"></div>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>music</title>
+	<meta charset="utf-8">
+	<script src="//cdn.ronghub.com/RongIMLib-2.4.0.js"></script>
+    <script src="//cdn.ronghub.com/RongRTC-3.0.4.js"></script>
+    <script src="//cdn.ronghub.com/RongCallLib-3.1.5.js"></script>
+    <script src="im.js"></script>
+    <script src="calllib.js"></script>
+	<link rel="stylesheet" type="text/css" href="music.css">
+</head>
+<body> 
+	<div id = love style="background-image: url('1.jpg');">
+		<audio src="" controls class="music"></audio>
+		<ul class="mlist">
+			<li>大火</li>
+            <li>天分</li>	
+			<li>啦啦</li>
+			<li>李荣浩</li>
+		</ul>
+		<button id="call" onclick="call()">视频通话</button>
+    
+		<!-- 接听通话按钮-->
+		<div id="RringDiv" class="hide">
+			收到音视频呼叫是否接听？
+			<button id="accept" onclick="accept()">接听</button>
+		</div>
+		
+		<!-- 用于添加 video-->
+		<div id="box"></div>
+    </div>
+ 
+<script type="text/javascript" src="music.js"></script>
+</body>
+</html>`
