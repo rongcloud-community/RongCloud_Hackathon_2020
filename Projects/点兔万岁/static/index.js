@@ -1,3 +1,4 @@
+console.log = function () { };
 function Game() {
     this.board = [];
     this.color = 0;
