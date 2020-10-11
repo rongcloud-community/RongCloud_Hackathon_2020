@@ -1,0 +1,1 @@
+define("app/openclass/forum",["init"],function(i){i("init")});
