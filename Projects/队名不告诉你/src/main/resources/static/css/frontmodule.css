@@ -1,0 +1,378 @@
+﻿div, blockquote, p, label, h1, h2, h3, h4, h5, h6, pre, ul, ol, li, dl, dt, dd, form, fieldset, input, th, td, address
+{
+    list-style: none outside none;
+    margin: 0;
+    outline: medium none;
+    padding: 0;
+}
+body
+{
+    font-size: 12px;
+    line-height: 1.65;
+}
+
+
+.bs-module .adminarea {
+    position: relative;  
+}
+.bs-module .rightdetail {
+    /*float:right;
+    width:206px;  */
+}
+
+/*------------登录开始:Login-Default --------------------*/
+.bs-module .login-default
+{
+
+}
+
+.bs-module .login-default ul
+{
+    overflow: hidden;
+    padding-top: 15px;
+}
+
+.bs-module .login-default ul li
+{
+    height: auto;
+    margin: 5px 0;
+    clear: both;
+    color: #494949;
+    float: left;
+    text-align: left;
+    width: 205px;
+    padding-left: 10px;
+}
+
+
+.bs-module .login-default li.personainfo {
+    float: none;
+    height: 31px;
+    text-align: right;
+}
+
+.bs-module .login-default li.applyInfos {
+    padding-left: 20px;
+}
+
+.bs-module .login-default li.applyInfos a{
+    color: #0A6B98;
+    text-decoration: none;
+}
+
+.bs-module .login-default li.personainfo a{
+    padding-right: 5px;
+    padding-top: 5px;
+    color: #0A6B98;
+}
+
+.bs-module .login-default .snslogin
+{
+    text-align: center;
+}
+
+.bs-module .login-default .loginul li
+{
+    float: none;
+    overflow: hidden;
+}
+
+
+.bs-module .login-default ul li.loginbutton
+{
+    float: none;
+    padding-left: 30px;
+    padding-top: 5px;
+    width: 145px;
+}
+
+.bs-module .login-default h2
+{
+    font-size: 14px;
+    overflow: hidden;
+}
+
+.bs-module .login-default ul li label
+{
+    display: block;
+    float: left;
+    text-align: left;
+    width: 45px;
+}
+
+.bs-module .default input, textarea, select
+{
+    font-family: inherit;
+    font-size: 100%;
+    font-weight: inherit;
+}
+
+.bs-module .login-default ul li input
+{
+    border: 1px solid #B4AFAB;
+    height: 18px;
+    text-indent: 2px;
+    width: 140px;
+}
+
+.bs-module .login-default ul li input .checkbox
+{
+    width: 20px;
+}
+
+.bs-module .login-default ul li.loginbutton a.smallcmdbutton
+{
+    margin: 0 5px;
+}
+
+.bs-module .login-default .smallcmdbutton
+{
+    border: medium none;
+    color: #0A6B98;
+    cursor: pointer;
+    display: inline-block;
+    height: 22px;
+    padding-left: 15px;
+}
+
+.bs-module .login-default ul li a.register {
+    margin-left: 30px;
+    color: #0A6B98;
+}
+
+.bs-module .login-default ul li a.getpwd
+{
+    margin-left: 20px;
+    color: #4DA9EA;
+}
+
+.bs-module .login-default span.field-validation-valid
+{
+    display: none;
+}
+
+.bs-module .login-default span.bs_pop_alert
+{
+    color: #ED2A00;
+    padding: 2px 0 0 66px;
+}
+
+.bs-module .login-default .alipay, .qq, .sina, .wangyi, .baidu, .msn
+{
+    background-image: url("../images/bg16x16login.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    padding-left: 20px;
+    margin-left: 0px;
+}
+
+/*------------登录开始:Login-Link --------------------*/
+.bs-module .login-link
+{
+    display: block;
+}
+
+.bs-module .login-link li
+{
+    display: block;
+    float: left;
+    padding-left: 5px;
+}
+
+.bs-module .login-link a:link
+{
+    color: #000000;
+    text-decoration: none;
+}
+
+.bs-module .login-link a:hover
+{
+    color: red;
+    text-decoration: underline;
+}
+
+/*-------------------菜单显示(横向)-------------------*/
+.bs-module .menu-default
+{
+    position: relative;
+    z-index: 999;
+    clear: both;
+    margin: 0 auto;
+    padding :0px ; 
+    list-style :none;
+    overflow: visible;
+}
+
+.bs-module .menu-default ul li{
+    position: relative;    float: left;
+    height:30px;    margin: 1px;}
+.bs-module .menu-default ul li a
+{
+    /*height: 32px;
+    line-height: 32px;*/
+    display: block;
+}
+.bs-module .menu-default ul li:hover ul.submenu{    display: block;}
+
+/*子菜单样式*/
+.bs-module .menu-default ul li {     float: left;    margin: 0;
+}
+.bs-module .menu-default .submenu {   display: none;    position: absolute;
+    top: 32px;    list-style :none;     position:absolute;    left:0px;}  
+.bs-module .menu-default .submenu li {
+    width :80px; 
+    height :32px;
+}
+
+
+
+/*-------------------菜单显示(纵向)-------------------*/
+.bs-module .menu-vertical ul
+{
+    width: 100px;
+    border-bottom: none;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+.bs-module .menu-vertical ul li
+{
+    background: #eee;
+    padding: 0px 8px;
+    height: 26px;
+    line-height: 26px;
+    border-bottom: 1px solid #CCC;
+    position: relative;
+}
+
+/*子菜单样式*/
+.bs-module .menu-vertical ul li ul.submenu
+{
+    display: none;
+    position: absolute;
+    left: 100px;
+    top: 0px;
+    width: 100px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+}
+.bs-module .menu-vertical ul li:hover ul.submenu
+{
+    display: block;
+}
+.bs-module .menu-vertical ul li ul a
+{
+    color: #000;
+    text-decoration: none;
+}
+.bs-module .menu-vertical ul li ul.submenu a:hover
+{
+    color: #F00;
+}
+
+/*-------------------职位详情多列模板-------------------*/
+.bs-module .positiondetail-customcolumns td .title {
+    font-weight: bold;
+    width: 70px;
+}
+.bs-module .positiondetail-customcolumns td .value {
+    
+}
+
+.bs-module .positionlist-default .itemlist {clear: left;}
+.bs-module .positionlist-default .t-tablelist {text-align:left; width: 100%;word-wrap:break-word; word-break:break-all;}
+.bs-module .positionlist-default .t-tablelist caption strong{ float:left; font-size:14px;width:650px;text-align:left;display:block;text-overflow:ellipsis;-o-text-overflow:ellipsis;white-space:nowrap;vartical-align:middle;overflow:hidden;}
+.bs-module .positionlist-default .t-tablelist caption a { float:right;margin-top:3px;padding-right:10px}
+.bs-module .positionlist-default .t-tablelist thead th span{color:#515151;font-size:14px; font-weight:400; line-height:1.5}
+.bs-module .positionlist-default .t-last-header {border-right:0;}
+.bs-module .positionlist-default .t-tablelist th,.t-tablelist td {padding:3px 5px; text-align:left;}
+.bs-module .positionlist-default .t-tablelist col.col1 {text-align:left;width:160px}
+.bs-module .positionlist-default .t-tablelist col.col2, .t-tablelist col.col3, .t-tablelist col.col4, .t-tablelist col.col5, .t-tablelist col.col6, .t-tablelist col.col7{width:80px;}
+.bs-module .positionlist-default .t-tablelist td+td,.t-tablelist th+th {text-align:left;}
+.bs-module .positionlist-default .hot { padding-right:15px;*float:left; display:inline-block;}
+.bs-module .positionlist-default .long {padding-right:15px;*float:left; display:inline-block;}
+.bs-module .positionlist-default .hotlong{padding-right:29px;*float:left; display:inline-block;}
+.bs-module .positionlist-default .wfirst{float:left;text-overflow:ellipsis;-o-text-overflow:ellipsis;white-space:nowrap;vartical-align:middle;overflow:hidden;}
+
+.bs-module .positionlist-default .hotimg{ width:16px;height:16px;margin:3px 0px 0px 5px}
+.bs-module .positionlist-default .longimg {width:16px;height:16px;margin:3px 0px 0px 5px}
+.bs-module .positionlist-default .hotimglongimg{width:32px;height:16px;margin:3px 0px 0px 5px}
+
+.bs-module .positionlist-default .pagelist{height:22px;padding:3px 10px 4px 0;overflow:hidden;}
+.bs-module .positionlist-default .pagelist div{float:right}
+.bs-module .positionlist-default .pagelist div span{float:left;color:#515151;margin-left:10px}
+.bs-module .positionlist-default .pagelist div span em {color:#515151;font-weight:700;margin:0 2px}
+.bs-module .positionlist-default .pagelist div span a{display:block;float:left;margin:2px 0 0 3px;padding:0 5px;height:17px;border:1px solid #A9C5D1;overflow:hidden;line-height:16px}
+.bs-module .positionlist-default .pagelist div span a:hover{background-position:0 -120px;border-color:#648CA8;color:#fff;text-decoration:none}
+.bs-module .positionlist-default .pagelist div span a.f,.pagelist div span a.f:hover{padding:0 3px;line-height:60px;width:10px}
+.bs-module .positionlist-default .pagelist div span a.p,.pagelist div span a.p:hover {padding:0 5px 0 10px;color:#2C6185;*line-height:20px}
+.bs-module .positionlist-default .pagelist div span a.current,.pagelist div span a.current:hover {color:#2C6185;border:1px solid #F0C065}
+.bs-module .positionlist-default .pagelist div span a.n,.pagelist div span a.n:hover {padding:0 5px 0 10px;color:#2C6185;*line-height:20px}
+.bs-module .positionlist-default .pagelist div span a.l,.pagelist div span a.l:hover {padding:0 3px;line-height:60px;width:10px}
+.bs-module .positionlist-default .pagelist div span input{height:14px;width:24px;margin:0 3px}
+.bs-module .positionlist-default .pagelist div span select{margin:0 2px}
+
+/*-------------------职位列表摘要模板-------------------*/
+.bs-module .positionlist-summary dl dt {
+    float: left;
+    font-weight:bold;
+}
+
+.bs-module .positionlist-summary dl {
+    clear: both;
+     line-height: 25px;
+    margin-bottom: 10px;
+}
+
+
+/*---------------------搜索默认模板-----------------------*/
+
+.bs-module .positionsearch-default{
+    float: left;
+}
+
+.bs-module .positionsearch-default li {
+    display: block;
+    float: left;
+}
+
+
+
+/*-------------------搜索电商风格模板-------------------*/
+.bs-module .positionsearch-eshopstyle li{
+    display: block;
+    clear: left;
+    margin-top: 5px;
+}
+
+.bs-module .positionsearch-eshopstyle li label{
+    display: block;
+    float: left;
+}
+.bs-module .positionsearch-eshopstyle li div{
+    float: left;
+}
+
+.bs-module .positionsearch-eshopstyle li .s-title{
+    font-weight: bold;
+}
+
+ /*弹层样式*/
+ .dl_dialog1{border:1px solid #C4C4C4;padding:20px;background:#fff;
+-moz-border-radius:3px;
+-webkit-border-radius:3px;
+-o-border-radius:3px;
+-moz-box-shadow:0 0 3px rgba(0,0,0,.41);
+-webkit-box-shadow:3px 3px 2px rgba(229,229,229,.41);
+-o-box-shadow:0 0 3px rgba(0,0,0,.41);
+ }
+ .dl_dialog_btn{padding-top:10px;margin-top:20px; text-align: center;border-top:1px solid #D3DAE2;color:#333}
+ .dl_dialog_icoqa{background: url(../images/dl_dialog_icoqa.gif) no-repeat;padding-left: 20px;color:#333}
+ .dl_dialog_icook{background: url(../images/dl_dialog_icook.gif) no-repeat;padding-left: 20px;color:#333}
+ .dl_dialog_icowarn{background: url(../images/dl_dialog_icoqwarn.gif) no-repeat;padding-left: 20px;color:#333}
+
+ /*btn样式*/
+a.dl_btn_grey1{display:inline-block;height:32px;background:url(../images/dl_btn_bg.png) no-repeat 0 -409px;color:#666;line-height:32px}
+a.dl_btn_grey1 span{display:block;float:left;padding:0 25px;background:url(../images/dl_btn_bg.png) no-repeat 100% -450px;color:#666;}
+a.dl_btn_grey1:hover{background-position:0 -495px;}
+a.dl_btn_grey1:hover span{background-position:100% -542px}
