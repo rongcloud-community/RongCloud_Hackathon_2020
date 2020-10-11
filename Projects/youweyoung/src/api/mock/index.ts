@@ -1,5 +1,7 @@
-import { users, script1 } from "./data";
+import { users, script1, rooms } from "./data";
 import { appid } from "@/config"
+import { deepCopy } from '@/utils';
+
 export async function userLogon(data: { id: string; pwd: string }) {
   const user = users.find(
     (el) => el.uid === data.id && el.password === data.pwd
@@ -42,4 +44,18 @@ export function getCharactors() {
 
 export async function loadScript() {
   return script1
+}
+
+export async function loadRoomList(start: number, end: number) {
+  return rooms.map(el => ({
+    roomId: el.roomId,
+    desc: el.desc,
+    password: el.password,
+    name: el.name,
+    bg: `url(${el.bg})`
+  }))
+}
+
+export async function loadRoomInfo(roomId: string) {
+  return deepCopy(rooms.find(el => el.roomId === roomId))
 }

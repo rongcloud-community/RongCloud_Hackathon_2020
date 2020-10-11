@@ -1,14 +1,23 @@
 <template>
   <div>
-    <section v-if="joined">
-      <div>👨‍👨‍👦‍👦：{{ totalUser }}</div>
-      <Stage ref="stage" />
-      <div v-if="role === 1">观众视角</div>
-      <div v-if="role === 2">[讲解员视角]</div>
-      <button @click="leave">离开</button>
+    <div v-if="!joined">尝试加入中...</div>
+    <section>
+      <div
+        class="frow"
+        style="justify-content: space-between; align-items: center"
+      >
+        <div>👨‍👨‍👦‍👦：{{ users.length }}</div>
+        <div class="frow" v-if="isPlayer">
+          <span style="margin-right: 8px">
+            {{ published ? "在线" : "离线" }}</span
+          >
+          <el-button size="mini" @click="publish">连麦</el-button>
+          <el-button size="mini" @click="unpublish">断开</el-button>
+        </div>
+        <button size="mini" @click="leave">离开</button>
+      </div>
+      <Stage ref="stage" :isPlayer="isPlayer" :config="roomInfo" />
     </section>
-
-    <div v-else>尝试加入中...</div>
   </div>
 </template>
 
@@ -16,15 +25,25 @@
 import { RTCModule } from "@/store/rtc";
 import { UserModule } from "@/store/user";
 import Stage from "@/components/Stage.vue";
+import { loadRoomInfo } from "@/api";
 // @ is an alias to /src
 import { rtc, Channel, sleep } from "@/utils";
 import { Component, Vue, Watch } from "vue-property-decorator";
 
 let room: any;
+let mediaStream: MediaStream;
+let stream: any;
+let stage: Stage;
 @Component({ name: "room", components: { Stage } })
 export default class Room extends Vue {
   message: any;
   readonly channel = new Channel("room");
+  roomId!: string;
+  roomInfo: any = {};
+  published = false;
+  sound: HTMLVideoElement = document.createElement("video");
+  isPlayer = false;
+  users: string[] = [];
   private get uid() {
     return UserModule.uid;
   }
@@ -55,7 +74,7 @@ export default class Room extends Vue {
       setTimeout(() => {
         this.broadcastBusy = false;
         if (typeof cb === "function") cb();
-      }, 500);
+      }, 200);
       t = res;
     } catch (error) {
       this.broadcastBusy = false;
@@ -64,33 +83,162 @@ export default class Room extends Vue {
     return t;
   }
   private created() {
-    if (!rtc) {
+    this.roomId = this.$route.query.roomId as string;
+    if (!rtc || !this.roomId) {
       return this.$router.replace("/");
     }
-    this.initRoom();
   }
   private mounted() {
-    this.$refs.stage;
+    this.initRoom();
   }
   private async initRoom() {
-    await this.join();
+    const l = this.$loading({
+      fullscreen: true,
+    });
+    await sleep(200);
+    stage = this.$refs.stage as any;
+    try {
+      const e = await loadRoomInfo(this.roomId);
+      if (!e) {
+        this.leave();
+        return;
+      }
+      this.isPlayer = e.players.includes(this.uid);
+      this.roomInfo = e;
+      const success = await this.join(this.roomId);
+      if (success) {
+        this.initAudio();
+      }
+    } catch (error) {}
+    stage.initStage();
+    l.close();
+  }
+  initAudio() {
+    console.log("init audio");
+    console.log(rtc);
+    stream = new rtc.Stream({
+      // 成员已发布资源，此时可按需订阅
+      published: function (user: any) {
+        console.log("new resource get------");
+        console.log(user);
+        stream
+          .subscribe(user)
+          .then((user: { id: any; stream: { tag: any; mediaStream: any } }) => {
+            let {
+              id,
+              stream: { tag, mediaStream },
+            } = user;
+            // 订阅成功后会获取到对方媒体流，将媒体流添加到页面上的 video 节点即可展示对方音视频画面
+            let node: HTMLAudioElement =
+              document.querySelector(`audio#uplayer-${id}`) ||
+              document.createElement("audio");
+            node.autoplay = true;
+            node.style.display = "none";
+            node.srcObject = mediaStream;
+            node.id = "uplayer-" + id;
+            document.body.appendChild(node);
+          });
+      },
+      // 成员已取消发布资源，此时需关闭流
+      unpublished: function (user: { id: string }) {
+        console.log("resource close");
+        console.log(user);
+        // 当对方成员取消订阅后，会自动触发此函数，此时己方取消订阅对方音视频流，然后做页面移除对方 video 节点即可
+        stream.unsubscribe(user).then(function () {
+          let node = document.getElementById(user.id);
+          node?.remove();
+        });
+      },
+    });
+  }
+  private publish() {
+    if (!stream) {
+      return this.$message.error("获取流失败");
+    }
+    stream
+      .get({
+        audio: true,
+        video: false,
+      })
+      .then(
+        (e: { mediaStream: MediaStream }) => {
+          stream
+            .publish({
+              id: UserModule.uid,
+              stream: {
+                tag: "RongCloudRTC",
+                type: rtc.StreamType.AUDIO,
+                mediaStream: e.mediaStream,
+              },
+            })
+            .then(
+              () => {
+                console.log("发布成功");
+                this.published = true;
+              },
+              (error: any) => {
+                if (error?.code === 50003) {
+                  this.$message.error("请重新进入房间");
+                  this.leave();
+                }
+              }
+            );
+        },
+        (error: any) => {
+          console.error("error get stream");
+          console.error(error);
+        }
+      );
+  }
+  private unpublish() {
+    stream
+      .unpublish({
+        id: this.uid,
+        stream: {
+          tag: "RongCloudRTC",
+          type: rtc.StreamType.AUDIO,
+        },
+      })
+      .then(
+        () => {
+          this.published = false;
+          console.log("取消发布成功");
+        },
+        (error: any) => {
+          console.log(error);
+        }
+      );
+  }
+  private beforeDestroy() {
+    // stream.unsubscribe()
+    document.body.querySelectorAll("audio").forEach((e) => e.remove());
+    if (!room) {
+      console.log("should join before leave");
+    } else {
+      room.leave();
+    }
   }
   public async join(id = "test1") {
     if (this.joined) {
-      return;
+      return true;
     }
-    console.log(rtc);
     const e = new rtc.Room({
       // 音视频房间 Id
       id, // 设置房间 id  为 test
-      joined: function (user: any) {
+      joined: (user: any) => {
+        const i = this.users.findIndex((el) => el === user.id);
+        if (i < 0) {
+          this.users.push(user.id);
+        }
         console.log(user);
-        console.log("join");
         // user.id 加入房间
       },
-      left: function (user: any) {
+      left: (user: any) => {
         console.log(user);
-        console.log("left");
+        const i = this.users.findIndex((el) => el === user.id);
+        if (i > -1) {
+          this.users.splice(i, 1);
+        }
         // user.id 离开房间
       },
     });
@@ -101,9 +249,10 @@ export default class Room extends Vue {
       room = e;
       this.joined = true;
     } catch (error) {
+      console.error(error);
       this.$message.error("加入房间失败");
       this.leave();
-      return;
+      return false;
     }
     this.message = Object.freeze(
       new rtc.Message({
@@ -114,14 +263,16 @@ export default class Room extends Vue {
       txt: `演播员${UserModule.nickname}上线啦！！`,
     });
     if (ans) {
-      this.totalUser = Object.keys(ans.users).length + 1;
+      this.users = [...Object.keys(ans.users), this.uid];
     }
+    return true;
   }
   private messageHandler(message: {
     name: string;
     content: any;
     senderId: string;
   }) {
+    console.log("handler methods ");
     const [action, payload] = message.name.split(":");
     switch (action) {
       case "C":
@@ -129,19 +280,15 @@ export default class Room extends Vue {
         break;
       case "U": {
         const data = JSON.parse(message.content);
-        (this.$refs.stage as Stage).updateById(payload, data);
+        stage?.updateById(payload, data);
         break;
       }
       case "Char": {
-        (this.$refs.stage as Stage).updateCharactors(
-          message.content,
-          message.senderId
-        );
+        stage?.updateCharactors(message.content, message.senderId);
         break;
       }
       case "REVOKE": {
-        const e = this.$refs.stage as any;
-        e[payload].call(e, message.content);
+        if (stage) (stage as any)[payload].call(stage, message.content);
         break;
       }
       default:
@@ -149,12 +296,8 @@ export default class Room extends Vue {
     }
   }
   public leave() {
-    if (!room) {
-      console.log("should join before leave");
-    } else {
-      room.leave();
-    }
-    this.$router.replace("/");
+    (this.$refs.stage as Stage).reset();
+    this.$router.go(-1);
   }
 }
 </script>

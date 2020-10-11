@@ -77,22 +77,22 @@ class RTC extends VuexModule implements IRTCState {
         }
         switch (status) {
           case RongIMLib.ConnectionStatus.CONNECTED:
-            console.log("链接成功");
+            this.SET_MESSAGE("链接成功");
             break;
           case RongIMLib.ConnectionStatus.CONNECTING:
-            console.log("正在链接");
+            this.SET_MESSAGE("正在链接");
             break;
           case RongIMLib.ConnectionStatus.DISCONNECTED:
-            console.log("断开连接");
+            this.SET_MESSAGE("断开连接");
             break;
           case RongIMLib.ConnectionStatus.KICKED_OFFLINE_BY_OTHER_CLIENT:
-            console.log("其他设备登录");
+            this.SET_MESSAGE("其他设备登录");
             break;
           case RongIMLib.ConnectionStatus.DOMAIN_INCORRECT:
-            console.log("域名不正确");
+            this.SET_MESSAGE("域名不正确");
             break;
           case RongIMLib.ConnectionStatus.NETWORK_UNAVAILABLE:
-            console.log("网络不可用");
+            this.SET_MESSAGE("网络不可用");
             break;
         }
         this.SET_IMSTATUS(status);
@@ -100,13 +100,12 @@ class RTC extends VuexModule implements IRTCState {
     });
     // 消息监听器
     RongIMClient.setOnReceiveMessageListener({
-      onReceived: function(message: any) {
+      onReceived: function (message: any) {
         console.log(message);
       },
     });
     RongIMClient.connect(this.token, {
       onSuccess: (userId: string) => {
-        this.SET_MESSAGE("Connect successfully. " + userId);
         initRTC();
       },
       onTokenIncorrect: () => {

@@ -1,4 +1,3 @@
-// 注意，使用自己的appid时，请根据uid重新生成token
 export const users = [
   {
     token: `2aFDxndbTNBzveQ9nz9k9krZrbxjfQUEjGEzlMqtYn8=@knr7.cn.rongnav.com;knr7.cn.rongcfg.com`,
@@ -79,23 +78,43 @@ export const script1 = {
     name: "未来剑客",
     scale: [0.2, 0.2],
     x: 130,
-    y: 230,
-    id:1
+    y: 130,
+    id: 1
   }, {
     key: "Rooster",
     name: "怒晴鸡",
     scale: [0.2, 0.2],
-    x: 230,
+    x: 130,
     y: 230,
-    id:2
+    id: 2
   }, {
     key: "Dragon",
     name: "哥斯拉",
     scale: [0.2, 0.2],
-    x: 330,
-    y: 230,
-    id:3
+    x: 130,
+    y: 330,
+    id: 3
   }],
   items: [],
   background: ''
 }
+
+
+export const rooms = [{
+  roomId: '1',
+  name: '勇者剧院',
+  desc: '勇者斗恶龙，一个用于测试的简单故事',
+  players: ['111', '555'],
+  admin: '111',
+  bg: './static/resources/images/juyuan/jy1.jpg',
+  stageImages: './static/resources/images/juyuan/stage1.jpg'
+}, {
+  roomId: '2',
+  name: '测试剧院',
+  desc: '这是一个测试房间,进行多其它开发中功能测试，需要密码才能进',
+  players: ['111'],
+  password: 'admim',
+  admin: '111',
+  bg: './static/resources/images/juyuan/jy1.jpg',
+  stageImages:'./static/resources/images/juyuan/stage1.jpg'
+}]

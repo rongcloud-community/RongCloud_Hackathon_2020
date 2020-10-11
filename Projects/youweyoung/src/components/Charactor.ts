@@ -1,11 +1,15 @@
 import { Application } from "pixi.js";
 import { PixiArmatureDisplay, PixiFactory, EventObject } from "dragonBones";
 import { dragonBones, sleep } from "@/utils";
+
 export interface ICharactorConfig {
+  flipX: boolean;
+  flipY: boolean;
   key: string;
   name: string;
   x?: number;
   y?: number;
+  report?: boolean
   rotation?: number;
   angle?: number;
   scale?: [number, number];
@@ -14,11 +18,13 @@ export interface ICharactorConfig {
 }
 
 export class Charactor {
+  static reporter?: (name: string, data: any) => void;
   static list: Charactor[] = [];
   speed: [number, number, number] = [0, 0, 0];
   destination?: [number, number, number]
   _onReady?: (el: Charactor) => void;
   config: ICharactorConfig;
+  report = false;
   static refreshId: number;
   static update() {
     this.list.forEach((charactor) => {
@@ -43,6 +49,7 @@ export class Charactor {
             name: charactor.animationNames[0]
           })
         }
+        charactor.reportState()
       }
     });
     this.refreshId = requestAnimationFrame(this.update.bind(this));
@@ -100,6 +107,10 @@ export class Charactor {
   }
   syncState() {
     const config = this.config
+    if (config.report) {
+      this.report = true
+      delete this.config.report
+    }
     const el = this.el
     const x = config.x || Charactor.app.screen.width / 2;
     const y = config.y || Charactor.app.screen.height / 2;
@@ -108,6 +119,8 @@ export class Charactor {
     el.y = y;
     el.scale.set(...scale);
     el.anchor.set(0.5, 0.5);
+    el.armature.flipY = config.flipY
+    el.armature.flipX = config.flipX
     Charactor.list.push(this);
     Charactor.app.stage.addChild(el)
     el.animation.play(el.animation.animationNames[0])
@@ -126,13 +139,16 @@ export class Charactor {
       this.el.x = v;
     }
   }
-  destory(keepUpdate = false) {
+  destory(isReplace = false) {
     const i = Charactor.list.findIndex(e => e === this)
     Charactor.list.splice(i, 1)
     Charactor.app.stage.removeChild(this.el)
-    this.el.destroy()
-    if (!keepUpdate && Charactor.list.length === 0) {
-      cancelAnimationFrame(Charactor.refreshId)
+    this.el?.destroy()
+    if (!isReplace) {
+      if (Charactor.list.length === 0) {
+        console.log('cancel refresh________________')
+        cancelAnimationFrame(Charactor.refreshId)
+      }
     }
     console.log('remove')
   }
@@ -187,6 +203,10 @@ export class Charactor {
     }
     this.destination = [time, x, y]
   }
+  reportState() {
+    if (Charactor.reporter && this.report)
+      Charactor.reporter(`char:${this.config.uid}`, this.metadata)
+  }
   get metadata() {
     return {
       x: this.x,
@@ -195,6 +215,8 @@ export class Charactor {
       width: this.el.width,
       height: this.el.height,
       scale: [this.el.scale.x, this.el.scale.y],
+      flipX: this.el.armature.flipX,
+      flipY: this.el.armature.flipY,
       config: this.config
     }
   }

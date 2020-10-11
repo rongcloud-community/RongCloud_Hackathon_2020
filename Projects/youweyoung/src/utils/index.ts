@@ -5,8 +5,16 @@ export * from './db'
 export * from './hash'
 export * from './channel'
 
-export function sleep(ms:number){
-    return new Promise(res=>{
+export function sleep(ms: number) {
+    return new Promise(res => {
         setTimeout(res, ms);
     })
+}
+
+export function deepCopy(e: any) {
+    try {
+        return JSON.parse(JSON.stringify(e))
+    } catch (error) {
+
+    }
 }
