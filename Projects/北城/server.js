@@ -87,11 +87,11 @@ function sendMessage(user, text) {
 function exitMatch(token) {
     for (var i = 0; i < match.length; i++) {
         if (match[i][0].token == token) {
-            sendMessage(match[i][1], "exit", match[i][0].userId, "<>", match[i][1].userId, "end");
+            sendMessage(match[i][1], "end");
             match[i][0].code = 200;
             match.splice(i, 1);
         } else if (match[i][1].token == token) {
-            sendMessage(match[i][0], "exit", match[i][0].userId, "<>", match[i][1].userId, "end");
+            sendMessage(match[i][0], "end");
             match[i][1].code = 200;
             match.splice(i, 1);
         }

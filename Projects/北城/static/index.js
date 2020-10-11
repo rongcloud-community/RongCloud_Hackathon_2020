@@ -1,3 +1,4 @@
+console.log = function () { };
 var conversation;
 $.get("/getappkey", function (appkey) {
     if (!appkey) {
@@ -72,6 +73,7 @@ $.get("/getappkey", function (appkey) {
                         }
                     }).then(function (message) {
                         console.log("发送文字消息成功", message);
+                        $("#inputmessage").val("");
                     });
                 }
             } else {
