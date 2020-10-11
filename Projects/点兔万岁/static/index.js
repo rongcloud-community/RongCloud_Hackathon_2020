@@ -123,6 +123,10 @@ $.get("/getappkey", function (appkey) {
                         type: RongIMLib.CONVERSATION_TYPE.PRIVATE
                     }), Number(oppo[1]));
                     game.Send("你好");
+                    $("#status").text("游戏开始");
+                } else if (message.content.content == "exit") {
+                    $("#status").text("刷新页面重新匹配");
+                    alert("对方已退出");
                 }
             } else if (message.isOffLineMessage == false) {
                 var pos = message.content.content.match(/play:(\d)(\d)/);
@@ -130,6 +134,7 @@ $.get("/getappkey", function (appkey) {
                     console.log(pos);
                     game.Place(game.color, Number(pos[1]), Number(pos[2]));
                     game.check();
+                    $("#status").text("你的回合");
                 }
             }
         },
@@ -159,6 +164,7 @@ $.get("/getappkey", function (appkey) {
                 game.Place(3 - game.color, i, j);
                 game.Send("play:" + i + j);
                 game.check();
+                $("#status").text("对方的回合");
             }
         }
 
