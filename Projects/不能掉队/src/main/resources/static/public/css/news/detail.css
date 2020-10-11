@@ -1,0 +1,37 @@
+
+body,html{background: url(../../images/bglogo.jpg) no-repeat #eee center 122px;}
+a{color: #333;}
+a:hover{color: #333;}
+a:visited{color: #333;}
+.main{width: 1100px; margin:0 auto;}
+.top{margin-top: 380px;}
+
+.model_1{ width: 100%; padding: 20px; display: inline-block; background: #fff; }
+.model_1 .fl_left{ float: left; width: 640px;  border-right: dotted 1px #ccc;  }
+.model_1 .fl_left .icon{ width: 120px; float: left;}
+.model_1 .fl_left .icon img{ width: 100px; height: 100px; border-radius: 20px;}
+.model_1 .fl_left .info{ float: left; width: calc(100% - 120px)}
+.model_1 .fl_left .info .name{ font-size: 20px; color: #333; font-weight: bold}
+.model_1 .fl_left .info .tag{ margin-top: 6px;}
+.model_1 .fl_left .info .tag span{ font-size: 14px; color: #666; float: left; display: block; width: 200px; line-height: 30px;}
+.model_1 .fl_left .info .tag span:nth-child(2){ margin-left: 30px;}
+.model_1 .fl_right{ float: left; width: 420px; }
+.model_1 .fl_right .content{ width: 310px; margin-left: 60px; }
+.model_1 .fl_right .content .code{ width: 120px; float: left;}
+.model_1 .fl_right .content .code img{ width: 120px; height: 120px; margin-top: -12px;}
+.model_1 .fl_right .content .code p{ text-align: center; font-size: 12px; color: #666; margin-top: -5px;}
+.model_1 .fl_right .content .down{ width:calc(100% - 120px); float: left}
+.model_1 .fl_right .content .down a { background:url(../../images/appg_xzbg.png) no-repeat 0 0 / auto 368px; width:165px; height:46px; line-height:46px; font-size:18px; font-weight:bold; float:left; margin:0 10px 5px 10px; color:#fff; overflow:hidden; padding-left:60px;}
+.model_1 .fl_right .content .down a.button_an { background-position:0 0;}
+.model_1 .fl_right .content .down a.button_an:hover { background-position:-165px 0; color:#fff;}
+.model_1 .fl_right .content .down a.button_ios { background-position:0 -46px;}
+.model_1 .fl_right .content .down a.button_ios:hover { background-position:-165px -46px; color:#fff;}
+
+.model_2{ width: 100%; padding: 20px; display: inline-block; background: #fff; margin-top: 10px; }
+.model_2 .title{text-align: center }
+.model_2 .title p{ font-size:20px; color:#666; line-height: 30px; }
+.model_2 .title p:last-child{ font-size: 14px; color: #999;}
+.model_2 .content{ font-size: 14px; color: #666; padding-bottom: 30px;}
+.model_2 .content img{ margin: 10px 0;}
+
+

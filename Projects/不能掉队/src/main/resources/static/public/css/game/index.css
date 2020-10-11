@@ -1,0 +1,48 @@
+
+body,html{background: url(../../images/bglogo.jpg) no-repeat #eee center 122px;}
+a{color: #333;}
+a:hover{color: #333;}
+a:visited{color: #333;}
+.main{width: 1100px; margin:0 auto;}
+.top{margin-top: 380px;}
+
+.model_1{ width: 100%; padding: 20px; display: inline-block; background: #fff; }
+.model_1 .content{ border: 1px solid #dbdbdb; width: 100%; display: inline-block; padding: 20px 20px 0 20px; font-size: 14px; }
+.model_1 .content dl{ clear: both }
+.model_1 .content dt{ float:left; width:80px; height:36px; line-height:36px; color:#000; font-weight:bold;}
+.model_1 .content dd { float:right; width:930px;}
+.model_1 .content dd a { display:inline-block; margin:0 3px 10px 3px; height:36px; line-height:36px; padding:0 20px;}
+.model_1 .content dd a.on { background:#009bff; color:#fff; border-radius:2px;}
+.model_1 .content dd a:hover { background:#009bff; color:#fff; border-radius:2px;}
+
+.model_2{ width: 100%; padding: 20px; display: inline-block; background: #fff; margin-top: 10px; }
+.model_2 .title{ border-bottom:2px solid #009bff; width: 100%; display: inline-block}
+.model_2 .title a { float:left; font-size:18px; margin-right:10px; width:106px; height:46px; line-height:46px; text-align:center;}
+.model_2 .title a:hover{ color:#009bff}
+.model_2 .title a.on { color:#fff; background:#009bff;}
+
+.model_2 .content { border-top:none; padding:20px 10px 10px 0; margin-bottom:10px;}
+.model_2 .content li { float:left; margin:0 9px 20px; height:210px; border:1px dotted #eeeeee; padding:16px; text-align: center; font-size: 14px; width: 154px; cursor: pointer}
+.model_2 .content li:hover { background-color:transparent; box-shadow: 0 0 10px #bdbdbd;}
+.model_2 .content li img {
+    width: 120px;
+    height: 120px;
+    border-radius: 20px;
+    -webkit-transition: transform .5s;
+    -moz-transition: transform .5s;
+    -ms-transition: transform .5s;
+    -o-transition: transform .5s;
+    transition: transform .5s;
+}
+.model_2 .content li:hover img {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.model_2 .content li p{ line-height: 30px;}
+.model_2 .content li .detail{ text-align:center;}
+.model_2 .content li .detail a { display:inline-block; width:70px; height:26px; line-height:26px; border:1px solid #ddd; margin-top:5px; border-radius:2px; font-weight:bold; background-color:#fff;}
+.model_2 .content li .detail a:hover { background-color:#009bff; border:1px solid #009bff; color:#fff;}

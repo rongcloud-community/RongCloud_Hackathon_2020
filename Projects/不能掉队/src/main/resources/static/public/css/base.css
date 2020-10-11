@@ -1,0 +1,432 @@
+*, :after, :before {
+    box-sizing: border-box;
+}
+a{
+
+}
+html {
+    color: #252525;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+html * {
+    outline: 0;
+    -webkit-text-size-adjust: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    vertical-align: top;
+    font-family: 微软雅黑;
+
+}
+
+html, body {
+    overflow: auto;
+    font-family: 微软雅黑;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+    margin: 0;
+    padding: 0
+}
+body{  overflow: hidden}
+
+input, select, textarea {
+    font-size: 14px;
+    -webkit-appearance: none;
+    border-radius: 0;
+    vertical-align: middle!important;
+}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {  font-size:12px;  }
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+fieldset, img {
+    border: 0
+}
+img[src=""]{opacity:0;}
+abbr, acronym {
+    border: 0;
+    font-variant: normal
+}
+
+del {
+    text-decoration: line-through
+}
+
+address, caption, cite, code, dfn, em, th, var, i {
+    font-style: normal;
+    font-weight: normal;
+}
+
+ol, ul {
+    list-style: none
+}
+ul,li{ margin: 0px; padding: 0px; list-style: none}
+
+/*li*/
+#i0{ position: absolute; top: 265px; left: 40px; }
+#i1{ position: absolute; top: 240px; left: 140px; }
+#i2{ position: absolute; top: 190px; left: 230px; }
+#i3{ position: absolute; top: 115px; left: 300px; }
+#i4{ position: absolute; top: 40px; left: 355px; }
+
+.lihide{ display: none;}
+
+
+caption, th {
+    text-align: left
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: 500
+}
+
+q:before, q:after {
+    content: ''
+}
+
+sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline
+}
+
+sup {
+    top: -.5em
+}
+
+sub {
+    bottom: -.25em
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ins, a {
+    text-decoration: none
+}
+
+button {
+    -webkit-appearance: none;
+    border: 0;
+    background: 0 0;
+}
+
+input, button, textarea, select, optgroup, option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    outline: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+
+}
+
+input[type="button"], input[type="submit"], input[type="reset"] {
+
+    -webkit-appearance: none;
+    border-radius: 0;
+
+}
+
+textarea {
+    -webkit-appearance: none;
+}
+
+body {
+    font-family: 微软雅黑;
+    line-height: 1.5;
+    color: #252525;
+    /*-webkit-user-select: none;*/
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    outline: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+fieldset, img {
+    border: 0;
+    outline: none
+}
+
+address, caption, cite, code, dfn, em, strong, th, var {
+    font-style: normal;
+    font-weight: normal
+}
+
+ol, ul {
+    list-style: none
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal
+}
+
+q:before, q:after {
+    content: ''
+}
+
+/*文字排版、颜色*/
+.f12,.f12 * {
+    font-size: 12px
+}
+
+.f13 {
+    font-size: 13px
+}
+
+.f14 {
+    font-size: 14px
+}
+
+.f16 {
+    font-size: 16px
+}
+
+.f20 {
+    font-size: 20px
+
+}
+
+.fb {
+    font-weight: bold
+}
+
+.fn {
+    font-weight: normal
+}
+
+.fw {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+
+.red, a.red {
+    color: #CF1E41!important
+}
+
+.blue, a.blue {
+    color: #428bca!important
+}
+.Violet-bg{  background: #8B67D5;}
+.yellow-bg{  background: #FF872F;}
+.red-bg{  background: #F52163;}
+.green-bg{ background: #35D9C1; }
+.write-bg{ background: #FFFFFF!important;}
+.pale-bg{ background:#f2eeed!important; }
+
+.gray, a.gray {
+    color: #A1A1A1!important;
+}
+
+.green, a.green {
+    color: #2DB200
+}
+
+.lh150 {
+    line-height: 150%
+}
+
+.lh180 {
+    line-height: 180%
+}
+
+.lh200 {
+    line-height: 200%
+}
+
+.unl {
+    text-decoration: underline;
+}
+
+.no_unl {
+    text-decoration: none;
+}
+
+/*定位*/
+.tl {
+    text-align: left
+}
+
+.tc {
+    text-align: center
+}
+
+.tr {
+    text-align: right
+}
+
+.fl {
+    float: left;
+    display: inline
+}
+
+.fr {
+    float: right;
+    display: inline
+}
+
+.cb {
+    clear: both
+}
+
+.cl {
+    clear: left
+}
+
+.cr {
+    clear: right
+}
+
+.vm {
+    vertical-align: middle
+}
+
+.pr {
+    position: relative
+}
+
+.pa {
+    position: absolute
+}
+
+.abs-right {
+    position: absolute;
+    right: 0
+}
+
+.zoom {
+    zoom: 1
+}
+
+.hidden {
+    visibility: hidden
+}
+
+.hide {
+    display: none
+}
+
+.mz0 {
+    margin: 0px !important;
+}
+.mz4 {
+    margin: 4px !important;
+}
+
+
+/*  垂直居中  */
+.box{ width: 100%; height: 100%; line-height:20px; position:relative;}
+.box1{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+.box2{
+    display: flex;
+    justify-content:center;
+    align-items:Center;
+}
+.box3 span{
+    width: 50%;
+    height: 50%;
+    background: #000;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+.box4 span{
+    position: absolute;
+    top:50%;
+    left:50%;
+    width:100%;
+    transform:translate(-50%,-50%);
+    text-align: center;
+}
+.box5{
+    display: flex;
+    text-align: center;
+}
+.box5 span{margin: auto;}
+.box6{
+    display: -webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    -webkit-box-orient: vertical;
+    text-align: center
+}
+
+/* 公用头部 */
+.layout {
+    margin: 0 auto;
+    width: 1100px;
+    text-align: left;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+.clearfix, .box {
+    zoom: 1;
+}
+.clearfix:before, .clearfix:after {
+    display: table;
+    content: " ";
+}
+
+/* 公用header */
+.t_nav { position: relative; background-color:#333; height:35px; line-height:35px; border-bottom: 1px solid #eee;}
+.c_nav { position: relative; background-color:#333; }
+.t_nav_l { float:left; text-align:left; width:600px; color:#999; font-size: 12px;}
+.t_nav_l a { margin:0 5px; color:#ddd; font-size: 12px;}
+.t_nav a:hover { color:#fff;}
+.t_nav_r { float:right; text-align:right; width:400px; color:#999; font-size: 12px;}
+.t_nav_r a { margin:0 5px; color:#ddd; font-size: 12px;}
+.t_nav_r a:hover { color:#fff;}
+
+.menu_logo { height:87px; border-bottom:1px solid #ddd; background-color:#fff; text-align:left; box-shadow: 0 0 5px #bdbdbd; margin-bottom: 10px; }
+.logo { float:left; width:220px; margin-top: 15px;}
+.logo img { float:left; height: 60px;}
+.nav_list{ padding-top: 25px;}
+.nav_list li { float:left; height:94px; line-height:94px; margin-left: 32px;}
+.nav_list li a { display:inline-block; font-size:16px; height:44px; line-height:44px; color: #333;}
+.nav_list li a.cur { color:#009bff!important; border-bottom: 2px solid #009bff;}
+.nav_list li a:hover { color:#009bff; border-bottom: 2px solid #009bff;}
+.nav_list li a:visited { color: #333;}
+.nav_list li a img { vertical-align:top; _vertical-align:middle; margin-top:15px;}
+
+
+/* 公用footer */
+.footer { clear:both; font-size:14px; padding:30px 0; border-top:2px solid #0086ff; background-color: #333;}
+.footer .content { clear:both; text-align:center; color:#bbb; line-height:30px;}
+.footer .content .tag { color:#bbb;}
+.footer .content a { color:#bbb; margin:0 3px;}
+.footer .content a:hover { color:#fff;}
+
+/* 分页  */
+.page{clear: both; list-style: none; display: table ; margin: 0 auto;}
+.page > li{float: left; padding: 0 10px!important; cursor: pointer; height: 40px!important; line-height: 40px!important; width: auto!important; font-size: 14px!important;}
+.page .pageItem{border: solid thin #DDDDDD!important; margin: 5px;}
+.page .pageItemActive{border: solid thin #009bff!important; margin: 5px; background: #0099FF!important; color:white;}
+.page .pageItem:hover{border: solid thin #0099FF!important; background: #0099FF!important; color:white;}
+.page .pageItemDisable{border: solid thin #DDDDDD!important; margin: 5px; background: #DDDDDD!important;}
