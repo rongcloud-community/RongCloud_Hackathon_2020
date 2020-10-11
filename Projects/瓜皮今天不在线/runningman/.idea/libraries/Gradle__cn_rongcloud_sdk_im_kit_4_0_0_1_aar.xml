@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="Gradle: cn.rongcloud.sdk:im_kit:4.0.0.1@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f9cdb396fc734b2a3aafe00163c65ec8/im_kit-4.0.0.1/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f9cdb396fc734b2a3aafe00163c65ec8/im_kit-4.0.0.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f9cdb396fc734b2a3aafe00163c65ec8/im_kit-4.0.0.1/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f9cdb396fc734b2a3aafe00163c65ec8/im_kit-4.0.0.1/jars/libs/thirdparty_lib-4.0.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cn.rongcloud.sdk/im_kit/4.0.0.1/bcaeb20d35bc4503efff67b67447d54bfc032485/im_kit-4.0.0.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/cn.rongcloud.sdk/im_kit/4.0.0.1/e8e6807f79d077ac8860e512fc416b233b2f1cf7/im_kit-4.0.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
