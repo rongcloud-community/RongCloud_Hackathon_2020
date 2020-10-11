@@ -11,19 +11,29 @@
     <script src="./im.js"></script>
     <script src="./calllib.js"></script>
     <title>Document</title>
+    <style>
+          button{
+          border: 0;
+          background-color: #b2e281;
+          font-size: 20px;
+          color: white;
+          font-family : 微软雅黑,宋体;
+      }
+    </style>
 </head>
 
 <body>
     <h1>
-        CallLib-Demo
+       嘻嘻嘻音视频
     </h1>
      <!-- 发起通话按钮-->
-     <button id="call" onclick="call()">视频通话</button>
+     温馨提示：
+     需要在上方网址里加上?1001  或  ?1002  哦，注意是英文符号哦！
+     <button id="call" onclick="call()">呼叫(在1001中点击)</button>
     
      <!-- 接听通话按钮-->
      <div id="RringDiv" class="hide">
-         收到音视频呼叫是否接听？
-         <button id="accept" onclick="accept()">接听</button>
+         <button id="accept" onclick="accept()">接听（在1002中点击）</button>
      </div>
      
      <!-- 用于添加 video-->
