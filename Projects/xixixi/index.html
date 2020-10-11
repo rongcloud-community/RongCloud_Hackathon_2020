@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//cdn.ronghub.com/RongIMLib-2.4.0.js"></script>
+    <script src="//cdn.ronghub.com/RongRTC-3.0.4.js"></script>
+    <script src="//cdn.ronghub.com/RongCallLib-3.1.5.js"></script>
+
+    <script src="./im.js"></script>
+    <script src="./calllib.js"></script>
+    <title>Document</title>
+    <style>
+          button{
+          border: 0;
+          background-color: #b2e281;
+          font-size: 20px;
+          color: white;
+          font-family : 微软雅黑,宋体;
+      }
+    </style>
+</head>
+
+<body>
+    <h1>
+       嘻嘻嘻音视频
+    </h1>
+     <!-- 发起通话按钮-->
+     温馨提示：
+     需要在上方网址里加上?1001  或  ?1002  哦，注意是英文符号哦！
+     <button id="call" onclick="call()">呼叫(在1001中点击)</button>
+    
+     <!-- 接听通话按钮-->
+     <div id="RringDiv" class="hide">
+         <button id="accept" onclick="accept()">接听（在1002中点击）</button>
+     </div>
+     
+     <!-- 用于添加 video-->
+     <div id="box"></div>
+</body>
+
+</html>
