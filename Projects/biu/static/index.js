@@ -56,7 +56,9 @@ Game.prototype.Place = function (color, i, j) {
         context.fill();
         context.stroke();
         this.turn = 3 - this.turn;
+        return true;
     }
+    return false;
 }
 Game.prototype.myTurn = function () {
     return game.start && game.turn == game.color;
@@ -134,9 +136,10 @@ $.get("/getappkey", function (appkey) {
                 var i = Math.floor((e.offsetY - 20 + 12) / 24);
                 var j = Math.floor((e.offsetX - 20 + 12) / 24);
                 if (i >= 0 && i < 15 && j >= 0 && j < 15) {
-                    game.Place(game.color, i, j);
-                    game.Send("play:" + i + "," + j);
-                    $("#status").text("对方的回合");
+                    if (game.Place(game.color, i, j)) {
+                        game.Send("play:" + i + "," + j);
+                        $("#status").text("对方的回合");
+                    }
                 }
             }
         }
