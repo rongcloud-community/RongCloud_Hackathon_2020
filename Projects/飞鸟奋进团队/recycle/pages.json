@@ -1,0 +1,69 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "师傅帮",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 0
+			}
+		}
+        ,{
+            "path" : "pages/message/message",
+            "style" : {
+				"navigationBarTitleText": "消息"
+			}
+        }
+        ,{
+            "path" : "pages/mine/mine",
+            "style" : {
+				"navigationBarTitleText": "我的"
+			}
+        }
+        ,{
+            "path" : "pages/login/login",
+            "style" : {
+				"navigationBarTitleText": "登录"
+			}
+        }
+        ,{
+            "path" : "pages/register/register",
+            "style" : {
+				"navigationBarTitleText": "注册"
+			}
+        }
+        ,{
+            "path" : "pages/chat/chat",
+            "style" : {
+				"navigationBarTitleText": "对话"
+			}
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "师傅帮",
+		"navigationBarBackgroundColor": "#4890f8",
+		"backgroundColor": "#4890f8"
+	},
+	"tabBar": {
+		"color": "#8a8a8a",
+		"selectedColor": "#4890f8",
+		"borderStyle": "white",
+		"list": [{
+		        "pagePath": "pages/index/index",
+		        "iconPath": "/static/home.png",
+		        "selectedIconPath": "/static/home_hl.png",
+		        "text": "师傅"
+		    }, {
+		        "pagePath": "pages/message/message",
+		        "iconPath": "/static/message.png",
+		        "selectedIconPath": "/static/message_hl.png",
+		        "text": "消息"
+		    }, {
+		        "pagePath": "pages/mine/mine",
+		        "iconPath": "/static/mine.png",
+		        "selectedIconPath": "/static/mine_hl.png",
+		        "text": "我的"
+		    }]
+	}
+}
