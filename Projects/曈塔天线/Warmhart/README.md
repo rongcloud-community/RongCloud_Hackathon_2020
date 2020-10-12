@@ -11,7 +11,7 @@
 - [APP功能及使用介绍](#APP功能及使用介绍)
 - [用到的技术](#用到的技术)
 
-< img src="http://ww1.sinaimg.cn/large/006vbfFpgy1gjmxxaegutj30u01t0taq.jpg" width="50%" height="50%" />
+<img src="http://ww1.sinaimg.cn/large/006vbfFpgy1gjmxxaegutj30u01t0taq.jpg" width="50%" height="50%"/>
 
 ### APP功能及使用介绍
 
