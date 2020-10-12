@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ApplicationRef } from '@angular/core'
 import { Router, ActivatedRoute } from '@angular/router'
 import { FormBuilder, Validator, FormControl, Validators } from '@angular/forms'
 import { Store } from '@ngrx/store'
@@ -12,53 +12,28 @@ import { AcccountManagementService } from '../account-management.service'
   styleUrls: ['./edit-my-info.component.styl']
 })
 export class EditMyInfoComponent implements OnInit {  
-  finalUserInfo: userInfo = {
-    userID: '',
-    nickname: '',
-    portraitUri: '',
-    token: ''
-  }
-  userAuth: boolean
-  userAuth$: Observable<boolean> = this.store.select(state => state['userAuth'])
-  finalUserInfo$: Observable<userInfo> = this.store.select(state => state['userInfo'])
-
   infoForm = this.fb.group({
-    nickname: new FormControl('', [Validators.required, Validators.maxLength(128)]),
-    portraitUri: new FormControl('', Validators.maxLength(1024))
+    nickname: new FormControl(this.appRef.components[0].instance.finalUserInfo.nickname, [Validators.required, Validators.maxLength(128)]),
+    portraitUri: new FormControl(this.appRef.components[0].instance.finalUserInfo.portraitUri, Validators.maxLength(1024))
   })
 
-  constructor(private accSer: AcccountManagementService, private router: Router, private fb: FormBuilder, private route: ActivatedRoute, private store: Store) {}
+  constructor(private accSer: AcccountManagementService, private router: Router, private fb: FormBuilder, private route: ActivatedRoute, private store: Store, private appRef: ApplicationRef) {
+  }
 
   ngOnInit() {
-    this.userAuth$.subscribe(res => {
-      if (!res) {
-        this.accSer.userinfo().subscribe(res => {
-          if (res.status == 'success') {
-            this.finalUserInfo = res['userInfo']
-            this.store.dispatch({ type: 'Loading user info success', payloads: res['userInfo'] })
-          } else {
-            this.router.navigateByUrl('/login')
-          }
-        })
-      } else {
-        this.finalUserInfo$.subscribe(res => {
-          if (res && res.userID.length) {
-            this.userAuth = true
-            if (res) {
-              this.finalUserInfo = res
-              console.log('用户校验成功')
-            }
-          } else {
-            this.router.navigateByUrl('/login')
-          }
-        })
-      }
-    })
+    this.appRef.components[0].instance.setTitle(`编辑个人资料`)
+  }
+
+  hasErr(thing: string) {
+    return this.appRef.components[0].instance.hasErr(this.infoForm, thing)
+  }
+
+  finalUserInfo() {
+    return this.appRef.components[0].instance.finalUserInfo
   }
 
   onSubmit() {
-    // console.log(this.infoForm.value)
-    var finalValue : userInfo = {userID: this.finalUserInfo.userID}
+    var finalValue : userInfo = {userID: this.appRef.components[0].instance.finalUserInfo.userID}
     if (this.infoForm.value['nickname']) {
       finalValue['nickname'] = this.infoForm.value['nickname']
     }

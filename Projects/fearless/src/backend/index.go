@@ -13,6 +13,7 @@ func main() {
 	http.HandleFunc("/userRelationChange", userRelationAction)
 	http.HandleFunc("/userinfo", userInfo)
 	http.HandleFunc("/userList", userList)
+	http.HandleFunc("/getConversationMessages", conversationMessagesGet)
 	http.HandleFunc("/getConversation", conversationGet)
 	http.HandleFunc("/updateConversation", conversationUpdate)
 	http.HandleFunc("/sendMessage", sendMessage)

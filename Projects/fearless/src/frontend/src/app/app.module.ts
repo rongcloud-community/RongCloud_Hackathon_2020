@@ -17,6 +17,19 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatIconModule } from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu'; 
+import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input'; 
+import {MatFormFieldModule} from '@angular/material/form-field'; 
+import {MatTableModule} from '@angular/material/table';
+import {MatGridListModule} from '@angular/material/grid-list'; 
+import {MatDividerModule} from '@angular/material/divider'; 
+import {MatListModule} from '@angular/material/list'
+import {MatBadgeModule} from '@angular/material/badge'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -47,7 +60,20 @@ import { AppEffects } from './app.effects';
     StoreModule.forRoot(reducers, {
       metaReducers
     }),
-    EffectsModule.forRoot([AppEffects])
+    EffectsModule.forRoot([AppEffects]),
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatGridListModule,
+    MatDividerModule,
+    MatListModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

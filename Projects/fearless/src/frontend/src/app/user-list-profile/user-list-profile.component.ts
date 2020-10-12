@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ApplicationRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'
 import { AcccountManagementService } from '../account-management.service'
 import { userInfo } from '../data';
@@ -17,7 +17,7 @@ export class UserListProfileComponent implements OnInit {
   
   from: string = this.route.url['_value'].map(seg => seg.toString()).join('/')
 
-  constructor(private route: ActivatedRoute, private router: Router, private accSer: AcccountManagementService) {
+  constructor(private route: ActivatedRoute, private router: Router, private accSer: AcccountManagementService, private appRef: ApplicationRef) {
     
   }
 
@@ -29,10 +29,13 @@ export class UserListProfileComponent implements OnInit {
     })
   }
 
+  finalUserInfo = () => this.appRef.components[0].instance.finalUserInfo
+
   ngOnInit() {
     this.accSer.userinfoOther(this.curUserInfo).subscribe(res => {
       if (res.status == "success") {
         this.curUserInfo = res['userInfo']
+        this.appRef.components[0].instance.setTitle(`${res['userInfo'].nickname}的个人资料`)
       } else {
         this.err = res['statusText']
         if (this.err.search('Session ID')+1) {

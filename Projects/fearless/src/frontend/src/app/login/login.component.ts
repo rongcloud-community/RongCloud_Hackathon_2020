@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ApplicationRef } from '@angular/core';
 import { FormBuilder, Validators, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Store } from '@ngrx/store'
@@ -19,9 +19,14 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', [Validators.required, Validators.minLength(7), Validators.maxLength(30), Validators.pattern('[A-Za-z0-9\+\=\-\_]*')])
   })
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private accSer: AcccountManagementService, private router: Router, private store: Store) { }
+  constructor(private fb: FormBuilder, private http: HttpClient, private accSer: AcccountManagementService, private router: Router, private store: Store, private appRef: ApplicationRef) { }
 
   ngOnInit() {
+    this.appRef.components[0].instance.setTitle('登陆')
+  }
+
+  hasErr(thing: string) {
+    return this.appRef.components[0].instance.hasErr(this.loginForm, thing)
   }
 
   onSubmit() {

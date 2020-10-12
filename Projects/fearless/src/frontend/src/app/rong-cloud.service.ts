@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RongCloudService {
   conversationList = []
+  finalTargetInfos = []
 
   rongInit(finalUserInfo: userInfo) {
     const rongConfig = {
@@ -17,6 +18,7 @@ export class RongCloudService {
     this.getConversation().subscribe(res => {
       if (res['status'] == 'success') {
         that.conversationList = res['conversations']
+        that.finalTargetInfos = res['targetInfos']
         that.watch(im)
       }
     })
@@ -36,6 +38,10 @@ export class RongCloudService {
 
   updateConversation(con: conversation[]) {
     return this.http.post('/api/updateConversation', con)
+  }
+
+  getConversationMessages(mes: any) {
+    return this.http.post('/api/getConversationMessages', mes)
   }
 
   sendMessage(mes: message) {

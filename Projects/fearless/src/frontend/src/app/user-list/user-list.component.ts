@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ApplicationRef } from '@angular/core';
 import { Router } from '@angular/router'
 import { Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
@@ -11,66 +11,23 @@ import { AcccountManagementService } from '../account-management.service'
   styleUrls: ['./user-list.component.styl']
 })
 export class UserListComponent implements OnInit {
-  finalUserInfo: userInfo = {
-    userID: '',
-    nickname: '',
-    portraitUri: '',
-    token: ''
-  }
-  userAuth: boolean
-  userAuth$: Observable<boolean> = this.store.select(state => state['userAuth'])
-  finalUserInfo$: Observable<userInfo> = this.store.select(state => state['userInfo'])
-
   userList: userInfoOnList[]
 
-  constructor(private accSer: AcccountManagementService, private router: Router, private store: Store) { }
+  displayedColumns: string[] = ['userId', 'nickname', 'isAdmin', 'profileLink']
+
+  constructor(private accSer: AcccountManagementService, private router: Router, private store: Store, private appRef: ApplicationRef) { }
 
   ngOnInit() {
-    // this.userAuth$.subscribe(res => {
-    //   if (!res) {
-    //     this.store.dispatch({ type: 'Loading user info' })
-    //   }
-    //   this.finalUserInfo$.subscribe(res => {
-    //     if (res && res.userID.length) {
-    //       this.userAuth = true
-    //       this.finalUserInfo = res
-    //       console.log('用户校验成功')
-    //       this.fetchUserList()
-    //     } else if (res) {
-    //       this.router.navigateByUrl('/login')
-    //     }
-    //   })
-    // })
-    this.userAuth$.subscribe(res => {
-      if (!res) {
-        this.accSer.userinfo().subscribe(res => {
-          if (res.status == 'success') {
-            this.finalUserInfo = res['userInfo']
-            this.store.dispatch({ type: 'Loading user info success', payloads: res['userInfo'] })
-            this.fetchUserList()
-          } else {
-            this.router.navigateByUrl('/login')
-          }
-        })
-      } else {
-        this.finalUserInfo$.subscribe(res => {
-          if (res && res.userID.length) {
-            this.userAuth = true
-            if (res) {
-              this.finalUserInfo = res
-              console.log('用户校验成功')
-              this.fetchUserList()
-            }
-          } else {
-            this.router.navigateByUrl('/login')
-          }
-        })
-      }
-    })
-    
+    this.appRef.components[0].instance.setTitle('用户列表')
+    this.fetchUserList()
+  }
+
+  finalUserInfo() {
+    return this.appRef.components[0].instance.finalUserInfo
   }
 
   fetchUserList() {
+    this.appRef.components[0].instance.setTitle(`用户列表`)
     this.accSer.userList().subscribe(res => {
       if (res.status == "success") {
         console.log(res)

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ApplicationRef } from '@angular/core';
 import { AcccountManagementService } from '../account-management.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store'
@@ -24,34 +24,11 @@ export class HomeComponent implements OnInit {
   userRongAuth: boolean
   userRongAuth$: Observable<boolean> = this.store.select(state => state['userRongAuth'])
 
-  constructor(private accSer: AcccountManagementService, private router: Router, private route: ActivatedRoute, private store: Store) { 
+  constructor(private accSer: AcccountManagementService, private router: Router, private route: ActivatedRoute, private store: Store, private appRef: ApplicationRef) { 
   }
 
   ngOnInit() {
-    this.userAuth$.subscribe(res => {
-      if (!res) {
-        this.accSer.userinfo().subscribe(res => {
-          if (res.status == 'success') {
-            this.finalUserInfo = res['userInfo']
-            this.store.dispatch({ type: 'Loading user info success', payloads: res['userInfo'] })
-          } else {
-            this.router.navigateByUrl('/login')
-          }
-        })
-      } else {
-        this.finalUserInfo$.subscribe(res => {
-          if (res && res.userID.length) {
-            this.userAuth = true
-            if (res) {
-              this.finalUserInfo = res
-              console.log('用户校验成功')
-            }
-          } else {
-            this.router.navigateByUrl('/login')
-          }
-        })
-      }
-    })
+    this.appRef.components[0].instance.setTitle('首页')
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ApplicationRef } from '@angular/core';
 import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
 import { AcccountManagementService } from '../account-management.service'
 import { Router } from '@angular/router'
@@ -20,11 +20,15 @@ export class RegisterComponent implements OnInit {
     }, {validators: this.checkPasswords})
   })
 
-  constructor(private fb: FormBuilder, private accountSer: AcccountManagementService, private router: Router) { }
+  constructor(private fb: FormBuilder, private accountSer: AcccountManagementService, private router: Router, private appRef: ApplicationRef) { }
 
   checkPasswords(group: FormGroup) {
     let password = group.get('password').value, password2 = group.get('password2').value
     return password == password2 ? null : {notSame: true}
+  }
+
+  hasErr(thing: string) {
+    return this.appRef.components[0].instance.hasErr(this.registerForm, thing)
   }
 
   ngOnInit() {

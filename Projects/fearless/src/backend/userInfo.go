@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 	"strings"
 )
@@ -29,6 +30,7 @@ func userInfo(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	db.Close()
+	log.Output(1, "database closed connection from userInfo")
 }
 
 func userInfoOther(w http.ResponseWriter, r *http.Request) {

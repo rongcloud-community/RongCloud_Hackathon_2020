@@ -1,19 +1,49 @@
-<p>single-chat works!</p>
-<!-- conversation list -->
-<div>
-    <div>Conversation List</div>
-    <div *ngFor="let conv of rongSer.conversationList; index as i" (click)="changeCurCon(i)">{{conv.targetId}}: {{conv.latestMessage.content.content}}</div>
-</div>
-<!-- current conversation -->
-<div>
-    <div *ngIf="currentCon.targetId && currentCon.targetId.length">
-        <div>Receiver ID: {{currentCon.targetId}}</div>
-        <div>LatestMessage: {{currentCon.latestMessage ? currentCon.latestMessage.content.content : 'null'}}</div>
-    </div>
-    <div>
-        <form [formGroup]="messageForm" (ngSubmit)="onSub()">
-            <textarea formControlName="message" type="text"></textarea>
-            <button type="submit" [disabled]="!messageForm.valid" >Submit</button>
+<mat-grid-list cols="3" rows="7" rowHeight="6:1">
+    <mat-grid-tile colspan="1" rowspan="7">
+        <mat-grid-tile-header>对话列表</mat-grid-tile-header>
+        <div class="mat-list-container">
+        <mat-list>
+            <ng-template ngFor let-conv [ngForOf]="rongSer.conversationList" let-i="index">
+                <mat-list-item (click)="changeCurCon(i)">
+                    <div [matBadge]="conv.unreadMessageCount || null" mat-card-avatar [style]="'background-image: url(' + getAvatarUri(conv.targetId) + '); background-size: 100% auto;'"></div>
+                    <span class='convPre'>
+                        {{conv.targetId}}
+                        <br />
+                        {{conv.latestMessage.content.content}}
+                    </span>
+                    <span class='timeline'>{{singleListClock(conv.latestMessage.sentTime)}}</span>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+            </ng-template>  
+        </mat-list>     
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="6">
+        <mat-grid-tile-header>{{currentCon && currentCon.targetId && currentCon.targetId.length ? '与'+getTargetInfo(currentCon.targetId).nickname+'的对话' : '对话'}}</mat-grid-tile-header>
+        <div class="conversationList" *ngIf="currentConMessages">
+            <mat-card *ngFor="let message of currentConMessages;">
+                <mat-card-header>
+                  <div mat-card-avatar [style]="'background-image: url(' + getAvatarUri(message.SenderUserID) + '); background-size: 100% auto;'">
+                  </div>
+                  <mat-card-title>{{message.SenderUserID == selfInfo().userID ? selfInfo().nickname : getTargetInfo(message.SenderUserID).nickname}}</mat-card-title>
+                  <mat-card-subtitle>{{timeclock(message.SentTime)}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                  <p>
+                    {{message.Content.Content}}
+                  </p>
+                </mat-card-content>
+              </mat-card>              
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="1">
+        <form [formGroup]="messageForm" (ngSubmit)="onSub()" class="messageForm">
+            <mat-form-field>
+                <mat-label>输入消息</mat-label>
+                <textarea formControlName="message" type="text" matInput></textarea>
+                <button type="submit" [disabled]="!messageForm.valid || !currentCon" mat-raised-button color="primary">发送</button>
+            </mat-form-field>
         </form>
-    </div>
-</div>
+    </mat-grid-tile>
+</mat-grid-list>
+  

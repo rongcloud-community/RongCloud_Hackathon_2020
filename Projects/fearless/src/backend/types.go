@@ -313,14 +313,14 @@ type message struct {
 
 // message sent
 func (mes *message) send(db *sql.DB) error {
-	insertPre, err := db.Prepare(`INSERT INTO message (Type, TargetID, MessageType, MessageUID, IsPersited, IsCounted, IsStatusMessage, SenderUserID, Content, SentTime, ReceivedTime, MessageDirection, IsOffLineMessage, DisableNotification, CanIncludeExpansion, Expansion) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16);`)
-	if err != nil {
-		panic(err)
-	}
 	content, err := json.Marshal(&mes.Content)
 	checkErr(err)
 	fmt.Println(mes.Content, string(content))
-	_, err = insertPre.Exec(mes.Type, mes.TargetID, mes.MessageType, mes.MessageUID, mes.IsPersited, mes.IsCounted, mes.IsStatusMessage, mes.SenderUserID, string(content), mes.SentTime, mes.ReceivedTime, mes.MessageDirection, mes.IsOffLineMessage, mes.DisableNotification, mes.CanIncludeExpansion, mes.Expansion)
+	if mes.TargetID == "" {
+		err = errors.New("No target ID for the message")
+	} else {
+		_, err = db.Exec(`INSERT INTO message (Type, TargetID, MessageType, MessageUID, IsPersited, IsCounted, IsStatusMessage, SenderUserID, Content, SentTime, ReceivedTime, MessageDirection, IsOffLineMessage, DisableNotification, CanIncludeExpansion, Expansion) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16);`, mes.Type, mes.TargetID, mes.MessageType, mes.MessageUID, mes.IsPersited, mes.IsCounted, mes.IsStatusMessage, mes.SenderUserID, string(content), mes.SentTime, mes.ReceivedTime, mes.MessageDirection, mes.IsOffLineMessage, mes.DisableNotification, mes.CanIncludeExpansion, mes.Expansion)
+	}
 	return err
 }
 
@@ -368,6 +368,7 @@ type conversation struct {
 	HasMentioned       bool
 	MentionedInfo      mentionedList
 	UpdateTime         int
+	Messages           []message
 }
 
 func (con *conversation) query(db *sql.DB) error {
@@ -417,6 +418,23 @@ func (con *conversation) update(db *sql.DB) error {
 	mentionedInfo, err := json.Marshal(&con.MentionedInfo)
 	checkErr(err)
 	_, err = updatePre.Exec(con.UnreadMessageCount, con.HasMentiond, mentiondInfo, con.LastUnreadTime, con.NotificationStatus, con.IsTop, con.Type, con.HasMentioned, mentionedInfo, latestMes, con.LatestMessage.ReceivedTime, conQuery.ID)
+	return err
+}
+
+func (con *conversation) queryMessages(db *sql.DB, r *http.Request) error {
+	session, err := sessionInfoAndTrueRemote(db, r)
+	checkErr(err)
+	queRes, err := db.Query(`SELECT type, targetid, messagetype, messageuid, ispersited, iscounted, isstatusmessage, senderuserid, content, senttime, receivedtime, messagedirection, isofflinemessage, disablenotification, canincludeexpansion, expansion FROM message WHERE (TargetId=$1 AND SenderUserID=$2) OR (TargetId=$2 AND SenderUserID=$1) ORDER BY senttime DESC;`, con.TargetID, session.userinDB)
+	checkErr(err)
+	for queRes.Next() {
+		var contentStr string
+		messageCur := message{}
+		queRes.Scan(&messageCur.Type, &messageCur.TargetID, &messageCur.MessageType, &messageCur.MessageUID, &messageCur.IsPersited, &messageCur.IsCounted, &messageCur.IsStatusMessage, &messageCur.SenderUserID, &contentStr, &messageCur.SentTime, &messageCur.ReceivedTime, &messageCur.MessageDirection, &messageCur.IsOffLineMessage, &messageCur.DisableNotification, &messageCur.CanIncludeExpansion, &messageCur.Expansion)
+
+		err = json.Unmarshal([]byte(contentStr), &messageCur.Content)
+		checkErr(err)
+		con.Messages = append(con.Messages, messageCur)
+	}
 	return err
 }
 

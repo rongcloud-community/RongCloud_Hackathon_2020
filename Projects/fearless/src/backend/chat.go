@@ -68,7 +68,10 @@ func conversationGet(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 	} else {
-		var finalCons []map[string]interface{}
+		var (
+			finalCons        []map[string]interface{}
+			finalTargetInfos map[string]interface{} = make(map[string]interface{})
+		)
 		queryFmt, err := db.Prepare(`SELECT UnreadMessageCount, LatestMessage, TargetID, HasMentiond, MentiondInfo, LastUnreadTime, NotificationStatus, IsTop, Type, HasMentioned, MentionedInfo FROM conversation WHERE SenderUserID=$1 ORDER BY UpdateTime DESC;`)
 		checkErr(err)
 		queryRes, err := queryFmt.Query(session.userinDB)
@@ -88,11 +91,27 @@ func conversationGet(w http.ResponseWriter, r *http.Request) {
 			finalMentionedInfo := map[string]interface{}{"type": conCur.MentionedInfo.Type, "userIdList": conCur.MentionedInfo.UserIDList}
 			finalCon := map[string]interface{}{"unreadMessageCount": conCur.UnreadMessageCount, "latestMessage": finalLatestMessage, "targetId": conCur.TargetID, "hasMentiond": conCur.HasMentiond, "mentiondInfo": finalMentiondInfo, "lastUnreadTime": conCur.LastUnreadTime, "notificationStatus": conCur.NotificationStatus, "isTop": conCur.IsTop, "type": conCur.Type, "hasMentioned": conCur.HasMentioned, "mentionedInfo": finalMentionedInfo}
 			finalCons = append(finalCons, finalCon)
+			finalTargetInfo := userDB{}
+			finalTargetInfo.UserID = conCur.TargetID
+			err = finalTargetInfo.queryUserDB(db)
+			checkErr(err)
+			finalTargetInfos[conCur.TargetID] = map[string]string{"portraitUri": finalTargetInfo.PortraitURI, "nickname": finalTargetInfo.Nickname}
 		}
 		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "conversations": finalCons})
+		json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "conversations": finalCons, "targetInfos": finalTargetInfos})
 	}
 	db.Close()
+}
+
+func conversationMessagesGet(w http.ResponseWriter, r *http.Request) {
+	db, err := sql.Open("postgres", psqlInfo)
+	checkErr(err)
+	var conversationCur conversation
+	json.NewDecoder(r.Body).Decode(&conversationCur)
+	err = conversationCur.queryMessages(db, r)
+	checkErr(err)
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "messages": conversationCur.Messages})
 }
 
 // TODO: conversation model for chat messages

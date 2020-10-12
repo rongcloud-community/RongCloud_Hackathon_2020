@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ApplicationRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'
 import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms'
 import { Store } from '@ngrx/store'
@@ -18,17 +18,8 @@ declare global {
   styleUrls: ['./single-chat.component.styl']
 })
 export class SingleChatComponent implements OnInit {
-  finalUserInfo: userInfo = {
-    userID: '',
-    nickname: '',
-    portraitUri: '',
-    token: ''
-  }
-  userAuth: boolean
-  userAuth$: Observable<boolean> = this.store.select(state => state['userAuth'])
   userRongAuth: boolean
   userRongAuth$: Observable<boolean> = this.store.select(state => state['userRongAuth'])
-  finalUserInfo$: Observable<userInfo> = this.store.select(state => state['userInfo'])
   userRongObj$: Observable<any> = this.store.select(state => state['userRongObj'])
   rongConfig = {
     appkey: 'sfci50a7sx2ri',
@@ -36,63 +27,64 @@ export class SingleChatComponent implements OnInit {
   conveInput: string
   // im = RongIMLib.init(this.rongConfig)
   conversationList = []
-  currentCon = {}
+  currentCon: conversation = {
+    targetId: ''
+  }
+  currentConMessages = []
   messageForm = this.fb.group({
     message: this.fb.control('', [Validators.required])
   })
 
-  constructor(private route: ActivatedRoute, private router: Router, private accSer: AcccountManagementService, private rongSer: RongCloudService, private fb: FormBuilder, private store: Store) { }
+  constructor(private route: ActivatedRoute, private router: Router, private accSer: AcccountManagementService, public rongSer: RongCloudService, private fb: FormBuilder, private store: Store, private appRef: ApplicationRef) { }
+
+  getCurMessages() {
+    var that = this
+    if (this.currentCon['targetId'] && this.currentCon['targetId'].length) {
+      this.rongSer.getConversationMessages({targetId: this.currentCon['targetId']}).subscribe(res => {
+        new Promise(resolve => {
+          that.currentConMessages = res['messages']
+          resolve(that.currentConMessages.reverse())
+        }).then(() => {
+          setTimeout(() => {
+            document.querySelector('.conversationList').scrollTop = document.querySelector('.conversationList').scrollHeight
+          }, 100)
+        })
+        
+      })
+    }
+  }
+
+  getTargetInfo = (userId: string) => this.rongSer.finalTargetInfos[userId]
+
+  avatarUriVar = (uri: string) => uri.startsWith('http://') || uri.startsWith('https://') ? uri : '/assets/IM-icon.png'
+
+  getAvatarUri = (userId: string) => userId == this.selfInfo().userID ? this.avatarUriVar(this.selfInfo().portraitUri) : this.avatarUriVar(this.getTargetInfo(userId).portraitUri)
+
+  selfInfo = () => this.appRef.components[0].instance.finalUserInfo
 
   ngOnInit() {
-    console.log(this.route)
+    this.appRef.components[0].instance.setTitle('聊天')
     if (this.route.params['_value']['chat']) {
       this.currentCon['targetId'] = this.route.params['_value']['chat']
     }
-    this.userAuth$.subscribe(res => {
+    this.userRongAuth$.subscribe(res => {
       if (!res) {
-        this.accSer.userinfo().subscribe(res => {
-          if (res.status == 'success') {
-            this.finalUserInfo = res['userInfo']
-            this.store.dispatch({ type: 'Loading user info success', payloads: res['userInfo'] })
-          } else {
-            this.router.navigateByUrl('/login')
-          }
+        var things = this.rongSer.rongInit(this.finalUserInfo()), that = this
+        things[0].then(function(user) {
+          console.log('链接成功, 链接用户 id 为: ', user.id)
+          that.store.dispatch({ type: 'Logging into Rongcloud IM success' })
+          window['rongIm'] = things[1]
+          console.log('获取会话列表成功', that.rongSer.conversationList);
+          that.getCurMessages()
+        }).catch(function(error) {
+          console.log('链接失败: ', error.code, error.msg);
+          that.getCurMessages()
         })
-      } else {
-        this.finalUserInfo$.subscribe(res => {
-          if (res && res.userID.length) {
-            this.userAuth = true
-            if (res) {
-              this.finalUserInfo = res
-              console.log('用户校验成功')
-              this.userRongAuth$.subscribe(res => {
-                if (!res) {
-                  var things = this.rongSer.rongInit(this.finalUserInfo), that = this
-                  things[0].then(function(user) {
-                    console.log('链接成功, 链接用户 id 为: ', user.id)
-                    that.store.dispatch({ type: 'Logging into Rongcloud IM success' })
-                    window['rongIm'] = things[1]
-                    console.log('获取会话列表成功', that.rongSer.conversationList);
-                  }).catch(function(error) {
-                    console.log('链接失败: ', error.code, error.msg);
-                  })
-                } else if (window['rongIm']) {
-                  // window['rongIm'].Conversation.getList({}).then(function(conversationList) {
-                  //   console.log('获取会话列表成功', conversationList);
-                  // });
-                  console.log('获取会话列表成功', this.rongSer.conversationList);
-                }
-              })
-            }
-          } else {
-            this.router.navigateByUrl('/login')
-          }
-        })
+      } else if (window['rongIm']) {
+        console.log('获取会话列表成功', this.rongSer.conversationList);
+        that.getCurMessages()
       }
     })
-
-
-    
   }
   onSub() {
     var that = this
@@ -108,6 +100,11 @@ export class SingleChatComponent implements OnInit {
         that.rongSer.sendMessage(message).subscribe(res => {
           if (res['status'] == 'success') {
             console.log("信息发送成功，", message)
+            that.getCurMessages()
+
+
+            that.messageForm.markAsPristine()
+            that.messageForm.markAsUntouched()
           }
         })
       }, err => {
@@ -115,7 +112,7 @@ export class SingleChatComponent implements OnInit {
       })
     }
     function connect(callback) {
-      var things = that.rongSer.rongInit(that.finalUserInfo)
+      var things = that.rongSer.rongInit(that.finalUserInfo())
       things[0].then(function(user) {
         console.log('链接成功, 链接用户 id 为: ', user.id)
         that.store.dispatch({ type: 'Logging into Rongcloud IM success' })
@@ -131,14 +128,30 @@ export class SingleChatComponent implements OnInit {
         connect(() => send(err => console.error(err)))
       })
     } else {
-      connect(() => send(err => console.error(err)))
+      connect(() => {
+        send(err => console.error(err))
+      })
     }
-    console.warn(this.messageForm.value)
   }
+
+  timeclock = date => {
+    date = new Date(date)
+    return `${date.getFullYear()}-${this.doubledigit(date.getMonth())}-${this.doubledigit(date.getDate())} ${this.doubledigit(date.getHours())}:${this.doubledigit(date.getMinutes())}`
+  }
+
+  singleListClock = date => {
+    var today = new Date()
+    date = new Date(date)
+    return date.getFullYear() == today.getFullYear() && date.getMonth() == today.getMonth() && date.getDate() == today.getDate() ? `${this.doubledigit(date.getHours())}:${this.doubledigit(date.getMinutes())}` : `${date.getFullYear()}-${this.doubledigit(date.getMonth())}-${this.doubledigit(date.getDate())}`
+  }
+
+  doubledigit = num => num > 9 ? num : `0${num}`
+
+  finalUserInfo = () => this.appRef.components[0].instance.finalUserInfo
 
   changeCurCon(i: number) {
     this.currentCon = this.rongSer.conversationList[i]
-    console.log(i, this.rongSer.conversationList[i], this.currentCon)
+    this.getCurMessages()
   }
 
 }

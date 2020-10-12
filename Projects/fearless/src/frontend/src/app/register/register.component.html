@@ -1,25 +1,50 @@
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <label>
-        User ID:
-        <input type="text" formControlName="userId">
-    </label>
-    <label>
-        Nickname:
-        <input type="text" formControlName="nickname">
-    </label>
-    <label>
-        Avatar URI:
-        <input type="text" formControlName="portraitUri">
-    </label>
-    <div formGroupName="passwords">
-    <label>
-        Password:
-        <input type="password" formControlName="password">
-    </label>
-    <label>
-        Confirm Password:
-        <input type="password" formControlName="password2">
-    </label>
-    </div>
-    <button type="submit" [disabled]="!registerForm.valid">Submit</button>
-</form>
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>注册帐号</mat-card-title>
+    </mat-card-header>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <mat-card-content>
+            <mat-form-field>
+                <mat-label>User ID</mat-label>
+                <input matInput type="text" formControlName="userId">
+                <mat-error *ngIf="hasErr('userId')">
+                  {{hasErr('userId')}}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>昵称</mat-label>
+                <input matInput type="text" formControlName="nickname">
+                <mat-error *ngIf="hasErr('nickname')">
+                  {{hasErr('nickname')}}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>头像地址</mat-label>
+                <input matInput type="text" formControlName="portraitUri">
+                <mat-error *ngIf="hasErr('portraitUri')">
+                  {{hasErr('portraitUri')}}
+                </mat-error>
+            </mat-form-field>
+            <div formGroupName="passwords">
+            <mat-form-field>
+                <mat-label>密码</mat-label>
+                <input matInput type="password" formControlName="password">
+                <mat-error *ngIf="hasErr('passwords')">
+                  {{hasErr('passwords')}}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>确认密码</mat-label>
+                <input matInput type="password" formControlName="password2">
+                <mat-error *ngIf="hasErr('passwords')">
+                  {{hasErr('passwords')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        
+    </mat-card-content>
+    <mat-card-actions>
+        <button type="submit" [disabled]="!registerForm.valid" mat-button>Submit</button>
+    </mat-card-actions>
+    </form>
+</mat-card>

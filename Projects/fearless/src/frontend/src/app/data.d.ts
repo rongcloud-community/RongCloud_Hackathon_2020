@@ -52,16 +52,16 @@ export interface mentionedList {
 }
 
 export interface conversation {
-	senderUserId: string
-	unreadMessageCount: number
-	hasMentiond: boolean
-	mentiondInfo: mentionedList
-	lastUnreadTime: number
-	notificationStatus: number
-	isTop: number
-	type: number
-	targetID: string
-	hasMentioned: boolean
-	mentionedInfo: mentionedList
-	latestMessage: message
+	senderUserId?: string
+	unreadMessageCount?: number
+	hasMentiond?: boolean
+	mentiondInfo?: mentionedList
+	lastUnreadTime?: number
+	notificationStatus?: number
+	isTop?: number
+	type?: number
+	targetId: string
+	hasMentioned?: boolean
+	mentionedInfo?: mentionedList
+	latestMessage?: message
 }
