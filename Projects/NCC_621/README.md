@@ -24,8 +24,8 @@
   --“遗言”之后游戏将会进入下一个夜晚，狼人又可以再一次睁眼选择一位玩家进行猎杀，如此“黑夜—白天—黑夜”循环，直到某一方阵营达成了胜利条件，则游戏结束。
 - 玩家可以在房间中进行游戏，也可以旁观他人的游戏，也可以创建自己的游戏房间。
 
-![](http://ww1.sinaimg.cn/large/006vbfFpgy1gjmxwh6424j30u01t0jsa.jpg)
-![](http://ww1.sinaimg.cn/large/006vbfFpgy1gjmxxaegutj30u01t0taq.jpg)
+![](http://ww1.sinaimg.cn/large/006vbfFpgy1gjmxwh6424j30u01t0jsa.jpg){:height="50%" width="50%"}
+![](http://ww1.sinaimg.cn/large/006vbfFpgy1gjmxxaegutj30u01t0taq.jpg){:height="50%" width="50%"}
 
 
 
