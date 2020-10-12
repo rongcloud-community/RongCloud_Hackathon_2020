@@ -11,7 +11,7 @@
 - [APP功能及使用介绍](#APP功能及使用介绍)
 - [用到的技术](#用到的技术)
 
-![warmhart](https://github.com/DS00HY/RongCloud_Hackathon_2020/blob/master/Projects/%E6%9B%88%E5%A1%94%E5%A4%A9%E7%BA%BF/Warmhart/doc/flash.jpg)
+![warmhart](http://ww1.sinaimg.cn/large/006vbfFply1gjmy81tm7rj30u01pkabg.jpg)
 
 ### APP功能及使用介绍
 
