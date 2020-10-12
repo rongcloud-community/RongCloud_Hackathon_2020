@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>管理系统</title>
+
+     <link href="{{ static_url("easyui/themes/bootstrap/easyui.css") }}" rel="stylesheet" >
+     <link href="{{ static_url("easyui/themes/icon.css") }}" rel="stylesheet" >
+
+
+    <style>
+       .logo{
+            float: left;
+            font-size: 30px;
+            padding:10px 0 0 50px ;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+
+        .navigation{
+            float: right;
+            color:#fff;
+        }
+
+        .navigation ul{
+            list-style: none;
+        }
+
+        .navigation ul li{
+            float: left;
+            padding: 0 8px;
+            font-size: 16px;
+
+        }
+
+        .navigation ul li a{
+            color: #fff;
+            text-decoration: none;
+        }
+
+
+        .footer{
+            font-size: 18px;
+            color: #fff;
+        }
+
+        #navigation{
+            margin: 10px 15px;
+        }
+
+        .tree-node-selected{
+            background: #999;
+            border-radius: 4px;
+        }
+
+        .tree-node-hover{
+            border-radius: 4px;
+        }
+
+
+        .tabs-inner{
+            color: #666 !important;
+        }
+
+
+        .datagrid-row-selected{
+            background: #999 !important;
+        }
+
+        .dialog-button{
+            text-align: center;
+        }
+
+        .textbox{
+            height: 20px;
+            padding: 0 2px;
+            position: relative;
+            top:-1px;
+        }
+    </style>
+
+
+</head>
+
+<body class="easyui-layout">
+
+
+    <div data-options="region:'north',title:'North Title',split:true,noheader:true" style="height:80px;background:#00BDFD;">
+       <div class="logo">管理系统</div>
+        <div class="navigation">
+            <ul>
+                <li><span id="username"></span>欢迎您!   </li>
+                <li><a href="javascript:void(0)" onclick="index_tool.modify(this)" >修改密码</a></li>
+                <li><a href="javascript:void(0)" onclick="location.reload()">刷新</a> </li>
+                <li><a href="javascript:void (0)" onclick="index_tool.logout()">退出</a> </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <div data-options="region:'south',title:'South Title',split:true,noheader:true" style="height:40px;line-height:35px;text-align:center;background: #4397BF;overflow: hidden">
+        <span class="footer">@芮爸&芮妈</span>
+    </div>
+
+    <div data-options="region:'west',title:'导航',split:true,iconCls:'icon-world'" style="width:180px;">
+
+        <ul id="navigation" class="easyui-tree"></ul>
+
+    </div>
+
+    <div data-options="region:'center'" style="overflow: hidden">
+
+        <div id="tabs" >
+            <div title="起始页" iconCls="icon-help" style="padding: 5px 10px">
+               <p>欢迎使用管理系统!</p>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <div id="modify_password" style="margin: 0;padding: 5px 0 0 25px;color:#333;">
+        <form id="modify">
+
+            <p>用户账号:<input type="text" name="edit_username" class="textbox" disabled="true" style="width: 200px"></p>
+            <p>用户密码:<input type="password" id="edit_password" name="edit_password" placeholder="密码留空则不修改" class="textbox" style="width: 200px"></p>
+        </form>
+    </div>
+
+
+
+
+</body>
+
+
+
+<script type="text/javascript" src="{{ static_url("js/jquery-3.1.1.min.js") }}"></script>
+<script type="text/javascript" src="{{ static_url("easyui/jquery.easyui.min.js") }}"></script>
+<script type="text/javascript" src="{{ static_url("easyui/locale/easyui-lang-zh_CN.js") }}"></script>
+
+
+
+<script type="text/javascript">
+
+$(function(){
+
+
+    $.ajax({
+        url:'admin/manage',
+        type:'post',
+        dataType:'json',
+        data:{
+            action:"getUserInfo"
+        },
+        beforeSend:function(){
+            $.messager.progress({
+                text: '正在获取数据',
+            });
+        },
+        success:function(data,response,state) {
+            $.messager.progress('close');
+            if (data.status > 0){
+                $('#modify input[name="edit_username"]').val(data.result[0].username);
+                $('#username').html(data.result[0].username);
+            }
+
+        },
+
+    });
+
+    //导航栏
+   $('#navigation').tree({
+       url:'admin/nav?action=getNav',
+       method:'post',
+       lines:true,
+       onLoadSuccess: function (node,data) {
+           let _this=this;
+           if(data.length> 0){
+               $(data).each(function(index,value){
+                   if(this.state == 'closed'){
+                       $(_this).tree('expandAll');
+                   }
+               });
+
+           }
+
+           else{
+               $('#navigation').tree('remove',node.target);
+           }
+
+       },
+
+       onClick:function(node){
+           if(node.url){
+               if($('#tabs').tabs('exists',node.text)){
+                   $('#tabs').tabs('select',node.text)
+               }else {
+                   $('#tabs').tabs('add',{
+                       title:node.text,
+                       closable:true,
+                       iconCls:node.iconCls,
+                       href :"/"+node.url,
+                   })
+               }
+           }
+
+
+        },
+
+
+   });
+
+
+
+
+    //内容栏
+
+    //tabs
+
+    $('#tabs').tabs({
+       fit:true,
+        border:false,
+
+    });
+
+
+   index_tool={
+
+        logout:function(){
+
+
+                    $.messager.confirm('确认操作','你真的要退出吗?',function(flag){
+                        if(flag){
+                            $.ajax({
+                                url:'/admin/login',
+                                type:'post',
+                                data:{
+                                    action:'logout'
+                                },
+                                dataType:'json',
+                                beforeSend:function(){
+                                    $.messager.progress({
+                                        text: '正在提交数据',
+                                    });
+                                },
+                                success:function(data,response,state){
+                                    $.messager.progress('close');
+                                    if(data.status > 0){
+                                        location.reload();
+                                    }
+                                },
+                            });
+                        }
+                    });
+
+        },
+
+
+        modify:function(){
+            $('#modify_password').dialog('open');
+        },
+
+
+    };
+
+
+
+    $('#modify_password').dialog({
+        width:350,
+        height:200,
+        iconCls:'icon-user',
+        title:'修改密码',
+        modal:true,
+        closed:true,
+        buttons:[
+            {
+                text:'提交',
+                iconCls:'icon-edit-new',
+                handler:function(){
+                    if($('#modify').form('validate')){
+
+                        $.ajax({
+                            url:'/admin/manage',
+                            type:'post',
+                            dataType:'json',
+                            data:{
+                                action:"modify",
+                                password: $.trim($('#modify input[name="edit_password"]').val()),
+
+                            },
+
+                            beforeSend:function(){
+                                $.messager.progress({
+                                    text: '正在尝试提交',
+                                });
+                            },
+                            success:function(data,response,state){
+                                $.messager.progress('close');
+
+
+                                if(data.status>0){
+                                    $.messager.show({
+                                        title:'操作提醒',
+                                        msg:'修改密码成功',
+
+                                    });
+
+                                    $('#modify_password').dialog('close');
+
+                                } else {
+                                    $.messager.alert('警告操作',data.msg,'warning',function(){
+
+                                    })
+                                }
+
+                            },
+                        });
+
+                    }
+                },
+
+            },
+            {
+                text:'取消',
+                iconCls:'icon-redo',
+                handler:function(){
+                    $('#modify_password').dialog('close');
+                },
+            }
+        ],
+        onClose:function(){
+            $('#modify').form('reset');
+
+        },
+    });
+
+
+    $('#edit_password').validatebox({
+
+        validType:'length[6,30]',
+        invalidMessage:'密码必须在6-30位之间',
+
+    })
+
+
+
+
+});
+
+
+
+
+
+</script>
+
+</html>

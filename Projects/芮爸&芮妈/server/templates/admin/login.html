@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>管理系统</title>
+
+     <link href="{{ static_url("easyui/themes/bootstrap/easyui.css") }}" rel="stylesheet" >
+     <link href="{{ static_url("easyui/themes/icon.css") }}" rel="stylesheet" >
+
+
+
+
+</head>
+
+<style>
+  body{
+        -webkit-background-size: cover;
+        background-size: 100% 100%;
+    }
+
+
+    header{
+        width: 100%;
+        height:30px;
+    }
+
+
+
+    .logo{
+        width: 48px;
+        height:48px;
+        margin-left: 80px;
+        float: left;
+        text-align: center;
+        background: honeydew;
+    }
+    #name{
+        color: red;
+        margin-top: -12px;
+        float: left;
+        font-size: 18px;
+        font-family: SIMLI;
+
+
+    }
+
+
+    #ig{
+        width: 240px;
+        height: 140px;
+        margin: 54px auto;
+        float: left;
+        /*background: green;*/
+
+
+    }
+
+    .login{
+        position: relative;
+        width: 250px;
+        float: right;
+        margin-top:20px;
+        margin-right: 20px;
+        padding: 10px;
+        background: white;
+        -webkit-border-radius: 1px;
+        -moz-border-radius: 1px;
+        border-radius: 3px ;
+        -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+
+
+    input[type=submit]{
+        margin:10px 0 0 70px;
+        width: 70px;
+    }
+
+
+    footer{
+        position: absolute;
+        bottom: 0;
+        width: 99%;
+
+
+    }
+
+    footer p{
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    #btn{
+        text-align: center !important;
+    }
+
+
+
+</style>
+
+<body>
+
+    <header>
+
+        <div id="name"><h1>管理系统登陆</h1></div>
+
+    </header>
+
+    <section class="content" >
+            <form id="login">
+
+                <p style="text-align: center">用户账号：<input type="text" name="login_username" placeholder="请输入用户名" class="text" id="user"></p>
+                <p style="text-align: center">用户密码：<input type="password" name="login_password" placeholder="请输入6-30位之间的密码" class="text"  id="pass"></p>
+
+
+                  <div id="btn">
+                    <a href="javascript:void(0)"  onclick="login_tool.login()" class="easyui-linkbutton"  data-options="iconCls:'icon-ok'">登录</a>
+                 </div>
+            </form>
+
+
+
+    </section>
+
+
+    <footer><p>@芮爸&芮妈</p></footer>
+
+
+
+</body>
+
+<script type="text/javascript" src="{{ static_url("js/jquery-3.1.1.min.js") }}"></script>
+<script type="text/javascript" src="{{ static_url("easyui/jquery.easyui.min.js") }}"></script>
+<script type="text/javascript" src="{{ static_url("easyui/locale/easyui-lang-zh_CN.js") }}"></script>
+
+<script type="text/javascript">
+
+
+    $(function () {
+
+               $('.content').height(innerHeight - $('footer').height() -$('header').height());
+
+               $('#login').dialog({
+                    width:330,
+                    height:220,
+                    title:'用户登录',
+                    iconCls:'icon-login',
+                    closable:false,
+                    modal:true,
+                    buttons:'#btn',
+                    draggable:false,
+               });
+
+               $(document).keypress(function(event) {
+
+                   var keynum = (event.keyCode ? event.keyCode : event.which);
+                   if (keynum == '13') {
+                       login_tool.login();
+                   }
+               });
+
+                $('#user').validatebox({
+                 required:true,
+                 validType:'length[2,20]',
+                 missingMessage:'请输入用户账号',
+                 invalidMessage:'用户账号必须在2-20位之间',
+
+                })
+
+
+                 $('#pass').validatebox({
+                    required:true,
+                    validType:'length[6,30]',
+                    missingMessage:'请输入密码',
+                    invalidMessage:'密码必须在6-30位之间',
+
+                 });
+
+                login_tool={
+                    login:function () {
+                        if($('#login').form('validate')){
+                             $.ajax({
+                                 url:'/admin/login',
+                                 type:'post',
+                                 dataType:'json',
+                                 data: {
+                                     action:'login',
+                                     username: $('#user').val(),
+                                     password: $('#pass').val(),
+
+                                 },
+
+                                 beforeSend:function(){
+                                     $.messager.progress({
+                                         text: '正在尝试提交',
+                                     });
+                                 },
+
+                                 success:function(data,response,state){
+                                     $.messager.progress('close');
+
+                                    if(data.status >0) {
+                                        location.href = '/admin';
+                                        //console.log(data.result);
+
+                                    } else {
+                                         $.messager.alert('警告操作',data.msg,'warning',function(){
+
+                                         });
+                                     }
+
+                                 },
+
+                             });
+
+                         }
+                    },
+
+
+                };
+
+
+    });
+
+
+
+
+
+
+
+</script>
+
+</html>

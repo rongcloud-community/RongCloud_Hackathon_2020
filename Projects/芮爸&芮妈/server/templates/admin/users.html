@@ -1,0 +1,1008 @@
+<style>
+
+    #users_message_list .msg-item {
+        padding: 8px;
+        clear: both;
+    }
+    #users_message_list .msg-item .mui-item-clear {
+        clear: both;
+    }
+    #users_message_list  .msg-item .msg-user {
+        width: 38px;
+        height: 38px;
+        border: solid 1px #d3d3d3;
+        display: inline-block;
+        background: #fff;
+        border-radius: 3px;
+        vertical-align: top;
+        text-align: center;
+        float: left;
+        padding: 3px;
+        color: #ddd;
+    }
+
+    #users_message_list .msg-item .msg-user-img{
+        width: 38px;
+        height: 38px;
+        display: inline-block;
+        border-radius: 3px;
+        vertical-align: top;
+        text-align: center;
+        float: left;
+        color: #ddd;
+    }
+
+    #users_message_list  .msg-item .msg-content-times{
+        text-align: center;
+        font-size: 12px;
+        color: grey;
+        clear: both;
+    }
+
+    #users_message_list  .msg-item .msg-user-img img{
+        width: 38px;
+        height: 38px;
+        position: relative;
+        right: 3px;
+        bottom: 3px;
+    }
+
+    #users_message_list  .msg-item .msg-content {
+        display: inline-block;
+        border-radius: 5px;
+        border: solid 1px #d3d3d3;
+        background-color: #FFFFFF;
+        color: #333;
+        padding: 8px;
+        vertical-align: top;
+        font-size: 15px;
+        position: relative;
+        margin: 0px 8px;
+        max-width: 75%;
+        min-width: 35px;
+        float: left;
+    }
+    #users_message_list  .msg-item .msg-content .msg-content-inner {
+        overflow-x: hidden;
+    }
+
+     #users_message_list  .msg-item .msg-content .msg-content-inner p{
+        padding: 0;
+        margin: 0;
+    }
+
+    #users_message_list  .msg-item .msg-content .msg-content-arrow {
+        position: absolute;
+        border: solid 1px #d3d3d3;
+        border-right: none;
+        border-top: none;
+        background-color: #FFFFFF;
+        width: 10px;
+        height: 10px;
+        left: -5px;
+        top: 12px;
+        -webkit-transform: rotateZ(45deg);
+        transform: rotateZ(45deg);
+    }
+    #users_message_list .msg-item-self .msg-user,
+    #users_message_list  .msg-item-self .msg-content {
+        float: right;
+    }
+    #users_message_list .msg-item-self .msg-content .msg-content-arrow {
+        left: auto;
+        right: -5px;
+        -webkit-transform: rotateZ(225deg);
+        transform: rotateZ(225deg);
+    }
+    #users_message_list .msg-item-self .msg-content,
+    #users_message_list   .msg-item-self .msg-content .msg-content-arrow {
+        background-color: #4CD964;
+        color: #fff;
+        border-color: #2AC845;
+    }
+
+    #users_message_list  .msg-content-img :hover{
+
+    }
+
+
+</style>
+
+    <table id="users"></table>
+
+    <input type="hidden" id="admin_portrait" />
+    <input type="hidden" id="admin_token" />
+    <input type="hidden" id="admin_username" />
+
+    <div id="users_tool" style="padding: 5px">
+        <div>
+
+            <a href="javascript:void (0)" class="easyui-linkbutton" plain="true" iconCls="icon-add-new" onclick="users_tool.add();">新增</a>
+            <a href="javascript:void (0)" class="easyui-linkbutton" plain="true" iconCls="icon-edit-new" onclick="users_tool.edit();">修改</a>
+            <a href="javascript:void (0)" class="easyui-linkbutton" plain="true" iconCls="icon-delete-new" onclick="users_tool.remove();">删除</a>
+            <a href="javascript:void (0)" class="easyui-linkbutton" plain="true" iconCls="icon-reload" onclick="users_tool.reload();">刷新</a>
+            <a href="javascript:void (0)" class="easyui-linkbutton" plain="true" iconCls="icon-redo" onclick="users_tool.redo();">取消选定</a>
+
+        </div>
+
+        <div id="users_search" style="padding: 0 0 0 7px;color: #333">
+            查询条件： <input type="text" name="search_condition" class="textbox" style="width: 110px;">
+            创建时间： <input type="text" name="date_from" class="easyui-datebox" editable="true" style="width: 110px">
+            到： <input type="text" name="date_to" class="easyui-datebox" editable="true"  style="width: 110px">
+            <a href="javascript:void (0)" class="easyui-linkbutton" iconCls="icon-search" onclick="users_tool.search();">查询</a>
+        </div>
+    </div>
+
+
+    <form id="users_add" style="margin: 0;padding: 5px 0 0 25px;color:#333;">
+
+        <p>用户账号:<input type="text" name="username" class="textbox" style="width: 200px" ></p>
+        <p>用户密码:<input type="password" name="password" class="textbox" style="width: 200px"></p>
+        <p>电话号码:<input type="text" name="mobile"  class="textbox" style="width: 200px" ></p>
+        <p>用户头像:<input type="text" name="portrait"  class="textbox" style="width: 200px" ></p>
+        <p>审核状态:<input type="radio" name="state" value="0">待审核 <input type="radio" name="state" value="1" checked >审核通过 <input type="radio" name="state" value="2" >审核不通过</p>
+    </form>
+
+    <form id="users_edit" style="margin: 0;padding: 5px 0 0 25px;color:#333;">
+        <input type="hidden" name="token">
+
+        <p>用户账号:<input type="text" name="username" class="textbox" style="width: 200px" ></p>
+        <p>用户密码:<input type="password" name="password" class="textbox" style="width: 200px"></p>
+        <p>电话号码:<input type="text" name="mobile"  class="textbox" style="width: 200px" ></p>
+        <p>用户头像:<input type="text" name="portrait"  class="textbox" style="width: 200px" ></p>
+        <p>审核状态:<input type="radio" name="state" value="0">待审核 <input type="radio" name="state" value="1" >审核通过 <input type="radio" name="state" value="2" >审核不通过</p>
+    </form>
+
+
+    <form id="users_message" style="margin: 0;padding:0;color:#333;min-height: 600px">
+         <input type="hidden" name="to_user_token" />
+         <input type="hidden" name="to_user_portrait"/>
+         <input type="hidden" name="to_user_name" />
+        <div id="users_message_list" style="text-align: center">
+
+        </div>
+
+        <div id="users_message_editor_1" style="width: 790px;height:50px">
+
+        </div>
+
+        <div id="users_message_editor_2" style="width: 790px;height: 130px">
+
+        </div>
+    </form>
+
+
+<div id="users_sub">
+
+    <table id="users_sub_tb"></table>
+
+    <div id="users_sub_tool" style="padding: 5px">
+
+        <div id="users_sub_search" style="padding: 0 0 0 7px;color: #333">
+            <span id="users_text"></span>
+
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript" src="{{ static_url("wangEditor-3.1.1/wangEditor.js") }}"></script>
+<script type="text/javascript" src="{{ static_url("rongCloudSdk/RongIMLib-3.0.7.js") }}"></script>
+
+<script type="text/javascript">
+
+
+    $.extend($.fn.validatebox.defaults.rules, {
+    phoneNum: { //验证手机号
+        validator: function (value, param) {
+            return /^1\d{10}$/.test(value);
+        },
+        message: '请输入正确的手机号码。'
+      },
+    });
+
+    $(function () {
+
+         var E = window.wangEditor;
+         var editor = new E('#users_message_editor_1','#users_message_editor_2');
+
+         editor.create();
+
+         const APPKEY = 'c9kqb3rdc226j';
+         var im = RongIMLib.init({
+           appkey:APPKEY
+         });
+
+         im.watch({
+             message: function(event){
+                let res = event.message;
+                console.log('收到新消息:', res);
+                users_tool.send_message_callback(res.content.extra.to_user,res.content.extra.from_user,res.content.content,res.receivedTime);
+            },
+         });
+
+
+//管理员表格
+    $('#users').datagrid({
+        url:'/admin/users?action=getList',
+        fit:true,
+        fitColumns:true,
+        rownumbers:true,
+        border:false,
+        striped:true,
+        toolbar:'#users_tool',
+        pagination:true,
+        pageList:[10,20,30,40,50],
+        pageNumber:1,
+        pageSize:10,
+        sortName:'create_date',
+        sortOrder:'DESC',
+        columns:[[
+
+            {
+                field:'token',
+                title:'编号',
+                width: 100,
+                checkbox:true,
+
+            },
+
+            {
+                field:'username',
+                title:'用户名',
+                width: 100,
+            },
+
+            {
+                field:'mobile',
+                title:'电话号码',
+                width: 100,
+            },
+
+            {
+                field:'create_date',
+                title:'注册时间',
+                width: 100,
+                sortable:true,
+
+            },
+
+
+            {
+                field:'update_date',
+                title:'修改时间',
+                width: 100,
+                sortable:true,
+            },
+
+            {
+                field:'last_date',
+                title:'最后登录时间',
+                width: 100,
+                sortable:true,
+            },
+
+            {
+                field:'portrait',
+                title:'头像',
+                width: 100,
+                hidden:true,
+            },
+
+
+
+            {
+                field:'state',
+                title:'状态',
+                width: 100,
+                formatter:formatOper,
+
+            },
+
+            {
+                field:'aaa',
+                title:'操作',
+                width: 100,
+                formatter:controller,
+            },
+
+
+        ]],
+
+        onLoadSuccess:function (data) {
+            if(data.rows.length > 0){
+                for(let i=0;i<data.rows.length;i++){
+                    if(data.rows[i].username == 'admin'){
+
+                         $('#admin_portrait').val(data.rows[i].portrait);
+                         $('#admin_username').val(data.rows[i].username);
+                         $('#admin_token').val(data.rows[i].token);
+
+                         users_tool.connect_im(data.rows[i].token);
+                    }
+                }
+            }
+        },
+
+    });
+
+    function formatOper(val,row,index){
+
+        if(val == 0){
+            return '<span style="color: grey">待审核</span>';
+        }else if(val == 1) {
+            return '<span style="color:green">审核通过</span>' ;
+        }else{
+             return '<span style="color:red">审核不通过</span>' ;
+        }
+
+    }
+
+    function controller(val,row,index){
+
+        let open_send_message = '<a href="javascript:;" onclick="users_tool.open_send_message_dialog('+'\''+row.token+'\''+','+ '\''+ row.username +'\'' +','+'\''+row.portrait+'\''+')" > 发送信息 </a>';
+        if (row.username == 'admin'){
+            open_send_message = '<span style="color:grey ;"> 发送信息 </span>';
+        }
+
+        return  '[<span style="color:purple">'+open_send_message+'</span>]'+
+            '[<span style="color:deepskyblue"><a href="javascript:;" onclick="users_tool.get_user_log('+'\''+row.token+'\''+','+'\''+ row.username +'\''+')"> 查看历史信息 </a> </span>]';
+    }
+
+
+    users_tool={
+
+        connect_im:function(token){
+
+            new Promise(function (resolve) {
+                $.ajax({
+                    url:'/admin/users',
+                    type:'post',
+                    dataType:'json',
+                    data:{
+                        action:"getOne",
+                        token:token,
+                    },
+                    beforeSend:function(){
+                        $.messager.progress({
+                            text: '正在获取数据',
+                        });
+                    },
+                    success:function(data,response,state){
+                        $.messager.progress('close');
+                        if(data.status >0){
+                            resolve(data.result[0].im_token)
+                        }
+                    },
+                });
+            }).then(function (im_token) {
+
+                console.log(im_token);
+                if(im != null){
+
+                    im.connect({"token":im_token}).then(function(user) {
+                        console.log('链接成功, 链接用户 id 为: ', user.id);
+                    }).catch(function(error) {
+                        console.log('链接失败: ', error.code, error.msg);
+                    });
+                }
+
+
+            });
+
+        },
+
+        //打开发信息窗口
+        open_send_message_dialog: function(token,username,portrait){
+
+            $('#users_message').dialog({"title":"正在与"+username+"对话"}).dialog('open');
+
+            $('#users_message input[name=to_user_token]').val(token);
+            $('#users_message input[name=to_user_name]').val(username);
+            $('#users_message input[name=to_user_portrait]').val(portrait);
+
+            users_tool.first_time_get_message_list(token);
+        },
+
+
+       //第一次进入时获取信息列表
+       first_time_get_message_list:function(token){
+            $.ajax({
+                url:'/admin/message',
+                type:'post',
+                dataType:'json',
+                data:{
+                    action:"get_message_list",
+                    user_token:token,
+                },
+                beforeSend:function(){
+                    $.messager.progress({
+                        text: '正在加载数据',
+                    });
+                    $('#users_message_list').html('');
+
+                    editor.txt.clear();
+
+                },
+                success:function(data,response,state){
+                    $.messager.progress('close');
+                    if(data.status >0){
+                        if(data.res.length > 0){
+
+                            let message_list = data.res;
+
+                            let is_append = true;
+
+                            if(is_append){
+                                users_tool.set_message_list_template(message_list);
+                            }
+                        }
+
+
+                    }else{
+                        $.messager.alert('警告操作','获取信息列表失败!','warning');
+                    }
+                },
+            });
+        },
+
+        send_message_callback:function(to_user_token,from_user_token,content,times){
+
+             let data = [];
+
+            if(from_user_token == $('#admin_token').val() && to_user_token == $('#users_message input[name=to_user_token]').val()){
+
+                data["from_user_name"] = $("#admin_username").val();
+                data["to_user_name"] = $('#users_message input[name=to_user_name]').val();
+
+                editor.txt.clear();
+
+            }else if(from_user_token == $('#users_message input[name=to_user_token]').val() && to_user_token == $('#admin_token').val()){
+
+                data["from_user_name"] = $('#users_message input[name=to_user_name]').val();
+                data["to_user_name"] = $("#admin_username").val();
+
+            }else{
+                return false;
+            }
+
+            data["content"] = content;
+            data["create_date"] = users_tool.get_message_time(parseInt(times));
+
+            let msg_list=[];
+            msg_list.push(data);
+
+            users_tool.set_message_list_template(msg_list);
+
+        },
+
+        //转换消息时间
+        get_message_time : function(timestrap){
+            let Time_now = new Date();
+            let N_Y = Time_now.getFullYear() + '-';
+            let N_M = (Time_now.getMonth() + 1 < 10 ? '0' + (Time_now.getMonth() + 1) : Time_now.getMonth() + 1) + '-';
+            let N_D = (Time_now.getDate() < 10 ? '0' + (Time_now.getDate()) : Time_now.getDate()) + ' ';
+            let N_h = (Time_now.getHours() < 10 ? '0' + (Time_now.getHours()) : Time_now.getHours()) + ':';
+            let N_m = (Time_now.getMinutes() < 10 ? '0' + (Time_now.getMinutes()) : Time_now.getMinutes()) + '';
+            let N_s = (Time_now.getSeconds() < 10 ? '0' + (Time_now.getSeconds()) : Time_now.getSeconds());
+
+            let date = new Date(timestrap);
+            let Y = date.getFullYear() + '-';
+            let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+            let D = (date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate()) + ' ';
+            let h = (date.getHours() < 10 ? '0' + (date.getHours()) : date.getHours()) + ':';
+            let m = (date.getMinutes() < 10 ? '0' + (date.getMinutes()) : date.getMinutes()) + '';
+            let s = (date.getSeconds() < 10 ? '0' + (date.getSeconds()) : date.getSeconds());
+
+            if (Y == N_Y && M == N_M && D == N_D && h == N_h) {
+                return '';
+            }else if(Y == N_Y && M == N_M && D == N_D ){
+                return h + m;
+            } else {
+                return Y + M + D;
+            }
+        },
+
+
+        //渲染message_list的对话列表
+       set_message_list_template:function(message_list){
+            let html='';
+            for(let i=0;i<message_list.length;i++){
+
+                let  is_self = '<div class="msg-item ">';
+                let  is_self_img ='<img class="msg-item-img" src="'+ $('#users_message input[name=to_user_portrait]').val() +'"  onerror="javascrpt:this.src=\'{{ static_url("images/small_face.jpg") }}\'" />';
+
+                if(message_list[i].from_user_name =='admin'){
+                    is_self = '<div class="msg-item msg-item-self">';
+                    is_self_img ='<img class="msg-item-self-img" src="'+ $("#admin_portrait").val() + '"  onerror="javascrpt:this.src=\'{{ static_url("images/small_face.jpg") }}\'" />'
+                }
+
+                html += is_self+ ' \n' +
+                    '<p class="msg-content-times">'+message_list[i].create_date+'</p>\n' +
+                    '  <div class="msg-user">\n' +
+                    '      <div class="msg-user-img" >\n' +
+                                is_self_img+
+                    '      </div>\n' +
+                    '  </div>\n' +
+                    '  <div class="msg-content">\n' +
+                    '      <div class="msg-content-inner">'+message_list[i].content+'</div>\n' +
+                    '      <div class="msg-content-arrow"></div>\n' +
+                    '  </div>\n' +
+                    '</div>';
+            }
+
+            $('#users_message_list').append(html);
+
+            $('#users_message_list').animate({scrollTop: $('#users_message_list').get(0).scrollHeight },500);
+
+        },
+
+        //查看用户历史信息
+        get_user_log:function(token,username){
+
+            $('#users_sub').dialog('open');
+
+            $('#users_text').html('用户名:'+username)
+
+            $('#users_sub_tb').datagrid({
+                url:'/admin/message?action=get_user_log&token='+token,
+                fit:true,
+                fitColumns:true,
+                rownumbers:true,
+                border:false,
+                striped:true,
+                toolbar:'#users_sub_tool',
+                pagination:true,
+                pageList:[10,20,30,40,50],
+                pageNumber:1,
+                pageSize:10,
+                sortName:'create_date',
+                sortOrder:'DESC',
+                columns:[[
+
+                    {
+                        field:'from_user_token',
+                        title:'发送者',
+                        width: 100,
+
+                    },
+
+                    {
+                        field:'to_user_token',
+                        title:'接收者',
+                        width: 100,
+
+                    },
+
+                    {
+                        field:'content',
+                        title:'信息内容',
+                        width: 100,
+
+                    },
+
+                    {
+                        field:'create_date',
+                        title:'发送时间',
+                        width: 100,
+                        sortable:true,
+
+                    },
+
+                ]]
+            });
+
+        },
+
+        //新增
+        add:function(){
+            $('#users_add').dialog('open');
+        },
+
+        edit:function(){
+            var rows=$('#users').datagrid('getSelections');
+            if(rows.length>1){
+                $.messager.alert('警告操作','编辑数据只能选定一条数据','warning');
+            }else if(rows.length == 1){
+                $('#users_edit').dialog('open');
+
+                $.ajax({
+                    url:'/admin/users',
+                    type:'post',
+                    dataType:'json',
+                    data:{
+                        action:"getOne",
+                        token:rows[0].token,
+                    },
+                    beforeSend:function(){
+                        $.messager.progress({
+                            text: '正在获取数据',
+                        });
+                    },
+                    success:function(data,response,state){
+                        $.messager.progress('close');
+
+                        if(data.status >0){
+                            $('#users_edit').form('load',{
+                                token:data.result[0].token,
+                                username:data.result[0].username,
+                                mobile:data.result[0].mobile,
+                                state:data.result[0].state,
+                                portrait:data.result[0].portrait,
+                            });
+
+
+
+                        }
+                    },
+                });
+
+
+            }else if(rows.length == 0){
+                $.messager.alert('警告操作','编辑数据必须选定一条数据','warning');
+
+            }else {
+
+            }
+        },
+
+        remove:function(){
+             var rows=$('#users').datagrid('getSelections');
+            if(rows.length>0){
+                $.messager.confirm('确认操作','您真的要删除所选的<strong>'+rows.length+'</strong>条数据吗?',function(flag){
+                    if(flag){
+                        var ids=[];
+                        var is_admin=false;
+                        for(var i=0;i<rows.length;i++){
+
+                            if(rows[i].username == 'admin'){
+                                is_admin= true;
+                            }
+                            ids.push(rows[i].token);
+
+                        }
+
+                        if(is_admin){
+                             $.messager.alert('警告操作','admin不得删除','warning');
+                        }else{
+                             $.ajax({
+                                url:'/admin/users',
+                                type:'post',
+                                dataType:'json',
+                                data:{
+                                    action:'remove',
+                                    token:ids.join(','),
+                                },
+                                beforeSend:function(){
+                                    $('#users').datagrid('loading');
+                                },
+                                success:function(data,response,state){
+                                    if(data){
+                                        $('#users').datagrid('loaded');
+                                        $('#users').datagrid('reload');
+                                        $.messager.show({
+                                            title:'操作提醒',
+                                            msg: data+'个数据被删除成功',
+                                        })
+                                    }
+                                },
+                             });
+                        }
+
+
+                    }
+                });
+
+
+
+            }else {
+                $.messager.alert('警告操作','删除操作必须至少指定一条数据删除','warning');
+            }
+        },
+
+        search:function(){
+            $('#users').datagrid('load',{
+                condition: $.trim($('#users_search input[name="search_condition"]').val()),
+                date_from: $.trim($('#users_search input[name="date_from"]').val()),
+                date_to: $.trim($('#users_search input[name="date_to"]').val()),
+            });
+        },
+        reload:function(){
+            $('#users').datagrid('reload');
+        },
+
+        redo:function(){
+            $('#users').datagrid('unselectAll');
+        },
+
+
+
+    };
+
+
+
+     //查看历史信息窗口初始化
+     $('#users_sub').dialog({
+        width:800,
+        height:600,
+        iconCls:'icon-filter',
+        title:'查看历史信息',
+        modal:true,
+        closed:true,
+    });
+
+
+
+//新增窗口
+    $('#users_add').dialog({
+        width:350,
+        height:420,
+        iconCls:'icon-user',
+        title:'新增用户',
+        modal:true,
+        closed:true,
+        buttons:[
+            {
+                text:'提交',
+                iconCls:'icon-add-new',
+                handler:function(){
+                    if($('#users_add').form('validate')){
+
+                        $.ajax({
+                            url:'/admin/users',
+                            type:'post',
+                            dataType:'json',
+                            data:{
+                                action:"register",
+                                username: $.trim($('#users_add input[name=username]').val()),
+                                password:$.trim($('#users_add input[name=password]').val()),
+                                mobile: $.trim($('#users_add input[name=mobile]').val()),
+                                state:$('#users_add input[name="state"]:checked').val(),
+                                portrait:$('#users_add input[name=portrait]').val(),
+
+                            },
+
+                            beforeSend:function(){
+                                $.messager.progress({
+                                    text: '正在尝试提交',
+                                });
+                            },
+                            success:function(data,response,state){
+                                $.messager.progress('close');
+
+
+                                if(data.status>0){
+                                    $.messager.show({
+                                        title:'操作提醒',
+                                        msg:'新增用户成功',
+
+                                    });
+
+                                    $('#users_add').dialog('close');
+                                    $('#users').datagrid('load');
+
+
+                                } else {
+                                    $.messager.alert('警告操作',data.mag,'warning',function(){
+
+                                    })
+                                }
+
+                            },
+                        });
+
+                    }
+                },
+
+            },
+            {
+                text:'取消',
+                iconCls:'icon-redo',
+                handler:function(){
+                    $('#users_add').dialog('close');
+                },
+            }
+        ],
+        onClose:function(){
+            $('#users_add').form('reset');
+        },
+    });
+
+
+
+
+
+//修改窗口
+    $('#users_edit').dialog({
+        width:350,
+        height:420,
+        iconCls:'icon-user',
+        title:'修改用户',
+        modal:true,
+        closed:true,
+        buttons:[
+            {
+                text:'提交',
+                iconCls:'icon-edit-new',
+                handler:function(){
+                    if($('#users_edit').form('validate')){
+
+                        $.ajax({
+                            url:'/admin/users',
+                            type:'post',
+                            dataType:'json',
+                            data:{
+                                action:"edit",
+                                token: $.trim($('#users_edit input[name="token"]').val()),
+                                username: $.trim($('#users_edit input[name=username]').val()),
+                                password:$.trim($('#users_edit input[name=password]').val()),
+                                mobile: $.trim($('#users_edit input[name=mobile]').val()),
+                                state:$('#users_edit input[name="state"]:checked').val(),
+                                portrait:$('#users_edit input[name=portrait]').val(),
+                            },
+
+                            beforeSend:function(){
+                                $.messager.progress({
+                                    text: '正在尝试提交',
+                                });
+                            },
+                            success:function(data,response,state){
+                                $.messager.progress('close');
+
+
+                                if(data.status>0){
+                                    $.messager.show({
+                                        title:'操作提醒',
+                                        msg:'修改用户成功',
+
+                                    });
+
+                                    $('#users_edit').dialog('close');
+                                    $('#users').datagrid('load');
+
+
+                                } else {
+                                    $.messager.alert('警告操作',data.mag,'warning',function(){
+
+                                    })
+                                }
+
+                            },
+                        });
+
+                    }
+                },
+
+            },
+            {
+                text:'取消',
+                iconCls:'icon-redo',
+                handler:function(){
+                    $('#users_edit').dialog('close');
+                },
+            }
+        ],
+        onClose:function(){
+            $('#users_edit').form('reset');
+        },
+    });
+
+
+    //发送信息窗口
+      $('#users_message').dialog({
+        width:800,
+        height:600,
+        iconCls:'icon-edit',
+        title:'发送信息',
+        modal:true,
+        closed:true,
+            buttons:[
+            {
+                text:'点击发送',
+                iconCls:'icon-edit-new',
+                handler:function(){
+                    if(editor.txt.html() == ''){
+                        $.messager.alert('警告操作','请不要发送空信息!','warning');
+                    }else{
+                        $.ajax({
+                            url:'/admin/message',
+                            type:'post',
+                            dataType:'json',
+                            data:{
+                                action:"send_message",
+                                to_user_token:$('#users_message input[name=to_user_token]').val(),
+                                content:editor.txt.html()
+                            },
+                            beforeSend:function(){
+                                // $.messager.progress({
+                                //     text: '正在提交数据',
+                                // });
+                            },
+                            success:function(data,response,state){
+                                $.messager.progress('close');
+
+                                if(data.status >0){
+
+                                    users_tool.send_message_callback($('#users_message input[name=to_user_token]').val(),$('#admin_token').val(),editor.txt.html(),Date.parse(new Date()).toString());
+
+                                }else{
+                                     $.messager.alert('警告操作','信息发送失败!','warning');
+                                }
+                            },
+                        });
+                    }
+
+                },
+
+            },
+            {
+                text:'关闭',
+                iconCls:'icon-redo',
+                handler:function(){
+                    $('#users_message').dialog('close');
+                },
+            }
+        ],
+        onClose:function(){
+             $('#users_message input[name=to_user_name]').val('');
+             $('#users_message input[name=to_user_portrait]').val('');
+             $('#users_message input[name=to_user_token]').val('');
+        },
+    });
+
+      $('#users_message_list').panel({
+        width:790,
+        height:400,
+        noheader:true
+      });
+
+
+
+
+    //字段验证
+    $('#users_add input[name="username"]').validatebox({
+        required:true,
+        validType:'length[2,30]',
+        missingMessage:'请输入用户名',
+        invalidMessage:'用户名必须在2-30位之间',
+    });
+
+    $('#users_add input[name="password"]').validatebox({
+        required:true,
+        validType:'length[6,30]',
+        missingMessage:'请输入用户密码',
+        invalidMessage:'用户密码必须在6-30位之间',
+    });
+
+   $('#users_add input[name="mobile"]').validatebox({
+        required:true,
+        validType:'length[11,11]',
+        missingMessage:'请输入用户电话',
+        invalidMessage:'用户电话必须是11位',
+    });
+
+
+
+
+    $('#users_edit input[name="password"]').validatebox({
+
+        validType:'length[6,30]',
+        missingMessage:'请输入用户密码',
+        invalidMessage:'用户密码必须在6-30位之间',
+    });
+
+    $('#users_edit input[name="mobile"]').validatebox({
+        required:true,
+        validType:'length[11,11]',
+        missingMessage:'请输入用户电话',
+        invalidMessage:'用户电话必须是11位',
+    });
+
+
+
+    });
+
+</script>
+
+
+

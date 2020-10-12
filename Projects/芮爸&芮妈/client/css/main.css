@@ -1,0 +1,132 @@
+html,body{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background: #0a3a42;
+}
+
+
+#login {
+    position: relative;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3f000000",endColorstr="#3f000000");
+    background: rgba(255, 255, 255, 0.3);
+}
+
+#dialog{
+    width: 100%;
+}
+
+#dialog .dialog_main{
+    border: 1px solid #333;
+
+}
+
+.msg-item {
+    padding: 8px;
+    clear: both;
+}
+ .msg-item .mui-item-clear {
+    clear: both;
+}
+ .msg-item .msg-user {
+    width: 38px;
+    height: 38px;
+    border: solid 1px #d3d3d3;
+    display: inline-block;
+    background: #fff;
+    border-radius: 3px;
+    vertical-align: top;
+    text-align: center;
+    float: left;
+    padding: 3px;
+    color: #ddd;
+}
+
+ .msg-item .msg-user-img{
+    width: 38px;
+    height: 38px;
+    display: inline-block;
+    border-radius: 3px;
+    vertical-align: top;
+    text-align: center;
+    float: left;
+    color: #ddd;
+}
+
+  .msg-item .msg-content-times{
+    text-align: center;
+    font-size: 12px;
+    color: grey;
+    clear: both;
+}
+
+ .msg-item .msg-user-img img{
+    width: 38px;
+    height: 38px;
+    position: relative;
+    right: 3px;
+    bottom: 3px;
+}
+
+ .msg-item .msg-content {
+    display: inline-block;
+    border-radius: 5px;
+    border: solid 1px #d3d3d3;
+    background-color: #FFFFFF;
+    color: #333;
+    padding: 8px;
+    vertical-align: top;
+    font-size: 15px;
+    position: relative;
+    margin: 0px 8px;
+    max-width: 75%;
+    min-width: 35px;
+    float: left;
+}
+ .msg-item .msg-content .msg-content-inner {
+    overflow-x: hidden;
+}
+
+
+.msg-item .msg-content .msg-content-inner p{
+    padding: 0;
+    margin: 0;
+
+}
+
+
+ .msg-item .msg-content .msg-content-arrow {
+    position: absolute;
+    border: solid 1px #d3d3d3;
+    border-right: none;
+    border-top: none;
+    background-color: #FFFFFF;
+    width: 10px;
+    height: 10px;
+    left: -5px;
+    top: 12px;
+    -webkit-transform: rotateZ(45deg);
+    transform: rotateZ(45deg);
+}
+ .msg-item-self .msg-user,
+ .msg-item-self .msg-content {
+    float: right;
+}
+ .msg-item-self .msg-content .msg-content-arrow {
+    left: auto;
+    right: -5px;
+    -webkit-transform: rotateZ(225deg);
+    transform: rotateZ(225deg);
+}
+.msg-item-self .msg-content,
+ .msg-item-self .msg-content .msg-content-arrow {
+    background-color: #4CD964;
+    color: #fff;
+    border-color: #2AC845;
+}
+
+.msg-content-img :hover{
+
+}

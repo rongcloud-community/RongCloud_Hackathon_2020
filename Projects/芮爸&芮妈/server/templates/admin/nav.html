@@ -1,0 +1,818 @@
+
+
+<table id="nav"></table>
+
+<div id="nav_tool" style="padding: 5px">
+    <div>
+        <a href="javascript:void (0)" class="easyui-linkbutton" plain="true" iconCls="icon-add-new" onclick="nav_tool.add();">新增</a>
+        <a href="javascript:void (0)" class="easyui-linkbutton" plain="true" iconCls="icon-edit-new" onclick="nav_tool.edit();">修改</a>
+        <a href="javascript:void (0)" class="easyui-linkbutton" plain="true" iconCls="icon-delete-new" onclick="nav_tool.remove();">删除</a>
+        <a href="javascript:void (0)" class="easyui-linkbutton" plain="true" iconCls="icon-reload" onclick="nav_tool.reload();">刷新</a>
+        <a href="javascript:void (0)" class="easyui-linkbutton" plain="true" iconCls="icon-redo" onclick="nav_tool.redo();">取消选定</a>
+
+    </div>
+
+    <div id="nav_search" style="padding: 0 0 0 7px;color: #333">
+        查询菜单： <input type="text" name="search_text" class="textbox" style="width: 110px;">
+        创建时间： <input type="text" name="date_from" class="easyui-datebox" editable="false" style="width: 110px">
+        到： <input type="text" name="date_to" class="easyui-datebox" editable="false"  style="width: 110px">
+        <a href="javascript:void (0)" class="easyui-linkbutton" iconCls="icon-search" onclick="nav_tool.search();">查询</a>
+    </div>
+</div>
+
+<form id="nav_add" style="margin: 0;padding: 5px 0 0 25px;color:#333;">
+    <p>菜单名称:<input type="text" name="text" class="textbox" style="width: 200px"></p>
+    <p>菜单图标:<input type="text" name="iconCls" class="textbox" style="width: 200px"></p>
+</form>
+
+<form id="nav_edit" style="margin: 0;padding: 5px 0 0 25px;color:#333;">
+    <input type="hidden" name="id">
+
+    <p>菜单名称:<input type="text" name="edit_text" class="textbox"  style="width: 200px"></p>
+    <p>菜单图标:<input type="text" name="edit_iconCls" class="textbox" style="width: 200px"></p>
+
+</form>
+
+
+
+<div id="nav_sub">
+
+    <table id="nav_sub_tb"></table>
+
+    <div id="nav_sub_tool" style="padding: 5px">
+        <div>
+            <a href="javascript:void (0)" id="nav_sub_tool_add" class="easyui-linkbutton" plain="true" iconCls="icon-add-new" onclick="submenu_tool.add();">新增</a>
+            <a href="javascript:void (0)" id="nav_sub_tool_edit" class="easyui-linkbutton" plain="true" iconCls="icon-edit-new" onclick="submenu_tool.edit();">修改</a>
+            <a href="javascript:void (0)" id="nav_sub_tool_remove" class="easyui-linkbutton" plain="true" iconCls="icon-delete-new" onclick="submenu_tool.remove();">删除</a>
+            <a href="javascript:void (0)" id="nav_sub_tool_reload" class="easyui-linkbutton" plain="true" iconCls="icon-reload" onclick="submenu_tool.reload();">刷新</a>
+            <a href="javascript:void (0)" id="nav_sub_tool_redo" class="easyui-linkbutton" plain="true" iconCls="icon-redo" onclick="submenu_tool.redo();">取消选定</a>
+
+        </div>
+
+        <div id="nav_sub_search" style="padding: 0 0 0 7px;color: #333">
+            查询菜单： <input type="text" name="search_text" class="textbox" style="width: 110px;">
+            创建时间： <input type="text" name="date_from" class="easyui-datebox" editable="false" style="width: 110px">
+            到： <input type="text" name="date_to" class="easyui-datebox" editable="false"  style="width: 110px">
+            <a href="javascript:void (0)" class="easyui-linkbutton" iconCls="icon-search" onclick="submenu_tool.search();">查询</a>
+        </div>
+    </div>
+
+
+    <div id="nav_sub_add_div">
+
+
+        <form id="nav_sub_add" style="margin: 0;padding: 5px 0 0 25px;color:#333;">
+            <p>主菜单：<span id="nav_text"></span></p>
+
+            <p>菜单名称:<input type="text" name="text" class="textbox" style="width: 200px"></p>
+            <p>菜单链接:<input type="text" name="url" class="textbox" style="width: 200px"></p>
+            <p>菜单图标:<input type="text" name="iconCls" class="textbox" style="width: 200px"></p>
+
+        </form>
+    </div>
+
+    <div id="nav_sub_edit_div">
+
+        <form id="nav_sub_edit" style="margin: 0;padding: 5px 0 0 25px;color:#333;">
+            <input type="hidden" name="id">
+            <p>主菜单：<span id="edit_nav_text"></span></p>
+
+            <p>菜单名称:<input type="text" name="edit_text" class="textbox" style="width: 200px"></p>
+            <p>菜单链接:<input type="text" name="edit_url" class="textbox" style="width: 200px"></p>
+            <p>菜单图标:<input type="text" name="edit_iconCls" class="textbox" style="width: 200px"></p>
+
+        </form>
+    </div>
+
+</div>
+
+<script>
+
+$(function(){
+
+
+//菜单表格
+
+    $('#nav').datagrid({
+        url:'/admin/nav?action=getList',
+        fit:true,
+        fitColumns:true,
+        rownumbers:true,
+        border:false,
+        striped:true,
+        toolbar:'#nav_tool',
+        pagination:true,
+        pageList:[10,20,30,40,50],
+        pageNumber:1,
+        pageSize:10,
+        sortName:'create_date',
+        sortOrder:'DESC',
+        columns:[[
+            {
+                field:'id',
+                title:'编号',
+                width: 100,
+                checkbox:true,
+
+            },
+
+            {
+                field:'text',
+                title:'主菜单名称',
+                width: 100,
+
+            },
+
+            {
+                field:'create_date',
+                title:'注册时间',
+                width: 100,
+                sortable:true,
+
+            },
+
+
+            {
+                field:'nid',
+                title:'二级菜单',
+                width: 100,
+                formatter:submenu,
+
+            },
+
+
+
+        ]]
+    });
+
+
+    function submenu(val,row,index){
+        return '<a href="javascript:void(0)" onclick="nav_tool.submenu('+row.id+')">二级菜单管理</a>'
+    }
+
+
+
+
+
+
+
+
+
+
+    nav_tool={
+
+
+        add:function(){
+            $('#nav_add').dialog('open');
+            $('#nav_add input[name="text"]').focus();
+        },
+
+        edit:function(){
+            var rows=$('#nav').datagrid('getSelections');
+            if(rows.length>1){
+                $.messager.alert('警告操作','编辑数据只能选定一条数据','warning');
+            }else if(rows.length == 1){
+
+                $('#nav_edit').dialog('open');
+                $.ajax({
+                    url:'/admin/nav',
+                    type:'post',
+                    dataType:'json',
+                    data:{
+                        action:"getOne",
+                        id:rows[0].id,
+                    },
+                    beforeSend:function(){
+                        $.messager.progress({
+                            text: '正在获取数据',
+                        });
+                    },
+                    success:function(data,response,state){
+                        $.messager.progress('close');
+                        if(data.status){
+                            $('#nav_edit').form('load',{
+                                id:data.result[0].id,
+                                edit_text:data.result[0].text,
+                                edit_iconCls:data.result[0].iconCls,
+
+                            });
+
+
+
+                        }
+                    },
+                });
+
+
+            }else if(rows.length == 0){
+                $.messager.alert('警告操作','编辑数据必须选定一条数据','warning');
+
+            }else {
+
+            }
+        },
+        remove:function(){
+            var rows=$('#nav').datagrid('getSelections');
+            if(rows.length>0){
+                $.messager.confirm('确认操作','您真的要删除所选的<strong>'+rows.length+'</strong>条数据吗?',function(flag){
+                    if(flag){
+                        var ids=[];
+                        for(var i=0;i<rows.length;i++){
+                            ids.push(rows[i].id);
+                        }
+                        $.ajax({
+                            url:'/admin/nav',
+                            type:'post',
+                            dataType:'json',
+                            data:{
+                                action:'remove',
+                                ids:ids.join(','),
+                            },
+                            beforeSend:function(){
+                                $('#nav').datagrid('loading');
+                            },
+                            success:function(data,response,state){
+                                if(data){
+                                    $('#nav').datagrid('loaded');
+                                    $('#nav').datagrid('reload');
+                                    $.messager.show({
+                                        title:'操作提醒',
+                                        msg: data+'个数据被删除成功',
+                                    })
+                                }
+                            },
+                        });
+                    }
+                });
+
+
+
+            }else {
+                $.messager.alert('警告操作','删除操作必须至少指定一条数据删除','warning');
+            }
+        },
+
+        search:function(){
+            $('#nav').datagrid('load',{
+                condition: $.trim($('#nav_search input[name="search_text"]').val()),
+                date_from: $.trim($('#nav_search input[name="date_from"]').val()),
+                date_to: $.trim($('#nav_search input[name="date_to"]').val()),
+            });
+        },
+        reload:function(){
+            $('#nav').datagrid('reload');
+        },
+
+        redo:function(){
+            $('#nav').datagrid('unselectAll');
+        },
+
+
+
+        //二级目录操作
+        submenu:function(id){
+            $('#nav_sub').dialog('open');
+
+            $('#nav_sub_tb').datagrid({
+                url:'/admin/nav?action=getPidList&pid='+id,
+                fit:true,
+                fitColumns:true,
+                rownumbers:true,
+                border:false,
+                striped:true,
+                toolbar:'#nav_sub_tool',
+                pagination:true,
+                pageList:[10,20,30,40,50],
+                pageNumber:1,
+                pageSize:10,
+                sortName:'create_date',
+                sortOrder:'DESC',
+                columns:[[
+                    {
+                        field:'id',
+                        title:'编号',
+                        width: 100,
+                        checkbox:true,
+
+                    },
+
+                    {
+                        field:'text',
+                        title:'菜单名称',
+                        width: 100,
+
+                    },
+
+                    {
+                        field:'url',
+                        title:'菜单链接',
+                        width: 100,
+
+                    },
+
+                    {
+                        field:'state',
+                        title:'菜单状态',
+                        width: 100,
+
+                    },
+
+
+                    {
+                        field:'create_date',
+                        title:'注册时间',
+                        width: 100,
+                        sortable:true,
+
+                    },
+
+                ]]
+            });
+
+
+            $.ajax({
+               url: '/admin/nav',
+               dataType:'json',
+                type:'post',
+                data:{
+                    action:'getOne',
+                    id:id
+                },
+                success:function(data,response,state){
+                   if(data.status >0){
+                         $('#nav_text,#edit_nav_text').html(data.result[0].text);
+
+                         $('#nav_text,#edit_nav_text').attr('pid',data.result[0].id);
+
+                    $('#submenu_nav').datagrid('reload');
+                   }
+
+                }
+            });
+        }
+
+    }
+
+
+
+
+
+
+
+    submenu_tool={
+        add:function(){
+            $('#nav_sub_add_div').dialog('open');
+        },
+
+        edit:function(){
+            var rows=$('#nav_sub_tb').datagrid('getSelections');
+            if(rows.length>1){
+                $.messager.alert('警告操作','编辑数据只能选定一条数据','warning');
+            }else if(rows.length == 1){
+                $('#nav_sub_edit_div').dialog('open');
+
+
+                $.ajax({
+                    url:'/admin/nav',
+                    type:'post',
+                    dataType:'json',
+                    data:{
+                        action:"getOne",
+                        id:rows[0].id,
+                    },
+                    beforeSend:function(){
+                        $.messager.progress({
+                            text: '正在获取数据',
+                        });
+                    },
+                    success:function(data,response,state){
+                        $.messager.progress('close');
+                        if(data.status > 0){
+                            $('#nav_sub_edit').form('load',{
+                                id:data.result[0].id,
+                                edit_text:data.result[0].text,
+                                edit_url:data.result[0].url,
+                                edit_state: $.trim(data.result[0].state),
+                                edit_iconCls: $.trim(data.result[0].iconCls),
+                            });
+
+                        }
+                    },
+                });
+
+
+            }else if(rows.length == 0){
+                $.messager.alert('警告操作','编辑数据必须选定一条数据','warning');
+
+            }else {
+
+            }
+        },
+        remove:function(){
+            var rows=$('#nav_sub_tb').datagrid('getSelections');
+            if(rows.length>0){
+                $.messager.confirm('确认操作','您真的要删除所选的<strong>'+rows.length+'</strong>条数据吗?',function(flag){
+                    if(flag){
+                        var ids=[];
+                        for(var i=0;i<rows.length;i++){
+                            ids.push(rows[i].id);
+                        }
+                        $.ajax({
+                            url:'/admin/nav',
+                            type:'post',
+                            dataType:'json',
+                            data:{
+                                action:"remove",
+                                ids:ids.join(','),
+                            },
+                            beforeSend:function(){
+                                $('#nav_sub_tb').datagrid('loading');
+                            },
+                            success:function(data,response,state){
+                                if(data){
+                                    $('#nav_sub_tb').datagrid('loaded');
+                                    $('#nav_sub_tb').datagrid('reload');
+                                    $.messager.show({
+                                        title:'操作提醒',
+                                        msg: '数据被删除成功',
+                                    })
+                                }
+                            },
+                        });
+                    }
+                });
+
+
+
+            }else {
+                $.messager.alert('警告操作','删除操作必须至少指定一条数据删除','warning');
+            }
+        },
+
+        search:function(){
+            $('#nav_sub_tb').datagrid('load',{
+                text: $.trim($('#nav_sub_search input[name="search_text"]').val()),
+                date_from: $.trim($('#nav_sub_search input[name="date_from"]').val()),
+                date_to: $.trim($('#nav_sub_search input[name="date_to"]').val()),
+            });
+        },
+        reload:function(){
+             $('#nav_sub_tb').datagrid('reload');
+        },
+
+        redo:function(){
+            $('#nav_sub_tb').datagrid('unselectAll');
+        },
+
+
+
+    }
+
+//新增窗口
+    $('#nav_add').dialog({
+        width:350,
+        height:420,
+        iconCls:'icon-user-add',
+        title:'新增主菜单',
+        modal:true,
+        closed:true,
+        buttons:[
+            {
+                text:'提交',
+                iconCls:'icon-add-new',
+                handler:function(){
+                    if($('#nav_add').form('validate')){
+                        $.ajax({
+                            url:'/admin/nav',
+                            type:'post',
+                            dataType:'json',
+                            data:{
+                                action:"register",
+                                text: $.trim($('#nav_add input[name="text"]').val()),
+                                iconCls: $.trim($('#nav_add input[name="iconCls"]').val()),
+                            },
+
+                            beforeSend:function(){
+                                $.messager.progress({
+                                    text: '正在尝试提交',
+                                });
+                            },
+                            success:function(data,response,state){
+                                $.messager.progress('close');
+                                if(data.status>0){
+                                    $.messager.show({
+                                        title:'操作提醒',
+                                        msg:'新增主菜单成功',
+
+                                    });
+                                    $('#nav_add').dialog('close');
+                                    $('#nav').datagrid('load');
+
+                                } else {
+                                    $.messager.alert('警告操作',data.msg,'warning',function(){
+
+                                    })
+                                }
+
+                            },
+                        });
+                    }
+                },
+
+            },
+            {
+                text:'取消',
+                iconCls:'icon-redo',
+                handler:function(){
+                    $('#nav_add').dialog('close');
+                },
+            }
+        ],
+        onClose:function(){
+            $('#nav_add').form('reset');
+        },
+    });
+
+
+
+//修改窗口
+    $('#nav_edit').dialog({
+        width:350,
+        height:420,
+        iconCls:'icon-user',
+        title:'修改主菜单',
+        modal:true,
+        closed:true,
+        buttons:[
+            {
+                text:'提交',
+                iconCls:'icon-edit-new',
+                handler:function(){
+                    if($('#nav_edit').form('validate')){
+
+                        $.ajax({
+                            url:'/admin/nav',
+                            type:'post',
+                            dataType:'json',
+                            data:{
+                                action:"edit",
+                                id: $.trim($('#nav_edit input[name="id"]').val()),
+                                text: $.trim($('#nav_edit input[name=edit_text]').val()),
+                                iconCls: $.trim($('#nav_edit input[name="edit_iconCls"]').val()),
+                            },
+
+                            beforeSend:function(){
+                                $.messager.progress({
+                                    text: '正在尝试提交',
+                                });
+                            },
+                            success:function(data,response,state){
+                                $.messager.progress('close');
+
+
+                                if(data.status>0){
+                                    $.messager.show({
+                                        title:'操作提醒',
+                                        msg:'修改主菜单成功',
+
+                                    });
+
+                                    $('#nav_edit').dialog('close');
+                                    $('#nav').datagrid('load');
+
+
+                                } else {
+                                    $.messager.alert('警告操作',data.msg,'warning',function(){
+
+                                    })
+                                }
+
+                            },
+                        });
+
+                    }
+                },
+
+            },
+            {
+                text:'取消',
+                iconCls:'icon-redo',
+                handler:function(){
+                    $('#nav_edit').dialog('close');
+                },
+            }
+        ],
+        onClose:function(){
+            $('#nav_edit').form('reset');
+        },
+    });
+
+
+
+
+    $('#nav_sub').dialog({
+        width:800,
+        height:600,
+        iconCls:'icon-user-add',
+        title:'二级菜单管理',
+        modal:true,
+        closed:true,
+    });
+
+
+
+
+//新增二级菜单窗口
+    $('#nav_sub_add_div').dialog({
+        width:350,
+        height:420,
+        iconCls:'icon-user-add',
+        title:'新增二级菜单',
+        modal:true,
+        closed:true,
+        buttons:[
+            {
+                text:'提交',
+                iconCls:'icon-add-new',
+                handler:function(){
+                    if($('#nav_sub_add').form('validate')){
+                        $.ajax({
+                            url:'/admin/nav',
+                            type:'post',
+                            dataType:'json',
+                            data:{
+                                action:"pid_register",
+                                text: $.trim($('#nav_sub_add input[name="text"]').val()),
+                                iconCls:$.trim($('#nav_sub_add input[name="iconCls"]').val()),
+                                url:$.trim($('#nav_sub_add input[name="url"]').val()),
+                                pid:$('#nav_text').attr('pid'),
+                            },
+
+                            beforeSend:function(){
+                                $.messager.progress({
+                                    text: '正在尝试提交',
+                                });
+                            },
+                            success:function(data,response,state){
+                                $.messager.progress('close');
+                                if(data.status>0){
+                                    $.messager.show({
+                                        title:'操作提醒',
+                                        msg:'新增二级菜单成功',
+
+                                    });
+                                    $('#nav_sub_add_div').dialog('close');
+                                    $('#nav_sub_tb').datagrid('load');
+
+
+                                } else {
+                                    $.messager.alert('警告操作',data.msg,'warning',function(){
+
+                                    })
+                                }
+
+                            },
+                        });
+                    }
+                },
+
+            },
+            {
+                text:'取消',
+                iconCls:'icon-redo',
+                handler:function(){
+                    $('#nav_sub_add_div').dialog('close');
+                },
+            }
+        ],
+        onClose:function(){
+            $('#nav_sub_add').form('reset');
+        },
+    });
+
+
+
+//修改二级菜单窗口
+    $('#nav_sub_edit_div').dialog({
+        width:350,
+        height:420,
+        iconCls:'icon-user-edit',
+        title:'修改二级菜单',
+        modal:true,
+        closed:true,
+        buttons:[
+            {
+                text:'提交',
+                iconCls:'icon-add-new',
+                handler:function(){
+                    if($('#nav_sub_edit').form('validate')){
+                        $.ajax({
+                            url:'/admin/nav',
+                            type:'post',
+                            dataType:'json',
+                            data:{
+
+                                action:'pid_edit',
+                                id:$.trim($('#nav_sub_edit input[name="id"]').val()),
+                                text: $.trim($('#nav_sub_edit input[name="edit_text"]').val()),
+                                iconCls:$.trim($('#nav_sub_edit input[name="edit_iconCls"]').val()),
+                                url:$.trim($('#nav_sub_edit input[name="edit_url"]').val()),
+                                pid:$('#edit_nav_text').attr('pid'),
+
+                            },
+
+                            beforeSend:function(){
+                                $.messager.progress({
+                                    text: '正在尝试提交',
+                                });
+                            },
+                            success:function(data,response,state){
+                                $.messager.progress('close');
+                                if(data.status>0){
+                                    $.messager.show({
+                                        title:'操作提醒',
+                                        msg:'修改二级菜单成功',
+
+                                    });
+                                    $('#nav_sub_edit_div').dialog('close');
+                                    $('#nav_sub_tb').datagrid('load');
+
+
+                                } else {
+                                    $.messager.alert('警告操作',data.msg,'warning',function(){
+
+                                    })
+                                }
+
+                            },
+                        });
+                    }
+                },
+
+            },
+            {
+                text:'取消',
+                iconCls:'icon-redo',
+                handler:function(){
+                    $('#nav_sub_edit_div').dialog('close');
+                },
+            }
+        ],
+        onClose:function(){
+            $('#nav_sub_edit').form('reset');
+        },
+    });
+
+
+
+
+
+
+    //字段验证
+
+    $('#nav_add input[name="text"]').validatebox({
+        required:true,
+        validType:'length[2,100]',
+        missingMessage:'请输入主菜单名称',
+        invalidMessage:'主菜单名称必须在2-100位之间',
+    });
+
+
+
+    $('#nav_edit input[name="edit_text"]').validatebox({
+        required:true,
+        validType:'length[2,100]',
+        missingMessage:'请输入主菜单名称',
+        invalidMessage:'主菜单名称必须在2-100位之间',
+    });
+
+
+
+
+    $('#nav_sub_tool_add').linkbutton({
+        iconCls:'icon-add-new',
+        plain:true,
+    });
+
+    $('#nav_sub_tool_edit').linkbutton({
+        iconCls:'icon-edit-new',
+        plain:true,
+    })
+
+    $('#nav_sub_tool_remove').linkbutton({
+        iconCls:'icon-delete-new',
+        plain:true,
+    })
+
+    $('#nav_sub_tool_reload').linkbutton({
+        iconCls:'icon-reload',
+        plain:true,
+    })
+
+    $('#nav_sub_tool_redo').linkbutton({
+        iconCls:'icon-redo',
+        plain:true,
+    })
+
+});
+</script>

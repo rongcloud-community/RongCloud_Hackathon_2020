@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>对话中</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+    <div id="app">
+
+        <div id="login" v-if="token == ''">
+
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#login_form" data-toggle="tab">登录</a>
+                </li>
+
+                <li>
+                    <a href="#reg_form" data-toggle="tab">注册</a>
+                </li>
+
+            </ul>
+
+            <div class="tab-content">
+
+                <div class="tab-pane fade in active" id="login_form">
+
+                    <form class="form form-horizontal login_form">
+
+                        <div class="form-group">
+                            <div class="col-sm-7 col-sm-offset-2">
+                                <h3>请输入用户密码登录</h3>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="username">用户名:</label>
+
+                            <div class="col-sm-8">
+                                <input class="form-control " type="text" id="username" name="username" placeholder="请输入电话号或用户名" v-model="login_username">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="password">密  码:</label>
+
+                            <div class="col-sm-8">
+                                <input class="form-control " type="password" id="password" name="password" placeholder="请输入6位以上密码" v-model="login_password">
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="form-group" >
+                            <div class="col-sm-4 col-sm-offset-4" style="margin-top:5px ">
+                                <button type="button" class="btn btn-block  btn-success" v-on:click="login()">确认</button>
+                            </div>
+                        </div>
+
+                    </form>
+
+
+                </div>
+
+
+                <div class="tab-pane fade" id="reg_form">
+
+                    <form class="form form-horizontal reg_form">
+
+                        <div class="form-group">
+                            <div class="col-sm-7 col-sm-offset-2">
+                                <h3>请输入信息进行注册</h3>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="username">用户名:</label>
+
+                            <div class="col-sm-8">
+                                <input class="form-control " type="text"  name="username" placeholder="请输入用户名" v-model="reg_username">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="username">手机号:</label>
+
+                            <div class="col-sm-8">
+                                <input class="form-control " type="text"  name="username" placeholder="请输入手机号" v-model="reg_mobile">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="password">密  码:</label>
+
+                            <div class="col-sm-8">
+                                <input class="form-control " type="password"  name="password" placeholder="请输入6位以上密码" v-model="reg_password">
+                            </div>
+
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="password">密码确认:</label>
+
+                            <div class="col-sm-8">
+                                <input class="form-control " type="password"  name="password" placeholder="请输入与密码一致" v-model="reg_not_password">
+                            </div>
+
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="password">用户头像:</label>
+
+                            <img :src="reg_portrait" id="reg_portrait" style="width: 60px;height: 60px" onerror="javascript:this.src='image/small_face.jpg'">
+
+                            <div class="col-sm-8">
+                                <input class="form-control " type="text"  name="portrait" placeholder="请输入用户头像" v-model="reg_portrait">
+                            </div>
+
+
+                        </div>
+
+                        <div class="form-group" >
+                            <div class="col-sm-4 col-sm-offset-4" style="margin-top:5px ">
+                                <button type="button"  class="btn btn-block  btn-success" v-on:click="register()">注册</button>
+                            </div>
+                        </div>
+
+                    </form>
+
+
+                </div>
+
+
+
+
+            </div>
+
+
+
+        </div>
+
+        <div id="dialog" style="width: 100%;" v-else>
+
+            <div class="row">
+                <div class="col-xs-8 ">
+
+                    <div class="panel panel-default service_main">
+
+                        <div class="panel-heading service_dialog_header">
+                            <h3 class="panel-title">{{message_title}}</h3>
+                        </div>
+
+                        <div class="panel-body  pre-scrollable service_dialog_main">
+
+                            <div class="service_dialog_list">
+
+                                <div :class="item.from_user_token == user_id ? 'msg-item msg-item-self' : 'msg-item' "  v-for="item in message_list">
+                                    <p class="msg-content-times" v-if="item.create_date != ''">{{item.create_date}}</p>
+                                    <div class="msg-user">
+                                        <div class="msg-user-img" >
+                                            <img :src="item.from_user_token == user_id ? portrait : to_user_portrait"  alt="用户头像"/>
+                                        </div>
+                                    </div>
+                                    <div class="msg-content">
+                                        <div class="msg-content-inner" v-html="item.content"></div>
+                                        <div class="msg-content-arrow"></div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="panel-footer service_dialog_footer">
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading ">
+
+                                    <div id="send_message_menu"></div>
+
+                                </div>
+
+                                <div class="panel-body">
+                                    <div id="send_message" ></div>
+                                </div>
+
+                                <div class="panel-footer ">
+                                    <div class="row">
+
+                                        <div class="col-xs-3">
+                                            <button type="button" class="btn btn-default" v-on:click="show_modify()"><span class="glyphicon glyphicon-lock">修改密码</span> </button>
+                                        </div>
+
+                                        <div class="col-xs-3">
+                                            <button type="button" class="btn btn-default" v-on:click="show_modify_information()"><span class="glyphicon glyphicon-cog">修改信息</span> </button>
+                                        </div>
+
+                                        <div class="col-xs-3">
+                                            <button type="button" class="btn btn-default" v-on:click="show_logout()"><span class="glyphicon glyphicon-log-out">账户登出</span> </button>
+                                        </div>
+
+                                        <div class="col-xs-3">
+                                            <p style="text-align: right">
+                                                <button type="button" class="btn btn-primary" v-bind:disabled="!is_msg" v-on:click="sendMessage($event)" id="send_message_btn"><i class="glyphicon glyphicon-comment">发送(ctrl＋Enter)</i></button>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-4 service_sidebar">
+
+                    <div class="panel panel-primary">
+                        <div class="panel-heading service_sidebar_header">
+                            正在咨询列表
+                            <button type="button" class="btn btn-warning" v-on:click="get_menu_conversation_list($event)"><i class="glyphicon glyphicon-refresh">刷新列表</i></button>
+                        </div>
+                        <div class="panel-body service_sidebar_main">
+
+                            <div class="list-group " style="overflow-y: auto"  v-for="(item,index) in chat_list">
+
+                                <a class="list-group-item"  href="javascript:;" v-on:click="get_chat_info($event,item.token,item.username,item.portrait)">
+                                    <h4 class="list-group-item-heading"> <img style="width: 34px;height: 34px" :src="item.portrait" onerror="javascript:this.src='image/small_face.jpg'" /> <span>{{item.username}}</span> </h4>
+                                    <p class="list-group-item-text">{{item.create_date}}</p>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                        <div class="panel-footer service_sidebar_footer">
+                            <p style="text-align: right"><span>共 {{chat_count}} 人</span></p>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+        <!-- loading等待窗口 -->
+        <div class="modal fade" id="loading" data-backdrop="true"  data-keyboard="false">
+            　　<div style="width: 200px;height:20px; z-index: 20000; position: absolute; text-align: center; left: 50%; top: 50%;margin-left:-100px;margin-top:-10px">
+            　　　　<div class="progress progress-striped active" style="margin-bottom: 0;">
+            　　　　　　<div class="progress-bar" style="width: 100%;"></div>
+            　　　　</div>
+            　　　　<h3 style="color: #1e88e5;">请稍后...</h3>
+            　　</div>
+        </div>
+
+        <!-- modify弹窗 -->
+        <div class="modal fade" id="modify_dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title">修改密码</h4>
+                    </div>
+                    <div class="modal-body">
+                        <!--这里写内容-->
+
+                        <form id="modify_form">
+                            <div class="form-group">
+                                <label for="old_password">旧的密码</label>
+                                <input type="password" class="form-control" id="old_password" name="old_password" placeholder="请输入旧的密码">
+                            </div>
+                            <div class="form-group">
+                                <label for="new_password">新的密码</label>
+                                <input type="password" class="form-control" id="new_password" name="new_password" placeholder="请输入新的密码">
+                            </div>
+                            <div class="form-group">
+                                <label for="new_not_password">密码确认</label>
+                                <input type="password" class="form-control" id="new_not_password" name="new_not_password" placeholder="与新的密码一致">
+
+                            </div>
+                        </form>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary" v-on:click="modify()">提交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- modify_information 弹窗 -->
+        <div class="modal fade" id="modify_information_dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title">修改信息</h4>
+                    </div>
+                    <div class="modal-body">
+                        <!--这里写内容-->
+
+                        <form id="modify_information_form">
+                            <div class="form-group">
+                                <label for="user_name">用户名称</label>
+                                <input type="text" class="form-control" id="user_name" name="user_name" readonly placeholder="请输入用户名" v-model="username">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobile">用户手机</label>
+                                <input type="number" class="form-control" id="mobile" name="mobile" placeholder="请输入用户手机" :value="mobile">
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label for="user_portrait">用户头像</label>
+
+                                <img :src="portrait" id="user_portrait_img" style="width: 60px;height: 60px" onerror="javascript:this.src='image/small_face.jpg'">
+
+                                <input type="text" class="form-control" id="user_portrait" name="user_portrait" placeholder="请输入用户头像" v-model="portrait">
+                            </div>
+                        </form>
+
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary" v-on:click="modify_information()">提交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- logout 弹窗 -->
+        <div class="modal fade" id="logout_dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title">确认操作</h4>
+                    </div>
+                    <div class="modal-body">
+                        <!--这里写内容-->
+                        <h2>您真的要进行登录操作吗？</h2>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary" v-on:click="logout()">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+</body>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/wangEditor-3.1.1/wangEditor.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="https://cdn.ronghub.com/RongIMLib-3.0.7.min.js"></script>
+
+<script type="text/javascript">
+const APPKEY = 'c9kqb3rdc226j';
+const root_url = 'http://h.363z6.top';
+
+
+
+var app = new Vue({
+    el:'#app',
+    data(){
+       return{
+
+           login_username:"",
+           login_password:"",
+           reg_username:"",
+           reg_mobile:"",
+           reg_password:"",
+           reg_not_password:"" ,
+           reg_portrait:"",
+           user_id:"",
+           username:"",
+           mobile:"",
+           token:"",
+           portrait:"",
+           message_list:[],
+           im:null,
+           message_title:"暂无对话",
+           chat_list:"",
+           chat_count:0,
+           is_msg:false,
+           editor:null,
+           to_user_id:"",
+           to_user_name:"",
+           to_user_portrait:"",
+           is_send:true
+       }
+    },
+
+    methods:{
+        //设置登录页面样式
+        set_login_style(){
+
+            document.getElementById('login').style.top=(window.innerHeight -   document.getElementById('login').offsetHeight) / 2 +'px';
+            document.getElementById('login').style.width = window.innerWidth*0.5 +'px';
+            document.getElementById('login').style.left=(window.innerWidth - document.getElementById('login').offsetWidth) /2 +'px';
+
+        },
+
+        set_dialog_style(){
+            let that =this;
+
+            setTimeout(function () {
+                $('.service_main,.service_sidebar').css('min-height',window.screen.height-200 );
+                $('.service_dialog_main,.service_sidebar_main').css({'height':window.screen.height - $('.service_dialog_header').height() - $('.service_dialog_footer').height() - 250,'over-overflow-y':'auto'});
+                $('.service_sidebar_list').height(window.screen.height - $('.service_sidebar_header').height() - $('.service_sidebar_footer').height() - 20);
+                $('#send_message').css({'height':$('.service_main').height() - $('.service_sidebar_header').height() - $('.service_sidebar_footer').height() -$('.service_dialog_main').height()-$('#send_message_menu').height() - 200,'over-overflow-y':'auto'})
+
+                if(that.editor == null){
+                    let E = window.wangEditor;
+                    that.editor = new E('#send_message_menu','#send_message');
+                    that.editor.create();
+
+                    that.editor.config.onblur = function(e){
+                        that.is_send =  false;
+                    };
+
+                    that.editor.config.onfocus = function(e){
+                        that.is_send =  true;
+                    };
+                }
+
+            },100);
+        },
+
+        show_logout(){
+            $('#logout_dialog').modal({backdrop: 'static', keyboard: false});
+        },
+
+
+        show_modify(){
+            $('#modify_dialog').modal({backdrop: 'static', keyboard: false});
+            $("#modify_form input[name=old_password]").val('');
+            $("#modify_form input[name=new_password]").val('');
+            $("#modify_form input[name=new_not_password]").val('');
+        },
+
+        show_modify_information(){
+            $('#modify_information_dialog').modal({backdrop: 'static', keyboard: false});
+        },
+
+        //进行登录
+        login(){
+            let that =this;
+
+            return new Promise(function (resolve,reject) {
+
+                if(that.check_login()){
+                    $.ajax({
+                        url: root_url+'/int/users',
+                        type:'post',
+                        dataType:'json',
+                        data:{
+                            action:"login",
+                            username:that.login_username,
+                            password:that.login_password
+                        },
+                        beforeSend:function(){
+                            $('#loading').modal('show');
+                        },
+                        success:function(data,response,state){
+                            $('#loading').modal('hide');
+
+                            if(data.status >0){
+                                that.user_id = data.res.userId;
+                                that.token = data.res.token;
+                                that.username=data.res.username;
+                                that.portrait = data.res.portrait;
+                                that.mobile = data.res.mobile;
+
+                                resolve( data.res.userId, data.res.token);
+
+                            }else{
+                                that.alert('warning',data.msg);
+                                reject(0);
+                            }
+                        },
+                    });
+                }
+
+            }).then(function (user_id,token) {
+                that.get_conversation_list(user_id,token).then(function (im_token) {
+                    that.set_dialog_style();
+                    if(that.im !=null && that.token !=''){
+
+                        that.im.connect({"token":that.token}).then(function(user) {
+                            console.log('链接成功, 链接用户 id 为: ', user.id);
+
+                        }).catch(function(error) {
+                            console.log('链接失败: ', error.code, error.msg);
+                        });
+                    }
+                });
+            });
+
+        },
+
+        //进行注册
+        register(){
+            let that=this;
+
+            return new Promise(function (resolve,reject) {
+                if(that.check_reg()){
+                    $.ajax({
+                        url: root_url+'/int/users',
+                        type:'post',
+                        dataType:'json',
+                        data:{
+                            action:"register",
+                            username:that.reg_username,
+                            password:that.reg_password,
+                            mobile:that.reg_mobile,
+                            portrait:that.reg_portrait
+                        },
+                        beforeSend:function(){
+                            $('#loading').modal('show');
+                        },
+                        success:function(data,response,state){
+                            $('#loading').modal('hide');
+
+                            if(data.status >0){
+                                that.user_id = data.res.userId;
+                                that.token = data.res.token;
+                                that.username=data.res.username;
+                                that.portrait = data.res.portrait;
+                                that.mobile = data.res.mobile;
+                                resolve(data.res.userId, data.res.token);
+
+                            }else{
+                                that.alert('warning',data.msg);
+                                reject(0);
+                            }
+                        },
+                    });
+                }
+            }).then(function (user_id,token) {
+                that.get_conversation_list(user_id,token).then(function (im_token) {
+                    that.set_dialog_style();
+                    if(that.im !=null && that.token !=''){
+                            that.im.connect({"token":that.token}).then(function(user) {
+                                console.log('链接成功, 链接用户 id 为: ', user.id);
+
+                            }).catch(function(error) {
+                                console.log('链接失败: ', error.code, error.msg);
+                            });
+                    }
+                });
+            });
+
+        },
+
+        //获取会话列表
+        get_conversation_list(user_id,token){
+            let that = this;
+
+            return new Promise(function (resolve,reject) {
+
+                $.ajax({
+                    url: root_url+'/int/message',
+                    type:'post',
+                    dataType:'json',
+                    data:{
+                        action:"get_conversation_list",
+                        user_id:user_id,
+                    },
+                    beforeSend:function(){
+                        //$('#loading').modal('show');
+                    },
+                    success:function(data,response,state){
+
+                        //$('#loading').modal('hide');
+
+                        if(data.status >0){
+
+                            // let new_chat_list=[];
+                            //
+                            // if(data.res.length > 0){
+                            //
+                            //     for(let i=0;i<data.res.length;i++){
+                            //         if(data.res[i]._id.to_user_token == that.user_id){
+                            //             new_chat_list.push({
+                            //                 "user_id":data.res[i]._id.from_user_token,
+                            //                 "user_name":data.res[i]._id.from_user_name,
+                            //                 "user_portrait":data.res[i]._id.from_user_portrait,
+                            //                 "create_date": data.res[i].create_date
+                            //             });
+                            //         }else{
+                            //             new_chat_list.push({
+                            //                 "user_id":data.res[i]._id.to_user_token,
+                            //                 "user_name":data.res[i]._id.to_user_name,
+                            //                 "user_portrait":data.res[i]._id.to_user_portrait,
+                            //                 "create_date": data.res[i].create_date
+                            //             });
+                            //         }
+                            //     }
+                            //
+                            //
+                            //
+                            //     if(new_chat_list.length > 1){
+                            //
+                            //         for(let i=0;i<new_chat_list.length;i++){
+                            //             for(let j=i+1;j<new_chat_list.length;j++){
+                            //                 if(new_chat_list[i].user_id == new_chat_list[j].user_id){
+                            //                     new_chat_list.splice(i,1);
+                            //                 }
+                            //             }
+                            //         }
+                            //     }else{
+                            //         //给与默认值
+                            //
+                            //
+                            //     }
+                            // }
+
+                            that.chat_list = data.res;
+                            that.chat_count = data.res.length;
+
+                            resolve(token);
+
+                        }else{
+
+                            that.alert('warning',data.msg);
+
+                            reject(0);
+                        }
+                    },
+                });
+
+            });
+
+        },
+
+        //获取聊天记录
+        get_message_list(to_user_id){
+            let that=this;
+
+            $.ajax({
+                url: root_url+'/int/message',
+                type:'post',
+                dataType:'json',
+                data:{
+                    action:"get_message_list",
+                    to_user_id:to_user_id,
+                    from_user_id: that.user_id
+                },
+                beforeSend:function(){
+                    $('#loading').modal({backdrop: 'static', keyboard: false});
+                },
+                success:function(data,response,state){
+                    $('#loading').modal('hide');
+
+                    if(data.status >0){
+
+                        that.message_list = data.res;
+                        that.scroll_to_bottom();
+                    }else{
+                        that.alert('warning',data.msg);
+                    }
+                },
+            });
+        },
+
+        //获取对话信息
+        get_chat_info(event,user_id,user_name,user_portrait){
+            //let that=this;
+            let obj = event.currentTarget;
+            let _a = $(obj).parent().parent().find('.list-group-item');
+
+            for (let i = 0; i< _a.length; i++) {
+                _a.eq(i).attr('class','list-group-item')
+            }
+            obj.className = 'list-group-item active';
+
+            this.message_title = '正在与'+user_name+'对话';
+            this.is_msg=true;
+
+            this.to_user_id = user_id;
+            this.to_user_name = user_name;
+            this.to_user_portrait = user_portrait;
+
+            this.get_message_list(user_id);
+        },
+
+        get_menu_conversation_list(event){
+            let that=this;
+            let obj = event.currentTarget;
+
+            $(obj).attr('disabled',true);
+            this.get_conversation_list(this.user_id,this.token).then(function (im_token) {
+                $(obj).removeAttr('disabled');
+            });
+
+        },
+
+        //发送信息
+        sendMessage(event){
+            let that=this;
+            let obj = event.currentTarget;
+            let content = this.editor.txt.html();
+
+            $(obj).attr('disabled',true);
+
+            new Promise(function (resolve, reject) {
+                if(content == ''){
+                    that.alert('warning','请不发送空信息!');
+                    reject(0)
+                }else if(that.to_user_id == ''){
+                    that.alert('error','您还没有选定需要发送的人!');
+                    reject(0)
+                } else{
+                    let conversation = that.im.Conversation.get({
+                        targetId: that.to_user_id,
+                        type: RongIMLib.CONVERSATION_TYPE.PRIVATE
+                    });
+                    conversation.send({
+                        messageType: RongIMLib.MESSAGE_TYPE.TEXT, // 'RC:TxtMsg'
+                        content: {
+                            content: content,   // 文本内容
+                            extra:{     //附加内容
+                                'from_user': that.user_id,
+                                'to_user': that.to_user_id
+                            }
+                        }
+                    }).then(function(res){
+                        resolve(content);
+                        console.log('发送文字消息成功', res);
+                        that.set_message_list(res.content.extra.to_user,res.content.extra.from_user,res.content.content,res.receivedTime);
+                        that.editor.txt.clear();
+
+                    });
+                }
+            }).then(function (message_content) {
+
+                that.send_message_callback(message_content,obj);
+
+            },function () {
+                $(obj).removeAttr('disabled');
+            });
+
+        },
+
+        //发送成功记录
+        send_message_callback(content,obj){
+            let that=this;
+            $.ajax({
+                url: root_url+'/int/message',
+                type:'post',
+                dataType:'json',
+                data:{
+                    action:"send_message_callback",
+                    to_user_id:that.to_user_id,
+                    from_user_id: that.user_id,
+                    content:content
+                },
+                beforeSend:function(){
+                    //$('#loading').modal({backdrop: 'static', keyboard: false});
+                },
+                success:function(data,response,state){
+                    //$('#loading').modal('hide');
+
+                    if(data.status >0){
+                        $(obj).removeAttr('disabled');
+                        //console.log(that.message_list);
+                    }else{
+                        that.alert('warning',data.msg);
+                    }
+                },
+            });
+        },
+
+
+        set_message_list(to_user_id,from_user_id,content,time){
+            let that = this;
+
+            if((to_user_id == this.to_user_id && from_user_id == this.user_id)|| (to_user_id == this.user_id && from_user_id == this.to_user_id)){
+
+                this.message_list.push({
+                    "to_user_token": to_user_id,
+                    "to_user_portrait":that.to_user_portrait,
+                    "from_user_token": from_user_id,
+                    "from_user_portrait": that.portrait,
+                    "content": content,
+                    "create_date": that.get_message_time(time)
+                });
+                this.scroll_to_bottom();
+
+            }else{
+                return false;
+            }
+
+
+
+        },
+
+        //转换消息时间
+        get_message_time(timestrap){
+            let Time_now = new Date();
+            let N_Y = Time_now.getFullYear() + '-';
+            let N_M = (Time_now.getMonth() + 1 < 10 ? '0' + (Time_now.getMonth() + 1) : Time_now.getMonth() + 1) + '-';
+            let N_D = (Time_now.getDate() < 10 ? '0' + (Time_now.getDate()) : Time_now.getDate()) + ' ';
+            let N_h = (Time_now.getHours() < 10 ? '0' + (Time_now.getHours()) : Time_now.getHours()) + ':';
+            let N_m = (Time_now.getMinutes() < 10 ? '0' + (Time_now.getMinutes()) : Time_now.getMinutes()) + '';
+            let N_s = (Time_now.getSeconds() < 10 ? '0' + (Time_now.getSeconds()) : Time_now.getSeconds());
+
+            let date = new Date(timestrap);
+            let Y = date.getFullYear() + '-';
+            let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+            let D = (date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate()) + ' ';
+            let h = (date.getHours() < 10 ? '0' + (date.getHours()) : date.getHours()) + ':';
+            let m = (date.getMinutes() < 10 ? '0' + (date.getMinutes()) : date.getMinutes()) + '';
+            let s = (date.getSeconds() < 10 ? '0' + (date.getSeconds()) : date.getSeconds());
+
+            if (Y == N_Y && M == N_M && D == N_D && h == N_h) {
+                return '';
+            }else if(Y == N_Y && M == N_M && D == N_D ){
+                return h + m;
+            } else {
+                return Y + M + D;
+            }
+        },
+
+        //验证登录字段
+        check_login(){
+            let flag =true;
+
+            if(this.login_username == ''){
+                this.alert('warning','用户名不得为空');
+                flag =false;
+            }else if(this.login_password == ''){
+                this.alert('warning','用户密码不得为空');
+                flag =false;
+            }else if(this.login_password !='' && this.login_password.length < 6){
+                this.alert('warning','用户密码不得小于6位');
+                flag =false;
+            }
+
+            return flag;
+        },
+
+        //验证注册字段
+        check_reg(){
+            let flag =true;
+
+            if(this.reg_username == ''){
+                this.alert('warning','用户名不得为空');
+                flag =false;
+            }else if(this.reg_password == ''){
+                this.alert('warning','用户密码不得为空');
+                flag =false;
+            }else if(this.reg_password !='' && this.reg_password.length < 6){
+                this.alert('warning','用户密码不得小于6位');
+                flag =false;
+            }else if(this.reg_password !='' && this.reg_password != this.reg_not_password){
+                this.alert('warning','用户密码与密码确认不一致');
+                flag =false;
+            }else if(this.reg_not_password == ''){
+                this.alert('warning','密码确认不得为空');
+                flag =false;
+            }else if(this.reg_mobile == ''){
+                this.alert('warning','用户手机不得为空');
+                flag =false;
+            }else if(!/^1\d{10}$/.test(this.reg_mobile)){
+                this.alert('warning','用户手机格式不正确');
+                flag =false;
+            }
+
+            return flag;
+        },
+
+        //弹窗
+        alert(type,msg){
+            let class_name = '';
+            let title = '';
+            if(type == 'success'){
+                class_name = 'alert alert-success';
+                title = '<strong>成功!</strong>';
+            }else if (type == 'warning'){
+                class_name = 'alert alert-warning';
+                title = '<strong>警告!</strong>';
+            }else if(type =='error'){
+                class_name = 'alert alert-error';
+                title = '<strong>错误!</strong>';
+            }else{
+                class_name = 'alert alert-info';
+                title = '<strong>提示!</strong>';
+            }
+
+            let alert_div_id = Date.parse(new Date()).toString();
+
+            let html = '<div class="'+class_name+' fade in" role="alert" style="position: absolute;top: 50px;width: 100%" id="'+alert_div_id+'">' +
+                '<a href="#" class="close" data-dismiss="alert">&times;</a>'+
+                title+' '+ msg +
+                '</div>';
+
+            $('body').append(html);
+
+            setTimeout(function () {
+                $('#'+alert_div_id).alert('close');
+            },2000);
+        },
+
+        //滑动条到底部
+        scroll_to_bottom(){
+            setTimeout(function () {
+                $('.service_dialog_main').animate({scrollTop: $('.service_dialog_main').get(0).scrollHeight },500);
+            },150);
+        },
+
+        //登出
+        logout(){
+            this.im.disconnect().then(function() {
+                console.log('断开链接成功');
+                location.reload();
+            });
+
+        },
+
+        //修改密码
+        modify(){
+            let that = this;
+            if(this.check_modify()){
+
+                $.ajax({
+                    url: root_url+'/int/users',
+                    type:'post',
+                    dataType:'json',
+                    data:{
+                        action:"modify",
+                        user_id:that.user_id,
+                        old_password: $('#modify_form input[name=old_password]').val() ,
+                        new_password: $('#modify_form input[name=new_password]').val()
+                    },
+                    beforeSend:function(){
+                        $('#loading').modal({backdrop: 'static', keyboard: false});
+                    },
+                    success:function(data,response,state){
+                        $('#loading').modal('hide');
+
+                        if(data.status >0){
+
+                            $('#modify_dialog').modal('hide');
+                            that.alert('success','修改密码成功');
+                        }else{
+                            that.alert('warning',data.msg);
+                        }
+                    },
+                });
+            }
+        },
+
+        check_modify(){
+            let flag = true;
+
+            if($('#modify_form input[name=old_password]').val() == ''){
+                this.alert('warning','请输入您的密码');
+                flag =false;
+            }else if($('#modify_form input[name=new_password]').val() == ''){
+                this.alert('warning','请输入您要修改的密码');
+                flag =false;
+            }else if($('#modify_form input[name=new_not_password]').val() == ''){
+                this.alert('warning','密码确认不得为空');
+                flag =false;
+            }else if($('#modify_form input[name=new_password]').val() != '' && $('#modify_form input[name=new_password]').val() != $('#modify_form input[name=new_not_password]').val()){
+                this.alert('warning','修改的密码要与密码确认一致');
+                flag =false;
+            }
+
+            return flag;
+        },
+
+        //修改用户信息
+        modify_information(){
+            let that=this;
+            if(this.check_modify_information()){
+
+                $.ajax({
+                    url: root_url+'/int/users',
+                    type:'post',
+                    dataType:'json',
+                    data:{
+                        action:"modifyInformation",
+                        user_id:that.user_id,
+                        username:that.username,
+                        portrait: that.portrait ,
+                        new_mobile:$('#modify_information_form input[name=mobile]').val()
+                    },
+                    beforeSend:function(){
+                        $('#loading').modal({backdrop: 'static', keyboard: false});
+                    },
+                    success:function(data,response,state){
+                        $('#loading').modal('hide');
+
+                        if(data.status >0){
+
+                            $('#modify_information_dialog').modal('hide');
+                            that.alert('success','修改信息成功');
+                            that.mobile = $('#modify_information_form input[name=mobile]').val();
+                        }else{
+                            that.alert('warning',data.msg);
+                        }
+                    },
+                });
+
+            }
+        },
+
+        check_modify_information(){
+            let flag= true;
+            if($('#modify_information_form input[name=mobile]').val() == '') {
+                this.alert('warning', '手机号不得为空');
+                flag = false;
+            }else if(!/^1\d{10}$/.test($('#modify_information_form input[name=mobile]').val())){
+                this.alert('warning', '手机号格式不正确');
+                flag = false;
+            }else if(this.portrait == ''){
+                this.alert('warning','用户头像不得为空');
+                flag=false;
+            }
+
+            return flag;
+        }
+
+    },
+
+    mounted(){
+        var that =this;
+
+        this.set_login_style();
+
+
+        this.im = RongIMLib.init({
+           appkey:APPKEY
+        });
+
+        var conversationList = []; // 当前已存在的会话列表
+        this.im.watch({
+            conversation: function(event){
+                let updatedConversationList = event.updatedConversationList; // 更新的会话列表
+                console.log('更新会话汇总:', updatedConversationList);
+                console.log('最新会话列表:', that.im.Conversation.merge({
+                    conversationList,
+                    updatedConversationList
+                }));
+            },
+            message: function(event){
+                let res = event.message;
+                console.log('收到新消息:', res);
+                that.set_message_list(res.content.extra.to_user,res.content.extra.from_user,res.content.content,res.receivedTime);
+            },
+            status: function(event){
+                let status = event.status;
+                console.log('连接状态码:', status);
+            }
+        });
+
+
+        document.onkeydown = function (e) {
+            let ev = document.all ? window.event: e;
+
+            if(ev.ctrlKey && ev.keyCode == 13){
+                if(that.token != ''){
+                    if (that.is_send){
+                        $('#send_message_btn').click();
+                    }
+                }
+            } else if(ev.keyCode == 13){
+                if(that.token == ''){
+                    if(/active/.test(document.getElementById('login_form').className)){
+                        that.login();
+                    }else if(/active/.test(document.getElementById('reg_form').className)){
+                        that.register();
+                    }
+                }
+            }
+        };
+
+
+        window.onunload=function () {
+            if (that.im != null){
+                that.im.disconnect().then(function() {
+                    console.log('断开链接成功');
+
+                });
+            }
+        };
+
+        window.onresize=function () {
+            if (that.token == ''){
+                that.set_login_style();
+            }else{
+                that.set_dialog_style();
+            }
+        };
+
+
+
+    },
+
+});
+
+
+</script>
+
+
+
+</html>
