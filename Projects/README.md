@@ -24,6 +24,6 @@ git clone到本地，找到index.html文件并在浏览器中打开，映入眼�
 
 ## 项目预览：
 
-![](啦啦队/image/1.png)
+<img src="啦啦队/image/1.png" height=400px />
 
-![](啦啦队/image/2.png)
+<img src="啦啦队/image/2.png" height=400px />
