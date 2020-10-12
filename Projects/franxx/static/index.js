@@ -1,18 +1,11 @@
-var conversation;
-var myVote = localStorage.getItem("vote");
-if (myVote) {
-    myVote = JSON.parse(myVote);
-} else {
-    myVote = [];
-}
+var im;
+var votedata;
+var selfid;
 var voted = localStorage.getItem("voted");
 if (voted) {
     voted = JSON.parse(voted);
 } else {
     voted = [];
-}
-for (var i = 0; i < myVote.length; i++) {
-    console.log(myVote.length);
 }
 $.get("/getappkey", function (appkey) {
     if (!appkey) {
@@ -21,7 +14,7 @@ $.get("/getappkey", function (appkey) {
     console.log(appkey);
 
     //融云实时消息SDK
-    var im = RongIMLib.init({ appkey: appkey });
+    im = RongIMLib.init({ appkey: appkey });
     var conversationList = [];
     im.watch({
         conversation: function (event) {
@@ -50,6 +43,7 @@ $.get("/getappkey", function (appkey) {
             alert("获取token失败！");
             return;
         }
+        selfid = token.userId;
         console.log(token.token);
 
         window.onbeforeunload = function () {
@@ -75,19 +69,46 @@ function addoption() {
 }
 function submit() {
     var data = {
+        host: selfid,
         voteid: randomID(),
         data: document.querySelector("#title").value,
-        option: []
+        options: []
     };
     var items = document.querySelectorAll(".option");
     for (var i = 0; i < items.length; i++) {
-        data.option.push(items[i].firstElementChild.value);
+        data.options.push(items[i].firstElementChild.value);
     }
     console.log("提交");
-    myVote.push(data.voteid);
-    localStorage.setItem("vote", JSON.stringify(myVote));
-    $.post("/newvote", data);
+    $.post("/newvote", data, function (error) {
+        if (!error) {
+            alert("投票创建成功，投票id为" + data.voteid);
+        }
+    });
 }
 function randomID() {
     return Math.random().toFixed(6).substr(2);
+}
+function getvote() {
+    $.getJSON("/getvote?voteid=" + $("#voteinput").val(), function (result) {
+        console.log(result);
+        votedata = result;
+        $("#votetitle").text(result.data);
+        var votelist = $("#votelist");
+        for (var i = 0; i < result.options.length; i++) {
+            votelist.append('<div class="voteitem"><input type="button" value="√" onclick="send(' + i + ');"><span>' + result.options[i] + '</span></div>');
+        }
+    });
+}
+function send(x) {
+    im.Conversation.get({
+        targetId: votedata.host,
+        type: RongIMLib.CONVERSATION_TYPE.PRIVATE
+    }).send({
+        messageType: RongIMLib.MESSAGE_TYPE.TEXT,
+        content: {
+            content: String(x)
+        }
+    }).then(function (message) {
+        console.log('发送文字消息成功', message);
+    });
 }

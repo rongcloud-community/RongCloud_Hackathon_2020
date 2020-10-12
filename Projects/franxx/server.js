@@ -10,6 +10,7 @@ app.get("/exit", (req, res) => res.end(onExit(decodeURIComponent(req.query.token
 app.post("/newvote", express.urlencoded({ extended: false }), (req, res) => {
     console.log(req.body);
     votes.push({
+        host: req.body.host,
         voteid: req.body.voteid,
         data: req.body.data,
         options: req.body["options[]"]
@@ -17,8 +18,13 @@ app.post("/newvote", express.urlencoded({ extended: false }), (req, res) => {
     res.end();
 });
 app.get("/getvote", (req, res) => {
-    console.log(req.query.voteid);//voteid
-    res.end();
+    console.log(req.query.voteid);
+    var index = votes.findIndex(v => v.voteid == req.query.voteid);
+    if (index > -1) {
+        res.end(JSON.stringify(votes[index]));
+    } else {
+        res.end("{}");
+    }
 });
 app.use(express.static("static"));
 app.listen(8080, () => {
