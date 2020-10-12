@@ -10,6 +10,7 @@ if (voted) {
 }
 $("#result").hide();
 $("#dovote").hide();
+console.log = function () { };
 $.get("/getappkey", function (appkey) {
     if (!appkey) {
         alert("获取appkey失败");
