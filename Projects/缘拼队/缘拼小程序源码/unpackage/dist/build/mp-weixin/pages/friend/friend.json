@@ -1,0 +1,7 @@
+{
+  "navigationStyle": "default",
+  "navigationBarTitleText": "好友",
+  "usingComponents": {
+    "m-search": "/components/mehaotian-search/mehaotian-search"
+  }
+}

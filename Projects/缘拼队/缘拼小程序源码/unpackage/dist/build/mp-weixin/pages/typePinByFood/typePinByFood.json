@@ -1,0 +1,9 @@
+{
+  "navigationStyle": "default",
+  "navigationBarTitleText": "拼美食",
+  "usingComponents": {
+    "drag-button": "/components/drag-button/drag-button",
+    "m-search": "/components/mehaotian-search/mehaotian-search",
+    "uni-tag": "/components/uni-tag/uni-tag"
+  }
+}

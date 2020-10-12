@@ -1,0 +1,56 @@
+.body {
+	width: 100%;
+	background-color: #f1f1f1;
+}
+.top {
+	width: 100%;
+}
+.search {
+	width: 100%;
+	background-color: #f1f1f1;
+	padding: 20upx;
+	margin-bottom: 10upx;
+	overflow: hidden;
+	transform: translateY(0);
+	box-shadow: 20upx 20upx 30upx rgba( 0, 0, 0, 0.1),
+	  -20upx -20upx 30upx rgba(255,255,255, .1);	
+	  border-radius: 20upx;
+	  transition: all 0.2s;
+	  
+}
+.search:hover{
+	box-shadow: 0 0 0 rgba( 0, 0, 0, 0.2),
+	0 0 0 rgba(255,255,255, 1),
+	inset 20upx 20upx 30upx rgba( 0, 0, 0, 0.1),
+	  inset -20upx -20upx 20upx rgba(255,255,255,1);
+}
+.setSearchBar {
+	/*搜索框设置*/
+	padding: 0;
+	overflow: hidden;
+	border-radius: 30upx;
+	width: 660upx;
+	margin:0 auto;
+	height: 65upx;
+	line-height: 42upx;
+	text-align: center;
+	background-color: #f1f1f1;
+}
+.swiper_box {
+	width: 700upx;
+	height: 370upx;
+	margin: 30upx auto;
+	border-radius: 30upx;
+	transform: translateY(0);
+	overflow: hidden;
+	position: absolute;
+	top: 80upx;
+	left: 25upx;
+	}
+.swiper {
+	width: 700upx;
+	height: 370upx;
+	overflow: hidden;
+	transform: translateY(0);
+	border-radius: 30upx;
+}
