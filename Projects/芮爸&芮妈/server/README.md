@@ -30,3 +30,5 @@
 ### 四、同步文件安装全部的包`pip install -r requirements.txt`并查看安装情况
 
 ### 五、运行服务器 python3 ./server.py --port=8001 这里可以指定端口，这里默认是8001
+
+### 六、数据库文件为int.sql
