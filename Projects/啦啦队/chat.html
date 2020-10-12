@@ -2,7 +2,7 @@
 <html>
   <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>记事提</title>
+      <title>todo 提醒</title>
       <meta name="renderer" content="webkit" />
       <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
       <script src="http://cdn.ronghub.com/RongIMLib-3.0.7-dev.js"></script>
@@ -17,7 +17,7 @@
           overflow-x:hidden;
       }
       body{
-          background-color: #70adc0;
+          background-color: #ebebeb;
           font-family: -apple-system;
           font-family: "-apple-system", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
       }
@@ -33,7 +33,7 @@
 
       button{
           border: 0;
-          background-color: #dd53b4;
+          background-color: #b2e281;
           font-size: 20px;
           color: white;
           font-family : 微软雅黑,宋体;
@@ -146,7 +146,6 @@
               <button style="height: 40px;width: 100%;">发  送</button>
           </div>
       </div>
-      
   </body>
 <script>
 
@@ -185,7 +184,6 @@
                 updatedConversationList
             }));
         },
-        
         message: function(event){
             var message = event.message;
             var data1 = new Date().Format("yyyy-MM-dd HH:mm:ss");
@@ -194,7 +192,7 @@
                 '          </div>')
             if (message.senderUserId != "${param.userId}"){
                 $(".pages").append('<div class="chat-sender">\n' +
-                    '             <div><img src="img2.jpeg"></div></div>\n' +
+                    '              <div><img src="${ctx}/images/nav/nav_boy.png"></div>\n' +
                     '              <div id="'+message.messageUId+'">'+ message.senderUserId +'</div>\n' +
                     '              <div>\n' +
                     '                  <div class="chat-left_triangle"></div>\n' +
@@ -203,7 +201,7 @@
                     '          </div>')
             }else{
                 $(".pages").append('<div class="chat-receiver">\n' +
-                    '              <div><img src="./image/t01183c934aa42910a3.jpg"></div>\n' +
+                    '              <div><img src="${ctx}/images/nav/nav_girl.png"></div>\n' +
                     '              <div id="'+message.messageUId+'">'+ message.senderUserId +'</div>\n' +
                     '              <div>\n' +
                     '                  <div class="chat-right_triangle"></div>\n' +
@@ -288,7 +286,7 @@
                         '              <span>'+data1+'</span>\n' +
                         '          </div>')
                     $(".pages").append('<div class="chat-receiver">\n' +
-                        '              <div><img src="img2.jpeg"></div>\n' +
+                        '              <div><img src="\image\t01183c934aa42910a3.jpg"></div>\n' +
                         '              <div id="send'+message.messageUId+'">小新</div>\n' +
                         '              <div>\n' +
                         '                  <div class="chat-right_triangle"></div>\n' +

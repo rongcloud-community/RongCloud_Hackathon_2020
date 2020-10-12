@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Todo List</title>
+	<link rel="stylesheet" href="css/base.css">
+	<script src="js/jquery-3.1.1.js"></script>
+	<script src="js/store.min.js"></script>
+	<script src="js/main.js"></script>
+</head>
+<body>
+	<div class="box">
+		<h1>Todo List</h1>
+		<div class="nav"> 
+			<div  id="add_btn">添加待办事宜</div>
+			<div  id="unfinished_btn">待办事宜</div>
+			<div  id="finished_btn">已完成事宜</div>
+			<div  id="all_btn">今日所有事宜</div>
+			<div><button onclick="toPage()">唠一唠</button></div>
+		</div>
+		<form  id="add_task">
+			<p>待办事宜：</p>
+			<input type="text" class="content" name="task_content">
+			<p>备注：</p>
+			<textarea  class="descr" cols="30" rows="10" name="task_descr"></textarea>
+			<input type="submit" value="确认"></input>
+		</form>	
+		<div class="task_list">
+		<ul>
+		</ul>
+		</div>
+		<div class="task_detail">
+			<form id="task_detail" >
+			<p>待办事宜：</p>
+			<input type="text" class="content" name="task_content">
+			<p>备注：</p>
+			<textarea  class="descr" name="task_descr"></textarea>
+			<br><input type="submit" value="修改"></input>
+			<button type="button" class="detail_close">关闭</button>
+			</form> 
+		</div>
+	</div>
+</body>
+<script>
+	function toPage(){
+			window.open('chat.html');
+	}
+</script>
+</html>
