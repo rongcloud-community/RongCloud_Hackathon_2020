@@ -33,6 +33,13 @@ $.get("/getappkey", function (appkey) {
             //收到新消息
             var message = event.message;
             console.log("收到新消息:", message);
+            if (message.isOffLineMessage == false) {
+                var select = Number(message.content.content);
+                voteresult[select]++;
+                $("#resultlist .num").each(function (i, e) {
+                    $(e).text(String(voteresult[i]));
+                });
+            }
         },
         status: function (event) {
             //状态改变
@@ -102,6 +109,7 @@ function getvote() {
     $.getJSON("/getvote?voteid=" + $("#voteinput").val(), function (result) {
         if (result.data) {
             $("#tovote").hide();
+            $("#create").hide();
             $("#dovote").show();
             console.log(result);
             votedata = result;
