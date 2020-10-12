@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>理财宝 首页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://cdn.ronghub.com/RongIMLib-3.0.0-dev.js"></script>
+    <!-- build:css css/combined.css -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="js/vendor/owl.carousel.2.1.0/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="js/vendor/owl.carousel.2.1.0/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="http://www.weizoom.com/static/resources/js/jquery-1.7.1.min.js"></script>
+    <!-- endbuild -->
+    <script>
+        var im = RongIMLib.init({
+            appkey: 'pvxdm17jpej8r'
+        });
+		
+
+        var conversationList = []; // 当前已存在的会话列表
+        im.watch({
+            conversation: function(event){
+                var updatedConversationList = event.updatedConversationList; // 更新的会话列表
+                console.log('更新会话汇总:', updatedConversationList);
+                console.log('最新会话列表:', im.Conversation.merge({
+                    conversationList: conversationList,
+                    updatedConversationList: updatedConversationList
+                }));
+            },
+            message: function(event){
+				var message = event.message;
+				console.log('收到新消息', message);
+				getServiceText(message.content.content)
+                var Words = document.getElementById("words");
+            },
+            status: function(event){
+                var status = event.status;
+                switch (status) {
+                    case RongIMLib.CONNECTION_STATUS.CONNECTED:
+                        console.log('链接成功');
+                        break;
+                    case RongIMLib.CONNECTION_STATUS.CONNECTING:
+                        console.log('正在连接中');
+                        break;
+                    case RongIMLib.CONNECTION_STATUS.DISCONNECTED:
+                        console.log('已主动断开连接');
+                        break;
+                    case RongIMLib.CONNECTION_STATUS.NETWORK_UNAVAILABLE:
+                        console.log('网络不可用'); // SDK 内部会自动进行重连
+                        break;
+                    case RongIMLib.CONNECTION_STATUS.SOCKET_ERROR:
+                        console.log('Socket 链接错误'); // SDK 内部会自动进行重连
+                        break;
+                    case RongIMLib.CONNECTION_STATUS.KICKED_OFFLINE_BY_OTHER_CLIENT:
+                        console.log('其他设备登录, 本端被踢'); // 己端被踢, 不可进行重连. 否则会造成多端循环互踢
+                        break;
+                    case RongIMLib.CONNECTION_STATUS.BLOCKED:
+                        console.log('链接断开, 用户已被封禁');
+                        break;
+                    default:
+                        console.log('链接状态变化为:', status);
+                        break;
+                }
+            }
+        });
+        var user = {
+            token: 'QEfIFeA9y+HUvdoWDH/taMejYwemWzg5whIS0cFxZAdfTTrydGPCqQ==@4ujh.cn.rongnav.com;4ujh.cn.rongcfg.com'
+        };
+        var im = RongIMLib.init({ appkey: 'pvxdm17jpej8r' }); // 初始化 IM 实例(单个页面仅需初始化一次)
+        im.connect(user).then(function(user) {
+            console.log('链接成功, 链接用户 id 为: ', user.id);
+			conversation.getMessages(option).then(function(result){
+			  var list = result.list; // 历史消息列表
+			  var hasMore = result.hasMore; // 是否还有历史消息可以获取
+			  console.log('获取历史消息成功', list, hasMore);
+			});
+        }).catch(function(error) {
+            console.log('链接失败: ', error.code, error.msg);
+        });
+
+        var conversation = im.Conversation.get({
+            targetId: 'zhangzhongbaoservice',
+            type: RongIMLib.CONVERSATION_TYPE.PRIVATE
+        });
+		
+		var option = {
+		  timestrap: +new Date(),
+		  count: 20
+		};
+		
+
+        function send(sen){
+            conversation.send({
+                messageType: RongIMLib.MESSAGE_TYPE.TEXT, // 'RC:TxtMsg'
+                content: {
+                    content: sen.toString() // 文本内容
+                }
+            }).then(function(message){
+                console.log('发送文字消息成功', message);
+            });
+        }
+    </script>
+</head>
+<body>
+<!--[if lte IE 8]>
+<p class="browserupgrade">您的浏览器版本老的可笑, 请到 <a href="http://browsehappy.com/">这里</a> 更新, 以获取最佳的体验</p>
+<![endif]-->
+
+<header>
+    <nav class="top">
+        <span class="tel">理财热线: 400-888-8888</span>
+        <ul>
+            <li><a href="#">登录</a></li>
+            <li><a href="#">快速注册</a></li>
+            <li><a href="#">关于</a></li>
+            <li><a href="#">帮助</a></li>
+            <li><a href="#">APP下载</a></li>
+        </ul>
+    </nav>
+    <nav class="main">
+        <a href="#" class="brand"><img src="img/logo@1x.png" alt="回到首页"></a>
+        <ul>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">理财频道</a></li>
+            <li><a href="#">投资频道</a></li>
+            <li><a href="#">新手专区</a></li>
+            <li><a href="#">安全保障</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="dialogue-wrapper" >
+    <div id="btn_open" class="dialogue-support-btn">
+        <i class="dialogue-support-icon"></i>
+        <i class="dialogue-support-line"></i>
+        <span class="dialogue-support-text">联系客服</span>
+    </div>
+    <div class="dialogue-main" z-index: 99>
+        <div class="dialogue-header">
+            <i id="btn_close" class="dialogue-close">></i>
+            <div class="dialogue-service-info">
+                <i class="dialogue-service-img">头像</i>
+                <div class="dialogue-service-title">
+                    <p class="dialogue-service-name">XX客服</p>
+                    <p class="dialogue-service-detail">XX客服支持平台</p>
+                </div>
+            </div>
+        </div>
+        <div id="dialogue_contain" class="dialogue-contain">
+            <p class="dialogue-service-contain"><span class="dialogue-text dialogue-service-text">您好，请提问</span></p>
+            <!-- <p class="dialogue-customer-contain"><span class="dialogue-text dialogue-customer-text">我有个问题</span></p> -->
+        </div>
+        <div class="dialogue-submit">
+            <p id="dialogue_hint" class="dialogue-hint"><span class="dialogue-hint-icon">!</span><span class="dialogue-hint-text">发送内容不能为空</span></p>
+            <textarea id="dialogue_input" class="dialogue-input-text" placeholder="请输入您的问题，按Enter键提交（shift+Enter换行）"></textarea>
+            <div class="dialogue-input-tools">
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var doc = document;
+    // 模拟一些后端传输数据
+    var serviceData = {
+        'robot': {
+            'name': 'robot001',
+            'dialogue': ['模拟回复1', '模拟回复2', '模拟回复3'],
+            'welcome': '您好，robot001为您服务'
+        }
+    };
+
+    var dialogueInput = doc.getElementById('dialogue_input'),
+        dialogueContain = doc.getElementById('dialogue_contain'),
+        dialogueHint = doc.getElementById('dialogue_hint'),
+        btnOpen = doc.getElementById('btn_open'),
+        btnClose = doc.getElementById('btn_close'),
+        timer,
+        timerId,
+        shiftKeyOn = false;  // 辅助判断shift键是否按住
+
+    btnOpen.addEventListener('click', function(e) {
+        $('.dialogue-support-btn').css({'display': 'none'});
+        $('.dialogue-main').css({'display': 'inline-block', 'height': '0'});
+        $('.dialogue-main').animate({'height': '600px'})
+    })
+
+    btnClose.addEventListener('click', function(e) {
+        $('.dialogue-main').animate({'height': '0'}, function() {
+            $('.dialogue-main').css({'display': 'none'});
+            $('.dialogue-support-btn').css({'display': 'inline-block'});
+        });
+    })
+
+    dialogueInput.addEventListener('keydown', function(e) {
+        var e = e || window.event;
+        if (e.keyCode == 16) {
+            shiftKeyOn = true;
+        }
+        if (shiftKeyOn) {
+            return true;
+        } else if (e.keyCode == 13 && dialogueInput.value == '') {
+            // console.log('发送内容不能为空');
+            // 多次触发只执行最后一次渐隐
+            setTimeout(function() {
+                fadeIn(dialogueHint);
+                clearTimeout(timerId)
+                timer = setTimeout(function() {
+                    fadeOut(dialogueHint)
+                }, 2000);
+            }, 10);
+            timerId = timer;
+            return true;
+        } else if (e.keyCode == 13) {
+            var nodeP = doc.createElement('p'),
+                nodeSpan = doc.createElement('span');
+            nodeP.classList.add('dialogue-customer-contain');
+            nodeSpan.classList.add('dialogue-text', 'dialogue-customer-text');
+            nodeSpan.innerHTML = dialogueInput.value;
+            nodeP.appendChild(nodeSpan);
+            dialogueContain.appendChild(nodeP);
+            dialogueContain.scrollTop = dialogueContain.scrollHeight;
+            submitCustomerText(dialogueInput.value);
+        }
+    });
+
+    dialogueInput.addEventListener('keyup', function(e) {
+        var e = e || window.event;
+        if (e.keyCode == 16) {
+            shiftKeyOn = false;
+            return true;
+        }
+        if (!shiftKeyOn && e.keyCode == 13) {
+            dialogueInput.value = null;
+        }
+    });
+
+    function submitCustomerText(text) {
+        console.log(text)
+		send(text)
+        // code here 向后端发送text内容
+
+        // 模拟后端回复
+        /*var num = Math.random() * 10;
+        if (num <= 7) {
+            getServiceText(serviceData);
+        }*/
+    }
+
+    function getServiceText(data) {
+
+        var nodeP = doc.createElement('p'),
+            nodeSpan = doc.createElement('span');
+        nodeP.classList.add('dialogue-service-contain');
+        nodeSpan.classList.add('dialogue-text', 'dialogue-service-text');
+        nodeSpan.innerHTML = data;
+        nodeP.appendChild(nodeSpan);
+        dialogueContain.appendChild(nodeP);
+        dialogueContain.scrollTop = dialogueContain.scrollHeight;
+    }
+
+    // 渐隐
+    function fadeOut(obj) {
+        var n = 100;
+        var time = setInterval(function() {
+            if (n > 0) {
+                n -= 10;
+                obj.style.opacity = '0.' + n;
+            } else if (n <= 30) {
+                obj.style.opacity = '0';
+                clearInterval(time);
+            }
+        }, 10);
+        return true;
+    }
+
+    // 渐显
+    function fadeIn(obj) {
+        var n = 30;
+        var time = setInterval(function() {
+            if (n < 90) {
+                n += 10;
+                obj.style.opacity = '0.' + n;
+            } else if (n >= 80) {
+
+                obj.style.opacity = '1';
+                clearInterval(time);
+            }
+        }, 100);
+        return true;
+    }
+</script>
+
+<div class="container">
+    <div class="transaction clearfix">
+        <div class="trans-content">
+            <div class="trans-data">
+                <span>平台累计成交金额</span>
+                <span class="trans-money">19888</span>
+                <span>万元</span>
+            </div>
+            <div class="trans-data">
+                <span>过去7日成交金额</span>
+                <span class="trans-money">1888</span>
+                <span>万元</span>
+            </div>
+            <div class="trans-report">
+                <a href="#">查看平台运营报告</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="ad">
+        <div class="owl-carousel owl-theme">
+            <div class="item">
+                <picture>
+                    <source srcset="img/ad001-l.png" media="(min-width:50em)">
+                    <source srcset="img/ad001-m.png" media="(min-width:30em)">
+                    <img src="img/ad001.png" alt="2015年度报告">
+                </picture>
+            </div>
+            <div class="item">
+                <picture>
+                    <source srcset="img/ad002-l.png" media="(min-width: 50em)">
+                    <source srcset="img/ad002-m.png" media="(min-width: 30em)">
+                    <img srcset="img/ad002.png" alt="新年红包">
+                </picture>
+            </div>
+            <div class="item">
+                <picture>
+                    <source srcset="img/ad003-l.png" media="(min-width: 50em)">
+                    <source srcset="img/ad003-m.png" media="(min-width: 30em)">
+                    <img srcset="img/ad003.png" alt="新手秘籍">
+                </picture>
+            </div>
+        </div>
+    </div>
+
+    <section class="feature">
+        <div class="item">
+            <h3>安全</h3>
+            <p>国家AAA信用平台<br>银行资金托管<br>上市公司背景保证</p>
+        </div>
+        <div class="item">
+            <h3>权威</h3>
+            <p>中央电视台推荐<br>互联网百强企业<br>标准起草单位</p>
+        </div>
+        <div class="item">
+            <h3>省心</h3>
+            <p>100元起投<br>用户利益保障机制<br>保险公司承保</p>
+        </div>
+    </section>
+
+    <div class="notice clearfix">
+        <a href="#"><span>2015-12-31</span>
+            元旦期间业务受理及值班公告元旦期间业务受理及值班公告元旦期间业务受理及值班公告元旦期间业务受理及值班公告元旦期间业务受理及值班公告元旦期间业务受理及值班公告元旦期间业务受理及值班公告元旦期间业务受理及值班公告元旦期间业务受理及值班公告</a>
+        <a href="#" class="more">更多公告</a>
+    </div>
+
+    <section class="product clearfix">
+        <h2>固定期限产品
+            <em>甄选优质基金</em>
+            <em>省时省力</em>
+            <em>坐等收益</em>
+        </h2>
+
+        <div class="product-content">
+            <div class="item clearfix">
+                <h3><em>3</em>个月</h3>
+                <div class="info">
+                    <p>约定年化收益率: <span class="year-rate">3.50% <i>起</i></span></p>
+                    <p>总成交金额: <span class="money">1880 <i>万元</i></span></p>
+                </div>
+                <div class="buy">
+                    <a href="#">购买</a>
+                </div>
+            </div>
+
+            <div class="item clearfix">
+                <h3><em>3-6</em>个月</h3>
+                <div class="info">
+                    <p>约定年化收益率: <span class="year-rate">3.60% <i>起</i></span></p>
+                    <p>总成交金额: <span class="money">2880 <i>万元</i></span></p>
+                </div>
+                <div class="buy">
+                    <a href="#">购买</a>
+                </div>
+            </div>
+
+            <div class="item clearfix">
+                <h3><em>6-12</em>个月</h3>
+                <div class="info">
+                    <p>约定年化收益率: <span class="year-rate">4.50% <i>起</i></span></p>
+                    <p>总成交金额: <span class="money">3880 <i>万元</i></span></p>
+                </div>
+                <div class="buy">
+                    <a href="#">购买</a>
+                </div>
+            </div>
+
+            <div class="item clearfix">
+                <h3><em>12-24</em>个月</h3>
+                <div class="info">
+                    <p>约定年化收益率: <span class="year-rate">5.60% <i>起</i></span></p>
+                    <p>总成交金额: <span class="money">4880 <i>万元</i></span></p>
+                </div>
+                <div class="buy">
+                    <a href="#">购买</a>
+                </div>
+            </div>
+
+            <div class="item clearfix">
+                <h3><em>24</em>个月以上</h3>
+                <div class="info">
+                    <p>约定年化收益率: <span class="year-rate">6.20% <i>起</i></span></p>
+                    <p>总成交金额: <span class="money">5880 <i>万元</i></span></p>
+                </div>
+                <div class="buy">
+                    <a href="#">购买</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product clearfix">
+        <h2>债权/散标产品
+            <em>自主投资</em>
+            <em>期限灵活</em>
+        </h2>
+
+        <div class="product-content">
+            <div class="item clearfix">
+                <h3><em>3</em>个月 <i>日常生活消费</i></h3>
+                <div class="info">
+                    <p>约定年化收益率: <span class="year-rate">4.90%</span></p>
+                    <p>金额: <span class="money">18,000 <i>元</i></span></p>
+                </div>
+                <div class="buy">
+                    <a href="#">投标</a>
+                </div>
+            </div>
+
+            <div class="item clearfix">
+                <h3><em>5</em>个月 <i>资金周转</i></h3>
+                <div class="info">
+                    <p>约定年化收益率: <span class="year-rate">5.20%</span></p>
+                    <p>金额: <span class="money">28,800 <i>元</i></span></p>
+                </div>
+                <div class="buy">
+                    <a href="#">投标</a>
+                </div>
+            </div>
+
+            <div class="item clearfix">
+                <h3><em>7</em>个月 <i>个人消费</i></h3>
+                <div class="info">
+                    <p>约定年化收益率: <span class="year-rate">5.50%</span></p>
+                    <p>金额: <span class="money">38,800 <i>元</i></span></p>
+                </div>
+                <div class="buy">
+                    <a href="#" class="disabled">还款中</a>
+                </div>
+            </div>
+
+            <div class="item clearfix">
+                <h3><em>1</em>个月 <i>日常生活消费</i></h3>
+                <div class="info">
+                    <p>约定年化收益率: <span class="year-rate">4.60%</span></p>
+                    <p>金额: <span class="money">48,800 <i>元</i></span></p>
+                </div>
+                <div class="buy">
+                    <a href="#" class="disabled">还款中</a>
+                </div>
+            </div>
+
+            <div class="item clearfix">
+                <h3><em>12</em>个月以上 <i>资金周转</i></h3>
+                <div class="info">
+                    <p>约定年化收益率: <span class="year-rate">7.20%</span></p>
+                    <p>金额: <span class="money">58,800 <i>元</i></span></p>
+                </div>
+                <div class="buy">
+                    <a href="#" class="disabled">已满标</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <nav class="footer">
+        <div class="footer-content clearfix">
+            <p class="brand"></p>
+            <ul>
+                <li class="title">关于我们</li>
+                <li><a href="#">公司介绍</a></li>
+                <li><a href="#">业务模式</a></li>
+                <li><a href="#">合作机构</a></li>
+                <li><a href="#">服务协议</a></li>
+            </ul>
+            <ul>
+                <li class="title">风险防范</li>
+                <li><a href="#">账户安全</a></li>
+                <li><a href="#">安全保障</a></li>
+            </ul>
+            <ul>
+                <li class="title">理财产品</li>
+                <li><a href="#">固定期限</a></li>
+                <li><a href="#">债权/散标</a></li>
+            </ul>
+            <ul>
+                <li class="title">交易帮助</li>
+                <li><a href="#">购买</a></li>
+                <li><a href="#">赎回</a></li>
+                <li><a href="#">提现</a></li>
+            </ul>
+            <ul>
+                <li class="title">机构服务</li>
+                <li><a href="#">机构中心</a></li>
+                <li><a href="#">合作联系</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<footer>
+    <ul>
+        <li><span class="icon icon-zfywxk">支付业务许可证</span></li>
+        <li><span class="icon icon-pcirk">PCI认证</span></li>
+        <li><span class="icon icon-visayz">Visa 验证</span></li>
+        <li><span class="icon icon-vsjmfw">VerSign加密服务</span></li>
+        <li><span class="icon icon-wlgs">网络工商</span></li>
+        <li><span class="icon icon-rzcx">电子商务协会认证诚信网</span></li>
+        <li><span class="icon icon-gs">北京工商</span></li>
+    </ul>
+    <p>北京某互联网金融公司 版权所有 ® 2015-2016</p>
+</footer>
+
+<!-- build:js js/combined.js -->
+<script src="js/modernizr.js"></script>
+<script src="js/vendor/jquery.min.js"></script>
+<script src="js/vendor/owl.carousel.2.1.0/owl.carousel.min.js"></script>
+<script src="js/vendor/picturefill.min.js"></script>
+<script src="js/main.js"></script>
+<!-- endbuild -->
+</body>
+</html>
