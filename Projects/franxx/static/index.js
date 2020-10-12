@@ -1,12 +1,15 @@
 var im;
 var votedata;
 var selfid;
+var voteresult;
 var voted = localStorage.getItem("voted");
 if (voted) {
     voted = JSON.parse(voted);
 } else {
     voted = [];
 }
+$("#result").hide();
+$("#dovote").hide();
 $.get("/getappkey", function (appkey) {
     if (!appkey) {
         alert("获取appkey失败");
@@ -74,10 +77,17 @@ function submit() {
         data: document.querySelector("#title").value,
         options: []
     };
+    voteresult = [];
     var items = document.querySelectorAll(".option");
+    var list = $("#resultlist");
     for (var i = 0; i < items.length; i++) {
+        voteresult.push(0);
         data.options.push(items[i].firstElementChild.value);
+        list.append('<div>' + data.options[i] + '......票数<span class="num">0</span></div>');
     }
+    $("#tovote").hide();
+    $("#create").hide();
+    $("#result").show();
     console.log("提交");
     $.post("/newvote", data, function (error) {
         if (!error) {
@@ -90,12 +100,18 @@ function randomID() {
 }
 function getvote() {
     $.getJSON("/getvote?voteid=" + $("#voteinput").val(), function (result) {
-        console.log(result);
-        votedata = result;
-        $("#votetitle").text(result.data);
-        var votelist = $("#votelist");
-        for (var i = 0; i < result.options.length; i++) {
-            votelist.append('<div class="voteitem"><input type="button" value="√" onclick="send(' + i + ');"><span>' + result.options[i] + '</span></div>');
+        if (result.data) {
+            $("#tovote").hide();
+            $("#dovote").show();
+            console.log(result);
+            votedata = result;
+            $("#votetitle").text(result.data);
+            var votelist = $("#votelist");
+            for (var i = 0; i < result.options.length; i++) {
+                votelist.append('<div class="voteitem"><input type="button" value="√" onclick="send(' + i + ');"><span>' + result.options[i] + '</span></div>');
+            }
+        } else {
+            alert("未找到投票");
         }
     });
 }
@@ -110,5 +126,6 @@ function send(x) {
         }
     }).then(function (message) {
         console.log('发送文字消息成功', message);
+        $("#dovote").hide();
     });
 }
