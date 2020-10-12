@@ -11,13 +11,14 @@
 - [APP功能及使用介绍](#APP功能及使用介绍)
 - [用到的技术](#用到的技术)
 
-<img src="http://ww1.sinaimg.cn/large/006vbfFpgy1gjmxxaegutj30u01t0taq.jpg" width="50%" height="50%"/>
+<img src="http://ww1.sinaimg.cn/large/006vbfFply1gjmy81tm7rj30u01pkabg.jpg" width="30%" height="30%"/>
 
 ### APP功能及使用介绍
 
 #### 1.通过手机号注册用户
 
 - 用户通过手机号，获取验证码即可登录，开启旅程。
+<img src="http://ww1.sinaimg.cn/large/006vbfFply1gjmy8g0h9rj30u01t0js8.jpg" width="30%" height="30%"/>
 
 #### 2.暖心畅聊室
 
@@ -27,6 +28,7 @@
   - 心理咨询
   - 个人分享
   - 更多功能可自行挖掘
+ <img src="http://ww1.sinaimg.cn/large/006vbfFply1gjmy91yoz7j30i60msgnk.jpg" width="30%" height="30%"/>
 
 #### 3.发布新话题
 
