@@ -4,7 +4,7 @@
 - 随着生活节奏的加快，现代人的压力增大，而WarmHart的主要目标之一是发挥语言的力量，为人们提供心理慰藉。
 - 在WarmHart可以遇见温暖的普通陌生人，也可以找到专业的情感大师。在每个暖心室里面，都会常驻一位心理咨询师作为主持人，在分享经验的同时还能帮助人们解决心理问题。
 - 本程序为Warm Hart的Andriod版本。
-
+- ![](https://github.com/DS00HY/RongCloud_Hackathon_2020/tree/master/Projects/%E6%9B%88%E5%A1%94%E5%A4%A9%E7%BA%BF/Warmhart/doc/flash.jpg)
 
 ## 目录
 
@@ -15,10 +15,12 @@
 ### APP功能及使用介绍
 
 #### 1.通过手机号注册用户
+- ![](https://github.com/DS00HY/RongCloud_Hackathon_2020/tree/master/Projects/%E6%9B%88%E5%A1%94%E5%A4%A9%E7%BA%BF/Warmhart/doc/login.jpg)
 
 - 用户通过手机号，获取验证码即可登录，开启旅程。
 
 #### 2.暖心畅聊室
+- ![](https://github.com/DS00HY/RongCloud_Hackathon_2020/tree/master/Projects/%E6%9B%88%E5%A1%94%E5%A4%A9%E7%BA%BF/Warmhart/doc/room.jpg)
 
 - 这是大家进行交心的地方，由主持人控制房间的情况，每个房间有除主持人外有8个发言位置。
   - 聊天社交
