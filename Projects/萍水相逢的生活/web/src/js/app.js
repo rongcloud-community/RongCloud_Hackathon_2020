@@ -15,17 +15,21 @@ import { setPlatform, setToken } from '@/js/initializers'
 setGloblStorage()
 
 Framework7.use(Framework7Vue)
-setPlatform()
-setToken()
 
-new Vue({
-  el: '#app',
-  render: (h) => h(App),
-  components: {
-    app: App
-  },
-  store
-})
+;(async function () {
+  await setPlatform()
+  await setToken()
+
+  new Vue({
+    el: '#app',
+    render: (h) => h(App),
+    components: {
+      app: App
+    },
+    store
+  })
+})()
+
 
 // 暴露一个全局的 receiveMessagFromRongCloud 方法，是为了给 Android 和 iOS 等
 // Native 端调用的。Native 端向 WebView 执行 JS 代码，如 Android 和 iOS 都有类

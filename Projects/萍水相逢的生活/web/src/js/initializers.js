@@ -25,9 +25,9 @@ async function setPlatform () {
   }
 }
 
-function setToken () {
+async function setToken () {
   if ('token' in globalStorage) {
-    store.dispatch('initToken', globalStorage.token)
+    await store.dispatch('initToken', globalStorage.token)
   }
 }
 
