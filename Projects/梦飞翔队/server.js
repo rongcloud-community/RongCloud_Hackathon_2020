@@ -12,7 +12,6 @@ app.get("/gettoken", (_, res) => {
     res.end(getToken());
 });
 app.get("/exit", (req, res) => {
-    console.log("exit", req.query.token);
     onExit(req.query.token);
     res.end();
 });

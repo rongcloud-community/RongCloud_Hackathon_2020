@@ -65,6 +65,7 @@ $.get("/getappkey", function (appkey) {
             //通知服务端离开
             window.onbeforeunload = function () {
                 $.get("/exit?token=" + token);
+                return true;
             }
             //加入聊天室
             chatRoom = im.ChatRoom.get({
