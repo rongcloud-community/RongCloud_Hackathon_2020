@@ -1,0 +1,33 @@
+<HTML><HEAD><TITLE>Dvbbs多功能编辑器--插入 Flash 动画</TITLE>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+<meta HTTP-EQUIV=Expires CONTENT=0>
+<Link rel="stylesheet" type="text/css" href="pop.css">
+<SCRIPT event=onclick for=Ok language=JavaScript>
+	var s=path.value;
+	if (s.length<10)
+	{
+		alert('请输入正确的文件链接地址！');
+	}else{
+		window.returnValue = path.value+"*"+selrow.value+"*"+selcol.value
+		window.close();
+	}
+</SCRIPT>
+<script>
+function IsDigit()
+{
+  return ((event.keyCode >= 48) && (event.keyCode <= 57));
+}
+</script>
+</HEAD>
+<BODY bgcolor="menu">
+<TABLE border=0 cellPadding=0 cellSpacing=3 align=center style="padding-left:10px;width=98%">
+<TBODY><TR><TD colSpan=2>
+    <font class=title>插入 Flash 动画</font>
+	<hr width=100% >文件地址 : <INPUT id=path size=50 value="http://"></TD></TR>
+	<TR><TD>文件宽度 : <INPUT id=selrow size=7 value=480 ONKEYPRESS="event.returnValue=IsDigit();"></TD></TR>
+	<TR><TD>文件高度 : <INPUT id=selcol size=7 value=360 ONKEYPRESS="event.returnValue=IsDigit();"></TD></TR>
+	<TR><TD align=middle colSpan=2>
+	<BUTTON id=Ok type=submit>确定</BUTTON>&nbsp; &nbsp;
+	<BUTTON onclick=window.close();>关闭</BUTTON></TD></TR>
+</TD></TR></TBODY></TABLE>
+</BODY></HTML>
