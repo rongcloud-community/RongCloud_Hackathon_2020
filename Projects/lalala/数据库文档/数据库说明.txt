@@ -1,0 +1,84 @@
+使用的是 MySQL5.0 数据库的用户名是 root 密码是 datalink 
+可以根据数据库的需要修改用户名和密码
+修改方法是：
+1.到WEB-INF\classes\db.properties下用记事本打开
+  db.driver是链接数据库的驱动器 默认的是 com.mysql.jdbc.Driver
+  db.password 是链接数据库的密码 默认的是 datalink
+  db.url 是链接数据库的表 默认的是 bbsdata
+  db.user 是链接数据库的用户名 默认的是 root
+2.根据你自己的需要修改相应的值就可以了，注意修改后不用重新编译
+
+数据库的表说明：
+文章存储的表
+CREATE TABLE `article` (
+  `article_no` int(11) NOT NULL auto_increment,
+  `title` varchar(250) default NULL,
+  `speaker` varchar(20) default NULL,
+  `sent_time` timestamp NULL default CURRENT_TIMESTAMP,
+  `reply_num` int(11) default '0',
+  `click_num` int(11) default '0',
+  `content` longtext,
+  `type` varchar(20) default NULL,
+  PRIMARY KEY  (`article_no`)
+) ;
+存放用户添加好友的表
+CREATE TABLE `friends` (
+  `id` int(11) NOT NULL auto_increment,
+  `user_name` varchar(20) default NULL,
+  `friend_name` varchar(20) default NULL,
+  `friends_type` varchar(20) default '默认',
+  PRIMARY KEY  (`id`)
+) ;
+存放上传图片的表
+CREATE TABLE `images` (
+  `id` int(11) NOT NULL auto_increment,
+  `user_name` varchar(20) default NULL,
+  `image_path` varchar(80) default NULL,
+  `message` varchar(100) default NULL,
+  `image_type` varchar(20) default NULL,
+  PRIMARY KEY  (`id`)
+) ;
+存放对本站留言的表
+CREATE TABLE `liuyan` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(40) default NULL,
+  `content` varchar(500) default NULL,
+  `insert_time` timestamp NULL default CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id`)
+) ;
+存放本站公告的表
+CREATE TABLE `message` (
+  `id` int(11) NOT NULL auto_increment,
+  `admin_name` varchar(30) default NULL,
+  `title` varchar(100) default NULL,
+  `content` longtext,
+  `insert_time` timestamp NULL default CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id`)
+) ;
+存放用户回帖的表
+CREATE TABLE `re_article` (
+  `id` int(11) NOT NULL auto_increment,
+  `article_no` int(11) default NULL,
+  `re_name` varchar(20) default NULL,
+  `content` varchar(500) default NULL,
+  `insert_time` timestamp NULL default CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id`)
+);
+存放用户信息的表
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(20) NOT NULL default '',
+  `password` varchar(18) default NULL,
+  `QQ` varchar(15) default NULL,
+  `e_mail` varchar(50) default NULL,
+  `www` varchar(50) default NULL,
+  `power` varchar(10) default '000',
+  `registertime` timestamp NULL default CURRENT_TIMESTAMP,
+  `sent_article` int(11) default '0',
+  `reply_num` int(11) default '0',
+  `face` varchar(80) default NULL,
+  `sex` varchar(6) default NULL,
+  `signname` varchar(250) default '',
+  `click_num` int(11) default '0',
+  PRIMARY KEY  (`id`)
+) ;

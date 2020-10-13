@@ -1,0 +1,233 @@
+/* 
+	Lightbox v2.0 Project page styles	
+	Author: Lokesh Dhakar http://www.huddletogether.com
+	Table of Contents:
+		layout
+		typography
+*/
+
+
+
+
+/* layout
+----------------------------------------------- */
+
+*{
+	margin: 0;
+	padding:0;
+	}
+
+body{
+	color: #eee;
+	font: 76% 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif,;
+	word-wrap: break-word;	/* IE */
+	}
+
+#topborder{	
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 1.0em;
+	background-color: #c0dB5A;
+	}
+
+#sidebar{ position:fixed; top: 38px; left:20px;	width: 250px; }
+* html div#sidebar  { top: 38px; left:20px;	width: 250px; position:absolute; }
+
+#content{ margin: 23px 10% 5em 315px; }
+
+
+/* typography
+----------------------------------------------- */
+
+p {	line-height: 1.5em;	margin-bottom: 1.0em; font-size: 0.9em;}
+p.lead { font-size: 1.0em; }
+
+ol, ul{ margin: 0.5em 0 1.2em 2em; }	
+ol, ul, dl { line-height: 1.5em; }
+ol li{ margin-bottom: 0.2em; }
+li{ font-size: 0.9em; }
+li strong {color: #999;}
+dl{ margin: 0.5em 0 1.2em 0; }
+dt{
+	font-size: 0.9em;
+	font-weight: bold; color: #999;
+	padding-top: 0.4em;
+	}
+dd{	
+	font-size: 0.9em;
+	margin-bottom: 1.0em;
+	padding-bottom: 0.9em;
+	border-bottom: 1px dashed #3d3d33;
+	}
+
+
+h1, h2, h3{ font-family: "Trebuchet MS",Verdana,Sans-Serif;}
+
+h1 { font-size: 2.5em; }
+h1 a { color:#fff; border: none; }
+h1 em{ color: #D0EB6A; font-style: normal; }
+
+h2 {
+	font-size: 1.5em;
+	letter-spacing: 0.4pt;
+	color: #D0EB6A;
+	text-transform: uppercase;
+	padding-top: 0.5em;
+	}
+h3 {
+	font-size: 1.0em;
+	letter-spacing: 0.2pt;
+	color: #c0dB5A;
+	text-transform: uppercase;
+	padding-top: 0.5em;
+	}
+
+a{
+	xfont-weight: bold;
+	color: #8ad459;
+	text-decoration: none;
+	}
+
+p a:hover { border-bottom: 1px dotted #8ad459; }
+a img{ 	border: none;}
+
+small{ font-size: 0.8em; }
+
+pre{
+	display: block;
+	margin: 1.0em 0;
+	padding-left: 0.8em;
+	border-left: 1px solid #222;
+	background-color: #000;
+	overflow: auto;
+	}
+
+code{
+	font-size: 11px;
+	font-family: Verdana,Sans-Serif;
+	background-color: #000;
+	color: #aaa;
+	}
+pre code{ line-height: 1.1em;}
+kbd{
+	color: #999999;
+	background-color: #ddd;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	font-size: inherit;
+	font-family: inherit;
+	padding: 0 3px 2px 4px;
+	}
+
+fieldset{ border: none; }
+
+/* sidebar
+----------------------------------------------- */
+#sidebar a{
+	color: #fff;
+	}
+#sidebar p a:hover{ border-bottom: 1px dotted #fff; }	
+
+#sidebar h1 a{ font-weight: bold; }
+#sidebar h1 a:hover{ color: inherit; }
+
+#nav{ list-style: none; margin: 2.0em 0; width: 15em;}
+#nav li{ padding: 0; margin: 0; }
+#nav a{
+	display: block;
+	height: 2.0em;
+	padding: 0.3em 0.2em 0.2em 0.8em;
+	border-bottom: 1px solid #1a1a1a;
+	color: #eee;
+	background-color: #333;
+	}
+
+#nav a:hover{
+	color: #1a1a1a;
+	background-color: #D0EB6A;
+	}	
+
+
+/* content
+----------------------------------------------- */
+#content ul{ margin-left: 4px;}
+#content ul li{
+	list-style: none;
+	padding: 0 0 0 12px;
+	background: url(../images/bullet.gif) no-repeat 0 6px;
+	}
+.download{
+	background-color: #333;
+	border: 1px solid #444; 
+	padding: 0.7em 1.5em; }
+.download:hover{
+	background-color: #555;
+	border: 1px solid #777;
+	}
+#content ul.download li{
+	padding: 0.3em 0;
+	background-image:none;
+	}
+.download img{ padding-right: 0.3em; }
+.download li strong{ font-family: "Trebuchet MS",Verdana,Sans-Serif; font-size: 2.25em; color: #fff;}
+.download li em{ font-style: normal; color: #D0EB6A; }
+
+/* misc
+----------------------------------------------- */
+
+.section{ border-top: 1px solid #3d3d33;  padding: 1.5em 0; }
+.first{ border-top: none; }
+
+
+.showImage{
+	height: 120px;
+	width: 120px;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+.showImage .thumbnail{
+   padding: 3px 0px 3px 3px;
+	background-color: #222;
+	border: 1px solid #2a2a2a;
+	float: left;
+}	
+.showImage.deleteImage{
+	float: left;
+	visibility: hidden;
+}
+.deleteImage a:link{
+	font-family: sans-serif;
+}
+.clearfloat{
+	clear: both;
+}
+
+
+.caption{ font-size: 0.9em; padding-top: 0.2em ;	}
+
+
+
+/* clearing
+----------------------------------------------- */
+
+.clearfix:after {
+	content: "."; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+	}
+
+* html>body .clearfix {
+	display: inline-block; 
+	width: 100%;
+	}
+
+* html .clearfix {
+	/* Hides from IE-mac \*/
+	height: 1%;
+	/* End hide from IE-mac */
+	}	
