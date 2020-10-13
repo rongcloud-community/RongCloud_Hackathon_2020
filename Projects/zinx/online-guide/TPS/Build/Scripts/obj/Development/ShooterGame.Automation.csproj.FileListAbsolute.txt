@@ -1,0 +1,5 @@
+D:\Build\++UE4\Sync\Samples\Games\ShooterGame\Binaries\DotNET\AutomationScripts\ShooterGame.Automation.dll
+D:\Build\++UE4\Sync\Samples\Games\ShooterGame\Binaries\DotNET\AutomationScripts\ShooterGame.Automation.pdb
+D:\Build\++UE4\Sync\Samples\Games\ShooterGame\Build\Scripts\obj\Development\ShooterGame.Automation.csprojAssemblyReference.cache
+D:\Build\++UE4\Sync\Samples\Games\ShooterGame\Build\Scripts\obj\Development\ShooterGame.Automation.dll
+D:\Build\++UE4\Sync\Samples\Games\ShooterGame\Build\Scripts\obj\Development\ShooterGame.Automation.pdb
