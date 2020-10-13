@@ -1,0 +1,32 @@
+body,td,th {
+	font-size: 12px;
+	margin-top: 0px;
+}
+.cicsform {
+	background-color: #3399FF;
+	border: 1px dashed #000000;
+	color: #FF0000;
+}
+.red {color: red}
+a {
+	color: #000000;
+	text-decoration: none;
+}
+a:hover {
+	color: #FFFFFF;
+	text-decoration: none;
+	background-color: #FF9900;
+}
+
+.top {
+	border: 1px solid #0099FF;
+	line-height: 50px;
+	background-color: #9BCDFF;
+}
+.left {
+	border: 1px solid #0099FF;
+	line-height: 25px;
+	background-color: #9BCDFF;
+}
+.write{
+	color:#FFFFFF}
