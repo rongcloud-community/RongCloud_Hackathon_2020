@@ -23,6 +23,7 @@ JavaScript
 
 3.java -jar demo_jar/demo.jar
 
+或者直接使用IDEA运行springboot主类
 ## 项目使用
 
 1.浏览器打开localhost:8888/login
