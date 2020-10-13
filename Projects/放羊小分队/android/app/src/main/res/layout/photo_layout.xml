@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/photo_img"
+            android:scaleType="fitXY"
+            android:src="@drawable/photo_pic1"
+            android:layout_width="match_parent"
+            android:layout_height="230dp" />
+        <ImageView
+            android:id="@+id/photo_back"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="230dp"
+            android:layout_width="match_parent"
+            android:layout_height="130dp">
+            <TextView
+                android:text="MOONSWING网红月亮秋千"
+                style="@style/Text14BlackStyle"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="¥9980"
+                style="@style/Text14YellowStyle"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            
+            <Button
+                android:text="付款"
+                style="@style/Text14WhiteStyle"
+                android:background="@drawable/shape_photo_btn"
+                android:layout_marginTop="10dp"
+                android:layout_width="60dp"
+                android:layout_height="30dp" />
+            <TextView
+                android:text="私人订制 / 性价比高 / 精致外景"
+                style="@style/Text14GrayStyle"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="390dp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_height="1px"
+                android:background="#bbb"
+                android:layout_width="340dp"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="120dp">
+                
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_width="160dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:gravity="center"
+                        android:background="@drawable/shape_oval"
+
+                        android:layout_width="70dp"
+                        android:layout_height="70dp">
+                        <ImageView
+                            android:src="@drawable/photo_my"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:text="新郎造型："
+                                style="@style/Text12GrayStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:text="5套"
+                                style="@style/Text12BlackStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:text="新娘造型："
+                                style="@style/Text12GrayStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:text="5套"
+                                style="@style/Text12BlackStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <View
+                    android:layout_marginLeft="20dp"
+                    android:layout_height="100dp"
+                    android:background="#bbb"
+                    android:layout_width="1px"/>
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="horizontal"
+                    android:layout_width="160dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:gravity="center"
+                        android:background="@drawable/shape_oval"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp">
+                        <ImageView
+                            android:src="@drawable/photo_camera"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp" />
+                    </LinearLayout>
+                   <LinearLayout
+                       android:gravity="center_vertical"
+                       android:orientation="vertical"
+                       android:layout_width="match_parent"
+                       android:layout_height="70dp">
+
+                       <LinearLayout
+                           android:orientation="horizontal"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content">
+                           <TextView
+                               android:text="拍摄："
+                               style="@style/Text12GrayStyle"
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content" />
+                           <TextView
+                               android:text="200张"
+                               style="@style/Text12BlackStyle"
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content" />
+                       </LinearLayout>
+                       <LinearLayout
+                           android:orientation="horizontal"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content">
+                           <TextView
+                               android:text="静修："
+                               style="@style/Text12GrayStyle"
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content" />
+                           <TextView
+                               android:text="68张"
+                               style="@style/Text12BlackStyle"
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content" />
+                       </LinearLayout>
+                       <LinearLayout
+                           android:orientation="horizontal"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content">
+                           <TextView
+                               android:text="入盘："
+                               style="@style/Text12GrayStyle"
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content" />
+                           <TextView
+                               android:text="68张"
+                               style="@style/Text12BlackStyle"
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content" />
+                       </LinearLayout>
+                   </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <Button
+                android:text="查看更多详情"
+                style="@style/Text14YellowStyle"
+                android:background="@drawable/shape_photo_more"
+                android:layout_width="140dp"
+                android:layout_height="40dp" />
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_height="1px"
+                android:background="#bbb"
+                android:layout_width="340dp"/>
+        </LinearLayout>
+
+
+    <LinearLayout
+        android:background="@drawable/bottom_rectangle"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <LinearLayout
+            android:background="@drawable/bottom_rectangle"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="70dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:src="@drawable/ic_kefu"
+                android:scaleType="fitXY"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+            <TextView
+                android:text="在线咨询"
+                style="@style/Text12BlackStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:background="@drawable/bottom_rectangle"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="70dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:src="@drawable/ic_phone"
+                android:scaleType="fitXY"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+            <TextView
+                android:text="在线咨询"
+                style="@style/Text12BlackStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center"
+            android:background="#e5332d"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:text="预约拍摄档期"
+                style="@style/Text14WhiteStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

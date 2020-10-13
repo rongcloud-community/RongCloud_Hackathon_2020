@@ -1,0 +1,68 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="Text12BlackStyle">
+    <item name="android:textColor">#000</item>
+    <item name="android:textSize">12sp</item>
+    </style>
+    <style name="Text12GrayStyle">
+        <item name="android:textColor">#bbb</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="Text14BlackStyle">
+        <item name="android:textColor">#000</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="Text14PinkStyle">
+    <item name="android:textColor">#ff4081</item>
+    <item name="android:textSize">14sp</item>
+    </style>
+    <style name="Text14WhiteStyle">
+    <item name="android:textColor">#eee</item>
+    <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Text14RedStyle">
+    <item name="android:textColor">#E51C23</item>
+    <item name="android:textSize">14sp</item>
+    </style>
+    <style name="Text14YellowStyle">
+    <item name="android:textColor">#F4D81C</item>
+    <item name="android:textSize">14sp</item>
+    </style>
+    <style name="Text16BlackStyle">
+        <item name="android:textColor">#000</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Text14GrayStyle">
+        <item name="android:textColor">#bbb</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
+    <style name="Text18BlackStyle">
+        <item name="android:textColor">#000</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Text20OrangeStyle">
+        <item name="android:textColor">#FF9800</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Text20PinkStyle">
+    <item name="android:textColor">#FF4081</item>
+    <item name="android:textSize">20sp</item>
+    </style>
+    <style name="AssistImgStyle">
+        <item name="android:width">50dp</item>
+        <item name="android:height">50dp</item>
+    </style>
+</resources>

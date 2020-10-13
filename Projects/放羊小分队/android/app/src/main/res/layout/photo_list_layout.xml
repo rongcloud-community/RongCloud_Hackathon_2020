@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:background="@drawable/title_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <ImageView
+            android:id="@+id/photo_list_back"
+            android:clickable="true"
+            android:src="@drawable/ic_back_black"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+        <TextView
+            android:layout_centerInParent="true"
+            android:text="婚纱摄影"
+            style="@style/Text18BlackStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:src="@drawable/photolist_event"
+                android:scaleType="fitXY"
+                android:layout_width="match_parent"
+                android:layout_height="180dp" />
+
+            <TextView
+                android:text="套系"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                style="@style/Text16BlackStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+            <LinearLayout
+                android:id="@+id/photolist_photo1"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="240dp">
+
+                <RelativeLayout
+                    android:gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp">
+                    <ImageView
+                        android:src="@drawable/photo_pic1"
+                        android:scaleType="fitXY"
+                        android:layout_width="360dp"
+                        android:layout_height="200dp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:layout_marginLeft="30dp"
+                        android:text="MOONSWING网红月亮秋千"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:text="¥9980"
+                        android:layout_marginRight="30dp"
+                        android:layout_alignParentRight="true"
+                        style="@style/Text14YellowStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/photolist_photo2"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="240dp">
+
+                <RelativeLayout
+                    android:gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp">
+                    <ImageView
+                        android:src="@drawable/photo_pic2"
+                        android:scaleType="fitXY"
+                        android:layout_width="360dp"
+                        android:layout_height="200dp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:layout_marginLeft="30dp"
+                        android:text="唯美森系婚纱照"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:text="¥3299"
+                        android:layout_marginRight="30dp"
+                        android:layout_alignParentRight="true"
+                        style="@style/Text14YellowStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/photolist_photo3"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="240dp">
+
+                <RelativeLayout
+                    android:gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp">
+                    <ImageView
+                        android:src="@drawable/photo_pic3"
+                        android:scaleType="fitXY"
+                        android:layout_width="360dp"
+                        android:layout_height="200dp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:layout_marginLeft="30dp"
+                        android:text="梦境之旅"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:text="¥5099"
+                        android:layout_marginRight="30dp"
+                        android:layout_alignParentRight="true"
+                        style="@style/Text14YellowStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/photolist_photo4"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="240dp">
+                <RelativeLayout
+                    android:gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp">
+                    <ImageView
+                        android:src="@drawable/photo_pic4"
+                        android:scaleType="fitXY"
+                        android:layout_width="360dp"
+                        android:layout_height="200dp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:layout_marginLeft="30dp"
+                        android:text="玖月献礼"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:text="¥2520"
+                        android:layout_marginRight="30dp"
+                        android:layout_alignParentRight="true"
+                        style="@style/Text14YellowStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

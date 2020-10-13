@@ -1,0 +1,2438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:background="@drawable/title_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <ImageView
+            android:id="@+id/goodday_back"
+            android:clickable="true"
+            android:src="@drawable/ic_back_black"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+        <TextView
+            android:layout_centerInParent="true"
+            android:text="黄道吉日"
+            style="@style/Text18BlackStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+                <TextView
+                    android:text="9月"
+                    style="@style/Text14PinkStyle"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <View
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="1px"
+                    android:background="#bbb"
+                    android:layout_width="340dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="日"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="一"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="二"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="三"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="四"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="五"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="六"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="1"
+                        style="@style/Text14GrayStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                    <TextView
+                        android:text="2"
+                        style="@style/Text14GrayStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="3"
+                        style="@style/Text14GrayStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="4"
+                        style="@style/Text14GrayStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="5"
+                        style="@style/Text14GrayStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="6"
+                        style="@style/Text14GrayStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="7"
+                        style="@style/Text14GrayStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="8"
+                        style="@style/Text14GrayStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                    <TextView
+                        android:text="9"
+                        style="@style/Text14GrayStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="10"
+                        style="@style/Text14GrayStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="11"
+                        style="@style/Text14GrayStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="12"
+                        style="@style/Text14GrayStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="13"
+                        style="@style/Text14GrayStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="14"
+                        style="@style/Text14GrayStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="15"
+                        style="@style/Text14GrayStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                    <TextView
+                        android:text="16"
+                        style="@style/Text14GrayStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="17"
+                        style="@style/Text14GrayStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="18"
+                        style="@style/Text14GrayStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="19"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="20"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="21"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="22"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                    <TextView
+                        android:text="23"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="24"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="25"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="26"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="27"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="28"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="29"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                    <TextView
+                        android:text="30"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+                <TextView
+                    android:text="10月"
+                    style="@style/Text14PinkStyle"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <View
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="1px"
+                    android:background="#bbb"
+                    android:layout_width="340dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="日"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="一"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="二"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="三"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="四"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="五"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="六"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="1"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="2"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="3"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="4"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="5"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="6"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                    <TextView
+                        android:text="7"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="8"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="9"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="10"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="11"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="12"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="13"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                    <TextView
+                        android:text="14"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="15"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="16"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="17"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="18"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="19"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="20"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                    <TextView
+                        android:text="21"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="22"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="23"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="24"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="25"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="26"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="27"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                    <TextView
+                        android:text="28"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="29"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="30"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="31"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+                <TextView
+                    android:text="11月"
+                    style="@style/Text14PinkStyle"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <View
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="1px"
+                    android:background="#bbb"
+                    android:layout_width="340dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="日"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="一"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="二"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="三"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="四"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="五"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="六"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="1"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="2"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="3"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                    <TextView
+                        android:text="4"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="5"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="6"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="7"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="8"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="9"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="10"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                    <TextView
+                        android:text="11"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="12"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="13"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="14"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="15"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="16"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="17"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                    <TextView
+                        android:text="18"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="19"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="20"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="21"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="22"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="23"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="24"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                    <TextView
+                        android:text="25"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="26"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="27"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="28"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="29"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="30"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+                <TextView
+                    android:text="12月"
+                    style="@style/Text14PinkStyle"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <View
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="1px"
+                    android:background="#bbb"
+                    android:layout_width="340dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="日"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="一"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="二"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="三"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="四"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="五"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="20dp">
+                    <TextView
+                        android:text="六"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="1"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                    <TextView
+                        android:text="2"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="3"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="4"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="5"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="6"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="7"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="8"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                    <TextView
+                        android:text="9"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="10"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="11"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="12"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="13"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="14"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="15"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                    <TextView
+                        android:text="16"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="17"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="18"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="19"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="20"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="21"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="22"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                    <TextView
+                        android:text="23"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="24"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="25"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="26"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="27"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="吉日"
+                        style="@style/Text14PinkStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="28"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="29"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                    <TextView
+                        android:text="30"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+                    <TextView
+                        android:text="31"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="@dimen/day_date1_width"
+                    android:layout_height="@dimen/day_date2_height">
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

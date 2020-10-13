@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+                <android.support.v4.view.ViewPager
+
+                    android:id="@+id/viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+                <RadioGroup
+                    android:id="@+id/group"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                </RadioGroup>
+            </FrameLayout>
+
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="120dp">
+                
+                <LinearLayout
+                    android:id="@+id/home_hotel1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp">
+                    <ImageView
+                        android:src="@drawable/home_hotel"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp" />
+                    <TextView
+                        android:text="婚宴酒店"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/home_photo1"
+                    android:layout_marginLeft="@dimen/home_ic_marginleft"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp">
+                    <ImageView
+                        android:scaleType="fitXY"
+                        android:src="@drawable/home_hunsha"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp" />
+                    <TextView
+                        android:text="婚纱摄影"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/home_ceha"
+                    android:layout_marginLeft="@dimen/home_ic_marginleft"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp">
+                    <ImageView
+                        android:src="@drawable/home_plan"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp" />
+                    <TextView
+                        android:text="婚礼策划"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/home_tourism"
+                    android:layout_marginLeft="@dimen/home_ic_marginleft"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp">
+                    <ImageView
+                        android:src="@drawable/home_tourism"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp" />
+                    <TextView
+                        android:text="蜜月游"
+                        style="@style/Text14BlackStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                
+            </LinearLayout>
+            <View
+                android:layout_gravity="center_horizontal"
+                android:layout_height="1px"
+                android:background="#bbb"
+                android:layout_width="340dp"/>
+
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="70dp">
+
+                <ImageView
+                    android:id="@+id/home_budget"
+                    android:clickable="true"
+                    android:src="@drawable/home_budget_pic"
+                    android:scaleType="fitXY"
+                    android:layout_width="110dp"
+                    android:layout_height="50dp" />
+
+                <ImageView
+                    android:id="@+id/home_goodday"
+                    android:clickable="true"
+                    android:layout_marginLeft="@dimen/home_ic_marginleft"
+                    android:src="@drawable/home_goodday_pic"
+                    android:scaleType="fitXY"
+                    android:layout_width="110dp"
+                    android:layout_height="50dp" />
+
+                <ImageView
+                    android:layout_marginLeft="@dimen/home_ic_marginleft"
+                    android:src="@drawable/home_libao_pic"
+                    android:scaleType="fitXY"
+                    android:layout_width="110dp"
+                    android:layout_height="50dp" />
+
+            </LinearLayout>
+            <View
+                android:layout_gravity="center_horizontal"
+                android:layout_height="1px"
+                android:background="#bbb"
+                android:layout_width="340dp"/>
+
+
+            <LinearLayout
+                android:id="@+id/home_hotel"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:text="婚宴酒店"
+                        style="@style/Text20OrangeStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                   <Button
+                       android:layout_centerVertical="true"
+                       android:layout_alignParentRight="true"
+                       android:text="去看看"
+                       style="@style/Text14YellowStyle"
+                       android:background="@drawable/shape_home_look"
+                       android:layout_width="50dp"
+                       android:layout_height="25dp" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/pic_hotel1"
+                    android:scaleType="fitXY"
+                    android:layout_width="360dp"
+                    android:layout_height="200dp" />
+                <RelativeLayout
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+                    <TextView
+                        android:text="xx国际酒店"
+                        style="@style/Text14BlackStyle"
+                        android:layout_marginLeft="10dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="¥2688-6988/桌"
+                        android:layout_marginRight="10dp"
+                        style="@style/Text14RedStyle"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/home_photo"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="370dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:text="婚纱摄影"
+                        style="@style/Text20OrangeStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <Button
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:text="去看看"
+                        style="@style/Text14YellowStyle"
+                        android:background="@drawable/shape_home_look"
+                        android:layout_width="50dp"
+                        android:layout_height="25dp" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/pic_photo1"
+                    android:scaleType="fitXY"
+                    android:layout_width="360dp"
+                    android:layout_height="200dp" />
+                <RelativeLayout
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+                    <TextView
+                        android:text="xx摄影【xx套餐】"
+                        style="@style/Text14BlackStyle"
+                        android:layout_marginLeft="10dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="¥5099"
+                        android:layout_marginRight="10dp"
+                        style="@style/Text14RedStyle"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+   <LinearLayout
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <RelativeLayout
+           android:background="@drawable/task_gradient"
+           android:layout_width="match_parent"
+           android:layout_height="150dp">
+           <ImageView
+               android:id="@+id/task_back"
+               android:clickable="true"
+               android:src="@drawable/ic_back"
+               android:layout_marginTop="10dp"
+               android:layout_marginLeft="10dp"
+               android:layout_width="30dp"
+               android:layout_height="30dp" />
+
+           <TextView
+               android:text="结婚任务"
+               android:textSize="28sp"
+               android:textColor="#eee"
+               android:layout_centerHorizontal="true"
+               android:layout_marginTop="40dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+           <TextView
+               android:id="@+id/task_text"
+               android:text="已完成0/35"
+               android:textSize="16sp"
+               android:textColor="#eee"
+
+               android:layout_centerHorizontal="true"
+               android:layout_marginTop="80dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+           <TextView
+               android:text="距离婚礼还有100天，继续加油哦！"
+               android:textSize="14sp"
+               android:textColor="#eee"
+               android:layout_centerHorizontal="true"
+               android:layout_marginTop="120dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </RelativeLayout>
+       <LinearLayout
+           android:background="#f2f3f6"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <TextView
+               android:text="商议结婚"
+               style="@style/Text14BlackStyle"
+               android:layout_gravity="center_vertical"
+               android:layout_marginLeft="10dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:clickable="true"
+           android:id="@+id/task_l1"
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:id="@+id/task_i1"
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="双方父母商议结婚相关事项"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="拍结婚登记照"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="办理结婚登记手续"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="双方商议婚礼开支分配"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:background="#f2f3f6"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <TextView
+               android:text="婚宴场所"
+               style="@style/Text14BlackStyle"
+               android:layout_gravity="center_vertical"
+               android:layout_marginLeft="10dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="选定婚礼时间"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="选定婚礼酒店"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:background="#f2f3f6"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <TextView
+               android:text="婚纱摄影"
+               style="@style/Text14BlackStyle"
+               android:layout_gravity="center_vertical"
+               android:layout_marginLeft="10dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:clickable="true"
+           android:id="@+id/task_l2"
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:id="@+id/task_i2"
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="确定婚纱照服务商家"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="商议拍摄当天的套餐、服装方案"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="拍摄前准备、皮肤保养/剪发造型"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="拍摄婚纱照"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="确认定稿，拿取婚纱照照片相册"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:background="#f2f3f6"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <TextView
+               android:text="婚庆事项"
+               style="@style/Text14BlackStyle"
+               android:layout_gravity="center_vertical"
+               android:layout_marginLeft="10dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="选定婚庆公司"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="确定婚礼现场布置，协商各项服务"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="选定主持司仪和乐队"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="选定婚礼摄像师，协商各项服务"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="选定婚礼跟拍师，协商各项服务"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="与婚礼主持沟通婚礼仪式要求"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="预约化妆师，试妆，确定当天造型"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="选定租/借婚车，确定婚车安排"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="准备双方及双方服务发言稿"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:background="#f2f3f6"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <TextView
+               android:text="礼服西装"
+               style="@style/Text14BlackStyle"
+               android:layout_gravity="center_vertical"
+               android:layout_marginLeft="10dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="选定双方婚纱礼服、西装和鞋子"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="选定伴郎、伴娘礼服"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="选定父母礼服"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="选定花童礼服"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:background="#f2f3f6"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <TextView
+               android:text="婚品清单"
+               style="@style/Text14BlackStyle"
+               android:layout_gravity="center_vertical"
+               android:layout_marginLeft="10dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="预定婚礼蛋糕及糕点"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="对戒、钻戒、黄金饰品"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="新娘装饰：头纱、婚包、婚鞋、胸贴等"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="床上用品、布置新房用品"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="喜庆用品：喜字、红包、喜帖、鞭炮等"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="宾客礼品：烟酒、喜糖、回礼等"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="预定鲜花、花束及婚礼装饰用品"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="准备新钞及红包"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:background="#f2f3f6"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <TextView
+               android:text="婚礼名单"
+               style="@style/Text14BlackStyle"
+               android:layout_gravity="center_vertical"
+               android:layout_marginLeft="10dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="确定伴郎、伴娘"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="确定参加婚礼的亲朋好友名单"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+       <LinearLayout
+           android:orientation="horizontal"
+           android:gravity="center_vertical"
+           android:layout_width="match_parent"
+           android:layout_height="40dp">
+           <ImageView
+               android:src="@drawable/task_circle"
+               android:layout_marginLeft="@dimen/task_circle_to_left"
+               android:layout_width="20dp"
+               android:layout_height="20dp" />
+           <TextView
+               android:text="安排宾客座位"
+               style="@style/Text14BlackStyle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+   </LinearLayout>
+</ScrollView>

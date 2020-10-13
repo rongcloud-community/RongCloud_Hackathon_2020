@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:background="@drawable/title_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <ImageView
+            android:id="@+id/budget_back"
+            android:clickable="true"
+            android:src="@drawable/ic_back_black"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+        <TextView
+            android:layout_centerInParent="true"
+            android:text="结婚预算"
+            style="@style/Text18BlackStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+    <ImageView
+        android:src="@drawable/pic_budget"
+        android:scaleType="fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="380dp" />
+
+    <EditText
+        android:id="@+id/budget_edit"
+        android:inputType="number"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_edittext"
+        android:layout_width="248dp"
+        android:layout_height="60dp" />
+    <Button
+        android:text="开始计算"
+        android:id="@+id/btn_budget"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/shape_budget_btn"
+        android:layout_marginTop="10dp"
+        android:layout_width="248dp"
+        android:layout_height="60dp" />
+</LinearLayout>

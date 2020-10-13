@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:background="@drawable/title_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <TextView
+            android:layout_centerInParent="true"
+            android:text="结婚助手"
+            style="@style/Text18BlackStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+   <LinearLayout
+       android:layout_centerHorizontal="true"
+       android:orientation="vertical"
+       android:background="@drawable/my_shadow"
+       android:layout_marginTop="60dp"
+       android:layout_width="360dp"
+       android:layout_height="540dp">
+       <LinearLayout
+           android:gravity="center"
+           android:orientation="horizontal"
+           android:layout_width="match_parent"
+           android:layout_height="180dp">
+           <RelativeLayout
+               android:id="@+id/budget_layout"
+               android:clickable="true"
+               android:layout_width="179dp"
+               android:layout_height="80dp">
+
+               <ImageView
+                   android:layout_centerHorizontal="true"
+                   android:src="@drawable/assist_caculator"
+                   style="@style/AssistImgStyle"
+                   android:layout_width="50dp"
+                   android:layout_height="50dp"/>
+
+               <TextView
+                   android:layout_centerHorizontal="true"
+                   android:text="结婚预算"
+                   android:layout_marginTop="50dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" />
+
+           </RelativeLayout>
+
+           <RelativeLayout
+               android:id="@+id/goodday_layout"
+               android:layout_centerHorizontal="true"
+               android:layout_width="179dp"
+               android:layout_height="80dp">
+
+               <ImageView
+                   android:layout_centerHorizontal="true"
+                   android:src="@drawable/ic_calendar"
+                   style="@style/AssistImgStyle"
+                   android:layout_width="50dp"
+                   android:layout_height="50dp" />
+
+               <TextView
+                   android:layout_centerHorizontal="true"
+                   android:text="婚礼吉日"
+                   android:layout_marginTop="50dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" />
+
+           </RelativeLayout>
+
+       </LinearLayout>
+       <View
+           android:layout_marginTop="10dp"
+           android:layout_height="1px"
+           android:background="#bbb"
+           android:layout_width="match_parent"/>
+       <LinearLayout
+           android:gravity="center"
+           android:orientation="horizontal"
+           android:layout_width="match_parent"
+           android:layout_height="180dp">
+           <RelativeLayout
+               android:layout_width="179dp"
+               android:layout_height="80dp">
+
+               <ImageView
+                   android:layout_centerHorizontal="true"
+                   android:src="@drawable/assist_kefu"
+                   android:layout_width="50dp"
+                   android:layout_height="50dp" />
+
+               <TextView
+                   android:layout_centerHorizontal="true"
+                   android:text="结婚顾问"
+                   android:layout_marginTop="50dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" />
+
+           </RelativeLayout>
+
+           <RelativeLayout
+
+               android:layout_width="179dp"
+               android:layout_height="80dp">
+
+               <ImageView
+                   android:layout_centerHorizontal="true"
+                   android:src="@drawable/assist_love"
+                   android:scaleType="fitXY"
+                   android:layout_width="50dp"
+                   android:layout_height="50dp" />
+
+               <TextView
+                   android:layout_centerHorizontal="true"
+                   android:text="结婚喜帖"
+                   android:layout_marginTop="50dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" />
+
+           </RelativeLayout>
+
+       </LinearLayout>
+       <View
+           android:layout_marginTop="10dp"
+           android:layout_height="1px"
+           android:background="#bbb"
+           android:layout_width="340dp"/>
+       <LinearLayout
+           android:gravity="center"
+           android:orientation="horizontal"
+           android:layout_width="match_parent"
+           android:layout_height="180dp">
+           <RelativeLayout
+               android:layout_centerHorizontal="true"
+               android:layout_width="179dp"
+               android:layout_height="80dp">
+
+               <ImageView
+                   android:layout_centerHorizontal="true"
+                   android:src="@drawable/assist_camera"
+                   android:layout_width="50dp"
+                   android:layout_height="50dp" />
+
+               <TextView
+                   android:layout_centerHorizontal="true"
+                   android:text="幸福时光"
+                   android:layout_marginTop="50dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" />
+
+           </RelativeLayout>
+
+           <RelativeLayout
+               android:layout_width="179dp"
+               android:layout_height="80dp">
+
+               <ImageView
+                   android:layout_centerHorizontal="true"
+                   android:src="@drawable/assist_zuowei"
+                   android:layout_width="50dp"
+                   android:layout_height="50dp" />
+
+               <TextView
+                   android:layout_centerHorizontal="true"
+                   android:text="婚宴座位"
+                   android:layout_marginTop="50dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" />
+
+           </RelativeLayout>
+       </LinearLayout>
+
+
+
+   </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/hotel_img"
+                android:scaleType="fitXY"
+                android:src="@drawable/pic_hotel1"
+                android:layout_width="match_parent"
+                android:layout_height="230dp" />
+            <ImageView
+                android:id="@+id/hotel_back"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_back"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_marginTop="230dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+                <TextView
+                    android:id="@+id/hotel_name"
+                    android:text="xx国际至尊豪华大酒店"
+                    android:layout_marginLeft="20dp"
+                    style="@style/Text16BlackStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/hotel_price"
+                    android:text="¥2688-6988/桌"
+                    android:layout_marginLeft="20dp"
+                    style="@style/Text14GrayStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="320dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+                <ImageView
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/ic_location"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp" />
+                <TextView
+                    android:text="雨花区韶山北路431号"
+                    style="@style/Text14GrayStyle"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="360dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+                <ImageView
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/ic_hotel"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp" />
+                <TextView
+                    android:text="酒店详情介绍"
+                    style="@style/Text14GrayStyle"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="400dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+                <ImageView
+                    android:layout_marginLeft="20dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_phone"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp" />
+                <TextView
+                    android:text="0731-89771188"
+                    style="@style/Text14GrayStyle"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="联系商家"
+                    style="@style/Text14GrayStyle"
+                    android:layout_marginLeft="135dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="480dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+                <TextView
+                    android:text="婚宴菜单"
+                    android:layout_marginLeft="20dp"
+                    style="@style/Text14BlackStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="510dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+                <TextView
+                    android:text="婚宴套餐A"
+                    android:layout_marginLeft="20dp"
+                    style="@style/Text14BlackStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="¥2688/桌"
+                    style="@style/Text14GrayStyle"
+                    android:layout_marginLeft="200dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="550dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+                <TextView
+                    android:text="婚宴套餐B"
+                    android:layout_marginLeft="20dp"
+                    style="@style/Text14BlackStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="¥6988/桌"
+                    style="@style/Text14GrayStyle"
+                    android:layout_marginLeft="200dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:background="@drawable/bottom_rectangle"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <LinearLayout
+            android:background="@drawable/bottom_rectangle"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:onClick="onClick">
+
+            <ImageView
+                android:src="@drawable/ic_kefu"
+                android:scaleType="fitXY"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+            <TextView
+                android:text="在线咨询"
+                style="@style/Text12BlackStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:background="@drawable/bottom_rectangle"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="70dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:src="@drawable/ic_phone"
+                android:scaleType="fitXY"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+            <TextView
+                android:text="联系商家"
+                style="@style/Text12BlackStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:background="#cba97a"
+            android:layout_width="120dp"
+            android:layout_height="match_parent">
+            <TextView
+                android:text="查询档期"
+                style="@style/Text14WhiteStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/hotel_order"
+            android:gravity="center"
+            android:background="#e5332d"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:text="预约看店"
+                style="@style/Text14WhiteStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
