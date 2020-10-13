@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aihome.aihomesys.dao.IUserEnrollDao">
+
+    <resultMap id="UserEnrollMap" type="UserEnroll">
+        <result column="userId" property="userId" />
+        <result column="userImg" property="userAva" />
+        <result column="userName" property="userName" />
+        <result column="password" property="password" />
+        <result column="hotelId" property="hotelId" />
+        <result column="userType" property="userType" />
+        <result column="loginTime" property="loginTime" />
+        <result column="enrollTime" property="enrollTime" />
+        <result column="enableInfoco" property="enableInfoco"/>
+    </resultMap>
+
+    <sql id="userEnrollModel"> userId,userName,password,userType,loginTime,enrollTime</sql>
+
+    <select id="getAllitems" resultType="UserEnroll">
+        SELECT userId,userName,passWord,userImg as userAva,hotelId,userType,loginTime,enrollTime,enableInfoco FROM USER_ENROLL WHERE userType = 0;
+    </select>
+
+    <insert id="insert" useGeneratedKeys="false">
+        INSERT INTO USER_ENROLL(<include refid="userEnrollModel"/>,hotelId)
+        VALUES(#{userId},#{userName},#{password},#{userType},#{loginTime},#{enrollTime},#{hotelId})
+    </insert>
+
+    <select id="countById"  resultType="java.lang.Integer">
+        SELECT count(1) FROM USER_ENROLL WHERE userId = #{userId};
+    </select>
+
+    <select id="loginCheck"  resultType="java.lang.String">
+        SELECT passWord FROM USER_ENROLL WHERE userId = #{userId};
+    </select>
+
+    <select id="enableInfoco"  resultType="java.lang.Integer">
+        SELECT enableInfoco FROM USER_ENROLL WHERE userId = #{userId} and userType = 0;
+    </select>
+
+    <update id="loginTimeUpdate">
+        update USER_ENROLL set loginTime = #{loginTime} where userId = #{userId}
+    </update>
+
+    <update id="userAvaUpdate">
+        update USER_ENROLL set
+            userImg = #{userAva}
+          where userId = #{userId}
+    </update>
+
+    <update id="userNameUpdate">
+        update USER_ENROLL set
+            userName = #{userName}
+          where userId = #{userId}
+    </update>
+
+    <update id="passUpdate">
+        update USER_ENROLL set
+            passWord = #{passWord}
+          where userId = #{userId}
+    </update>
+
+    <update id="eableUpdate">
+        update USER_ENROLL set
+            enableInfoco = 1
+          where userId = #{userId}
+    </update>
+
+    <select id="findById" resultType="UserEnroll">
+        SELECT userId,userName,passWord,userImg as userAva,hotelId,userType,loginTime,enrollTime,enableInfoco FROM USER_ENROLL WHERE userId = #{userId}
+    </select>
+
+</mapper>

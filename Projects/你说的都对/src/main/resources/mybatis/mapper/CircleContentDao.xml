@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aihome.aihomesys.dao.ICircleContentDao">
+
+    <sql id="circleModel"> userId,fkId,fkType,conTime,conImg,conCont</sql>
+
+    <insert id="insertCont" useGeneratedKeys="false">
+        INSERT INTO CIRCLE_CONTENT(<include refid="circleModel"/>)
+        VALUES(#{userId},#{fkId},#{fkType},#{conTime},#{conImg},#{conCont})
+    </insert>
+
+    <select id="getHot" resultType="CircleContent">
+        select c.*,u.userImg as userImg,u.userName as userName from circle_content as c,user_enroll as u where conValid = 0 AND (fkType = 0 or fkType = 1) AND c.userId = u.userId Order by conGood desc,conTime desc LIMIT #{page},#{number};
+    </select>
+    <select id="countHot" resultType="java.lang.Integer">
+        SELECT count(1) FROM circle_content WHERE conValid = 0 AND (fkType = 0 or fkType = 1);
+    </select>
+
+    <select id="getSearchItems" resultType="CircleContent">
+        select c.*,u.userImg as userImg,u.userName as userName from circle_content as c,user_enroll as u where conValid = 0 AND (fkType = 0 or fkType = 1) AND c.userId = u.userId AND (u.userName LIKE CONCAT('%',#{val},'%') OR c.conCont LIKE CONCAT('%',#{val},'%')) Order by conGood desc,conTime desc;
+    </select>
+
+    <select id="getFollow" resultType="CircleContent">
+        select c.*,u.userImg as userImg,u.userName as userName
+        from circle_content as c,user_enroll as u
+        where (fkType = 0 or fkType = 1) AND conValid = 0
+        AND c.userId in
+        (select distinct fuseredId from user_follow where fuserId = #{fuserId})
+        AND c.userId = u.userId
+        Order by conGood desc,conTime desc LIMIT #{page},#{number};
+    </select>
+    <select id="countFollow" resultType="java.lang.Integer">
+        SELECT count(1) from circle_content as c,user_enroll as u
+        where (fkType = 0 or fkType = 1) AND conValid = 0
+        AND c.userId in (select distinct fuseredId from user_follow
+        where fuserId = #{fuserId}) AND c.userId = u.userId;
+    </select>
+
+    <select id="getMycont" resultType="CircleContent">
+        select c.*,u.userImg as userImg,u.userName as userName from circle_content as c,user_enroll as u where conValid = 0 AND (fkType = 0 or fkType = 1) AND c.userId = #{userId} AND c.userId = u.userId Order by conTime desc LIMIT #{page},#{number};
+    </select>
+    <select id="countMycont" resultType="java.lang.Integer">
+        select count(1) from circle_content as c where conValid = 0 AND (fkType = 0 or fkType = 1) AND c.userId = #{userId};
+    </select>
+
+    <select id="getUserCont" resultType="CircleContent">
+        select c.*,u.userImg as userImg,u.userName as userName from circle_content as c,user_enroll as u where conId=#{conId} AND c.userId = u.userId AND conValid = 0;
+    </select>
+
+    <select id="fromClass2Content" resultType="CircleContent">
+        select c.*,u.userImg as userImg,u.userName as userName from circle_content as c,user_enroll as u where fkId=#{classId} AND c.userId = u.userId AND fkType=1 AND conValid = 0 Order by conGood desc,conTime desc;
+    </select>
+
+    <select id="getUsers2Contents" resultType="CircleContent">
+        select c.*,u.userImg as userImg,u.userName as userName from circle_content as c,user_enroll as u where fkId=#{conId} AND fkType=2 AND conValid = 0 AND c.userId = u.userId Order by conGood desc,conTime desc;
+    </select>
+
+    <select id="getMycontAndCallback" resultType="CircleContent">
+        select c.*,u.userImg as userImg,u.userName as userName from circle_content as c,user_enroll as u where conValid = 0 AND c.userId = #{userId} AND c.userId = u.userId Order by conTime desc;
+    </select>
+
+    <update id="contAdd">
+        update circle_content set
+            conContNum = conContNum+1
+          where conId = #{fkId}
+    </update>
+
+    <update id="goodAdd">
+        update circle_content set
+            conGood = conGood+1
+          where conId = #{conId}
+    </update>
+
+    <update id="goodSub">
+        update circle_content set
+            conGood = conGood-1
+          where conId = #{conId}
+    </update>
+
+</mapper>

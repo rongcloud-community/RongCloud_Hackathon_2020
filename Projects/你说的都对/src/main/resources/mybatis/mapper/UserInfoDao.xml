@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aihome.aihomesys.dao.IUserInfoDao">
+
+    <insert id="skipinsert" useGeneratedKeys="true">
+        INSERT INTO USER_INFO(userID,modifyTime)
+        VALUES(#{userId},#{modifyTime})
+    </insert>
+    <update id="skipUpdate">
+        update USER_INFO set modifyTime = #{modifyTime} where userId = #{userId}
+    </update>
+
+    <insert id="infoinsert" useGeneratedKeys="true">
+        INSERT INTO USER_INFO(userId,sex,age,height,weight,bust,waist,hipline,BMI,RHR,MHR,modifyTime)
+        VALUES(#{userId},#{sex},#{age},#{height},#{weight},#{bust},#{waist},#{hipline},#{BMI},#{RHR},#{MHR},#{modifyTime})
+    </insert>
+
+    <update id="infoUpdate">
+        update USER_INFO set sex=#{sex}, age=#{age},height=#{height},weight=#{weight},bust=#{bust},waist=#{waist},hipline=#{hipline},BMI=#{BMI},RHR=#{RHR},MHR=#{MHR},modifyTime = #{modifyTime} where userId = #{userId}
+    </update>
+
+    <select id="countById"  resultType="java.lang.Integer">
+        SELECT count(1) FROM USER_INFO WHERE userId = #{userId}
+    </select>
+
+    <select id="findById" resultType="UserInfo">
+        SELECT * FROM USER_INFO WHERE userId = #{userId}
+    </select>
+
+    <select id="todayIsTrain"  resultType="java.lang.Integer">
+        SELECT count(1) FROM USER_INFO WHERE userId = #{userId} AND todayIsTrain = 1
+    </select>
+
+    <update id="trainUpdate">
+        update USER_INFO set trainDay=trainDay+1,todayIsTrain=1 where userId = #{userId}
+    </update>
+
+</mapper>

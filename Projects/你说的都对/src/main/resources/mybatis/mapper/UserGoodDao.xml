@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aihome.aihomesys.dao.IUserGoodDao">
+
+    <sql id="goodModel"> userId,conId,goodTime</sql>
+
+    <select id="isGood"  resultType="java.lang.Integer">
+        SELECT count(1) FROM USER_GOOD WHERE userId = #{userId} AND conId = #{conId} AND goodValid = 0;
+    </select>
+
+    <insert id="insertGood" useGeneratedKeys="false">
+        INSERT INTO USER_GOOD(<include refid="goodModel"/>)
+        VALUES(#{userId},#{conId},#{goodTime});
+    </insert>
+
+    <delete id="deleteGood">
+        DELETE FROM USER_GOOD WHERE userId = #{userId} AND conId = #{conId};
+    </delete>
+
+</mapper>

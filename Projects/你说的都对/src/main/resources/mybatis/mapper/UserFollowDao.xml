@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aihome.aihomesys.dao.IUserFollowDao">
+
+    <select id="selectMyFollow" resultType="UserFollow">
+        SELECT uf.*,ue.userName as fuserName,ue.userImg as fuserImg,ue2.userName as fuseredName,ue2.userImg as fuseredImg
+ FROM USER_FOLLOW AS uf,USER_ENROLL AS ue,USER_ENROLL AS ue2 WHERE fuserId = #{fuserId} AND fuserId = ue.userId AND fuseredId = ue2.userId AND followValid = 0;
+    </select>
+
+    <select id="selectFollowMe" resultType="UserFollow">
+        SELECT uf.*,ue.userName as fuserName,ue.userImg as fuserImg,ue2.userName as fuseredName,ue2.userImg as fuseredImg
+ FROM USER_FOLLOW AS uf,USER_ENROLL AS ue,USER_ENROLL AS ue2 WHERE fuseredId = #{fuseredId} AND fuserId = ue.userId AND fuseredId = ue2.userId AND followValid = 0;
+    </select>
+
+    <select id="countMyFollow"  resultType="java.lang.Integer">
+        SELECT count(1) FROM USER_FOLLOW WHERE fuserId = #{fuserId} AND followValid = 0;
+    </select>
+
+    <select id="countFollowMe"  resultType="java.lang.Integer">
+        SELECT count(1) FROM USER_FOLLOW WHERE fuseredId = #{fuseredId} AND followValid = 0;
+    </select>
+
+    <select id="isFollow"  resultType="java.lang.Integer">
+        SELECT count(1) FROM USER_FOLLOW WHERE fuserId = #{fuserId} AND fuseredId = #{fuseredId} AND followValid = 0;
+    </select>
+
+    <delete id="deleteFollow">
+        DELETE FROM USER_FOLLOW WHERE fuserId = #{fuserId} AND fuseredId = #{fuseredId};
+    </delete>
+
+    <insert id="setFollow" useGeneratedKeys="false">
+        INSERT INTO USER_FOLLOW(fuserId,fuseredId,followTime)
+        VALUES(#{fuserId},#{fuseredId},#{followTime})
+    </insert>
+
+
+</mapper>
