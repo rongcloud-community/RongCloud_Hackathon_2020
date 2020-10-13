@@ -1,0 +1,184 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="keywords" content="Java,J2EE,Jsp,EasyJ,AspectJ,AOP,SOA,Java EE,构件,中间件,Tomcat,JBoss,Spring,Hibernate,Struts,EasyJWeb,JDO,EJB,UML">
+<META name="description" content="Easyjf.com(简易java框架),包括当今最流行的Java框架(Spring,Hibernate,Struts,EasyJWeb,EasyJFramework,EJB,JDO,Velocity)介绍、参考资料、教程、源码等，提供简单实用的j2ee开发工具及构件产品，让j2ee程序开发变得更加轻松、简单!" >
+<title>简易java框架开源论坛(EasyJWeb演示程序)-栏目列表</title>
+<link href="include/css.css" rel="stylesheet" type="text/css">
+<script>
+function OpenMaxWin(Url,name) {
+var Height = screen.height -70;
+var Width = screen.width -12;
+return window.open(Url,name,"width=" + Width +",height=" + Height +",top=0,left=0,resizable=yes,scrollbars=yes,titlebar=yes,menubar=no");
+}
+function doEdit()
+{
+var id=ListForm.cid.value;
+if(id=="")
+{
+alert("请选择要编辑的数据！");
+return false;
+}
+ListForm.easyJWebCommand.value="edit";
+ListForm.submit();
+}
+function doGotoRoom()
+{
+var id=ListForm.cid.value;
+if(id=="")
+{
+alert("请选择要加入的项目组！");
+return false;
+}
+OpenMaxWin("chat.ejf?cid="+id,"chatRoom");
+}
+function doCreate()
+{
+var id=ListForm.cid.value;
+if(id=="")
+{
+alert("请选择审批的项目组！");
+return false;
+}
+ListForm.easyJWebCommand.value="create";
+ListForm.submit();
+}
+function doClose()
+{
+var id=ListForm.cid.value;
+if(id=="")
+{
+alert("请选择审批的项目组！");
+return false;
+}
+ListForm.easyJWebCommand.value="close";
+ListForm.submit();
+}
+function doShow()
+{
+var id=ListForm.cid.value;
+if(id=="")
+{
+alert("请选择要编辑的数据！");
+return false;
+}
+window.open("showUser.ejf?cid="+id,"","")
+}
+function doDel()
+{
+if(ListForm.cid.value!="")
+{
+if(confirm("删除后数据不能恢复，确认要删除吗？")){
+ListForm.easyJWebCommand.value="del";
+ListForm.submit();
+}
+}
+}
+function doAdd()
+{
+ListForm.easyJWebCommand.value="new";
+ListForm.cid.value="";
+ListForm.submit();
+}
+function doShowMember()
+{
+ListForm.easyJWebCommand.value="groupMember";
+ListForm.submit();
+}
+function selectRow(id)
+{
+ListForm.cid.value=id;
+}
+</script>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<TABLE width="98%" border=0 align="center" cellPadding=0 cellSpacing=0>
+  <TBODY>
+    <TR>
+      <TD align=center><TABLE height=28 cellSpacing=0 cellPadding=0 width=100% align=center 
+      border=0>
+          <TBODY>
+            <TR align="center" bgcolor="#006699">
+              <TD width="764" height="28"><a href="/index.htm" target="_top"><font color="#FFFFFF">首页</font></a>　｜　<a href="/announce.htm" target="_top"><font color="#FFFFFF">公告</font></a>　｜　<a href="/docs.htm" target="_top"><font color="#FFFFFF">参考资料</font></a>　 ｜　<a href="/tutorial.htm" target="_top"><font color="#FFFFFF">教程</font></a>　｜　<a href="/framework.htm" target="_top"><font color="#FFFFFF">框架/设计</font></a>　｜　<a href="/download.htm" target="_top"><font color="#FFFFFF">源码/下载</font></a>　｜　<a href="/component.htm" target="_top"><font color="#FFFFFF">构件产品</font></a>　｜　<a href="/myrss/" target="_top"><font color="#FFFFFF">MyRSS</font></a>　</TD>
+            </TR>
+          </TBODY>
+      </TABLE></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<table width="98%" border="0" align="center" cellpadding="0" cellspacing="3" class="cn_12px">
+<form id="ListForm" name="ListForm"  method="post" action="chatRoom.ejf">		
+	   <input type="hidden" name="easyJWebCommand" value="">	
+	   <input type="hidden" name="cid"   value="$!cid">
+	   <tr>
+      <td height="23" colspan="2"><font color="#FF0000">说明：会议系统仅供EasyJF开源团队成员会议使用！　</font><a href="/bbs/"  target="_top"><font color=blue>返回工作论坛首页</font></a></td>
+      <td>&nbsp;</td>
+  </tr>
+  <tr>
+      <td width="70%" height="23">&nbsp;</td>
+      <td align="center"><input type="button" name="Submit" value="申请新房间" onClick="doAdd()">
+        <a href="/aboutItemGroup.htm#new" target="_blank"></a></td>
+      <td>&nbsp;</td>
+  </tr>
+  </form>
+</table>
+<table width="98%" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="C4E0FC">
+  <tr bgcolor="84B6E7" class="news_text"> 
+    <td width="16%" height="27" bgcolor="84B6E7"> <div align="center" class="cn_12px"><strong><strong><font color="#FFFFFF">名称</font></strong></strong></div></td>
+    <td width="6%" align="center"><span class="cn_12px"><strong><strong><font color="#FFFFFF">所有者</font></strong></strong></span></td>
+    <td width="6%" align="center"><span class="cn_12px"><strong><strong><font color="#FFFFFF"><strong><strong><font color="#FFFFFF">最大人数</font></strong></strong></font></strong></strong></span></td>
+    <td width="7%" align="center"><span class="cn_12px"><strong><strong><strong><strong><font color="#FFFFFF">刷新时间</font></strong></strong></strong></strong></span></td>
+    <td width="6%" align="center"><span class="cn_12px"><strong><strong><strong><strong><strong><strong><strong><font color="#FFFFFF">访问权限</font></strong></strong></strong></strong></strong></strong></strong></span></td>
+    <td width="5%" align="center"><span class="cn_12px"><strong><strong><strong><strong><strong><strong><strong><font color="#FFFFFF">权限值</font></strong></strong></strong></strong></strong></strong></strong></span></td>
+    <td width="8%" align="center"><span class="cn_12px"><strong><strong><strong><strong><font color="#FFFFFF">创建时间</font></strong></strong></strong></strong></span></td>
+    <td width="6%" align="center"><span class="cn_12px"><strong><strong><strong><strong><font color="#FFFFFF">状态</font></strong></strong></strong></strong></span></td>
+    <td align="center"><span class="cn_12px"><strong><strong><strong><strong><font color="#FFFFFF">管理控制</font></strong></strong></strong></strong></span></td>
+  </tr>
+
+   #foreach( $info in $list) 
+  <tr id="$!info.cid" onMouseOver="this.className='MouseOver';" onMouseOut="this.className='MouseOut'" onDblClick="selectRow(this.id);doEdit();" onClick="selectRow(this.id);"> 
+    <td height="27" align="center">
+    <div align="center"><a href="javascript:doGotoRoom();">$!info.title</a></div></td>
+    <td align="center" ><div align="center">$!info.owner</div></td>
+    <td align="center" >$!info.maxUser</td>
+    <td align="center" >$!info.intervals</td>
+    <td align="center" >$!info.vrtype </td>
+    <td align="center" >$!info.vrvalue </td>
+    <td align="center" >$!CommUtil.formatDate("yyyy-MM-dd hh:mm",$!info.approveTime)</td>
+    <td align="center" >$!info.showStatus()</td>
+    <td align="center" bgcolor="F6FCFD"><a href="#" onClick="selectRow('$!info.cid');doEdit();">编辑</a>　<a href="#" onClick="selectRow('$!info.cid');doDel();">删除</a>　#if($!info.isRunning())<a href="#" onClick="selectRow('$!info.cid');doCreate();">启动</a>#else <a href="#" onClick="selectRow('$!info.cid');doClose();">停止</a>#end 　</td>
+  </tr>
+  #end
+</table>
+<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="cn_12px">
+  <tr>
+    <td>&nbsp;</td>
+    <td><div align="right"></div></td>
+  </tr>
+</table>
+<br>
+<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="f12">
+  <tr> 
+    <td> <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td height="2" bgcolor="6781BA"> </td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td height="25" bgcolor="#1f80cb"><div align="center"><a href="/aboutus.htm" target="_top"><FONT color=#ffffff>Aboutus</font></a> | <a href="/linkus.htm" target="_top"><FONT color=#ffffff>联系我们</font></a> | <FONT color=#ffffff>程序开发</font> | <FONT color=#ffffff>网站地图</font> | <FONT color=#ffffff><a href="/guestbook.ejf" target="_top"><FONT color=#ffffff>留言板</font></a></font></div></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+#if($msg)
+<script>
+alert('$!msg');
+</script>
+#end
+

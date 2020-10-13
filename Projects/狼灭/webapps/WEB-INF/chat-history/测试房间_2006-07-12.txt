@@ -1,0 +1,5 @@
+系统对大家说:guest1进入会议室!(Wed Jul 12 11:31:06 CST 2006)
+guest1对大家说:sdfsdlfjlk(Wed Jul 12 11:31:10 CST 2006)
+guest1对大家说:lkdjflksdjflksj(Wed Jul 12 11:31:11 CST 2006)
+guest1对大家说:66666666(Wed Jul 12 11:31:16 CST 2006)
+系统对大家说:guest1退出了会议室！(Wed Jul 12 11:31:21 CST 2006)

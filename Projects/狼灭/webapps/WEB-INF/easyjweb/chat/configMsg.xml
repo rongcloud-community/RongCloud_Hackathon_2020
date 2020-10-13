@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+<config></config>
+<users>
+#foreach( $info in $userList)
+	<data>$!info.userName</data>
+#end
+</users>
+<talkers>
+#foreach( $info in $talkerList)
+	<data>$!info.userName</data>
+#end
+</talkers>
+</root>

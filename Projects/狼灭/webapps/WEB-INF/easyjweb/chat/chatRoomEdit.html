@@ -1,0 +1,158 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="keywords" content="Java,J2EE,Jsp,EasyJ,AspectJ,AOP,SOA,Java EE,构件,中间件,Tomcat,JBoss,Spring,Hibernate,Struts,EasyJWeb,JDO,EJB,UML">
+<META name="description" content="Easyjf.com(简易java框架),包括当今最流行的Java框架(Spring,Hibernate,Struts,EasyJWeb,EasyJFramework,EJB,JDO,Velocity)介绍、参考资料、教程、源码等，提供简单实用的j2ee开发工具及构件产品，让j2ee程序开发变得更加轻松、简单!" >
+<title>简易java框架开源论坛(EasyJWeb演示程序)-栏目管理</title>
+<link href="include/css.css" rel="stylesheet" type="text/css">
+<script>
+var score_str='积分:<INPUT name=vrvalue size=6 maxlength=4 value=$!vrvalue>';
+function showScore(v){ 
+if(v=="score"){
+    if(document.getElementById('scoreSpan').innerHTML==null || document.getElementById('scoreSpan').innerHTML==''){
+      document.getElementById('scoreSpan').innerHTML=score_str;
+    }
+  } 
+  else  document.getElementById('scoreSpan').innerHTML="";
+ }
+function doSave()
+{
+if(doCheck())
+{
+if(EditForm.cid.value!="")EditForm.easyJWebCommand.value="update";
+EditForm.submit();
+}
+}
+function doDel()
+{
+if(EditForm.cid.value!="")
+{
+if(confirm("删除后数据不能恢复，确认要删除吗？")){
+EditForm.easyJWebCommand.value="del";
+EditForm.submit();
+}
+}
+}
+function doCheck()
+{
+if(EditForm.title.value=="")
+{
+alert("栏目标题不能为空！");
+EditForm.title.focus();
+return false;
+}
+
+return true;
+}
+</script>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<TABLE width="98%" border=0 align="center" cellPadding=0 cellSpacing=0>
+  <TBODY>
+    <TR>
+      <TD align=center><TABLE height=28 cellSpacing=0 cellPadding=0 width=100% align=center 
+      border=0>
+          <TBODY>
+            <TR align="center" bgcolor="#006699">
+              <TD width="764" height="28"><a href="/index.htm" target="_blank"><font color="#FFFFFF">首页</font></a>　｜　<a href="/announce.htm" target="_blank"><font color="#FFFFFF">公告</font></a>　｜　<a href="/docs.htm" target="_blank"><font color="#FFFFFF">参考资料</font></a>　 ｜　<a href="/tutorial.htm" target="_blank"><font color="#FFFFFF">教程</font></a>　｜　<a href="/framework.htm" target="_blank"><font color="#FFFFFF">框架/设计</font></a>　｜　<a href="/download.htm" target="_blank"><font color="#FFFFFF">源码/下载</font></a>　｜　<a href="/component.htm" target="_blank"><font color="#FFFFFF">构件产品</font></a>　｜　<a href="/myrss/" target="_blank"><font color="#FFFFFF">MyRSS</font></a>　</TD>
+            </TR>
+          </TBODY>
+      </TABLE></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<table width="98%" border="0" align="center" cellpadding="0" cellspacing="8" class="cn_12px">
+  <tr>
+    <td><strong>会议室信息编辑<a href="../bbs/bbsList.ejf?th=xwsp"></a></strong><br>
+    </td>
+    <td><div align="right"></div></td>
+  </tr>
+</table>
+<form name="EditForm" method="post" action="chatRoom.ejf">
+ <input type="hidden" name="easyJWebCommand" value="add">	     
+ <input type="hidden" name="cid"   value="$!cid">	
+<table width="98%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#E8E8E8">
+  <tr bgcolor="#FFFFFF"> 
+    <td width="120" height="29" align="center">名称：</td>
+    <td width="75%"> <input name="title" type="text" class="input3" id="ti" value="$!title" size="40"> 
+      <font color=red>*必填</font></td>
+  <td>&nbsp; </td>
+  </tr>
+  <tr bgcolor="#FFFFFF"> 
+    <td align="center" valign="top"><br>
+      简介：</td>
+    <td><textarea name="intro" rows="3" id="intro" style="width:100%">$!intro</textarea></td>
+  <td valign="top"> <br></td>
+  </tr>
+ <tr bgcolor="#FFFFFF"> 
+    <td align="center" valign="top"><br>
+      会议室公告：</td>
+    <td><textarea name="announce" rows="3" id="announce" style="width:100%">$!announce</textarea></td>
+  <td valign="top"> <br>
+    当一个成员新进入聊天室的时候显示！</td>
+  </tr>
+   <tr bgcolor="#FFFFFF"> 
+      <td height="29" align="center">所有者：</td>
+    <td colspan="2"><input name="owner" type="text" class="input3" id="manager" value="$!owner" size="10">      
+      <span id="scoreSpan"><font color="#0000FF">计划总人数</font></span></td>
+  </tr>
+  <tr bgcolor="#FFFFFF"> 
+      <td height="29" align="center">最大参与人数：</td>
+    <td colspan="2"><input name="maxUser" type="text" class="input3" id="Title" value="$!maxUser" size="10">
+    <font color="#0000FF">默认为申请人</font></td>
+  </tr>
+ <tr bgcolor="#FFFFFF"> 
+      <td height="29" align="center">刷新时间：</td>
+    <td colspan="2"><input name="intervals" type="text" class="input3" id="Title" value="$!intervals" size="10">
+    <font color="#0000FF">默认为申请人</font></td>
+  </tr>
+ <tr bgcolor="#FFFFFF"> 
+      <td height="29" align="center">访问权限：</td>
+    <td colspan="2"><input name="vrtype" type="text" class="input3" id="Title" value="$!vrtype" size="10">
+    <font color="#0000FF">默认为申请人</font></td>
+  </tr>
+ <tr bgcolor="#FFFFFF"> 
+      <td height="29" align="center">访问权限值：</td>
+    <td colspan="2"><input name="vrvalue" type="text" class="input3" id="Title" value="$!vrvalue" size="10">
+    <font color="#0000FF">默认为申请人</font></td>
+  </tr>
+   <tr bgcolor="#FFFFFF"> 
+      <td height="29" align="center">录入时间：</td>
+      <td colspan="2">$!inputTime </td>
+  </tr>
+  <tr bgcolor="#FFFFFF"> 
+      <td height="29" align="center">状态：</td>
+      <td colspan="2">$!status </td>
+  </tr>
+  <tr bgcolor="#FFFFFF"> 
+    <td height="30">&nbsp;</td>
+    <td width="75%"><input type="button" name="Submit" value="保存" onClick="doSave()">　
+      <input type="reset" name="Submit2" value="删除" onClick="doDel()">
+      　
+      <input type="reset" name="Submit23" value="重置">　      
+      <input type="reset" name="Submit22" value="返回" onClick="history.go(-1);">
+      </td>
+    <td width="237"> 
+    
+</td>
+    </tr>
+</table>
+</form>
+
+<hr align="center" width="98%">
+ <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td height="25" bgcolor="#1f80cb"><div align="center"><a href="/aboutus.htm" target="_top"><FONT color=#ffffff>Aboutus</font></a> | <a href="/linkus.htm" target="_top"><FONT color=#ffffff>联系我们</font></a> | <FONT color=#ffffff>程序开发</font> | <FONT color=#ffffff>网站地图</font> | <FONT color=#ffffff><a href="/guestbook.ejf" target="_top"><FONT color=#ffffff>留言板</font></a></font></div><span style="display:none"></span></td>
+        </tr>
+</table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+#if($msg)
+<script>
+alert('$!msg');
+</script>
+#end
