@@ -1,0 +1,38 @@
+<HTML><HEAD>
+<TITLE>Dvbbs多功能编辑器--插入 Real Media 播放器</TITLE>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+<Link rel="stylesheet" type="text/css" href="pop.css">
+
+<SCRIPT event=onclick for=Ok language=JavaScript>
+	var s=path.value;
+	if (s.length<10)
+	{
+		alert("请输入正确的文件链接地址！");
+	}else{
+		//var autostart
+		//autostart=document.getElementById("autostart").checked
+		window.returnValue = path.value+"*480*360*0"
+		window.close();
+	}
+</SCRIPT>
+<script>
+function IsDigit()
+{
+  return ((event.keyCode >= 48) && (event.keyCode <= 57));
+}
+</script>
+<BODY bgcolor="menu">
+<TABLE border=0 cellPadding=0 cellSpacing=5 align=center style="padding-left:10px;width=98%">
+  <TBODY>
+  <TR>
+    <TD colSpan=2>
+    <font class=title>插入 Real Media 播放器</font>
+    <hr width=100% >文件后缀 : ram、rmm、rm、rmvb、mpg、mpv、mpeg、dat、avi、mpga</TD>
+    </TR>
+<TR>
+    <TD colSpan=2>文件地址 : <INPUT id=path size=40 value="http://"></TD></TR>
+    <TD align=middle colSpan=2>
+	<BUTTON id=Ok type=submit>确定</BUTTON>&nbsp;
+	<BUTTON onclick=window.close();>关闭</BUTTON>
+	</TD></TR></TBODY></TABLE>
+</BODY></HTML><script>

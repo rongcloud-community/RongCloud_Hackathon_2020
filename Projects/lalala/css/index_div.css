@@ -1,0 +1,174 @@
+#all {
+	text-align: left;
+	height: 900px;
+	width: 960px;
+	margin-top: 0px;
+	margin-left: -10px;
+}
+
+#top {
+	height: 200px;
+	width: 900px;
+	margin-left: 40px;
+	margin-top: 30px;
+}
+
+#menu {
+    height: 300px;
+	width: 150px;
+	margin-left: 35px;
+	margin-top: 20px;
+}
+
+#publication {
+    height: 215px;
+	width: 400px;
+	margin-left: 248px;
+	margin-top: -260px;
+	border: 1px solid #DFDFDF;
+}
+#publication#messageshow{
+    height: 200px;
+	width: 400px;
+}
+#publication#pagechange{
+    height: 20px;
+	width: 400px;
+	margin-left: 239px;
+	margin-top: 10px;
+	position:absolute;
+}
+#publication tr td{
+	border-bottom: 1px dotted #6D6D6D;
+}
+#publication tr td a{
+	width: 100%;
+}
+#publication tr td a:link{
+	COLOR: Black; 
+	TEXT-DECORATION: none
+}
+#publication tr td a:visited{
+	COLOR: #898989; 
+	TEXT-DECORATION: none
+}
+#publication tr td a:hover {
+	COLOR: #f50; 
+	TEXT-DECORATION: underline
+}
+
+#login {
+    height: 200px;
+	width: 230px;
+	margin-left: 710px;
+	margin-top: -252px;
+	border: 1px solid #DFDFDF;
+}
+
+#friendlink {
+    height: 90px;
+	width: 230px;
+	margin-left: 710px;
+	margin-top: 20px;
+	text-align: center;
+	border: 1px solid #DFDFDF;
+}
+#friendlink p{
+	background-color: #81DA67;
+	letter-spacing: 8px;
+	font-weight: bolder;
+}
+#friendlink ul{
+	
+}
+#friendlink ul li{
+	border-bottom: 1px dotted #D1D1D1;
+	letter-spacing: 3px;
+}
+#friendlink ul li a{
+	width: 100%;
+} 
+#friendlink ul li a:link{
+	COLOR: Black; 
+	TEXT-DECORATION: none
+}
+#friendlink ul li a:visited{
+	COLOR: #898989; 
+	TEXT-DECORATION: none
+}
+
+#photolist {
+	height: 170px;
+	width: 900px;
+	margin-left: 40px;
+	margin-top: 30px;
+	border: 1px solid #DFDFDF;
+}
+#photolist#ourclass{
+	width: 900px;
+	height: 150px;
+
+}
+#photolist#message{
+height:20px;
+background:#81DA67;
+}
+#photolist#message p{
+font-weight:bold;
+width: 900px;
+letter-spacing: 8px;
+	font-weight: bolder;
+
+
+}
+
+#footer{
+	height: 100px;
+	width: 600px;
+	margin-left: 185px;
+	margin-top: 0px;
+	text-align: center;
+}
+
+.datagridhead12 {
+	BACKGROUND-COLOR: #C5FCC9;
+	height:10px;
+	overflow:hidden;
+}
+.datagridhead12 td{
+	border-top: 3px solid #FCFCB6;
+	font-weight: bolder;
+	letter-spacing: 2px;
+	background-color:#81DA67;
+}
+.datagridhead {
+	BACKGROUND-COLOR:#669900;
+}
+.datagridhead td{
+background-color:#81DA67;
+	letter-spacing: 8px;
+	font-weight: bolder;
+}
+.datagrid1212 {
+	BACKGROUND-COLOR: #eef3f9;
+	height:10px;
+	
+}
+.datagrid1212 td{
+  overflow:hidden;
+  display:
+}
+.datagridstyle{
+height:90px;
+}
+.datagridstyle tr{
+    height:10px;
+}
+.datagridstyle tr td a{
+	overflow:hidden;
+}
+#clearf{
+	clear: both;
+	margin-left: 30px;
+	margin-top: 10px;
+}

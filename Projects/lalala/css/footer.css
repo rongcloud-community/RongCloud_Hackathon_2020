@@ -1,0 +1,45 @@
+#footer{
+	margin-bottom: 10px;
+	margin-top: 5px;
+	font-family: serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	left: 400px;
+	position: relative;
+	}
+#copyright{
+	margin-bottom: 10px;
+	margin-top: 5px;
+	font-family: serif;
+	font-size: 12px;
+	font-style: italic;
+	font-weight: normal;
+	left: 320px;
+	position: relative;
+}
+
+a:link {
+	COLOR: #04d; 
+	TEXT-DECORATION: none
+}
+a:visited {
+	COLOR: #04d; 
+	TEXT-DECORATION: none
+}
+a:hover {
+	COLOR: #f50; 
+	TEXT-DECORATION: underline
+}
+a:active {
+	COLOR: #f50; 
+	TEXT-DECORATION: underline
+}
+p {
+	PADDING-RIGHT: 0px; 
+	PADDING-LEFT: 0px; 
+	PADDING-BOTTOM: 0px; 
+	MARGIN: 0px; 
+	LINE-HEIGHT: 18px; 
+	PADDING-TOP: 0px
+}
