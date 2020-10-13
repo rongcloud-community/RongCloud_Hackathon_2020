@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>计算器</title>
+		<link rel="stylesheet" type="text/css" href="index.css"/>
+		<style type="text/css">
+			#a1 {
+			    float: left;
+			    color:#000000;
+				line-height: 60px;
+				font-size: 20px;
+				width: 60px;
+				background: cadetblue;
+				text-align: center;
+				text-decoration: none;
+			}
+		</style>
+	</head>
+<body>
+	<a id="a1" href="chat.html">记账本</a>
+    <div id="cac">
+        <h2>计算器</h2>
+        <div class="c_show">
+            <input type="text" class="s_text" onfocus="this.blur();" value="0" id="result">
+        </div>
+        <div class="c_key"> 
+            <ul>
+                <li onclick="command(7);">7</li>
+                <li onclick="command(8);">8</li>
+                <li onclick="command(9);">9</li>
+                <li class="c_tool" onclick="del('j')">←</li>
+                <li class="c_tool" onclick="clearzero('j')">c</li>
+ 
+                <li onclick="command(4);">4</li>
+                <li onclick="command(5);">5</li>
+                <li onclick="command(6);">6</li>
+                <li class="c_tool" onclick="tools('*','g')">×</li>
+                <li class="c_tool" onclick="tools('/','g')">÷</li>
+ 
+                <li onclick="command(1);">1</li>
+                <li onclick="command(2);">2</li>
+                <li onclick="command(3);">3</li>
+                <li class="c_tool" onclick="tools('+','g');">+</li>
+                <li class="c_tool" onclick="tools('-','g');">-</li>
+                <li onclick="command(0);">0</li>
+                <li onclick="command('two 0');">00</li>
+                <li onclick="dot('.')">.</li>
+                <li class="c_tool" onclick="tools('%','g');">%</li>
+                <li class="c_result" onclick="equal('j');">=</li>
+            </ul>
+        </div>
+    </div>
+</body>
+ 
+<script type="text/javascript">
+	//获取一下id 
+	var resultDom = document.getElementById("result");
+	var operate = true;
+	var afequ = true;
+	//点击计算器执行函数
+	function command(num){  
+	    var str = resultDom.value;
+	    str = (str == "0" ? "":str);  //条件表达式，初始为0或空时，都算作0
+		//用if语句把 00 按键分开来实现
+		if(num == 'two 0'){
+			str += 0;
+			str += 0;
+			resultDom.value = str;
+			operate = true;	
+		}
+		else{
+	    str += num;
+	    resultDom.value = str;
+		operate = true;	
+		}
+	}
+	function tools(p,m){    
+	    if(operate){    
+	        var num = resultDom.value;
+	        num = (num == "0" ? "":num);
+	        resultDom.value = num + p;
+	        operate = false; //防止同时输入两个运算符
+	    }
+	}
+	function equal(m){  
+	    var result = resultDom.value;
+	    var r = eval(result);  //eval(string),要计算的字符串，其中含有要计算的 JavaScript 表达式或要执行的语句。
+	    resultDom.value =r;
+	}
+	function clearzero(){   
+	    resultDom.value=0;
+	
+	}
+	function del(m){
+	    var str = resultDom.value;
+	    str = str.substring(0,str.length - 1);  //substring() 方法用于提取字符串中介于两个指定下标之间的字符。
+	    str = (str == "" ? 0 : str);
+	    resultDom.value = str;
+	}
+	function dot(m){
+		var str = resultDom.value;
+		str += m;
+		resultDom.value = str;
+		operate = true;	
+	}
+</script>
+</html>
