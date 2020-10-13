@@ -1,0 +1,42 @@
+*{
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	list-style: none;
+}
+#love{
+	position: relative;
+	height: 1300px;
+	width: 650px;
+	border: 3px solid black;
+	border-radius: 10%;
+	background-image: url(demo.jpg);
+	background-size: cover;
+	
+}
+.play{
+	color: white;
+	background-color: #87CEFA;
+	margin:0 6px;
+}
+#love .mlist{
+	margin:10px;
+	background-color: rgba(1,1,1,0.5);
+	height: 165px;
+	border-radius: 5px;
+
+}
+#love ul li{
+	line-height:30px;
+	text-align: center;
+	cursor:pointer;	
+	border-radius: 4px;
+}
+#love ul li:hover{
+	line-height:45px;
+	text-align: center;
+	cursor:pointer;
+	margin:0 5px;
+	background-color: #F0F8FF;
+	border-radius:6px;
+}
