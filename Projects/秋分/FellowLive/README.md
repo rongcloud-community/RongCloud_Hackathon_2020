@@ -6,8 +6,10 @@
 
 开启直播：   
 直播链接会显示在底部，点击链接会复制到剪贴板，然后可以将直播链接发给其他人。   
-![live](https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/cde714d32b03505ed96497b35045a8ea.jpeg)
+<img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/cde714d32b03505ed96497b35045a8ea.jpeg" width="50%">   
+
 
 进入直播间：   
 拿到别人分享的直播链接，输入可进入他的直播间。   
-![live](https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/3f957bdd2e520b303125e30fcd64b205.jpeg)
+
+<img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/3f957bdd2e520b303125e30fcd64b205.jpeg" width="50%"> 
