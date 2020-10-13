@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<menu height="63" width="59">
+	<item id="1">
+		<name></name>
+		<image>img/manage/toolbar/yq.jpg</image>
+		<title>发送一个邀请对话请求</title>
+		<action>toolbarAction(50)</action>
+		<style></style>
+		<switchimage>img/manage/toolbar/yq-1.jpg</switchimage>
+		<child pid="1" height="20" width="60">
+			<childitem>
+				<name></name>
+				<image>img/manage/toolbar/yq.jpg</image>
+				<title>发送一个邀请对话请求</title>
+				<action>toolbarAction(50)</action>
+				<style></style>
+				<switchimage>img/manage/toolbar/yq-1.jpg</switchimage>
+			</childitem>
+			<childitem>
+				<name></name>
+				<image>img/manage/toolbar/js.jpg</image>
+				<title>结束对话</title>
+				<action>toolbarAction(52)</action>
+				<style></style>
+				<switchimage>img/manage/toolbar/js-1.jpg</switchimage>
+			</childitem>
+			<childitem>
+				<name></name>
+				<image>img/manage/toolbar/zj.jpg</image>
+				<title>对话转接</title>
+				<action>toolbarAction(53)</action>
+				<style></style>
+				<switchimage>img/manage/toolbar/zj-1.jpg</switchimage>
+			</childitem>
+		</child>
+	</item>
+	<item id="3">
+		<name></name>
+		<image>img/manage/toolbar/tongxu.jpg</image>
+		<title>通讯录信息</title>
+		<action>toolbarAction(110)</action>
+		<style></style>
+		<switchimage>img/manage/toolbar/tongxu-1.jpg</switchimage>
+	</item>
+	<item id="4">
+		<name></name>
+		<image>img/manage/toolbar/jl.jpg</image>
+		<title>查看对话记录</title>
+		<action>toolbarAction(80)</action>
+		<style></style>
+		<switchimage>img/manage/toolbar/jl-1.jpg</switchimage>
+	</item>
+	<item id="5">
+		<name></name>
+		<image>img/manage/toolbar/ll.jpg</image>
+		<title>查看流量统计</title>
+		<action>toolbarAction(90)</action>
+		<style></style>
+		<switchimage>img/manage/toolbar/ll-1.jpg</switchimage>
+	</item>
+	<item id="6">
+		<name></name>
+		<image>img/manage/toolbar/xt.jpg</image>
+		<title>打开系统选项设置</title>
+		<action>toolbarAction(100)</action>
+		<style></style>
+		<switchimage>img/manage/toolbar/xt-1.jpg</switchimage>
+	</item>
+	<item id="8">
+		<name></name>
+		<image>img/manage/toolbar/sx.jpg</image>
+		<title>刷新页面</title>
+		<action>toolbarAction(60)</action>
+		<style></style>
+		<switchimage>img/manage/toolbar/sx-1.jpg</switchimage>
+	</item>
+	<item id="9">
+		<name></name>
+		<image>img/manage/toolbar/tc.jpg</image>
+		<title>退出系统</title>
+		<action>toolbarAction(70)</action>
+		<style></style>
+		<switchimage>img/manage/toolbar/tc-1.jpg</switchimage>
+	</item>
+</menu>

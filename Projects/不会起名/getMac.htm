@@ -1,0 +1,37 @@
+<HTML><HEAD><TITLE>WMI Scripting HTML</TITLE>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<SCRIPT language=JScript event="OnCompleted(hResult'pErrorobject' pAsyncContext)" for=foo>
+ document.forms[0].txtMACAddr.value=unescape(MACAddr);
+ document.forms[0].txtIPAddr.value=unescape(IPAddr);
+ document.forms[0].txtDNSName.value=unescape(sDNSName);
+ document.formbar.submit();
+  </SCRIPT>
+
+<SCRIPT language=JScript event=OnobjectReady(objobject'objAsyncContext) for=foo>
+   if(objobject.IPEnabled != null && objobject.IPEnabled != "undefined" && objobject.IPEnabled == true)
+   {
+    if(objobject.MACAddress != null && objobject.MACAddress != "undefined")
+    MACAddr = objobject.MACAddress;
+    if(objobject.IPEnabled && objobject.IPAddress(0) != null && objobject.IPAddress(0) != "undefined")
+    IPAddr = objobject.IPAddress(0);
+    if(objobject.DNSHostName != null && objobject.DNSHostName != "undefined")
+    sDNSName = objobject.DNSHostName;
+    }
+  </SCRIPT>
+
+<meta content="MSHTML 6.00.2800.1106" name=GENERATOR></HEAD>
+<BODY>
+<object id=locator classid=CLSID:76A64158-CB41-11D1-8B02-00600806D9B6 VIEWASTEXT></object>
+<object id=foo classid=CLSID:75718C9A-F029-11d1-A1AC-00C04FB6C223></object>
+<SCRIPT language=JScript>
+   var service = locator.ConnectServer();
+   var MACAddr ;
+   var IPAddr ;
+   var DomainAddr;
+   var sDNSName;
+   service.Security_.ImpersonationLevel=3;
+   service.InstancesOfAsync(foo' ,Win32_NetworkAdapterConfiguration,);
+//window.alert("revr");
+   </SCRIPT>
+
+<FORM id=formfoo name=formbar action=NICPost.asp method=post><INPUT value=00:05:5D:0E:C7:FA name=txtMACAddr> <INPUT value=192.168.0.2 name=txtIPAddr> <INPUT value=typ name=txtDNSName> </FORM></BODY></HTML>

@@ -1,0 +1,359 @@
+<html>
+<head>
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
+<title>TaokeOCS安装</title>
+<link href="css.css" rel="stylesheet" type="text/css">
+<script language=javascript>
+<!--
+NS4 = (document.layers) ? 1 : 0;
+IE4 = (document.all) ? 1 : 0;
+ver4 = (NS4 || IE4) ? 1 : 0;
+
+if (ver4) 
+{
+	with (document) 
+	{
+        	write("<STYLE TYPE='text/css'>");
+        	if (NS4) 
+        	{
+            		write(".parent {position:absolute; visibility:visible; margin:0px;}");
+            		write(".child {position:absolute; visibility:visible; margin:0px;}");
+            		write(".regular {position:absolute; visibility:visible; margin:0px;}")
+        	}
+        	else 
+        	{
+            		write(".child {display:none; margin:0px;}")
+        	}
+        	write("</STYLE>");
+    	}
+}
+
+function getIndex(el) 
+{
+	ind = null;
+	for (i=0; i<document.layers.length; i++) 
+	{
+		whichEl = document.layers[i];
+		if (whichEl.id == el) 
+		{
+            		ind = i;
+            		break;
+        	}
+    	}
+    	return ind;
+}
+
+function arrange() 
+{
+	nextY = document.layers[firstInd].pageY +document.layers[firstInd].document.height;
+	for (i=firstInd+1; i<document.layers.length; i++) 
+	{
+        	whichEl = document.layers[i];
+		if (whichEl.visibility != "hide") 
+        	{
+			whichEl.pageY = nextY;
+			nextY += whichEl.document.height;
+		}
+	}
+}
+
+function initIt()
+{
+	if (!ver4) return;
+	if (NS4) 
+	{
+		for (i=0; i<document.layers.length; i++) 
+		{
+			whichEl = document.layers[i];
+			if (whichEl.id.indexOf("Child") != -1) whichEl.visibility = "hide";
+       		}
+	arrange();
+	}
+	else 
+	{
+		divColl = document.all.tags("DIV");
+        	for (i=0; i<divColl.length; i++) 
+        	{
+			whichEl = divColl(i);
+			if (whichEl.className == "child")
+			{
+				if((whichEl.id != "KB1Child")&&(whichEl.id != "KB2Child")) whichEl.style.display = "none";
+			}
+		}
+	}
+}
+
+
+function expandIt(el) 
+{
+	if (!ver4) return;
+	if (IE4) 
+	{
+		whichEl = eval(el + "Child");
+		if (whichEl.style.display == "none") 
+		{
+			whichEl.style.display = "block";
+		}
+		else
+		{
+			whichEl.style.display = "none";
+		}
+	}
+	else
+	{
+		whichEl = eval("document." + el + "Child");
+		if (whichEl.visibility == "hide") 
+		{
+			whichEl.visibility = "show";
+		}
+		else 
+		{
+			whichEl.visibility = "hide";
+		}
+	arrange();
+	}
+}
+//-->
+</script>
+</head>
+
+
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="b-border">
+  <tr> 
+    <td bgcolor="FC9D39"><img src="images/spacer.gif" width="1" height="6"></td>
+  </tr>
+</table>
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td width="220" valign="top" background="images/leftbg.gif"><table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#496B7A">
+      <tr>
+        <td height="201" align="center" bgcolor="#FFFFFF"><a href="http://www.shopex.cn" target="_blank"></a>
+            <SCRIPT LANGUAGE="JavaScript" src="corp.js"></SCRIPT>
+            <img src="images/N27_3.jpg" width="136" height="71"></td>
+      </tr>
+    </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><img src="images/leftmenutop.gif" width="226" height="6"></td>
+        </tr>
+        <tr>
+          <td valign="top"><table width="213" border="0" cellpadding="0" cellspacing="0" class="p9white">
+              <tr>
+                <td width="218" height="3" align="right"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td bgcolor="#52617B"><img src="images/spacer.gif" width="1" height="1"></td>
+                    </tr>
+                </table></td>
+              </tr>
+            </table>
+              <table width="213" border="0" cellpadding="2" cellspacing="2" class="p9white">
+                <tr>
+                  <td width="218" align="right" class="p12white"><img src="images/items.gif" width="11" height="11"> 安装准备</td>
+                </tr>
+              </table>
+            <table width="213" border="0" cellpadding="0" cellspacing="0" class="p9white">
+                <tr>
+                  <td width="218" height="3" align="right"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td bgcolor="#52617B"><img src="images/spacer.gif" width="1" height="1"></td>
+                      </tr>
+                  </table></td>
+                </tr>
+              </table>
+            <table width="213" border="0" cellpadding="2" cellspacing="2" class="p9white">
+                <tr>
+                  <td width="218" align="right" ><a class="menu" href="home.htm"> 简介</a></td>
+                </tr>
+                <tr>
+                  <td align="right" class="menu"><a class="menu" href="index.htm">-&gt;</a><a class="menu" href="require.htm"> 安装说明</a></td>
+                </tr>
+              </table>
+            <table width="213" border="0" cellpadding="2" cellspacing="2" class="p9white">
+                <tr>
+                  <td width="94%" align="right"><a class="menu" href="request.html">系统检测</a></td>
+                </tr>
+              </table>
+            <table width="213" border="0" cellpadding="0" cellspacing="0" class="p9white">
+                <tr>
+                  <td width="218" height="3" align="right"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td bgcolor="#52617B"><img src="images/spacer.gif" width="1" height="1"></td>
+                      </tr>
+                  </table></td>
+                </tr>
+              </table>
+            <table width="213" border="0" cellpadding="2" cellspacing="2" class="p9white">
+                <tr>
+                  <td width="218" align="right" class="p12white"><img src="images/items.gif" width="11" height="11"> 开始安装</td>
+                </tr>
+              </table>
+            <table width="213" border="0" cellpadding="0" cellspacing="0" class="p9white">
+                <tr>
+                  <td width="218" height="3" align="right"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td bgcolor="#52617B"><img src="images/spacer.gif" width="1" height="1"></td>
+                      </tr>
+                  </table></td>
+                </tr>
+              </table>
+            <table width="213" border="0" cellpadding="2" cellspacing="2" class="p9white">
+                <tr>
+                  <td align="right"><a href="dbinstall.html" class="menu">开始安装</a></td>
+                </tr>
+                <tr>
+                  <td align="right"><a href="ini_setup.html" class="menu">客户信息设定及数据初始化</a></td>
+                </tr>
+                <tr>
+                  <td align="right"><a href="ok.html" class="menu">完成</a></td>
+                </tr>
+            </table></td>
+        </tr>
+        <tr>
+          <td><img src="images/leftmenubottom.gif" width="226" height="6"></td>
+        </tr>
+      </table>
+      <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#496B7A">
+      <tr>
+        <td height="201" align="center" bgcolor="#FFFFFF"><a href="http://www.shopex.cn" target="_blank"></a>
+            <SCRIPT LANGUAGE="JavaScript" src="corp.js"></SCRIPT></td>
+      </tr>
+    </table></td>
+    <td width="794" valign="top"> <table width="100%" border="0" cellpadding="0" cellspacing="0" background="images/topbg.gif" class="lrborder">
+        <tr> 
+          <td width="46%" height="55"><img src="images/toppic-1.gif" width="366" height="55"></td>
+          <td width="54%" align="right"><img src="images/topinfo-2.gif" width="176" height="55"></td>
+        </tr>
+      </table>
+      <br> 
+      <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0" class="p9gray">
+        <tr> 
+          <td valign="top"> <p><span class="p9blue">安装说明</span></p>
+            请确认是否配置好安装系统所需的环境以及支持程序。
+            <hr size="1" noshade> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="4">
+              <tr> 
+                <td width="45%" class="p12blue">系统所需环境 </td>
+                <td width="55%"><span class="p9orange"><img src="images/items.gif" width="11" height="11" border="0"><a onClick="expandIt('KB21'); return false" href="#"> 
+                  请点击查看详情</a></span> </td>
+              </tr>
+            </table>
+            <div  id=KB21Child style="DISPLAY: none">
+<table cellspacing="0" cellpadding="4" border="0" class="p9gray" bgcolor="#FFF3E7">
+              <tr> 
+                <td bgcolor="#EFF3F7"><p><span class="p9blue">TaokeOCS环境要求</span><span class="p14navy"><br>
+                      </span><br>
+                      Windows2000以上＋jdk1.4.2以上＋Apache2.0＋Mysql3以上＋Tomcat4.1以上支持。 <br>
+                      如果以上环境安装有困难，而您只是希望暂时测试本系统，欢迎使用我们提供的在线测试，</p>
+                  </td>
+              </tr>
+            </table></div>
+              <table width="100%" border="0" cellspacing="0" cellpadding="4">
+              <tr> 
+                <td width="45%"> <span class="p12blue">安装支持程 </span></td>
+                <td width="55%"><img src="images/items.gif" width="11" height="11" border="0"> 
+                  <a onClick="expandIt('KB22'); return false" href="#">请点击查看详情</a> 
+                </td>
+              </tr>
+            </table> 
+            <div  id=KB22Child style="DISPLAY: none">
+<table cellspacing="0" cellpadding="4" border="0" class="p9gray" bgcolor="#FFF3E7">
+                <tr> 
+                  <td bgcolor="#EFF3F7"><span class="p9gray">
+                    1、请向主机提供商咨询您使用的主机是否安装了支持程序，；
+                    <br>
+                      2、解压缩后执行install即可完成安装；</p>
+                  </td>
+          </tr>
+        </table>
+              
+            </div>
+            <br>
+            <br>
+            如果已经确认配置好所有的系统环境和支持程序，安装本系统将经过以下几个步骤： 
+            <hr size="1" noshade> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="4">
+              <tr> 
+                <td width="45%"><span class="p9orange">第一步：系统检测</span><span class="p9blue"> 
+                  </span><a onClick="expandIt('KB23'); return false" href="#"></a> 
+                </td>
+                <td width="55%"><img src="images/items.gif" width="11" height="11" border="0"> <a onClick="expandIt('KB23'); return false" href="#">请点击查看详情</a> 
+                </td>
+              </tr>
+            </table> 
+            <div  id=KB23Child style="DISPLAY: none"> 
+        <table cellspacing="0" cellpadding="4" border="0" class="p9gray" bgcolor="#FFF3E7">
+                <tr> 
+                  <td bgcolor="#EFF3F7"><span class="p9orange">系统环境要求：</span><br> 
+                    <br>
+                    目前只提供Windows系统下支持，Windows2000以上＋jdk1.4.2以上＋Apache2.0＋Mysql3以上＋Tomcat4.1以上。
+                    <p></p>
+</td>
+          </tr>
+        </table>
+            </div>
+            <div  id=KB24Child style="DISPLAY: none">
+			<table cellspacing="0" cellpadding="4" border="0" class="p9gray" bgcolor="#FFF3E7">
+              <tr> 
+                <td bgcolor="#EFF3F7"> <p>系统将对您的安装环境进行检测，检测通过后，您就可以在线申请并下载授权码文件。ShopEx收到您的申请后，会尽快给您提供授权码文件下载。<br>
+                      申请授权码文件，您需要录入用户名、密码与相应联系方式。<br>
+                    </p>
+                  </td>
+              </tr>
+            </table></div>
+            <div  id=KB25Child style="DISPLAY: none">
+			<table cellspacing="0" cellpadding="4" border="0" class="p9gray" bgcolor="#FFF3E7">
+              <tr> 
+                <td width="522" bgcolor="#EFF3F7"> <p>取得授权码文件后，您可以在此将文件上传。<br>
+                    </p>
+                  </td>
+              </tr>
+            </table > </div>
+			
+            <span class="p9blue"> </span> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="4">
+              <tr> 
+                <td width="45%"><span class="p9orange">第二步：数据库安装</span> </td>
+                <td width="55%"><img src="images/items.gif" width="11" height="11" border="0"> <a onClick="expandIt('KB26'); return false" href="#">请点击查看详情</a> 
+                </td>
+              </tr>
+            </table>
+            <div  id=KB26Child style="DISPLAY: none"><table cellspacing="0" cellpadding="4" border="0" class="p9gray" bgcolor="#FFF3E7">
+              <tr> 
+                <td width="522" bgcolor="#EFF3F7"> <p>
+                      数据库安装全部自动在线进行，你只需要录入Mysql数据库名，Mysql数据库用户名、密码即可；如果你在自己机器上安装，这些是你自己设置的，如果你租用虚拟主机，这些将由虚拟主机提供商提供给你。</p>
+                  </td>
+              </tr>
+            </table>
+            </div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="4">
+              <tr> 
+                <td width="45%"><span class="p9orange">第三步：系统配置</span><span class="p9blue"></span> 
+                </td>
+                <td width="55%"><img src="images/items.gif" width="11" height="11" border="0"> <a onClick="expandIt('KB27'); return false" href="#">请点击查看详情</a>
+                </td>
+              </tr>
+            </table> 
+            <div  id=KB27Child style="DISPLAY: none"><table cellspacing="0" cellpadding="4" border="0" class="p9gray" bgcolor="#FFF3E7">
+              <tr> 
+                <td width="522" bgcolor="#EFF3F7"> <p>数据库安装完成，您可以进行系统的配置；<br>
+                      系统配置完成，系统安装即全部完成，您也可以进入系统后台管理系统更改这些配置；</p>
+                  </td>
+              </tr>
+            </table></div>
+            <p><br>
+              <br>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" valign="top"><input name="Button2" type="button" class="inputstyle" onClick="location='index.htm'" value=" 上一步 "> 
+            <input name="Button" type="button" class="inputstyle" onClick="location='request.html'" value=" 下一步 ">
+            <input name="Button22" type="button" class="inputstyle" onClick="window.close()" value="取消"></td>
+        </tr>
+      </table>
+      <p>&nbsp;</p></td>
+  </tr>
+</table>
+</body>
+</html>

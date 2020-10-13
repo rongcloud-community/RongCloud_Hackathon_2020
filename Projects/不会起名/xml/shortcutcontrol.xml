@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ShortCut>
+	<methods>
+		<method>var oElement=event.srcElement;if(oElement.className=='contentlist'){talker.innerText=oElement.innerText;}</method>
+	</methods>
+	<style fontcolor="#660000" fontsize="12px" background="img/manage/shortcut/bg_1.gif" leftimg="img/manage/shortcut/left_1.gif" rightimg="img/manage/shortcut/right_1.gif"/>
+</ShortCut>
