@@ -1,0 +1,333 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META name="keywords" content="Java,J2EE,Jsp,EasyJ,AspectJ,AOP,SOA,Java EE,构件,中间件,Tomcat,JBoss,Spring,Hibernate,Struts,EasyJWeb,JDO,EJB,UML">
+<META name="description" content="Easyjf.com(简易java框架),包括当今最流行的Java框架(Spring,Hibernate,Struts,EasyJWeb,EasyJFramework,EJB,JDO,Velocity)介绍、参考资料、教程、源码等，提供简单实用的j2ee开发工具及构件产品，让j2ee程序开发变得更加轻松、简单!" >
+<title>EasyJF开源团队网上会议系统－主题:$!chatRoom.title</title>
+<link href="include/css.css" rel="stylesheet" type="text/css">
+<script>
+var myName="$!user.userName",lastMsg,lastSendTime,lastToUser,lastReadId="$!lastReadId",roomId="$!cid";
+var statusRefreshInterval=60000,msgRefreshInterval=5000,reciveTime,statusTime;
+function newXMLHttpRequest() {
+  var xmlreq = false;
+  if (window.XMLHttpRequest) {   
+    xmlreq = new XMLHttpRequest();
+  } else if (window.ActiveXObject) {    
+    try {      
+      xmlreq = new ActiveXObject("Msxml2.XMLHTTP");
+    } catch (e1) {      
+      try {       
+        xmlreq = new ActiveXObject("Microsoft.XMLHTTP");
+      } catch (e2) {      
+      }
+    }
+  }
+  return xmlreq;
+}
+function newXmlDom(req)
+{
+var dom = null;
+  if (typeof(DOMParser) != "undefined") { 
+  var dp= new DOMParser();  
+  dom=dp.parseFromString(req.responseText, "text/xml" );
+  } else { // IE
+    try { dom = new ActiveXObject("MSXML2.DOMDocument");} catch (e) { }
+    if (dom == null) try { dom = new ActiveXObject("Microsoft.XMLDOM"); } catch (e) { }
+   if(dom!=null) dom.loadXML(req.responseText);   	
+  }
+return dom;
+}
+//处理返回信息
+//xmlHttp返回值,
+//method:方法名 方法必须带一个参数如doRecive(xNode);
+function handleAjaxResult(req,method) { 
+  return function () {  
+    if (req.readyState == 4) {     
+      if (req.status == 200) {
+      // 将载有响应信息的XML传递到处理函数
+	   var objXMLDoc=newXmlDom(req);       
+       eval("if(objXMLDoc.firstChild)"+method+"(objXMLDoc.firstChild.nextSibling);"); 
+      } else {       
+        //alert("HTTP error: "+req.status);
+      }
+    }
+  }
+}
+//执行客户端Ajax命令
+//url 数据post地址
+//postData 发送的数据包
+//handleMethod　处理返回的方法
+function executeAjaxCommand(url,postData,handleMethod)
+{
+   var req = newXMLHttpRequest(); 
+   req.onreadystatechange =handleAjaxResult(req,handleMethod);    
+   req.open("POST", url, true); 
+   req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+   req.setRequestHeader("charset","UTF-8");  
+   req.send(postData);
+//alert("已发送");
+}
+function check()
+{
+if(EditForm.content.value=="")
+{
+alert("发送内容不能为空!");
+EditForm.content.focus();
+return false;
+}
+return true;
+}
+function doSend()
+{
+   if(!check())return false;
+   var msg=EditForm.content.value;
+   var reciver=EditForm.reciver.value;   
+   var url="chat.ejf?easyJWebCommand=send&cid="+roomId+"&lastReadId="+lastReadId;
+   var postData="sender="+myName+"&reciver="+reciver+"&content="+msg;
+   clearTimeout(reciveTime);
+   executeAjaxCommand(url,postData,"recive");
+   EditForm.content.value="";
+   EditForm.content.focus();
+}
+function doNothing(ret)
+{
+}
+function doRecive()
+{   
+   var reciver=EditForm.reciver.value;   
+   var url="chat.ejf?easyJWebCommand=recive&cid="+roomId+"&lastReadId="+lastReadId;
+   executeAjaxCommand(url,"","recive");  
+}
+function recive(list)
+{
+    var id="",msg="";   
+    for(var oNode=list.firstChild;oNode;oNode=oNode.nextSibling)	// 依次分析每个节点
+	{
+    msg=showMsg(oNode);
+    id=oNode.getAttribute("cid");	
+    if(id!=lastReadId) chatContent.innerHTML+=msg;
+	}
+    if(id!="") lastReadId=id;    
+    chatContent.scrollTop=chatContent.scrollHeight;
+    reciveTime=setTimeout("doRecive();",msgRefreshInterval);  
+}
+function showMsg(oNode)
+{
+	var cid=oNode.getAttribute("cid");
+	var sender=oNode.getAttribute("sender");   
+	var reciver=oNode.getAttribute("reciver");   
+    var vdate=oNode.getAttribute("vdate");
+    var types=oNode.getAttribute("types");
+    var status=oNode.getAttribute("status");
+    var msg=replace(oNode.text,'\n',"<br>　　　　　　");	
+    return "<font color=blue>"+sender+"</font>对<font color=blue>"+reciver+"</font>说:"+msg+"("+vdate+")<br>";
+}
+function replace(str,replace_what,replace_with)
+{
+var ndx=str.indexOf(replace_what);
+var delta=replace_with.length - replace_what.length;
+while(ndx >= 0)
+{
+str=str.substring(0,ndx)+replace_with+str.substring(ndx+replace_what.length);
+ndx=str.indexOf(replace_what,ndx+delta+1);
+}
+return str;
+}
+function doMyConfig()
+{
+popWindow.innerHTML="<form name='popForm'>信息刷新时间：<input type=text name=seconds size=2 value="+msgRefreshInterval+"><br>状态刷新时间：<input type=text name=statusRefresh size=2 value="+statusRefreshInterval+">";
+popWindow.innerHTML+="<br><input type=button value=确定 onclick='myConfig(popForm.seconds.value,popForm.statusRefresh.value)'>&nbsp;<input type=button value=关闭 onclick=\"popWindow.style.display='none'\"></form>";
+showPopWindow();
+}
+function myConfig(ri,sri)
+{
+if(ri>1000) msgRefreshInterval=ri;
+if(sri>5000) statusRefreshInterval=sri;
+hiddenPopWindow();
+}
+function showPopWindow()
+{
+popWindow.style.display="";
+}
+function hiddenPopWindow()
+{
+popWindow.style.display="none";
+}
+function doLoadConfig()
+{
+   var url="chat.ejf?easyJWebCommand=loadConfig&cid="+roomId;	
+   executeAjaxCommand(url,"","doSetting");   
+}
+function doSetting(root)
+{
+//alert(root.xml);
+var users=root.selectNodes("/root/users/data");
+onlineUsers.innerHTML="";
+EditForm.reciver.options.length=0;
+EditForm.reciver.options[0]=new Option("大家","大家");
+for(i=0;i<users.length;i++)	// 得到在线用户信息
+{
+var user="<a href=javascript:talkTo('"+users[i].text+"');><font color=blue>"+users[i].text+"</font></a><br>";
+onlineUsers.innerHTML+=user;
+EditForm.reciver.options[i+1]=new Option(users[i].text,users[i].text);
+}
+statusTime=setTimeout("doLoadConfig();",statusRefreshInterval);  
+}
+function talkTo(name)
+{
+if(name!=myName)
+EditForm.reciver.value=name;
+}
+function doExit()
+{
+ if(confirm("是否真的要退出会议室!")){
+ var url="chat.ejf?easyJWebCommand=exit&cid="+roomId;
+ executeAjaxCommand(url,"","exitRoom");
+}
+}
+function doClearScreen()
+{
+if(confirm("是否真的要清除屏幕信息显示主窗口中的信息！"))chatContent.innerHTML="<font color=red>系统消息：</font><font color=blue>历史信息已经清除，控制面板中会议记录可以调出所有会议信息，刷新可以调出最近的发言！</font><br>";
+}
+function exitRoom(ret)
+{
+self.close();
+}
+function doInit()
+{
+  doLoadConfig();
+  doRecive();    
+}
+</script>
+<style type="text/css">
+<!--
+.style2 {color: #0000CC}
+-->
+</style>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="doInit();">
+<TABLE width="98%"  border=0 align="center" cellPadding=0 cellSpacing=0>
+  <TBODY>
+    <TR>
+      <TD align=center><TABLE height=28 cellSpacing=0 cellPadding=0 width=100% align=center 
+      border=0>
+          <TBODY>
+            <TR align="center" bgcolor="#006699">
+              <TD width="764" height="28"><a href="/index.htm" target="_blank"><font color="#FFFFFF">首页</font></a>　｜　<a href="/announce.htm" target="_blank"><font color="#FFFFFF">公告</font></a>　｜　<a href="/docs.htm" target="_blank"><font color="#FFFFFF">参考资料</font></a>　 ｜　<a href="/tutorial.htm" target="_blank"><font color="#FFFFFF">教程</font></a>　｜　<a href="/framework.htm" target="_blank"><font color="#FFFFFF">框架/设计</font></a>　｜　<a href="/download.htm" target="_blank"><font color="#FFFFFF">源码/下载</font></a>　｜　<a href="/component.htm" target="_blank"><font color="#FFFFFF">构件产品</font></a>　｜　<a href="/myrss/" target="_blank"><font color="#FFFFFF">MyRSS</font></a>　</TD>
+            </TR>
+          </TBODY>
+      </TABLE></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="f12">
+  <tr>
+    <td height="8">
+	</td>
+  </tr>
+</table>
+<table width="98%" height="92%"  border="0" align="center" cellpadding="0" cellspacing="0" class="f12">
+  <tr bgcolor="6595D6"> 
+    <td height="1" colspan="3"> </td>
+  </tr>
+  <tr> 
+    <td width="1" rowspan="2" bgcolor="6595D6"> </td>
+    <td width="100%" height="80%" valign="top"><table width="100%" height="100%%"  border="0" cellpadding="0" cellspacing="0" class="f12">
+        <tr> 
+          <td height="26" colspan="3" bgcolor="E4E8EF">
+<div align="center">
+              <strong><font color="#FF0000">EasyJF开源团队网上会议系统，欢迎测试！</font></strong> 会议主题：$!chatRoom.title
+            </div></td>
+        </tr>
+        <tr> 
+          <td height="1" colspan="3" bgcolor="6595D6"> </td>
+        </tr>
+        <tr> 
+          <td width="120" valign="top">
+<DIV  id="dirTree"  style="height:100%;overflow:auto;"> 
+<table width="100%"  border="0" >
+            <tr>
+              <td><font size="2">在线用户[<a href="javascript:doLoadConfig();">刷新</a>]</font></td>
+            </tr>
+            <tr>
+              <td style=" font-size:12px" id="onlineUsers">&nbsp;</td>
+            </tr>
+          </table>
+</div></td>
+        <td valign="top">
+<table width="100%" height="100%"  border="0">
+          <tr>
+            <td height="100%" ><DIV  id="chatContent"  style="height:100%;overflow:auto;"><font color="#FF0000">系统</font>:欢迎<font color="#0000CC">$!user.userName</font>光临本会议室!<br>
+            <font color="#FF0000">会议室公告</font>:$!chatRoom.announce<br>
+#if($msg)<br><br><font color="#FF0000" size="+2">$!msg</font>#end
+</div></td>
+          </tr>
+        </table></td>
+          <td width="100" valign="top"><DIV  id="talker"  style="height:100%;overflow:auto;"><table width="100%"  border="0">
+            <tr>
+              <td>当前发言人</td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>发言队列</td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="center" bgcolor="#99CCCC"><span class="style2">娱乐休闲区</span></td>
+            </tr>
+            <tr>
+              <td>歌曲播</td>
+            </tr>
+            <tr>
+              <td></td>
+            </tr>
+          </table>
+          </div></td>
+        </tr>
+    </table>
+    </td>
+    <td width="1" rowspan="2" bgcolor="6595D6"> </td>
+  </tr>
+  <tr>
+    <td height="20%" valign="bottom"><table width="100%" height="80"  border="0" cellpadding="0" cellspacing="0" class="f12">
+      <tr>
+        <td height="26" colspan="2" bgcolor="E4E8EF">
+          <div align="center"> <strong><font color="#FF0000">控制面板</font></strong>
+        </div><div id="popWindow" >弹出窗口</div></td>
+      </tr>
+      <tr>
+        <td height="1" colspan="2" bgcolor="6595D6"> </td>
+      </tr>
+<form name="EditForm" method="post">
+      <tr>
+        <td rowspan="2">对<select name="reciver">
+		  <option value="all">大家</option>
+          </select>
+         <textarea name="content" rows="2" id="content" style=" width:70% "></textarea>          
+          <input type="button" name="Submit" value="发言(s)" onClick="doSend();" accesskey="s" >          <input type="button" name="Submit" value="传图" onClick="doUpload();" > </td>
+      <td width="260" align="center" style="font-size:12px ">        表情:　动作:　 发言申请 <a href="javascript:doClearScreen()">清屏</a> <a href="javascript:doMyConfig();">系统设置</a></td>
+      </tr>
+      <tr>
+        <td width="260" align="center" style="font-size:12px ">          打开音频 打开视频　<a href="chatRoom.ejf?easyJWebCommand=listHistory&cid=$!cid" target="_blank">会议记录</a>
+          <input type="button" name="Submit22" value="退出" onClick="doExit();" ></td>
+      </tr>
+</form>
+    </table></td>
+  </tr>
+  <tr bgcolor="6595D6"> 
+    <td height="1" colspan="3"> </td>
+  </tr>
+</table>
+</body>
+</html>
+#if($msg)
+<script>
+alert('$!msg');
+</script>
+#end
+

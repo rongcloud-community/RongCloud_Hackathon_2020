@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="GB2312"?>
+<easyjf-web>
+<frame-setting>
+<property name="com.easyjweb.debug">true</property>
+<property name="com.easyjweb.maxUploadFileSize">10240</property><!-- 最大上传文件K-->
+<property name="com.easyjweb.uploadSizeThreshold">50</property><!--缓冲大小K-->
+</frame-setting>
+<modules>
+<!-- 聊天室系统 -->
+<module path="/chatRoom" form=""  scope="request" action="com.easyjf.chat.action.ChatRoomAction" defaultPage="list">
+<page name="list" url="/chat/chatRoomList.html" type="template"/>
+<page name="edit" url="/chat/chatRoomEdit.html" type="template"/>
+<page name="show" url="/chat/index.html" type="template"/>
+<page name="listHistory" url="/chat/chatHistoryList.html" type="template"/>
+<page name="showHistory" url="/chat/chatHistoryShow.html" type="template"/>
+</module>
+<module path="/chat" form=""  scope="request" action="com.easyjf.chat.action.ChatAction" defaultPage="main">
+<page name="main" url="/chat/chat.html" type="template"/>
+<page name="list" url="/chat/msgList.html" type="template"/>
+<page name="msgList" url="/chat/msgList.xml" type="template"/>
+<page name="config" url="/chat/configMsg.xml" type="template"/>
+</module>
+</modules>
+</easyjf-web>

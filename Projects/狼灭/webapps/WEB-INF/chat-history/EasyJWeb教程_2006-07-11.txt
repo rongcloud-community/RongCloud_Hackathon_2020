@@ -1,0 +1,5 @@
+<font color=blue>系统</font>对<font color=blue>大家</font>说:guest1进入会议室!(Tue Jul 11 15:48:22 CST 2006)
+<font color=blue>guest1</font>对<font color=blue>大家</font>说:sdkflsdjk(Tue Jul 11 15:48:38 CST 2006)
+<font color=blue>guest1</font>对<font color=blue>大家</font>说:kljdlkfjsdlfj(Tue Jul 11 15:49:41 CST 2006)
+<font color=blue>系统</font>对<font color=blue>大家</font>说:guest1非正常退出会议！(Tue Jul 11 15:49:45 CST 2006)
+<font color=blue>系统</font>对<font color=blue>大家</font>说:guest1退出了会议室！(Tue Jul 11 15:49:48 CST 2006)
