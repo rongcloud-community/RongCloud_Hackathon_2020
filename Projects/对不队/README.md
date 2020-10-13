@@ -38,7 +38,7 @@ JavaScript
 
 git clone 到本地，在浏览器中打开贪吃蛇.html，在网址后加上?1001，再开一个贪吃蛇.html，在网址后加上?1002，注意是英文问号！如图所示。
 
-https://images.cnblogs.com/cnblogs_com/xiao-xiaozhi/1862252/o_2010121505411.png
+<img src="1.png">
 
 项目启动成功后，空格控制游戏开和暂停，上下左右移动。
 
@@ -46,7 +46,9 @@ https://images.cnblogs.com/cnblogs_com/xiao-xiaozhi/1862252/o_2010121505411.png
 
 （如果顺序搞错了，就两个页面都刷新一下！）
 
-https://images.cnblogs.com/cnblogs_com/xiao-xiaozhi/1862252/o_2010121533592.png
+<img src="2.png">
 
 开始游戏后，就是这样啦！蓝色的是食物。
 https://images.cnblogs.com/cnblogs_com/xiao-xiaozhi/1862252/o_2010121532403.png
+
+<img src="3.png">
