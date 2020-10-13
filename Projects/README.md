@@ -8,8 +8,7 @@
 
    1.首页：首页主要包含各个功能的链接，以及像说说一样各个用户的热门说说
    
-   ![首页](image/main1.png)
-   <img src="image/main1.png" width = "300" height = "200" alt="首页" align=center />
+   <img src="image/main1.png" height = "300" alt="首页" align=center />
 
    2.学习：学习界面主要包含了该用户当前的学习内容，比如今日的课程，我的题库、规划以及可以查看总的课程等等
    
