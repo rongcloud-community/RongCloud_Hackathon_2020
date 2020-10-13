@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+#foreach( $info in $list)
+	<data cid="$!info.cid" sender="$!info.sender" reciver="$!info.reciver" vdate="$!CommUtil.sortTime($!info.vdate)" types="$!info.types" status="$!info.status"><![CDATA[$!info.content]]> </data>
+#end
+</root>

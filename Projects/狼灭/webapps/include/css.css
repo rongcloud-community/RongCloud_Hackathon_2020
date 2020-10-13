@@ -1,0 +1,251 @@
+﻿/*
+设置通用文字、页面背景、链接等样式
+*/
+BODY
+{
+	
+	font-size : 12px;
+	font-weight : normal;
+	line-height: 14px;
+	font-style : normal;
+	text-decoration : none;
+	background-color:#ffffff;	
+	background-position:100% 100%;
+	background-repeat:no-repeat;
+	
+	margin:0;
+}
+
+P  {
+	font-weight : normal;
+	font-style : normal;
+}
+
+a  {
+	font-size : 12px;
+	font-weight : normal;
+	font-style : normal;
+	text-decoration : none;
+    color: #000000
+}
+
+a:Visited  {
+	font-size : 12px;
+	font-weight : normal;
+	font-style : normal;
+	text-decoration : none;
+	color:#2E3340
+}
+
+a:Active  {
+	font-size : 12px;
+	font-weight : normal;
+	font-style : normal;;
+	text-decoration : none;
+	
+}
+
+a:Hover  {
+	font-weight : normal;
+	font-style : normal;
+    color:#525663;
+    text-decoration: underline;
+}
+
+td{
+	font-family: "宋体";
+	color:#000000;
+	font-size:14px;
+	line-height:16px;
+	word-break:break-all;
+}
+
+
+.bottomTableBorder{
+	width:100%;
+	height:100%;
+	margin:0px;
+	border:1px solid #30524D;
+}
+.dataBoxDiv
+{
+	height:100%;
+	overflow:auto;
+	background-image:url(/images/bg_body.jpg);
+	background-attachment: fixed;
+	background-position:100% 100%;
+	background-repeat:no-repeat;
+}
+.mainFunctionTable{
+	border-collapse: collapse;
+	width:98%;
+	padding: 1px;
+	border-top: 1px solid #000099;
+	border-right: 1px solid #00CCCC;
+	border-bottom: 1px solid #00CCCC;
+	border-left: 1px solid #000066;
+
+
+}
+.tr_title_bg{	
+
+	background-color: #3399CC;
+	height:24px;
+}
+.toolTable{
+	background-color: #CBD9D9;
+	height:35px;
+	border-top: 1px inset #0066CC;
+	border-right: 1px inset #0099CC;
+	border-bottom: 1px inset #0099CC;
+	border-left: 1px inset #006699;
+
+}
+
+.TableTitleTxtCenter{	
+
+	FILTER:DropShadow(Color=#F2F2F2, OffX=1, OffY=1, Positive=1);
+	font-size:12px;
+	color:#545454;
+	font-weight: bold;
+}
+.TableTitleTxtLeft{	
+	FILTER:DropShadow(Color=#ffffff, OffX=1, OffY=1, Positive=1);
+	font-size:13px;
+	color:#333333;
+	font-weight: bold;
+	text-indent:1em;
+}
+
+.tr_one_bg {
+
+	background-color: #F8FCF8;
+	height:24px;
+}
+
+.td_one_bg {	
+	height:24px;
+	padding:4;
+}
+
+.tdLeft{	
+/*	background-image:url(/manage/images/table_title_bg_2.gif);*/
+	background-repeat:repeat-y;
+	background-position: 50% 0;
+	background-color: #CBD9D9;	
+}
+.tdRight{	
+	background-color: #F8FCF8;
+}
+
+
+.MouseOver {
+	height:24px;
+	background-color:#E5FFE5;
+}
+.MouseOut {	
+	height:24px;
+	background-color: #F8FCF8;
+}
+.MouseDown {
+	background-color: #CCCCCC;
+	border: 1px solid #0000FF;
+}
+.formLable{
+background-color: #C6D2FD;
+	FONT-SIZE: 12px; 
+	COLOR: #000000; 
+	FONT-FAMILY: 宋体;
+}
+.formText
+{
+background-color: #E9FDFE;
+	FONT-SIZE: 12px; 
+	COLOR: #000000; 
+	FONT-FAMILY: 宋体;
+
+}
+FORM { MARGIN: 0px } 
+
+.picButton{	
+	background-image:url(/images/ico/table_form_bg_2.gif);
+	border: 1px solid #444444;
+	cursor:hand;
+}
+.textfield{
+	width:100%;
+	background-image:url(/images/ico/table_form_bg_3.gif);
+	border: 1px solid #999999;
+}
+.file{
+	width:100%;
+	background-image:url(/images/ico/table_form_bg_1.gif);
+	background-position: 0 0;
+	height:;
+	border: 1px solid #666666;
+}
+
+.colorButton{
+	background: #FFFFCC;
+	color: #0000CC;
+	vertical-align: middle;
+	border-top-width: 1px;
+	border-right-width: 2px;
+	border-bottom-width: 2px;
+	border-left-width: 1px;
+	border-top-style: inset;
+	border-right-style: inset;
+	border-bottom-style: inset;
+	border-left-style: inset;
+	border-top-color: #006666;
+	border-right-color: #000066;
+	border-bottom-color: #000066;
+	border-left-color: #006666;
+	height: 25px;
+	text-align: center;
+	padding: 0px;
+
+}
+.smallInput
+{
+	border-bottom-color:#0000CC;
+	border-bottom-width:1px;
+	border-top-color:#000000;
+	border-top-width:1px;
+	border-left-color:#000000;
+	border-left-width:1px;
+	border-rigth-color:#ff6633;
+	border-right-width:1px;
+	FONT-SIZE: 10pt;
+	LINE-HEIGHT: normal;
+	border-top-style: inset;
+	border-right-style: inset;
+	border-bottom-style: inset;
+	border-left-style: inset;
+	border-right-color: #0000FF;
+	text-align: left;
+	vertical-align: middle;
+	color: #3366CC;
+	background-color: #ffffbb;
+
+
+
+
+ }
+input.buttonface
+{
+BACKGROUND: #ffcc00; 
+border:1 solid #ff6633;
+ COLOR: #ff0000; 
+ FONT-SIZE:12px;
+ FONT-STYLE: normal;
+ FONT-VARIANT: normal;
+ FONT-WEIGHT: normal;
+ HEIGHT: 18px;
+ LINE-HEIGHT: normal
+ }
+
+.view1 {
+	overflow: hidden;
+	cursor: default;
+}

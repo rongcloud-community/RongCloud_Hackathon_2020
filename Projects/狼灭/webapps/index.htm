@@ -1,0 +1,101 @@
+<html>
+<head>
+<noscript>
+<meta http-equiv="Refresh" content="0;url=chatRoom.ejf">
+</noscript>
+<script>
+location.replace("chatRoom.ejf");
+</script>
+    </script>
+    <!-- HTTP 版 -->
+    <script src="http://cdn.ronghub.com/RongIMLib-2.5.9.js"></script>
+
+</head>
+</head>
+<body>
+</body>
+<script>
+    var config = {
+        appkey: 'cpj2xarlchjtn',
+    };
+    var im = RongIMLib.init(config);
+
+    var params = {
+        onChanged: function (status) {
+            // status 标识当前连接状态
+            switch (status) {
+                case RongIMLib.ConnectionStatus.CONNECTED:
+                    console.log('链接成功');
+                    break;
+                case RongIMLib.ConnectionStatus.CONNECTING:
+                    console.log('正在链接');
+                    break;
+                case RongIMLib.ConnectionStatus.DISCONNECTED:
+                    console.log('断开连接');
+                    break;
+                case RongIMLib.ConnectionStatus.KICKED_OFFLINE_BY_OTHER_CLIENT:
+                    console.log('其他设备登录, 本端被踢');
+                    break;
+                case RongIMLib.ConnectionStatus.DOMAIN_INCORRECT:
+                    console.log('域名不正确, 请至开发者后台查看安全域名配置');
+                    break;
+                case RongIMLib.ConnectionStatus.NETWORK_UNAVAILABLE:
+                    console.log('网络不可用, 此时可调用 reconnect 进行重连');
+                    break;
+                default:
+                    console.log('链接状态为', status);
+                    break;
+            }
+        }
+    }
+
+    RongIMClient.setConnectionStatusListener(params);
+
+    var params = {
+        // 接收到的消息
+        onReceived: function (message) {
+            console.info(message);
+        }
+    }
+    };
+    RongIMClient.setOnReceiveMessageListener(params);
+
+    var params = {
+        //status 标识当前监听到的会话状态
+        onChanged: function(status) {
+            console.log(status);
+        }
+    };
+    RongIMClient.setConversationStatusListener(params);
+
+
+</script>
+
+<script>
+    var token = "mKmyKqTSf7aNDinwAFMnz7NXKI3dV3X0+Cd1BOxmtO2pmvsjW2HViWrePIfq0GuTu9jELQqsckv4AhfjCAKgQ==";
+
+    RongIMClient.connect(token, {
+        onSuccess: function(userId) {
+            console.log('连接成功, 用户 ID 为', userId);
+            // 连接已成功, 此时可通过 getConversationList 获取会话列表并展示
+        },
+        onTokenIncorrect: function() {
+            console.log('连接失败, 失败原因: token 无效');
+        },
+        onError: function(errorCode) {
+            console.log('连接失败, 失败原因: ', errorCode);
+        }
+    });
+    var count = 150;
+    var callback = {
+        onSuccess: function(list) {
+            console.log('获取会话列表成功', list);
+        },
+        onError: function(error) {
+            console.log('获取会话列表失败', error);
+        }
+    }
+    RongIMClient.getInstance().getConversationList(callback, null, count);
+</script>
+</html>
+
