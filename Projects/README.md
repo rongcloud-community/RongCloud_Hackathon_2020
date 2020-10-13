@@ -5,9 +5,9 @@
 下面是主要界面：
 
 <div  align="center">    
-  <img src="img/rglogin" height = "200" alt="登录" align=center />
-  <img src="img/rgmain" height = "200" alt="主界面" align=center />
-  <img src="img/rggoods" height = "200" alt="商品界面" align=center />
+  <img src="img/rglogin.png" height = "200" alt="登录" align=center />
+  <img src="img/rgmain.png" height = "200" alt="主界面" align=center />
+  <img src="img/rggoods.png" height = "200" alt="商品界面" align=center />
 </div>
 
 使用到的技术：融云即时通讯，springboot，html，css，js
