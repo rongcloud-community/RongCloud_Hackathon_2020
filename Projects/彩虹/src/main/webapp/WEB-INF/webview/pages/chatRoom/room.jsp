@@ -244,7 +244,7 @@
         }).then(function() {
             var data1 = new Date().Format("yyyy-MM-dd HH:mm:ss");
             $(".pages").append('          <div class="chat-notice">\n' +
-                '              <span>'+data1+' 加入聊天室成功，欢迎用户：'+user.id+'</span>\n' +
+                '              <span>'+data1+' 加入群聊成功，欢迎用户：'+user.id+'</span>\n' +
                 '          </div>')
             $("button").click(function () {
                 //发送消息
