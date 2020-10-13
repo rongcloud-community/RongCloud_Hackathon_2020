@@ -1,0 +1,258 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #529e62;
+  font-family: "Microsoft YaHei";
+}
+div.box {
+  width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+div.box h1 {
+  text-align: center;
+  padding: 20px;
+  height: 100px;
+  font-weight: bold;
+  margin-top: 50px;
+  opacity: 0.8;
+}
+div.box div.nav div {
+  display: block;
+  height: 50px;
+  margin: 20px auto;
+  padding: 10px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 20px;
+  background: #08bbe7;
+  width: 500px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-shadow: 2px 0.5px 1px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 2px 0.5px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 0.5px 1px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  -webkit-transition: background, opacity 0.5s;
+  -moz-transition: background, opacity 0.5s;
+  -ms-transition: background, opacity 0.5s;
+  -o-transition: background, opacity 0.5s;
+  transition: background, opacity 0.5s;
+  opacity: 0.8;
+}
+div.box div.nav div:hover {
+  background: #90DCC1;
+  opacity: 1;
+}
+div.box #add_task {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: 800px;
+  float: right;
+  background: #F9EFC4;
+  padding: 10px;
+  opacity: 0.9;
+  -moz-box-shadow: 2px 0.5px 1px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 2px 0.5px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 0.5px 1px rgba(0, 0, 0, 0.4);
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+div.box #add_task * {
+  margin: 3px;
+  font-size: 20px;
+  font-weight: 500;
+}
+div.box #add_task input {
+  height: 30px;
+}
+div.box #add_task input,
+div.box #add_task textarea {
+  background: #F9EFC4;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  width: 780px;
+}
+div.box #add_task input:hover,
+div.box #add_task textarea:hover,
+div.box #add_task input:focus,
+div.box #add_task textarea:focus {
+  background: #F8F3DD;
+  opacity: 0.8;
+}
+div.box #add_task input[type="time"] {
+  display: inline;
+  width: 100px;
+}
+div.box #add_task input[type="submit"] {
+  display: block;
+  height: 30px;
+  width: 100px;
+  margin: 10px auto;
+  cursor: pointer;
+  background: #EFECEC;
+  opacity: 0.8;
+  font-size: 16px;
+  -webkit-transition: background, opacity 0.5s;
+  -moz-transition: background, opacity 0.5s;
+  -ms-transition: background, opacity 0.5s;
+  -o-transition: background, opacity 0.5s;
+  transition: background, opacity 0.5s;
+  -moz-box-shadow: 2px 0.5px 1px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 2px 0.5px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 0.5px 1px rgba(0, 0, 0, 0.4);
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+div.box #add_task input[type="submit"]:hover {
+  background: #EFECEC;
+  opacity: 1;
+}
+div.box div.task_list {
+  margin-top: 20px;
+}
+div.box div.task_list li {
+  float: right;
+  width: 800px;
+  list-style-type: none;
+  padding: 10px;
+  margin-bottom: 2px;
+  background: #FFFFFF;
+  height: 50px;
+  cursor: pointer;
+  opacity: 0.9;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-shadow: 2px 0.5px 1px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 2px 0.5px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 0.5px 1px rgba(0, 0, 0, 0.4);
+  -webkit-transition: background, opacity 0.5s;
+  -moz-transition: background, opacity 0.5s;
+  -ms-transition: background, opacity 0.5s;
+  -o-transition: background, opacity 0.5s;
+  transition: background, opacity 0.5s;
+}
+div.box div.task_list li .task_content {
+  padding: 0 5px;
+}
+div.box div.task_list li:hover {
+  background: #F2F2F2;
+  opacity: 1;
+}
+div.box div.task_list li button {
+  text-align: center;
+  height: 30px;
+  width: 40px;
+  opacity: 0.6;
+  float: right;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-shadow: 2px 0.5px 1px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 2px 0.5px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 0.5px 1px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  -webkit-transition: background, opacity 0.5s;
+  -moz-transition: background, opacity 0.5s;
+  -ms-transition: background, opacity 0.5s;
+  -o-transition: background, opacity 0.5s;
+  transition: background, opacity 0.5s;
+}
+div.box div.task_list li.finished button {
+  background: #80BDAC;
+}
+div.box div.task_list li.finished button:hover {
+  background: #90DCC1;
+  opacity: 1;
+}
+div.box div.task_list li.unfinished button {
+  background: #EDA088;
+}
+div.box div.task_list li.unfinished button:hover {
+  background: #F4AB96;
+  opacity: 1;
+}
+div.box div.task_detail {
+  position: absolute;
+  top: 120px;
+  right: 0;
+  background: #F9EFC4;
+  -moz-box-shadow: 2px 0.5px 1px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 2px 0.5px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 0.5px 1px rgba(0, 0, 0, 0.4);
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  opacity: 0.8;
+  width: 200px;
+}
+div.box div.task_detail * {
+  margin: 5px;
+  line-height: 30px;
+}
+div.box div.task_detail input,
+div.box div.task_detail textarea {
+  background: #F9EFC4;
+}
+div.box div.task_detail input[type="text"],
+div.box div.task_detail textarea {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  width: 180px;
+}
+div.box div.task_detail textarea {
+  height: 150px;
+}
+div.box div.task_detail input:hover,
+div.box div.task_detail textarea:hover,
+div.box div.task_detail input:focus,
+div.box div.task_detail textarea:focus {
+  background: #F8F3DD;
+  opacity: 1;
+}
+div.box div.task_detail button,
+div.box div.task_detail input[type="submit"] {
+  display: inline-block;
+  height: 20px;
+  width: 50px;
+  margin: 10px 20px;
+  cursor: pointer;
+  background: #EFECEC;
+  opacity: 0.6;
+  font-size: 14px;
+  line-height: 20px;
+  -webkit-transition: background, opacity 0.5s;
+  -moz-transition: background, opacity 0.5s;
+  -ms-transition: background, opacity 0.5s;
+  -o-transition: background, opacity 0.5s;
+  transition: background, opacity 0.5s;
+  -moz-box-shadow: 2px 0.5px 1px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 2px 0.5px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 0.5px 1px rgba(0, 0, 0, 0.4);
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+div.box div.task_detail button:hover,
+div.box div.task_detail input[type="submit"]:hover {
+  background: #EFECEC;
+  opacity: 1;
+}
+.nav2 {
+  width: 180px;
+  float: left;
+}
+.nav2_btn {
+  width: 180px !important;
+  margin-right: 20px !important;
+}
