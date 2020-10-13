@@ -9,7 +9,6 @@ const session = require("express-session");
 
 //导入路由
 const userRouter = require("./route/userRouter");
-const connectRouter = require("./route/connectRouter");
 
 //设置静态资源默认路径
 app.use(
