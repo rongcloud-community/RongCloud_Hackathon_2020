@@ -10,8 +10,6 @@ import { userInfo } from '../data'
   styleUrls: ['./edit-other-info.component.styl']
 })
 export class EditOtherInfoComponent implements OnInit {
-  from: string = this.route.url['_value'].map(seg => seg.toString()).join('/')
-  
   finalUserInfo: userInfo = {
     userID: this.route.params['_value'].userid
   }
@@ -46,8 +44,6 @@ export class EditOtherInfoComponent implements OnInit {
     this.accSer.userinfoOtherChange(finalValue).subscribe(res => {
       if (res.status == "success") {
         this.router.navigateByUrl(this.route.params['value']['from'])
-      } else {
-        this.err = res.statusText
       }
     })
   }

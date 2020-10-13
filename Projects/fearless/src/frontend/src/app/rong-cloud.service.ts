@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class RongCloudService {
   conversationList = []
   finalTargetInfos = []
+  im: any
 
   rongInit(finalUserInfo: userInfo) {
     const rongConfig = {
@@ -22,6 +23,7 @@ export class RongCloudService {
         that.watch(im)
       }
     })
+    this.im = im
     return [im.connect(finalUserInfo), im]
     // .then(function(user) {
     //   console.log('链接成功, 链接用户 id 为: ', user.id)
@@ -48,8 +50,29 @@ export class RongCloudService {
     return this.http.post('/api/sendMessage', mes)
   }
 
-  readMessage(mes: message) {
-    return this.http.post('/api/readMessage', mes)
+  readConversation(conv: conversation) {
+    return this.http.post('/api/readConversation', conv)
+  }
+
+  read(conv: conversation) {
+    var that = this
+    this.readConversation(conv).subscribe(res => {
+      if (res['status'] == 'success') {
+        var conversation = that.im.Conversation.get({
+          targetId: conv.targetId,
+          type: RongIMLib.CONVERSATION_TYPE.PRIVATE
+        });
+        conversation.read().then(function(){
+          console.log('清除未读数成功'); // im.watch conversation 将被触发
+          conv.unreadMessageCount = 0
+          let updatedConversationList = [conv]
+          that.conversationList = that.im.Conversation.merge({
+            conversationList: that.conversationList,
+            updatedConversationList
+          })
+        });        
+      }
+    })
   }
 
   watch(im: any) {

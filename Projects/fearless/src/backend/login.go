@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"net/http"
+	"time"
 )
 
 func login(w http.ResponseWriter, r *http.Request) {
@@ -21,6 +22,21 @@ func login(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 	} else {
 		json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "statusText": "Login successful."})
+	}
+	db.Close()
+}
+
+func logout(w http.ResponseWriter, r *http.Request) {
+	db, err := sql.Open("postgres", psqlInfo)
+	checkErr(err)
+
+	http.SetCookie(w, &http.Cookie{Name: "SESSIONID", Value: "invalid", Expires: time.Now(), Path: "/"})
+
+	w.Header().Set("Content-Type", "application/json")
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
+	} else {
+		json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "statusText": "Logout successful."})
 	}
 	db.Close()
 }

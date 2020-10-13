@@ -18,6 +18,9 @@ function userInfo(reducer: ActionReducer<any>): ActionReducer<any> {
       case 'Logging into Rongcloud IM success':
         state = {...state, userRongAuth: true}
         break
+      case 'User logging out success':
+        state = {...state, userAuth: false}
+        break
       default:
         break
     }

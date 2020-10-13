@@ -12,6 +12,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/gomarkdown/markdown"
 	"github.com/google/uuid"
 	"golang.org/x/crypto/bcrypt"
 )
@@ -232,6 +233,13 @@ type userSession struct {
 	remote    string
 }
 
+func (session *userSession) clear(db *sql.DB) (err error) {
+	_, err = db.Exec(`DELETE FROM sessions WHERE sessionID=$1;`, session.sessionID)
+	checkErr(err)
+
+	return
+}
+
 // userRelation
 // subjectID: the user ID of subjective
 // objectID: the user ID of objective
@@ -313,9 +321,10 @@ type message struct {
 
 // message sent
 func (mes *message) send(db *sql.DB) error {
+	md := []byte(mes.Content.Content)
+	mes.Content.Content = string(markdown.ToHTML(md, nil, nil))
 	content, err := json.Marshal(&mes.Content)
 	checkErr(err)
-	fmt.Println(mes.Content, string(content))
 	if mes.TargetID == "" {
 		err = errors.New("No target ID for the message")
 	} else {
@@ -382,6 +391,14 @@ func (con *conversation) query(db *sql.DB) error {
 		targetCon.Next()
 		targetCon.Scan(&con.ID, &con.LatestMessage, &con.UnreadMessageCount, &con.HasMentiond, &con.MentiondInfo, &con.LastUnreadTime, &con.NotificationStatus, &con.IsTop, &con.Type, &con.HasMentioned, &con.MentionedInfo)
 	}
+	return err
+}
+
+func (con *conversation) read(db *sql.DB) error {
+	_, err := db.Exec(`UPDATE conversation SET unreadMessageCount=0 WHERE SenderUserID=$1 AND TargetID=$2;`, con.SenderUserID, con.TargetID)
+	checkErr(err)
+	_, err = db.Exec(`UPDATE message SET IsCounted=$1 WHERE TargetID=$2;`, false, con.SenderUserID)
+	checkErr(err)
 	return err
 }
 

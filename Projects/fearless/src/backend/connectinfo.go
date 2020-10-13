@@ -3,8 +3,6 @@ package main
 import (
 	"fmt"
 	"os"
-
-	rongCloud "github.com/rongcloud/server-sdk-go/sdk"
 )
 
 var (
@@ -18,5 +16,4 @@ var (
 	psqlInfo = fmt.Sprintf("host=%s port=%s user=%s "+
 		"dbname=%s sslmode=disable",
 		host, port, user, dbname)
-	rongIns = rongCloud.NewRongCloud(appKey, appSec)
 )

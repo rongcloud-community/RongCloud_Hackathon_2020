@@ -3,18 +3,32 @@
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-        <button mat-menu-item><a [routerLink]="['/editInfo', {from: from}]">修改个人信息</a></button>
-        <button *ngIf="finalUserInfo && finalUserInfo.isAdmin" mat-menu-item><a routerLink="/userList">查看用户列表</a></button>
+      <ng-template [ngIf]="userAuth" [ngIfElse]="guestMenu">
+        <a [routerLink]="['/editInfo', {from: from}]"><button mat-menu-item>修改个人信息</button></a>
+        <a routerLink="/userList"><button *ngIf="finalUserInfo && finalUserInfo.isAdmin" mat-menu-item>查看用户列表</button></a>
+      </ng-template>
+      <ng-template #guestMenu>
+        <a [routerLink]="['/login']"><button mat-menu-item>登陆帐号</button></a>
+      </ng-template>
     </mat-menu>
 
     <a [routerLink]="['/']">{{title}}</a>
     <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
+    <a [routerLink]="['/editInfo', {from: from}]">
+      <button mat-icon-button>
+          <mat-icon>account_circle</mat-icon>
+      </button>
+    </a>
+    <button *ngIf="userAuth else loginbutton" mat-icon-button (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
     </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button>
+    <ng-template #loginbutton>
+      <a [routerLink]="['/login']">
+        <button mat-icon-button>
+          <mat-icon>login</mat-icon>
+        </button>
+      </a>
+    </ng-template>
 </mat-toolbar> 
 <div class='content'>
 <router-outlet></router-outlet>

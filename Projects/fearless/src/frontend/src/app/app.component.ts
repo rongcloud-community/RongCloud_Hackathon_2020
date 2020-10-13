@@ -29,8 +29,11 @@ export class AppComponent {
 
   constructor(private accSer: AcccountManagementService, private router: Router, private route: ActivatedRoute, private store: Store, private titleSer: Title) { 
     router.events.subscribe(event => {
-      if (event['routerEvent'] && !(event['routerEvent']['url'].search('/register')+1)) {
-        this.userAuthDo()
+      if (event['routerEvent']) {
+        if (!(event['routerEvent']['url'].search('/register')+1)) {
+          this.userAuthDo()
+        }
+        this.from = event['routerEvent']['url'].search(';from=') ? event['routerEvent']['url'].slice(0, event['routerEvent']['url'].search(';from=')) : event['routerEvent']['url']
       }
     })
   }
@@ -59,8 +62,10 @@ export class AppComponent {
         this.accSer.userinfo().subscribe(res => {
           if (res.status == 'success') {
             this.finalUserInfo = res['userInfo']
+            this.userAuth = true
             this.store.dispatch({ type: 'Loading user info success', payloads: res['userInfo'] })
           } else {
+            this.userAuth = false
             this.router.navigateByUrl('/login')
           }
         })
@@ -71,11 +76,36 @@ export class AppComponent {
             if (res) {
               this.finalUserInfo = res
               console.log('用户校验成功')
+              //TODO: Cookie validation
             }
           } else {
+            this.userAuth = false
             this.router.navigateByUrl('/login')
           }
         })
+      }
+    })
+  }
+
+  getUserInfo = () => new Promise((resolve) => {
+    if (this.userAuth) {
+      resolve(this.finalUserInfo)
+    } else {
+      this.accSer.userinfo().subscribe(res => {
+        if (res.status == 'success') {
+          resolve(res['userInfo'])
+        } else {
+          resolve(this.finalUserInfo)
+        }
+      })
+    }
+  })
+
+  logout() {
+    this.accSer.logOut().subscribe(res => {
+      if (res.status == 'success') {
+        this.store.dispatch({type: 'User logging out success'})
+        this.router.navigate(['login'])
       }
     })
   }

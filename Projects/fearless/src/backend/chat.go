@@ -34,6 +34,20 @@ func readMessage(w http.ResponseWriter, r *http.Request) {
 	db.Close()
 }
 
+func readConversation(w http.ResponseWriter, r *http.Request) {
+	db, err := sql.Open("postgres", psqlInfo)
+	checkErr(err)
+	session, err := sessionInfoAndTrueRemote(db, r)
+	checkErr(err)
+	conv := conversation{}
+	json.NewDecoder(r.Body).Decode(&conv)
+	conv.SenderUserID = session.userinDB
+	conv.read(db)
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]interface{}{"status": "success"})
+	db.Close()
+}
+
 func conversationUpdate(w http.ResponseWriter, r *http.Request) {
 	db, err := sql.Open("postgres", psqlInfo)
 	checkErr(err)

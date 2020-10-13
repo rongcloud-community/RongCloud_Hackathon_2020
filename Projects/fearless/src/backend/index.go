@@ -18,6 +18,8 @@ func main() {
 	http.HandleFunc("/updateConversation", conversationUpdate)
 	http.HandleFunc("/sendMessage", sendMessage)
 	http.HandleFunc("/readMessage", readMessage)
+	http.HandleFunc("/readConversation", readConversation)
+	http.HandleFunc("/logout", logout)
 	http.HandleFunc("/login", login)
 	http.HandleFunc("/register", register)
 	http.HandleFunc("/", homepage)

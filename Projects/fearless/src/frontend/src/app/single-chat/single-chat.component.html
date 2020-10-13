@@ -7,7 +7,7 @@
                 <mat-list-item (click)="changeCurCon(i)">
                     <div [matBadge]="conv.unreadMessageCount || null" mat-card-avatar [style]="'background-image: url(' + getAvatarUri(conv.targetId) + '); background-size: 100% auto;'"></div>
                     <span class='convPre'>
-                        {{conv.targetId}}
+                        {{getTargetInfo(conv.targetId).nickname}}
                         <br />
                         {{conv.latestMessage.content.content}}
                     </span>
@@ -21,19 +21,30 @@
     <mat-grid-tile colspan="2" rowspan="6">
         <mat-grid-tile-header>{{currentCon && currentCon.targetId && currentCon.targetId.length ? '与'+getTargetInfo(currentCon.targetId).nickname+'的对话' : '对话'}}</mat-grid-tile-header>
         <div class="conversationList" *ngIf="currentConMessages">
-            <mat-card *ngFor="let message of currentConMessages;">
+            <ng-template ngFor let-message [ngForOf]="currentConMessages">
+              <ng-template [ngIf]="unreadLineStatus(message)">
+                <mat-card id="unReadSep">
+                    <mat-card-content>
+                        <p>
+                            以下是未读信息
+                        </p>
+                    </mat-card-content>
+                </mat-card>
+                <mat-divider></mat-divider>
+              </ng-template>
+              <mat-card [id]="'mes-'+message['MessageUID']" class='mes-message'>
                 <mat-card-header>
                   <div mat-card-avatar [style]="'background-image: url(' + getAvatarUri(message.SenderUserID) + '); background-size: 100% auto;'">
                   </div>
-                  <mat-card-title>{{message.SenderUserID == selfInfo().userID ? selfInfo().nickname : getTargetInfo(message.SenderUserID).nickname}}</mat-card-title>
+                  <mat-card-title>{{message.SenderUserID == selfInfo()['userID'] ? selfInfo()['nickname'] : getTargetInfo(message.SenderUserID).nickname}}</mat-card-title>
                   <mat-card-subtitle>{{timeclock(message.SentTime)}}</mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content>
-                  <p>
-                    {{message.Content.Content}}
+                  <p [innerHTML]="message.Content.Content">
                   </p>
                 </mat-card-content>
-              </mat-card>              
+              </mat-card>
+            </ng-template>            
         </div>
     </mat-grid-tile>
     <mat-grid-tile colspan="2" rowspan="1">

@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit {
   userAuth: boolean
   userAuth$: Observable<boolean> = this.store.select(state => state['userAuth'])
   finalUserInfo$: Observable<userInfo> = this.store.select(state => state['userInfo'])
-  from: string = this.route.url['_value'].map(seg => seg.toString()).join('/')
   userRongAuth: boolean
   userRongAuth$: Observable<boolean> = this.store.select(state => state['userRongAuth'])
 
