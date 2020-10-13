@@ -65,5 +65,14 @@ module Resources
       assert_equal 204, last_response.status, last_response.body
       assert !scene.reload.activated
     end
+
+    def test_as_default
+      scene = create(:scene, user: @user)
+
+      header 'X-Token', @user.to_token
+      post "/scenes/#{scene.id}/as_default"
+      assert_equal 204, last_response.status, last_response.body
+      assert_equal scene, scene.user.reload.default_scene
+    end
   end
 end

@@ -24,7 +24,8 @@ module Resources
         user = User.create!(user_params)
         user.create_scene(name: '快递（默认创建）')
         user.create_scene(name: '租房（默认创建）')
-        user.create_scene(name: '杂事（默认创建）')
+        scene3 = user.create_scene(name: '杂事（默认创建）')
+        user.update!(default_scene: scene3)
         present :user, user, with: Entities::User
       end
     end

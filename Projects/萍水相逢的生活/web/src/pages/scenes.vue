@@ -33,6 +33,12 @@
         </span>
         <f7-swipeout-actions right>
           <f7-swipeout-button 
+            v-if="!scene.isDefault"
+            text="设为默认"
+            close
+            @click="setAsDefault(scene)"
+          />
+          <f7-swipeout-button 
             text="更新"
             close
             @click="updateOne(scene)"
@@ -84,6 +90,15 @@ export default {
     },
     async remove (scene) {
       await scene.destroy()
+    },
+    async setAsDefault (scene) {
+      const defaultScene = this.scenes.find(scene => scene.isDefault)
+      if (defaultScene.id !== scene.id) {
+        await scene.setAsDefault()
+
+        defaultScene.isDefault = false
+        scene.isDefault = true
+      }
     },
     async receiveMessage (message) {
       const conversation = await Conversation.find(message.conversationId)

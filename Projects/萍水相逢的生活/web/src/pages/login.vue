@@ -3,6 +3,7 @@
     <f7-page login-screen>
       <f7-login-screen-title>场景聊天系统</f7-login-screen-title>
       <f7-list form>
+        <!-- TODO: 前端没有好好处理注册时用户名使用过的情形 -->
         <f7-list-input
           label="手机号"
           type="text"

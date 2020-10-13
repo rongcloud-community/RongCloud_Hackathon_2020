@@ -35,6 +35,10 @@ class Scene extends Base {
     const { scene: attrs } = await axios.get(`/scenes/${this.id}`)
     this.attrs = attrs
   }
+
+  async setAsDefault () {
+    await axios.post(`/scenes/${this.id}/as_default`)
+  }
 }
 
 export default Scene

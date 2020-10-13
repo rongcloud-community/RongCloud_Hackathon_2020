@@ -26,34 +26,42 @@ module Resources
         scene_params = declared(params, include_missing: false)[:scene]
         scene = current_user.create_scene(scene_params)
 
-        present :scene, scene, with: Entities::Scene, full: true
+        present :scene, scene, with: Entities::Scene, full: true, current_user: current_user
       end
 
       route_param :id, type: Integer do
+        before do
+          @scene = Scene.activated.find(params[:id])
+        end
+
         get do
-          scene = Scene.activated.find(params[:id])
           authorize User, :login?
 
-          present :scene, scene, with: Entities::Scene, full: true
+          present :scene, @scene, with: Entities::Scene, full: true, current_user: current_user
         end
 
         params do
           use :scene
         end
         put do
-          scene = Scene.find(params[:id])
-          authorize scene, :own?
+          authorize @scene, :own?
 
           scene_params = declared(params, include_missing: true)[:scene]
-          scene.update!(scene_params)
-          present :scene, scene, with: Entities::Scene, full: true
+          @scene.update!(scene_params)
+          present :scene, @scene, with: Entities::Scene, full: true, current_user: current_user
         end
 
         delete do
-          scene = Scene.find(params[:id])
-          authorize scene, :own?
+          authorize @scene, :own?
 
-          scene.update!(activated: false)
+          @scene.update!(activated: false)
+          body false
+        end
+
+        post 'as_default' do
+          authorize @scene, :own?
+
+          current_user.update!(default_scene: @scene)
           body false
         end
       end
