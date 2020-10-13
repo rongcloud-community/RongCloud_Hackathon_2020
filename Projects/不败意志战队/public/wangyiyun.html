@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <style>
+    .list-item {
+      /* display: inline-block; */
+      margin-right: 10px;
+    }
+
+    .list-enter-active,
+    .list-leave-active {
+      transition: transform 0.5s, opacity 0.5s;
+    }
+
+    .list-enter,
+    .list-leave-to
+
+    /* .list-leave-active for below version 2.1.8 */
+      {
+      opacity: 0;
+      transform: translateX(100px) scale(0.5);
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    #app {
+      height: 100%;
+      display: flex;
+    }
+
+    .left {
+      flex: 1;
+      /* background-color: hotpink; */
+      background-image: linear-gradient(hotpink, yellowgreen);
+      text-align: center;
+      padding-top: 20px;
+      overflow-y: auto;
+    }
+
+    .right {
+      flex: 1;
+      /* background-color: yellowgreen; */
+      background-image: linear-gradient(hotpink, yellowgreen);
+
+    }
+
+    .left input {
+      height: 40px;
+      width: 300px;
+      border-radius: 20px;
+      outline: none;
+      border: none;
+      padding-left: 10px;
+      font-size: 20px;
+    }
+
+    ul {
+      /* width: 300px; */
+      width: 80%;
+      margin: 0 auto;
+      list-style-type: none;
+    }
+
+    .left li {
+      border: 1px solid white;
+      background-color: skyblue;
+      margin-top: 4px;
+      cursor: pointer;
+    }
+
+    .left li:hover {
+      /* transform: scale(1.1); */
+      background-color: deepskyblue;
+    }
+
+    .left li span {
+      background-color: yellow;
+      padding: 2px;
+      border-radius: 2px;
+    }
+
+    .right img {
+      display: block;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin: 20px auto;
+    }
+
+    .right audio {
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* 动画的定义 */
+    @keyframes autoRotate {
+      from {}
+
+      50% {
+        /* 如果在中间阶段让他缩放了 可以实现 大小切换的样子 */
+        /* transform: rotate(180deg) scale(1.2); */
+      }
+
+      to {
+        transform: rotateZ(360deg);
+      }
+    }
+
+    /* 转圈的类名 */
+    .playAni {
+      animation: autoRotate 2s infinite linear;
+    }
+
+    .playAni.pause {
+      /* 操纵动画的播放状态
+          默认值是 running
+          暂停使用的是 paused
+         */
+      animation-play-state: paused;
+    }
+
+    /* 评论布局 */
+    .right ul li {
+      border-top: 1px solid gray;
+      display: flex;
+      font-size: 14px;
+    }
+
+    .right ul li .comm-left {
+      width: 70px;
+      height: 70px;
+      /* padding: 10px; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    .right ul li .comm-left img {
+      width: 50px;
+      height: 50px;
+      display: block;
+      border-radius: 0;
+    }
+
+    .right ul li .comm-right {
+      flex: 1;
+    }
+
+    .right ul li .comm-right span {
+      color: #0c9edc;
+    }
+
+    /* 设置右边的滚动 */
+    .right {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .right ul {
+      padding: 0;
+      width: 100%;
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .imgPreview {
+      flex: 1;
+    }
+
+    .imgPreview img {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="left">
+      <input type="text" v-model="search" @keyup.enter="searchMusic" placeholder="请输入查询的音乐(回车搜索)" />
+      <!-- 增加动画钩子函数 -->
+      <transition-group name="list" tag="ul" v-on:after-enter="afterEnter">
+        <li :style="'transition-delay:'+index*.1+'s'" v-for="(item, index) in songList" :key="item.id"
+          @dblclick="playMusic(item.id)"> {{ item.name }}-- <span>{{ item.artists[0].name }}</span>
+        </li>
+      </transition-group>
+    </div>
+    <!-- 右边 放的是封面 播放器 和 评论 -->
+    <div class="right">
+      <!-- 歌曲封面 -->
+      <img class="playAni" :class="{pause:isPause}" :src="coverUrl" alt="" />
+      <!-- 播放器 -->
+      <audio @play="musicPlay" @pause="musicPause" controls autoplay :src="musicUrl"></audio>
+      <!-- 评论区域 -->
+      <!-- 增加动画钩子函数 -->
+      <transition-group name="list" tag="ul" v-on:after-enter="afterEnter">
+        <li :style="'transition-delay:'+index*.1+'s'" v-for="(item, index) in hotComments" :key="item.commentId">
+          <div class="comm-left">
+            <img :src="item.user.avatarUrl" alt="" />
+          </div>
+          <div class="comm-right">
+            <p>
+              <span>{{ item.user.nickname }}</span>:{{ item.content }} </p>
+          </div>
+        </li>
+      </transition-group>
+    </div>
+  </div>
+</body>
+
+</html>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!--
+  为Vue实例化出来的对象上 增加一个 $http的属性 让我们用这个属性的方法 来获取网络数据
+  Vue-resource 算是Vue的插件
+-->
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+<!-- vue组件的模板 -->
+<script id="tem" type="text/html">
+  <div class="imgPreview">
+    <input type="button" @click="pre" value="上一张">
+    <img :src="imgList[index]" alt="">
+    <input type="button" @click="next" value="下一张">
+  </div>
+</script>
+<script>
+  // 写Vue中的组件
+  // 写了一个叫做 changeNum的组件
+  /*
+    把一个结构 用一个别名 进行命令
+    在Vue中使用时 直接可以使用起的这个别名
+    运行起来之后 会自动把 结构替换进去
+    组件名 可以使用大写 但是最终解析出来之后 都是小写 所以建议使用全小写
+  */
+  Vue.component("changeimg", {
+    // 组件的数据
+    // 每次创建组件时 都会生成一个 自己独有的数据对象
+    // 互不干扰
+    // data: function () {
+    //   return {
+    //     // 图片数组
+    //     imgList: [
+    //       "./img/beatCat.gif",
+    //       "./img/crazyCat.gif",
+    //       "./img/danceFox.gif",
+    //       "./img/dCat.gif",
+    //       "./img/dog.gif",
+    //       "./img/justDance.gif"
+    //     ],
+    //     // 当前的图片索引
+    //     index: 0
+    //   };
+    // },
+    // 模板
+    template: "#tem",
+    methods: {
+      // 上一张
+      pre() {
+        this.index--;
+        if (this.index < 0) {
+          this.index = this.imgList.length - 1;
+        }
+      },
+      // 下一张
+      next() {
+        this.index++;
+        if (this.index > this.imgList.length - 1) {
+          this.index = 0;
+        }
+      }
+    }
+  });
+  /*
+    接口地址 (花姐在自己的服务器上部署的)
+      https://autumnfish.cn/
+    需求1
+      输入歌曲内容 搜索歌曲内容
+    需求2
+      双击歌曲 获取歌曲url 获取歌曲封面 进行播放
+    需求4
+      使用audio的play 和pause事件监测是否播放
+      使用动画进行播放
+        定义动画
+        定义动画类名
+        定义暂停类名
+      在audio的事件中切换 暂停状态即可
+    需求5
+      查询歌曲评论
+      双击播放歌曲时 查询
+
+  */
+  let app = new Vue({
+    el: "#app",
+    data: {
+      search: "",
+      // 歌曲列表
+      songList: [],
+      // 歌曲的url地址
+      musicUrl: "",
+      // 歌曲封面地址
+      coverUrl: "./img/danceFox.gif",
+      // 音乐是否在播放
+      isPause: true,
+      // 热门评论
+      hotComments: []
+    },
+    methods: {
+      // 点击回车 调用接口获取数据
+      searchMusic() {
+        // 调用接口获取数据
+        this.$http
+          .get(`https://autumnfish.cn/search?keywords=${this.search}`)
+          .then(response => {
+            console.log(response);
+            this.songList = response.body.result.songs;
+          });
+      },
+      // 播放歌曲
+      playMusic(musicId) {
+        // console.log(musicId);
+        // 获取歌曲的url
+        this.$http
+          .get(`https://autumnfish.cn/song/url?id=${musicId}`)
+          .then(response => {
+            // console.log(response);
+            this.musicUrl = response.body.data[0].url;
+          });
+        // 获取封面的url
+        this.$http
+          .get(`https://autumnfish.cn/song/detail?ids=${musicId}`)
+          .then(res => {
+            // console.log(res);
+            this.coverUrl = res.body.songs[0].al.picUrl;
+          });
+        // 获取歌曲评论
+        this.$http
+          .get(`https://autumnfish.cn/comment/music?id=${musicId}&limit=5`)
+          .then(res => {
+            // console.log(res);
+            // 保存评论
+            this.hotComments = res.body.hotComments;
+          });
+      },
+      // 动画结束 钩子
+      afterEnter(el) {
+        // console.log(el);
+        // 直接清空style属性即可
+        el.style = "";
+      },
+      // 动画播放
+      musicPlay() {
+        console.log("musicPlay");
+        this.isPause = false;
+      },
+      musicPause() {
+        console.log("musicPaused");
+        this.isPause = true;
+      }
+    }
+  });
+</script>

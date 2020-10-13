@@ -1,0 +1,33 @@
+{
+  "name": "node_rongyun",
+  "version": "1.0.0",
+  "description": "后端库",
+  "main": "app.js",
+  "dependencies": {
+    "Promise": "^1.0.5",
+    "axios": "^0.20.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "moment": "^2.29.1",
+    "mysql": "^2.18.1",
+    "request": "^2.88.2",
+    "rongcloud-sdk": "^3.1.1",
+    "urlencode": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Unbreakable-Will/node_rongyun.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Unbreakable-Will/node_rongyun/issues"
+  },
+  "homepage": "https://github.com/Unbreakable-Will/node_rongyun#readme"
+}

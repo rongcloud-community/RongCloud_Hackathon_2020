@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>会议页面</title>
+  <link rel="stylesheet" href="/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/meeting.css">
+  <script src="/lib/jquery-2.0.min.js"></script>
+  <script src="/lib/flexible.js"></script>
+  <script src="/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <!-- /* IMLib SDK 压缩版 */ -->
+  <script src="https://cdn.ronghub.com/RongIMLib-3.0.7.min.js"></script>
+  <!-- /* RTCLib SDK 压缩版 */ -->
+  <script src="https://cdn.ronghub.com/RongRTC-3.2.6.min.js"></script>
+  <!-- /* CallLib SDK 压缩版 */ -->
+  <!-- <script src="https://cdn.ronghub.com/RongCallLib-3.1.7.min.js"></script> -->
+  <script src="/lib/RongCallLib-3.1.6.js"></script>
+  <script src="https://unpkg.com/dayjs"></script>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="title">谛听音乐聊天室</div>
+    <div class="row">
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 row-left">
+        <div class="row-left-title">
+          <!-- <div class="icon left1">
+            <span class="iconfont icon-icon"></span>
+          </div>
+          <div class="icon left2">
+            <span class="iconfont icon-anquan" title='会议加密已保护'></span>
+          </div>
+          <div class="icon left3">
+            <span class="iconfont icon-wangluo-"></span>
+          </div>
+          <div class="icon right2">
+            <span class="iconfont icon-quanping"></span>
+          </div>
+          <div class="icon right1">
+            <div id="divHour">00</div>
+            <span>:</span>
+            <div id="divMin">00</div>
+            <span>:</span>
+            <div id="divSec">00</div>
+          </div> -->
+        </div>
+        <div class="main">
+          <div class="left-center">
+            <iframe src="/wangyiyun.html" frameborder="0"></iframe>
+            <!-- <div class="touxiang">
+                            <img src="http://hd215.api.yesapi.cn/?s=Ext.Avatar.Show&app_key=BA6BBB3D9C90B515C6CAF6310D2BFFB4&nickname=叶良辰"
+                                alt="">
+                            <div class="member-name"> 叶良辰 </div>
+                        </div> -->
+            <!-- <iframe src="" frameborder="0"></iframe> -->
+          </div>
+          <div class="bottom-key">
+            <!-- <div class="box">
+                            <div class="key cursor key1">
+                                <span class="iconfont icon-huatong"></span>
+                                <div class="text">静音 </div>
+                            </div>
+                        <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span> 
+                            <div class="key cursor key2">
+                                <span class="iconfont icon-shipin"></span>
+                                <div class="text">开启视频</div>
+                            </div>
+                           <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+                            <div class="key cursor key3">
+                                <span class="iconfont icon-pingmugongxiang1"></span>
+                                <div class="text">共享屏幕</div>
+                            </div>
+                           <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+                            <div class="key cursor key4">
+                                <span class="iconfont icon-anquan4"></span>
+                                <div class="text">安全 </div>
+                            </div>
+                            <div class="key cursor key5">
+                                <span class="iconfont icon-yaoqingchengyuan"></span>
+                                <div class="text">邀请 </div>
+                            </div>
+                            <div class="key cursor key6">
+                                <span class="iconfont icon-chengyuan2"></span>
+                                <div class="text">管理成员</div>
+                            </div>
+                           <div class="key cursor key7">
+                                <span class="iconfont icon-19"></span>
+                                <div class="text">更多 </div>
+                            </div>
+                        </div>
+                        <div class="end cursor"> 结束会议 </div> -->
+            <!-- <form> -->
+            <!-- <input type="text"> -->
+            <!-- <button id="btn">播放</button> -->
+            <!-- </form> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3  col-md-3 col-sm-3 col-xs-3 row-right">
+        <!-- <div class="member">
+                    <div class="member-top"> 成员(1)人 </div>
+                    <div class="member-search">
+                        <input type="text" placeholder="搜索成员">
+                    </div>
+                    <ul class="member-list">
+                        <li>
+                            <div class="member-icon">
+                                <img src="http://hd215.api.yesapi.cn/?s=Ext.Avatar.Show&app_key=BA6BBB3D9C90B515C6CAF6310D2BFFB4&nickname=叶良辰"
+                                    alt="">
+                            </div>
+                            <div class="member-name"> 叶良辰 <div class="job">(主持人 , 我)</div>
+                            </div>
+                            <div class="status">
+                                <div class="status-mute cursor"> 解除静音 </div>
+                                <div class="rename cursor"> 改名 </div>
+                                <span class="iconfont icon-yuyinhuatong"></span>
+                                <span class="iconfont icon-shipin"></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="member-icon">
+                                <img src="http://hd215.api.yesapi.cn/?s=Ext.Avatar.Show&app_key=BA6BBB3D9C90B515C6CAF6310D2BFFB4&nickname=龙傲天"
+                                    alt="">
+                            </div>
+                            <div class="member-name"> 龙傲天 <div class="job">(主持人 , 我)</div>
+                            </div>
+                            <div class="status">
+                                <div class="status-mute cursor"> 解除静音 </div>
+                                <div class="rename cursor"> 改名 </div>
+                                <span class="iconfont icon-yuyinhuatong"></span>
+                                <span class="iconfont icon-shipin"></span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="member-btn">
+                        <div class="mute-all cursor"> 全体静音 </div>
+                        <div class="remmute-all cursor">解除全体静音 </div>
+                        <!-- <div class="more cursor">更多 <span class="glyphicon glyphicon-triangle-bottom"
+                                aria-hidden="true"></span> </div> 
+                    </div>
+                </div> -->
+        <div class="chat">
+          <div class="top"> 聊天 </div>
+          <div class="center">
+          </div>
+          <div class="bottom">
+            <!-- <div class="bottom-top" >
+
+
+                            <div class="top-text" > 发送至: <span class="cursor">所有人 <div class="corner"></div></span>
+                            </div>
+                            <div class="power cursor"> 聊天权限<div class="corner"></div>
+                            </div>
+                        </div> -->
+            <div class="bottom-text">
+              <textarea placeholder="请输入消息..."></textarea>
+            </div>
+            <div class="bottom-btn" id="bottom-btn">
+              <span class="cursor"> 发送 </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box-click">
+    <div class="left1-click">
+      <div class="title"> 唐基炜的会议 </div>
+      <div class="title-main">会议号: </div>
+      <span class="meetingID">123456</span>
+      <div class="title-main">主持人: </div>
+      <span class="compere">唐基炜</span>
+      <div class="title-main">参会者ID: </div>
+      <span class="userID">351545</span>
+    </div>
+    <!-- <div class="key7-click">
+            <div class="doc">文档(1)</div>
+            <div class="set">设置</div>
+        </div>
+        <div class="key4-click">
+            <ul>
+                <li><span class="iconfont icon-guanli"></span>会议管理</li>
+                <li><span class=""></span>锁定会议</li>
+                <li><span class=""></span>开启等候室</li>
+                <li><span class=""></span>隐藏会议号和密码</li>
+            </ul>
+            <hr>
+            <ul>
+                <li><span class="iconfont icon-quanxian"></span>参会者权限</li>
+                <li><span class=""></span>发起共享</li>
+                <li><span class=""></span>自由聊天</li>
+                <li><span class=""></span>上传文档</li>
+            </ul>
+            <hr>
+            <ul>
+                <li><span class="iconfont icon-quanxian"></span>本地录制权限</li>
+                <li><span class=""></span>仅支持人可录制</li>
+                <li><span class=""></span>全体成员可录制</li>
+                <li><span class=""></span>允许部分成员可录制</li>
+            </ul>
+        </div>
+        <div class="share">
+            <ul>
+                <li><span class="iconfont icon-pingmugongxiang"></span>共享屏幕权限</li>
+                <li><span class=""></span>全体成员可共享</li>
+                <li><span class=""></span>仅支持人可共享</li>
+            </ul>
+            <i></i>
+        </div>
+        <div class="camera">
+            <ul>
+                <li><span class="iconfont icon-shipin"></span>选择摄像头</li>
+                <li><span> </span> HP Wide Vision Camera</li>
+                <hr>
+                <li><span class=""></span>视频选项</li>
+                <li><span class=""></span>虚拟背景</li>
+            </ul>
+            <i></i>
+        </div>
+        <div class="mute">
+            <ul>
+                <li><span class="iconfont icon-pingmugongxiang"></span>选择扬声器</li>
+                <li><span class=""></span>系统默认</li>
+                <li><span class=""></span>喇叭/耳机(Realtek(R) Audio)</li>
+            </ul>
+            <hr>
+            <ul>
+                <li><span class="iconfont icon-pingmugongxiang"></span>选择麦克风</li>
+                <li><span class=""></span>系统默认</li>
+                <li><span class=""></span>麦克风阵列(Realtek(R) Audio)</li>
+                <hr>
+                <li><span class=""></span>停用电脑音频</li>
+                <li><span class=""></span>电话拨入</li>
+                <hr>
+                <li><span class=""></span>音频选项</li>
+            </ul>
+            <i></i>
+        </div> -->
+  </div>
+</body>
+<!-- 引入融云SDK设置 -->
+<script src="/lib/setting.js"></script>
+<!-- 引入融云call -->
+<script src="/lib/rongyunCall.js"></script>
+<script src="/js/meeting.js"></script>
+
+</html>
