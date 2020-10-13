@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   validates :mobile, presence: true, uniqueness: true
   validates :name, presence: true
 
-  has_one :default_scene, class_name: 'Scene'
+  belongs_to :default_scene, class_name: 'Scene' # 这里使用 has_one 会有问题
   has_many :scenes
 
   def to_token

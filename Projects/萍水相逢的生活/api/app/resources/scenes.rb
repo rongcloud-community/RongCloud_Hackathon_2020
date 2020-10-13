@@ -14,7 +14,7 @@ module Resources
     resource :scenes do
       get do
         authorize User, :login?
-        present :scenes, current_user.scenes.activated, with: Entities::Scene
+        present :scenes, current_user.scenes.activated, with: Entities::Scene, current_user: current_user
       end
 
       params do

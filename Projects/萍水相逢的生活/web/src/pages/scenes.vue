@@ -19,11 +19,18 @@
     <f7-block-title>场景列表</f7-block-title>
     <f7-list>
       <f7-list-item v-for="scene in scenes" :key="scene.id"
-        :title="scene.name"
         :badge="scene.unreadCount" badge-color="red"
         swipeout @swipeout:delete="remove(scene)"
         :link="'/scenes/' + scene.id + '/'"
       >
+        <span slot="title">
+          <template v-if="scene.isDefault">
+            <strong>{{ scene.name }}</strong>
+          </template>
+          <template v-else>
+            {{ scene.name }}
+          </template>
+        </span>
         <f7-swipeout-actions right>
           <f7-swipeout-button 
             text="更新"

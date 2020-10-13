@@ -8,9 +8,16 @@ user4 = User.create!(name: '快递小哥独无二', mobile: '#4')
 scene1 = Scene.create!(name: '外卖', nickname: '爱吃外卖的飘族', number: 's1', user: user1)
 scene2 = Scene.create!(name: '快递', nickname: '爱购物的飘族', number: 's2', user: user1)
 scene3 = Scene.create!(name: '租房', nickname: '居无定所的飘族', number: 's3', user: user1)
+user1.update!(default_scene: scene3)
+
 scene4 = Scene.create!(name: '工作', nickname: '美团张师傅', number: 's4', user: user2)
+user2.update!(default_scene: scene4)
+
 scene5 = Scene.create!(name: '工作', nickname: '饿了么李师傅', number: 's5', user: user3)
+user3.update!(default_scene: scene5)
+
 scene6 = Scene.create!(name: '工作', nickname: '快递师傅独侠', number: 's6', user: user4)
+user4.update!(default_scene: scene6)
 
 conversation1 = Conversation.create!(source_scene: scene4, target_scene: scene1)
 conversation2 = Conversation.create!(source_scene: scene5, target_scene: scene1)
