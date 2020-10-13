@@ -66,7 +66,7 @@ function importRongWebSDK () {
   return Promise.all(
     [
       "https://cdn.ronghub.com/RongIMLib-2.5.10.min.js",
-      "https://cdn.ronghub.com/RongRTC-3.2.4.min.js",
+      "https://cdn.ronghub.com/RongRTC-3.2.6.min.js",
       "https://cdn.ronghub.com/RongCallLib-3.1.6.min.js"
     ].map(src => new Promise((resolve, reject) => {
       const script = document.createElement('script')
