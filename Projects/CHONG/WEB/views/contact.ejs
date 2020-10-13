@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+	<title>Photo Gallery HTML Template</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Photo Gallery HTML Template">
+	<meta name="keywords" content="endGam,gGaming, magazine, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->
+	<link href="img/favicon.ico" rel="shortcut icon"/>
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i" rel="stylesheet">
+
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="css/owl.carousel.min.css"/>
+	<link rel="stylesheet" href="css/animate.css"/>
+
+	<!-- Main Stylesheets -->
+	<link rel="stylesheet" href="css/style.css"/>
+
+
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+	<script src="http://cdn.ronghub.com/RongIMLib-3.0.0-dev.js"></script>
+    <script>
+        var im = RongIMLib.init({
+            appkey: 'pvxdm17jpej8r'
+        });
+
+        var conversationList = []; // 当前已存在的会话列表
+        im.watch({
+            conversation: function(event){
+                var updatedConversationList = event.updatedConversationList; // 更新的会话列表
+                console.log('更新会话汇总:', updatedConversationList);
+                console.log('最新会话列表:', im.Conversation.merge({
+                    conversationList: conversationList,
+                    updatedConversationList: updatedConversationList
+                }));
+            },
+            message: function(event){
+                var message = event.message;
+                var Words = document.getElementById("words");
+                str = '<div class="btalk"><span>B说 :' + message.content.content +'</span></div>';
+                Words.innerHTML = Words.innerHTML + str;
+                console.log('收到新消息', message);
+            },
+            status: function(event){
+                var status = event.status;
+                switch (status) {
+                    case RongIMLib.CONNECTION_STATUS.CONNECTED:
+                        console.log('链接成功');
+                        break;
+                    case RongIMLib.CONNECTION_STATUS.CONNECTING:
+                        console.log('正在连接中');
+                        break;
+                    case RongIMLib.CONNECTION_STATUS.DISCONNECTED:
+                        console.log('已主动断开连接');
+                        break;
+                    case RongIMLib.CONNECTION_STATUS.NETWORK_UNAVAILABLE:
+                        console.log('网络不可用'); // SDK 内部会自动进行重连
+                        break;
+                    case RongIMLib.CONNECTION_STATUS.SOCKET_ERROR:
+                        console.log('Socket 链接错误'); // SDK 内部会自动进行重连
+                        break;
+                    case RongIMLib.CONNECTION_STATUS.KICKED_OFFLINE_BY_OTHER_CLIENT:
+                        console.log('其他设备登录, 本端被踢'); // 己端被踢, 不可进行重连. 否则会造成多端循环互踢
+                        break;
+                    case RongIMLib.CONNECTION_STATUS.BLOCKED:
+                        console.log('链接断开, 用户已被封禁');
+                        break;
+                    default:
+                        console.log('链接状态变化为:', status);
+                        break;
+                }
+            }
+        });
+        var user = {
+            token: 'f7UevpN6DS9oxnYreYoumqsXm3FPz32uRREDmIB3Xig=@4ujh.cn.rongnav.com;4ujh.cn.rongcfg.com'
+        };
+        var im = RongIMLib.init({ appkey: 'pvxdm17jpej8r' }); // 初始化 IM 实例(单个页面仅需初始化一次)
+        im.connect(user).then(function(user) {
+            console.log('链接成功, 链接用户 id 为: ', user.id);
+
+        }).catch(function(error) {
+            console.log('链接失败: ', error.code, error.msg);
+        });
+
+        var conversation = im.Conversation.get({
+            targetId: 'chong_service',
+            type: RongIMLib.CONVERSATION_TYPE.PRIVATE
+        });
+
+        function send(){
+		sen = "name:"+document.getElementById("name").value+
+			" email:"+document.getElementById("email").value+
+			" subject:"+document.getElementById("subject").value+
+			" msg:"+document.getElementById("message").value
+            conversation.send({
+                messageType: RongIMLib.MESSAGE_TYPE.TEXT, // 'RC:TxtMsg'
+                content: {
+                    content: sen // 文本内容
+                }
+            }).then(function(message){
+                console.log('发送文字消息成功', message);
+                // var t=document.getElementById("text");
+                // t.value += "luyulei" + ":" + message.content.content + "\n"
+				alert("发送文字消息成功")
+            });
+
+        }
+		
+    </script>
+
+</head>
+<body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	<!-- Top right elements -->
+	<div class="spacial-controls">
+		<div class="search-switch"><img src="img/search-icon.png" alt=""></div>
+		<div class="nav-switch-warp">
+			<div class="nav-switch">
+				<div class="ns-bar"></div>
+			</div>
+		</div>
+	</div>
+	<!-- Top right elements end -->
+
+	<div class="main-warp">
+		<!-- header section -->
+		<header class="header-section">
+			<div class="header-close">
+				<i class="fa fa-times"></i>
+			</div>
+			<div class="header-warp">
+				<a href="" class="site-logo">
+					<img src="./img/logo.png" alt="">
+				</a>
+				<img src="img/menu-icon.png" alt="" class="menu-icon">
+				<ul class="main-menu">
+					<li><a href="./home.html">Home</a></li>
+					<li><a href="./gallery.html">Gallery</a></li>
+					<li><a href="./gallery-single.html">Single gallery</a></li>
+					<li><a href="./blog.html">Blog</a></li>
+					<li class="active"><a href="./contact.html">Contact</a></li>
+				</ul>
+				<div class="social-links-warp">
+					<div class="social-links">
+						<a href=""><i class="fa fa-behance"></i></a>
+						<a href=""><i class="fa fa-dribbble"></i></a>
+						<a href=""><i class="fa fa-twitter"></i></a>
+						<a href=""><i class="fa fa-facebook"></i></a>
+						<a href=""><i class="fa fa-pinterest"></i></a>
+					</div>
+					<div class="social-text">Find us on</div>
+				</div>
+			</div>
+			<div class="copyright">Colorlib 2018  @ All rights reserved</div>
+		</header>
+		<!-- header section end -->
+
+		<!-- Page section -->
+		<div class="page-section contact-page">
+			<div class="contact-warp">
+				<div class="row">
+					<div class="col-xl-6 p-0">
+						<div class="contact-text">
+							<span>Say hello</span>
+							<h2>Get in touch</h2>
+							<form class="contact-form">
+								<input id="name" type="text" placeholder="Your name">
+								<input id="email" type="text" placeholder="Your email">
+								<input id="subject" type="text" placeholder="Subject">
+								<textarea id="message" placeholder="Message"></textarea>
+							</form>
+							<button class="site-btn" onclick="send()">Send message</button>
+							<div class="contac-info">
+								<p>Main Str, no 23, New York</p>
+								<p>+546 990221 123</p>
+								<p>hosting@contact.com</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-6 p-0">
+						<div class="map-warp"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14376.077865872314!2d-73.879277264103!3d40.757667781624285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1546528920522" style="border:0" allowfullscreen></iframe></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Page section end-->
+	</div>
+
+	<!-- Search model -->
+	<div class="search-model">
+		<div class="h-100 d-flex align-items-center justify-content-center">
+			<div class="search-close-switch">x</div>
+			<form class="search-moderl-form">
+				<input type="text" id="search-input" placeholder="Search here.....">
+			</form>
+		</div>
+	</div>
+	<!-- Search model end -->
+
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.nicescroll.min.js"></script>
+	<script src="js/isotope.pkgd.min.js"></script>
+	<script src="js/imagesloaded.pkgd.min.js"></script>
+	<script src="js/circle-progress.min.js"></script>
+	<script src="js/main.js"></script>
+
+	</body>
+</html>
