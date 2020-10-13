@@ -12,7 +12,7 @@ app.get("/gettoken", (_, res) => {
     res.end(getToken());
 });
 app.get("/exit", (req, res) => {
-    onExit(req.query.token);
+    onExit(decodeURIComponent(req.query.token));
     res.end();
 });
 

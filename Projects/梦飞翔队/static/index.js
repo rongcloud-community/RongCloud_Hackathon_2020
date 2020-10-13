@@ -1,4 +1,4 @@
-var width = 640;
+var width = 360;
 var height = 480;
 
 d3.select("div")
@@ -14,7 +14,7 @@ function addDanmaku(text, self, delay) {
         e.style("text-decoration", "underline");
     e
         .attr("x", width)
-        .attr("y", random(0, height))
+        .attr("y", random(10, height))
         .transition()
         .delay(delay)
         .duration(4000)
@@ -64,7 +64,7 @@ $.get("/getappkey", function (appkey) {
             debuglog("链接成功, 链接用户 id 为: ", user.id);
             //通知服务端离开
             window.onbeforeunload = function () {
-                $.get("/exit?token=" + token);
+                $.get("/exit?token=" + encodeURIComponent(token));
                 return true;
             }
             //加入聊天室
@@ -93,6 +93,7 @@ $("#send").click(function () {
     }).then(function (message) {
         addDanmaku(message.content.content, true, 0);
         debuglog("发送文字消息成功", message);
+        $("#text").val("");
     });
 });
 //api测试
