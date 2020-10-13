@@ -11,7 +11,7 @@
 
     <f7-list>
       <f7-list-input 
-        placeholder="输入对方号码以发起新会话"
+        placeholder="输入对方场景号以发起新会话"
         :value="targetSceneNumber"
         @input="targetSceneNumber = $event.target.value"
       ></f7-list-input>
@@ -126,7 +126,7 @@ export default {
         if (e.code === 'resource_not_found') {
           this.$f7.toast.show({
             text: '无此场景',
-            position: 'top',
+            position: 'center',
             closeTimeout: 2000,
           })
         } else {

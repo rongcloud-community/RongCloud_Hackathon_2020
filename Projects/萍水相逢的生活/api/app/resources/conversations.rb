@@ -20,6 +20,9 @@ module Resources
         end
         post '' do
           target_scene = Scene.find_by_number(params[:target_scene_number])
+          unless target_scene
+            error!({ code: 'resource_not_found' }, 404)
+          end
 
           conversation = nil
           if conversation = Conversation.find_by(source_scene: @source_scene, target_scene: target_scene)
