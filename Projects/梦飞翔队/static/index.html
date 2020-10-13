@@ -8,15 +8,57 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/d3@6.2.0/dist/d3.min.js"></script>
     <script src="index.js" defer></script>
-    <title>Document</title>
+    <title>弹幕聊天室</title>
+    <style>
+        .colorful {
+            display: inline;
+            height: 1.2em;
+            padding: .25em .5em;
+            font-size: 1em;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: .25em;
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+
+        .colorful:focus {
+            color: #495057;
+            background-color: #fff;
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem #007bff40;
+        }
+
+        .btn-colorful {
+            cursor: pointer;
+            display: inline-block;
+            font-weight: 400;
+            color: #007bff;
+            text-align: center;
+            vertical-align: middle;
+            background-color: transparent;
+            border: 1px solid;
+            padding: .25em .5em;
+            border-radius: .25rem;
+            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+
+        .btn-colorful:focus {
+            box-shadow: 0 0 0 0.2rem #007bff80;
+        }
+    </style>
 </head>
 
 <body>
-    <h2>测试</h2>
+    <h2>弹幕聊天室</h2>
     <div class="canvas"></div>
-    <input type="text" id="text">
-    <input type="button" id="send" value="发送">
-    <input type="button" id="test" value="测试">
+    <input type="text" class="colorful" id="text">
+    <input type="button" class="btn-colorful" id="send" value="发送">
+    <input type="button" class="btn-colorful" id="test" value="测试">
 </body>
 
 </html>
