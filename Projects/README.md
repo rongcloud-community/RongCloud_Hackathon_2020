@@ -18,7 +18,7 @@
 
 - 操作步骤：
 
-   1.浏览器输入http://localhost:8081/Rongyun/login，并按F12选择手机模式进入登录界面：
+   1.浏览器输入http://localhost:8081/Rongyun/login， 并按F12选择手机模式进入登录界面：
    
    <img src="myimages/istudy1.png" height = "300" alt="登录界面" align=center />
 
