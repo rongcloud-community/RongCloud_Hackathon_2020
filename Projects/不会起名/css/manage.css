@@ -1,0 +1,144 @@
+/*************************************************
+/* #Description: 管理界面样式表
+/* #Creation Date: 2005年6月8日
+/* #Generator: EditPlus2.12
+/* #Author: wysl_8114@hotmail.com
+/*******************************************************************************************************/
+body
+{
+	margin: 0px;
+	padding: 0px;
+	background: #FFFFFF;
+	background-image: url("../img/manage/bodybg.gif");
+	scrollbar-face-color:#3E61AA ;
+	scrollbar-arrow-color: #FFCC00;
+	scrollbar-base-color: #3E61AA;
+	scrollbar-shadow-color: #93AEE6;
+	scrollbar-darkshadow-color:#3E61AA;
+	}
+table
+{
+	table-layout: fixed;
+	}
+/*主表格样式*/
+#logo
+{
+	height: 89px;
+	width: 135px;
+	background-image: url("../img/manage/logobg.gif");
+	}
+#tailpiece
+{
+	height: 78px;
+	width: 77px;
+	background-image: url("../img/manage/head_1.gif");
+	}
+#maxtoolbar
+{
+	height: 37px;
+	background-image: url("../img/manage/head_2.gif");
+	}
+#mintoolbar
+{
+	height: 15px;
+	background-image: url("../img/manage/head_3.gif");
+	}
+#line
+{
+	height: 11px;
+	background-image: url("../img/manage/line.gif");
+	}
+#mainleft
+{
+	width: 220px;
+	}
+#mainright
+{
+	width: 188px;
+	}
+/*左边菜单样式*/
+#menuhead
+{
+	height: 22px;
+	width: 126px;
+	background-image: url("../img/manage/left_1.gif");
+	}
+#menubody
+{
+	height: 100%;
+	background-image: url("../img/manage/left_2.gif");
+	}
+#menufoot
+{
+	height: 23px;
+	width: 126px;
+	background-image: url("../img/manage/left_3.gif");
+	}
+/*中间对话框样式*/
+#disp1
+{
+	width: 17px;
+	height:25px;
+	background-image: url("../img/manage/middle_top_1.gif");
+	}
+#disp2
+{
+	background-image: url("../img/manage/middle_top_2.gif");
+	}
+#disp3
+{
+	width: 17px;
+	background-image: url("../img/manage/middle_top_3.gif");
+	}
+#talk1
+{
+	width: 17px;
+	height: 25px;
+	background-image: url("../img/manage/middle_foot_1.gif");
+	}
+#talk2
+{
+	background-image: url("../img/manage/middle_foot_2.gif");
+	}
+#talk3
+{
+	width: 17px;
+	background-image: url("../img/manage/middle_foot_3.gif");
+	}
+#talk4
+{
+	height: 26px;
+	background-image: url("../img/manage/middle_foot_4.gif");
+	}
+#talk5
+{
+	background-image: url("../img/manage/middle_foot_5.gif");
+	}
+#talk6
+{
+	background-image: url("../img/manage/middle_foot_6.gif");
+	}
+/*右边菜单样式*/
+#righttop
+{
+	height: 22px;
+	width: 188px;
+	background-image: url("../img/manage/right_1.gif");
+	}
+#rightmiddle
+{
+	height: 100%;
+	background-image: url("../img/manage/right_2.gif");
+	}
+#rightfoot
+{
+	height: 23px;
+	width: 188px;
+	background-image: url("../img/manage/right_3.gif");
+	}
+#foot
+{
+	height: 5px;
+	}
+.itemSelect{border:1 solid #00080;background-color:lightblue;color:hotpink}
+.itemAlert{border:1 solid #00080;background-color:red;color:blue}

@@ -1,0 +1,210 @@
+<html>
+<head>
+<title>TaokeOCS安装</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="css.css" rel="stylesheet" type="text/css">
+<script language=javascript>
+<!--
+function convertIP(url)
+{ 
+	var sResult=null;//页面返回结果
+	var xmlObj=null;
+	//url="convertIP.jsp";
+	try{  
+	//alert(url);
+		if(document.getElementById("status").innerText =="")
+			document.getElementById("status").innerText = "正在生成IP地址表数据 ... ";		 	
+		//alert(document.getElementById("status").innerText);
+	  	try{xmlObj = new ActiveXObject("Microsoft.XMLHTTP"); }catch(e){ xmlObj = new XMLHttpRequest();}
+	  	if(xmlObj){    
+			xmlObj.onreadystatechange=function(){
+		 		//alert(xmlObj.readyState);
+				//alert(sResult);
+		 		if(xmlObj.readyState==4){
+		  			//alert(xmlObj.status);
+		  			if (xmlObj.status==200 ) {//404 没有访问的页面		  			 
+		   				sResult=xmlObj.responseText;              
+		   				//if(sResult!=null && sResult!="")	
+						//if(sResult.indexOf("successful")>=0) 
+						sResult=sResult.substring(sResult.indexOf("result=")+7);
+						document.getElementById("status").innerText ="正在生成IP地址表数据 ... 已完成..."+sResult;	
+						if(sResult == "finished")	
+							document.getElementById("status").innerText +="   处理完毕";
+						else{
+							xmlObj=null;						 
+							setTimeout("convertIP('convertIP.jsp')",1000);		
+						}				
+					}	
+					else{
+						xmlObj=null;
+						setTimeout("convertIP('convertIP.jsp')",1000);	
+					} 			            
+		  			xmlObj=null;		
+		 		}
+			}
+			xmlObj.open("GET",url,true); //同步请求
+			xmlObj.send();
+	  	}
+	  	else{	 		//alert("该浏览器无法建立控件");			
+		}
+ 	}catch(e){   	  		//alert("网页访问失败");		 		
+ 	}  
+	
+}
+
+//-->
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td colspan="2" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0" class="b-border">
+        <tr> 
+          <td bgcolor="FC9D39"><img src="images/spacer.gif" width="1" height="6"></td>
+        </tr>
+      </table></td>
+  </tr>
+  <tr>
+    <td width="220" valign="top" background="images/leftbg.gif"><table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#496B7A">
+        <tr>
+          <td height="201" align="center" bgcolor="#FFFFFF"><a href="http://www.shopex.cn" target="_blank"></a>
+              
+              <img src="images/N27_3.jpg" width="136" height="71"></td>
+        </tr>
+      </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><img src="images/leftmenutop.gif" width="226" height="6"></td>
+          </tr>
+          <tr>
+            <td valign="top"><table width="213" border="0" cellpadding="0" cellspacing="0" class="p9white">
+                <tr>
+                  <td width="218" height="3" align="right"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td bgcolor="#52617B"><img src="images/spacer.gif" width="1" height="1"></td>
+                      </tr>
+                  </table></td>
+                </tr>
+              </table>
+                <table width="213" border="0" cellpadding="2" cellspacing="2" class="p9white">
+                  <tr>
+                    <td width="218" align="right" class="p12white"><img src="images/items.gif" width="11" height="11"> 安装准备</td>
+                  </tr>
+                </table>
+              <table width="213" border="0" cellpadding="0" cellspacing="0" class="p9white">
+                  <tr>
+                    <td width="218" height="3" align="right"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td bgcolor="#52617B"><img src="images/spacer.gif" width="1" height="1"></td>
+                        </tr>
+                    </table></td>
+                  </tr>
+                </table>
+              <table width="213" border="0" cellpadding="2" cellspacing="2" class="p9white">
+                  <tr>
+                    <td width="218" align="right" ><a class="menu" href="home.htm"> 简介</a></td>
+                  </tr>
+                  <tr>
+                    <td align="right" class="menu"><a class="menu" href="index.htm">-&gt;</a><a class="menu" href="require.htm"> 安装说明</a></td>
+                  </tr>
+                </table>
+              <table width="213" border="0" cellpadding="2" cellspacing="2" class="p9white">
+                  <tr>
+                    <td width="94%" align="right"><a class="menu" href="request.html">系统检测</a></td>
+                  </tr>
+                </table>
+              <table width="213" border="0" cellpadding="0" cellspacing="0" class="p9white">
+                  <tr>
+                    <td width="218" height="3" align="right"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td bgcolor="#52617B"><img src="images/spacer.gif" width="1" height="1"></td>
+                        </tr>
+                    </table></td>
+                  </tr>
+                </table>
+              <table width="213" border="0" cellpadding="2" cellspacing="2" class="p9white">
+                  <tr>
+                    <td width="218" align="right" class="p12white"><img src="images/items.gif" width="11" height="11"> 开始安装</td>
+                  </tr>
+                </table>
+              <table width="213" border="0" cellpadding="0" cellspacing="0" class="p9white">
+                  <tr>
+                    <td width="218" height="3" align="right"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td bgcolor="#52617B"><img src="images/spacer.gif" width="1" height="1"></td>
+                        </tr>
+                    </table></td>
+                  </tr>
+                </table>
+              <table width="213" border="0" cellpadding="2" cellspacing="2" class="p9white">
+                  <tr>
+                    <td align="right"><a href="doinstall.html" class="menu">开始安装</a></td>
+                  </tr>
+                  <tr>
+                    <td align="right"><a href="ini_setup.html" class="menu">客户信息设定及数据初始化</a></td>
+                  </tr>
+                  <tr>
+                    <td align="right"><a href="ok.html" class="menu">完成</a></td>
+                  </tr>
+              </table></td>
+          </tr>
+          <tr>
+            <td><img src="images/leftmenubottom.gif" width="226" height="6"></td>
+          </tr>
+        </table>
+        <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#496B7A">
+          <tr>
+            <td height="201" align="center" bgcolor="#FFFFFF"><a href="http://www.shopex.cn" target="_blank"></a>
+               
+          </tr>
+      </table></td> 
+    <td width="794" valign="top"> <table width="100%" border="0" cellpadding="0" cellspacing="0" background="images/topbg.gif" class="lrborder">
+        <tr> 
+          <td width="46%" height="55"><img src="images/toppic-1.gif" width="366" height="55"></td>
+          <td width="54%" align="right"><img src="images/topinfo-6.gif" width="176" height="55"></td>
+        </tr>
+      </table>
+      <br> 
+
+        <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0" class="p9gray">
+          <tr> 
+            <td valign="top"> <table width="100%" border="0" cellspacing="0" cellpadding="0" class="p9gray">
+                <tr> 
+                  <td align="left"><p class="p9blue">初始化IP地址库数据</p>
+                   
+                     <input name="Submit2" onClick="convertIP('convertIP.jsp?start=0');" type="button" class="inputstyle" value=" 重新初始化数据 ">
+                     [请点击这里，将IP地址库导入到您本地数据库内]<br>
+                     <br>
+                     <input name="Submit22" onClick="convertIP('convertIP.jsp');" type="button" class="inputstyle" value=" 继续上次初始化数据 ">
+                     <br>
+                     <br>
+                     IP地址数据量庞大，初始化时间较长，可能耗时5-60分钟，请耐心等待。
+                     <br>
+                     进度：
+                     <table width="493" border="0" class="p9gray">
+                       <tr>
+                         <td width="483" id="status"></td>
+                       </tr>
+                     </table>
+                     <br>
+                     <table width="200" border="0" align="center">
+                       <tr>
+                         <td align="center"><input name="Submit23" onClick="window.location='ini_setup.html';" type="button" class="inputstyle" value=" 下一步 "></td>
+                       </tr>
+                     </table></td>
+                </tr>
+              </table>          </td>
+          </tr>
+          <tr> 
+            <td align="center" valign="top"> 
+                    </td>
+          </tr>
+        </table>
+      <p>&nbsp;</p></td>
+  </tr>
+</table> 
+</div>
+</body>
+</html>

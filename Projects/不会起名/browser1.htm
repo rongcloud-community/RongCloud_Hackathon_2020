@@ -1,0 +1,73 @@
+<head>
+<title>网页特效|linkweb.cn/js|---始终在页面固定位置的层</title>
+<meta http-equiv="content-type" content="text/html" charset="gb2312">
+</head>
+<style>
+<!--
+.div{
+position: absolute;
+border: 2px solid red;
+background-color: #efefef;
+line-height:90px;
+font-size:12px;
+z-index:1000;
+}
+-->
+</style>
+<body>
+<div id="javascript.div1" class="div" style="width: 240; height:90" align="center">正中...</div>
+<script language="javascript">
+function sc1(){
+document.getelementbyid("javascript.div1").style.top=document.body.scrolltop+(document.body.clientheight-document.getelementbyid("javascript.div1").offsetheight)/2
+document.getelementbyid("javascript.div1").style.left=document.body.scrollleft+(document.body.clientwidth-document.getelementbyid("javascript.div1").offsetwidth)/2;
+}
+</script>
+
+
+<div id="javascript.div2" class="div" style="width: 240; height:90;" align="center">左上...</div>
+<script language="javascript">
+function sc2(){
+document.getelementbyid("javascript.div2").style.top=document.body.scrolltop
+document.getelementbyid("javascript.div2").style.left=document.body.scrollleft;
+}
+</script>
+
+<div id="javascript.div3" class="div" style="width: 240; height:90;" align="center">左下...</div>
+<script language="javascript">
+function sc3(){
+document.getelementbyid("javascript.div3").style.top=document.body.scrolltop+document.body.clientheight-document.getelementbyid("javascript.div3").offsetheight;
+document.getelementbyid("javascript.div3").style.left=document.body.scrollleft;
+}
+</script>
+
+<div id="javascript.div4" class="div" style="width: 240; height:90;" align="center">右上...</div>
+<script language="javascript">
+function sc4(){
+document.getelementbyid("javascript.div4").style.top=document.body.scrolltop;
+document.getelementbyid("javascript.div4").style.left=document.body.scrollleft+document.body.clientwidth-document.getelementbyid("javascript.div4").offsetwidth;
+}
+</script>
+
+<div id="javascript.div5" class="div" style="width: 240; height:90;" align="center">右下...</div>
+<script language="javascript">
+function sc5(){
+
+document.getelementbyid("javascript.div5").style.top=document.body.scrolltop+document.body.clientheight-document.getelementbyid("javascript.div5").offsetheight;
+document.getelementbyid("javascript.div5").style.left=document.body.scrollleft+document.body.clientwidth-document.getelementbyid("javascript.div5").offsetwidth;;
+}
+</script>
+
+
+<script language="javascript">
+<!--
+function scall(){
+sc1();sc2();sc3();sc4();sc5();
+}
+window.onscroll=scall;
+window.onresize=scall;
+window.onload=scall;
+//-->
+</script>
+<div style="position: absolute; top: 0; left: 0; width: 10000; height: 4000;"></div>
+</body>
+</html>

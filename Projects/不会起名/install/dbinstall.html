@@ -1,0 +1,268 @@
+<html>
+<head>
+<title>TaokeOCS安装</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="css.css" rel="stylesheet" type="text/css">
+<script language=javascript>
+<!--
+function saveDbConfig()
+{ 
+	if(document.getElementById("dbname").value=="")
+	{
+		alert("数据库户不得为空!");
+		return false;
+	}
+	if(document.getElementById("dbuser").value=="")
+	{
+		alert("数据库用户名不得为空!");
+		return false;
+	}
+	if(document.getElementById("dbpass").value=="")
+	{
+		alert("数据库用户密码不得为空!");
+		return false;
+	}
+	if(document.getElementById("lang").value=="")
+	{
+		alert("请选择后台语言版本!");
+		return false;
+	}
+	document.getElementById("dbSave").innerText ="正在保存参数并测试数据库连接，请稍候...";
+	var sResult=null;//页面返回结果
+	var xmlObj=null;
+	var url="saveDbConfig.jsp";
+	url +="?dbhost="+document.getElementById("dbhost").value;
+	url +="&dbname="+document.getElementById("dbname").value;
+	url +="&dbuser="+document.getElementById("dbuser").value;
+	url +="&dbpass="+document.getElementById("dbpass").value;
+	url +="&lang="+document.getElementById("lang").value;
+	//alert(url);
+	try{  
+		
+	  	try{xmlObj = new ActiveXObject("Microsoft.XMLHTTP"); }catch(e){ xmlObj = new XMLHttpRequest();}
+	  	if(xmlObj){    
+			xmlObj.onreadystatechange=function(){		 		 
+		 		if(xmlObj.readyState==4){
+		  			if (xmlObj.status==200 ) {//404 没有访问的页面		  			 
+		   				sResult=xmlObj.responseText;              
+						if(sResult.indexOf("successful")>=0) {
+							document.getElementById("dbSave").innerText ="数据保存成功，连接测试成功，请进入下一步进行其他设置。";
+							document.getElementById("next").style.display="inline";
+						}
+						else if(sResult.indexOf("failed1")>=0) 
+							document.getElementById("dbSave").innerHTML ="<font color='red'>数据保存成功，但参数测试失败，请重新设置。</font>";
+						else if(sResult.indexOf("failed")>=0) 
+							document.getElementById("dbSave").innerHTML ="<font color='red'>数据保存失败，请少后再试。</font>";		 								 
+		  			}	
+					else
+						document.getElementById("dbSave").innerHTML ="<font color='red'>数据保存失败，请少后再试。</font>";	           
+		  			xmlObj=null;						 			
+		 		}
+			}
+			xmlObj.open("GET",url,true); //同步请求
+			xmlObj.send();
+	  	}
+	  	else{	 		//alert("该浏览器无法建立控件");
+			document.getElementById("dbSave").innerHTML ="<font color='red'>数据保存失败，请少后再试。</font>";		  	
+		}
+ 	}catch(e){   	  		//alert("网页访问失败");
+		xmlObj=null;	
+		document.getElementById("dbSave").innerHTML ="<font color='red'>数据保存失败，请少后再试。</font>";	
+ 	}  
+	
+}
+//-->
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="b-border">
+  <tr> 
+    <td bgcolor="FC9D39"><img src="images/spacer.gif" width="1" height="6"></td>
+  </tr>
+</table>
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="220" valign="top" background="images/leftbg.gif"><table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#496B7A">
+        <tr>
+          <td height="201" align="center" bgcolor="#FFFFFF"><a href="http://www.shopex.cn" target="_blank"></a>
+              <SCRIPT LANGUAGE="JavaScript" src="corp.js"></SCRIPT>
+              <img src="images/N27_3.jpg" width="136" height="71"></td>
+        </tr>
+      </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><img src="images/leftmenutop.gif" width="226" height="6"></td>
+          </tr>
+          <tr>
+            <td valign="top"><table width="213" border="0" cellpadding="0" cellspacing="0" class="p9white">
+                <tr>
+                  <td width="218" height="3" align="right"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td bgcolor="#52617B"><img src="images/spacer.gif" width="1" height="1"></td>
+                      </tr>
+                  </table></td>
+                </tr>
+              </table>
+                <table width="213" border="0" cellpadding="2" cellspacing="2" class="p9white">
+                  <tr>
+                    <td width="218" align="right" class="p12white"><img src="images/items.gif" width="11" height="11"> 安装准备</td>
+                  </tr>
+                </table>
+              <table width="213" border="0" cellpadding="0" cellspacing="0" class="p9white">
+                  <tr>
+                    <td width="218" height="3" align="right"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td bgcolor="#52617B"><img src="images/spacer.gif" width="1" height="1"></td>
+                        </tr>
+                    </table></td>
+                  </tr>
+                </table>
+              <table width="213" border="0" cellpadding="2" cellspacing="2" class="p9white">
+                  <tr>
+                    <td width="218" align="right" ><a class="menu" href="home.htm"> 简介</a></td>
+                  </tr>
+                  <tr>
+                    <td align="right" class="menu"><a class="menu" href="index.htm">-&gt;</a><a class="menu" href="require.htm"> 安装说明</a></td>
+                  </tr>
+                </table>
+              <table width="213" border="0" cellpadding="2" cellspacing="2" class="p9white">
+                  <tr>
+                    <td width="94%" align="right"><a class="menu" href="request.html">系统检测</a></td>
+                  </tr>
+                </table>
+              <table width="213" border="0" cellpadding="0" cellspacing="0" class="p9white">
+                  <tr>
+                    <td width="218" height="3" align="right"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td bgcolor="#52617B"><img src="images/spacer.gif" width="1" height="1"></td>
+                        </tr>
+                    </table></td>
+                  </tr>
+                </table>
+              <table width="213" border="0" cellpadding="2" cellspacing="2" class="p9white">
+                  <tr>
+                    <td width="218" align="right" class="p12white"><img src="images/items.gif" width="11" height="11"> 开始安装</td>
+                  </tr>
+                </table>
+              <table width="213" border="0" cellpadding="0" cellspacing="0" class="p9white">
+                  <tr>
+                    <td width="218" height="3" align="right"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td bgcolor="#52617B"><img src="images/spacer.gif" width="1" height="1"></td>
+                        </tr>
+                    </table></td>
+                  </tr>
+                </table>
+              <table width="213" border="0" cellpadding="2" cellspacing="2" class="p9white">
+                  <tr>
+                    <td align="right"><a href="dbinstall.html" class="menu">开始安装</a></td>
+                  </tr>
+                  <tr>
+                    <td align="right"><a href="ini_setup.html" class="menu">客户信息设定及数据初始化</a></td>
+                  </tr>
+                  <tr>
+                    <td align="right"><a href="ok.html" class="menu">完成</a></td>
+                  </tr>
+              </table></td>
+          </tr>
+          <tr>
+            <td><img src="images/leftmenubottom.gif" width="226" height="6"></td>
+          </tr>
+        </table>
+        <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#496B7A">
+          <tr>
+            <td height="201" align="center" bgcolor="#FFFFFF"><a href="http://www.shopex.cn" target="_blank"></a>
+                <SCRIPT LANGUAGE="JavaScript" src="corp.js"></SCRIPT></td>
+          </tr>
+      </table></td> 
+    <td width="794" valign="top"> <table width="100%" border="0" cellpadding="0" cellspacing="0" background="images/topbg.gif" class="lrborder">
+        <tr> 
+          <td width="46%" height="55"><img src="images/toppic-1.gif" width="366" height="55"></td>
+          <td width="54%" align="right"><img src="images/topinfo-5.gif" width="176" height="55"></td>
+        </tr>
+      </table>
+      <br> 
+      <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0" class="p9gray">
+        <tr> 
+          <td valign="top"> <p>&nbsp;</p>
+
+            <p class="p9blue">安装数据库表</p>
+            <p>请设定数据库的相关信息,请首先确认您的数据库在服务器上已建立,安装程序将为您进行数据表的安装:<br>
+            提示：软件安装版默认数据库连接信息：数据库名为webtalk 用户名为taokeOCS 密码为taokeOCS123456</p>
+            <p><font color="#FF0000"><b>警告:数据库表安装将覆盖表中所有数据，请确认数据库名称是否正确!</b></font></p>
+            <SCRIPT LANGUAGE="JavaScript">
+            <!--
+            function chkout(frm)
+			{
+				if(frm.dbuser.value==""||frm.dbname.value=="")
+				{
+					alert("数据库用户名与数据库名都不得为空!");
+					return false;
+				}
+				if(frm.lang.value=="")
+				{
+					alert("请选择后台语言版本!");
+					return false;
+				}
+			}
+            //-->
+            </SCRIPT>
+
+				  <form method=POST action="saveDbConfig.jsp" onSubmit="return chkout(this)">
+			<table width="74%" border="0" cellpadding="2" cellspacing="2" class="p9gray">
+                <tr> 
+                  <td width="25%" align="right" valign="top">数据库主机:</td>
+                  <td width="75%" valign="top"> <input type="text" name="dbhost" id="dbhost"  value="localhost"> 
+                    <br>
+                    (如果数据库服务器与WEBSERVER不在同一台主机上,请设置为数据库服务器的地址) 
+                    <input type="hidden" name="rewrite" value="N">                    </td>
+                </tr>
+                <tr> 
+                  <td width="25%" align="right">数据库名:</td>
+                  <td width="75%"> <input name="dbname" id="dbname" type="text" value="webtalk">
+                    *（同实际库名）
+				  <!-- &nbsp;<input type="checkbox" name="create_db" value="1" /><label for="create_db">创建数据库</label> --></td>
+                </tr>
+                <tr> 
+                  <td width="25%" align="right">数据库用户名:</td>
+                  <td width="75%"> <input type="text" name="dbuser" id="dbuser" value="taokeOCS" >
+                    * （同实际库用户名） </td>
+                </tr>
+                <tr> 
+                  <td width="25%" align="right">密码:</td>
+                  <td width="75%"> <input type="password" name="dbpass" id="dbpass" value="taokeOCS123456" >
+                    * （同实际库密码） </td>
+                </tr>
+                
+                <tr> 
+                  <td width="25%" align="right">后台语言:</td>
+                  <td width="75%"> 
+                  <select name="lang" id="lang">
+                  <option value="">请选择</option>
+                  <option value="gb2312">简体中文 Simplified Chinese</option>
+                  <option value="big5">繁体中文 Traditional Chinese</option>
+                  <option value="en">英文 English</option>
+                  </select>
+                  * </td>
+                </tr>
+                <tr>
+                  <td colspan='2'>&nbsp;</td>
+                </tr>
+                <tr>                   
+                  <td colspan='2'><div id="dbSave"></div></td>
+                </tr>
+                <tr> 
+                  <td width="25%" align="right">&nbsp; </td>
+                  <td width="75%"><input name="Submit2" onClick="saveDbConfig();" type="button" class="inputstyle" value=" 保存 ">
+                    <input name="Submit" id="next" style="display:none" type="button" onClick="location='dbinstall.jsp'" class="inputstyle" value=" 下一步 ">
+                    <input name="Button2" type="button" class="inputstyle" onClick="window.close()" value=" 取消 ">                  </td>
+                </tr>
+            </table>
+           </form>          </td>
+        </tr>
+      </table>    </td>
+  </tr>
+</table>
+</body>
+</html>

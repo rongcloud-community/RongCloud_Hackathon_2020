@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户注册</title>
+<link href="css/talk.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.STYLE1 {color: #FF0000}
+-->
+</style>
+<script language=javascript>
+function userCheck()
+{
+	if(UserForm.domain.value=="")
+	{
+		alert("公司主页不能为空！");	
+		UserForm.domain.focus();
+		return false;
+	}
+	var s = UserForm.domain.value;
+	var ss = s.substring(0,4);
+	var aa = "www.";
+	//alert(ss);
+	//alert(ss.substring(0,4));
+	//if(ss!=aa)
+//	{
+//		alert("请使用带www的一级域名");
+//		UserForm.domain.focus();
+//		return.false;
+//	}
+	//if(UserForm.name.value=="")
+//	{
+//		alert("请填写站点名称！");	
+//		UserForm.name.focus();
+//		return false;
+//	}	
+	if(UserForm.companyName.value=="")
+	{
+		alert("请填写公司名称！");	
+		UserForm.companyName.focus();
+		return false;
+	}
+	if(UserForm.contactName.value=="")
+	{
+		alert("请填写联系人！");	
+		UserForm.contactName.focus();
+		return false;
+	}
+	if(UserForm.contactTel.value=="")
+	{
+		alert("请填写联系电话！");	
+		UserForm.contactTel.focus();
+		return false;
+	}
+	
+	if(UserForm.contactEmail.value=="")
+	{
+		alert("常用电子邮件不能为空！");	
+		UserForm.contactEmail.focus();
+		return false;
+	}
+
+	var txt = UserForm.contactEmail.value;
+	if(txt.search("^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$")!=0)
+	{
+		alert("请输入正确电子邮件");
+		UserForm.contactEmail.select();
+		return false;
+	}
+	//if(UserForm.id.value=="")
+//	{
+//		alert("用户名不能为空！");	
+//		UserForm.id.focus();
+//		return false;
+//	}
+	if(UserForm.password.value=="")
+	{
+		alert("密码不能为空！");	
+		UserForm.password.focus();
+		return false;
+	}
+	if(UserForm.password2.value=="")
+	{
+		alert("请再输一遍密码！");	
+		UserForm.password2.focus();
+		return false;
+	}
+	if(UserForm.password.value!=UserForm.password2.value)
+	{
+		alert("两次输入的密码不一致！");
+		UserForm.password.value=""
+		UserForm.password2.value=""	
+		UserForm.password.focus();
+		return false;
+	}
+	if(UserForm.type.value=="0")
+	{
+		alert("请选择部门！");	
+		UserForm.type.focus();
+		return false;
+	}
+}
+//检测用户是否已经被注册
+//function  username_submit()
+//{
+//	var myuid=document.UserForm.U_UserName.value;
+//	if(myuid=="")
+//	{
+//		alert("请先填写会员登录名再查询");
+//		return false;
+//	}
+//  window.open ("Idc_CheckUser.asp?UserName="+myuid,"会员登录名","width=250,height=142");
+//}
+</script>
+</head>
+
+<body>
+<table width="800" height="250" border="0" align="center" cellpadding="0" cellspacing="0" class="content9">
+  <tr>
+    <td height="50" align="left" valign="top"><table width="800" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="203" rowspan="2" align="center" valign="middle"><span class="logo">WEBTALKER</span></td>
+        <td width="48" rowspan="2" align="left" valign="middle">Home </td>
+        <td width="549" height="40" align="right" valign="bottom" class="content9"><a href="/login.htm">返回登录页面</a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+      <tr>
+        <td height="10" align="left" valign="top"><hr size="1" noshade="noshade" color="#b3d3ee"/></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="50" align="left" valign="top"><strong class="titleBlue"><strong>【<strong>温馨提示</strong>】</strong></strong>1.此处默认注册的是公司管理员帐号,一个公司只能有一个管理员,公司其他员工由此帐号登录<br />
+      　　　　　　　　　
+    进入Web管理，创建部门后添加新成员即可! </td>
+  </tr>
+  <tr>
+    <td height="50" align="left" valign="top" style="border-bottom: 1px solid #6699CC; border-left: 1px solid #6699CC; border-right: 1px solid #6699CC; border-top: 1px solid #6699CC">
+	<form id="UserForm" name="UserForm" method="post" action="regSave.jsp">
+      <table width="800" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td height="25" colspan="2" align="left" valign="middle" class="content10White">&nbsp;&nbsp;站点基本信息</td>
+        </tr>
+        <tr>
+          <td width="127" height="30" align="right" valign="middle" class="content9">公司主页：</td>
+          <td width="673" height="30" class="content9"><input name="domain" type="text" id="domain" value="www." size="30" />
+            *&nbsp;请不要在此添加多个域名 </td>
+        </tr>
+        
+        <!--<tr>
+          <td height="30" align="right" valign="middle" class="content9">&nbsp;</td>
+          <td height="30" class="content9"><span class="STYLE1">注意：</span>检查用户名是否已被注册前，请先暂时关闭窗口拦截！<a href="#">看看域名是否已被使用</a></td>
+        </tr>-->
+        <tr>
+          <td height="30" align="right" valign="middle" class="content9">公司名称：</td>
+          <td height="30" class="content9"><input name="companyName" type="text" id="companyName" size="30" />
+            *<strong> </strong>填写完整的公司注册信息</td>
+        </tr>
+        <tr>
+          <td height="30" align="right" valign="middle" class="content9">联系人：</td>
+          <td height="30" class="content9"><input name="contactName" type="text" id="contactName" />
+            *&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="30" align="right" valign="middle" class="content9">联系电话：</td>
+          <td height="30" class="content9">            <input name="contactTel" type="text" id="contactTel" />
+            * </td>
+        </tr>
+        <tr>
+          <td height="30" align="right" valign="middle" class="content9">电邮：</td>
+          <td height="30" class="content9"><input name="contactEmail" type="text" id="contactEmail" />
+* </td>
+        </tr>
+      </table>
+      <table width="800" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td height="25" colspan="2" align="left" valign="middle" class="content10White">&nbsp;&nbsp;管理员基本信息</td>
+        </tr>
+        <!--<tr>
+          <td width="127" height="30" align="right" valign="middle" class="content9">用户名：</td>
+          <td width="673" height="30" class="content9"><input name="id" type="text" id="id" />
+            *&nbsp;请使用英文字母及数字组合,例如：ya123456</td>
+        </tr>
+        <tr>
+          <td height="30" align="right" valign="middle" class="content9">&nbsp;</td>
+          <td height="30" class="content9"><span class="STYLE1">注意：</span>检查用户名是否已被注册前，请先暂时关闭窗口拦截！ <a onclick="window.open('chkuser.jsp?strid='+regform.strid.value+'&amp;ds=ssss',1,'width=430,height=210,location=no,resizable=0,scrollbars=0,status=no,toolbar=no,location=no,menu=no,top=100,left=100');" href="#">看看用户名是否已被使用</a></td>
+        </tr>-->
+        <tr>
+          <td width="127" height="30" align="right" valign="middle" class="content9">密码：</td>
+          <td width="673" height="30" class="content9"><input name="password" type="password" id="password" />
+            *<strong> </strong>密码请使用英文字母及数字组合， 建议6-12位</td>
+        </tr>
+        <tr>
+          <td height="30" align="right" valign="middle" class="content9">确认密码：</td>
+          <td height="30" class="content9"><input name="password2" type="password" id="password2" />
+            *&nbsp;确认两次输入的密码是否一致</td>
+        </tr>
+        <tr>
+          <td height="30" align="right" valign="middle" class="content9">所属部门：</td>
+          <td height="30" class="content9"><select name="type" id="type">
+              <option value="0">--请选择部门--</option>
+              <option value="业务部">业务部</option>
+              <option value="技术部">技术部</option>
+              <option value="客服部">客服部</option>
+            </select>
+            * </td>
+        </tr>
+        
+        <tr>
+          <td height="30" align="right" valign="middle" class="content9">性别：</td>
+          <td height="30" class="content9"><p>
+              <label>
+              <input type="radio" name="sex" value="男" />
+                男</label>
+              <label>
+              <input name="sex" type="radio" value="女" checked="checked" />
+                女</label>
+              <br />
+          </p></td>
+        </tr>
+        
+        <tr>
+          <td height="30" class="content9">&nbsp;</td>
+          <td height="30" class="content9">
+		  <input type="submit" name="Submit3" value="注册" onclick="return userCheck()"/>
+              <input type="reset" name="Submit22" value="重新添写" /></td>
+        </tr>
+      </table>
+	</form>    </td>
+  </tr>
+  <tr>
+    <td height="30" align="left" valign="middle"><hr size="2" noshade="noshade" color="#b3d3ee"/></td>
+  </tr>
+  <tr>
+    <td height="35" align="center" valign="top">&copy;2005 时空网络 - <a href="http://www.3yan.com" target="_top">时空主页</a> - <a href="http://www.3yan.com/contactUs.jsp" target="google_popup">与我们联系</a> </td>
+  </tr>
+</table>
+</body>
+</html>

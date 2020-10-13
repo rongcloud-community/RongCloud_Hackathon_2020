@@ -1,0 +1,4 @@
+Tue Oct 30 20:14:42 CST 2007 成功注册JDBC驱动程序org.gjt.mm.mysql.Driver
+Tue Oct 30 20:14:42 CST 2007 成功创建连接池mysql
+Tue Oct 30 20:14:42 CST 2007 连接池mysql创建一个(第1个)新的连接
+Tue Oct 30 20:14:42 CST 2007 连接池mysql创建一个(第2个)新的连接
