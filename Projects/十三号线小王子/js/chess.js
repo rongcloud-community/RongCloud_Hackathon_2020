@@ -131,17 +131,6 @@
       return isFinished;
     }
 
-    el.onclick = function (event) {
-      var x = event.offsetX;
-      var y = event.offsetY;
-      
-      if(!isFinished){
-        var isGameover = play(i, j, true);
-        if(isGameover){
-          console.log('====================')
-        }
-      }
-    };
     initChessboard();
 
     this.play = play;

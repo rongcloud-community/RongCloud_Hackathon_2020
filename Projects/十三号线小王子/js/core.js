@@ -44,9 +44,9 @@
   var setVideo = (node, user) => {
     node.srcObject = user.stream.mediaStream;
   };
-  var QueryString = utils.getQueryString() || 0;
+  var QueryString = utils.getQueryString();
   IPC.startIM({
-    appKey, token: users[QueryString.id]
+    appKey, token: users[QueryString.id || 0]
   }, {
     connected: (im) => {
       var roomId = getChatroomId();
