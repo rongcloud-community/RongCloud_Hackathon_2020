@@ -67,6 +67,7 @@ function removeListener (listen, success, error) {
 }
 
 function connect (token) {
+  // TODO: 这里经行出现 null exception
   return adapter.connect(token)
 }
 

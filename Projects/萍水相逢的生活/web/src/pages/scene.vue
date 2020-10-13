@@ -7,15 +7,27 @@
       </f7-nav-right>
     </f7-navbar>
 
-    <f7-block>我的场景号是：<strong>{{ sourceScene.number }}</strong>，把此号码分享给小伙伴以实现沟通吧。</f7-block>
+    <f7-block>
+      我的场景号是：<strong>{{ sourceScene.number }}</strong>，把此号码分享给小伙伴以实现沟通吧。
+      <f7-button @click="$refs.shareActions.open()">分享</f7-button>
+    </f7-block>
+
+    <f7-actions ref="shareActions">
+      <f7-actions-group>
+        <f7-actions-label>分享</f7-actions-label>
+        <f7-actions-button bold @click="shareLink">分享链接</f7-actions-button>
+        <f7-actions-button>待补充……</f7-actions-button>
+        <f7-actions-button color="red">取消</f7-actions-button>
+      </f7-actions-group>
+    </f7-actions>
 
     <f7-list>
       <f7-list-input 
-        placeholder="输入对方场景号以发起新会话"
+        placeholder="输入对方场景号即可发起会话"
         :value="targetSceneNumber"
         @input="targetSceneNumber = $event.target.value"
       ></f7-list-input>
-      <f7-list-button @click="connect" title="连接"></f7-list-button>
+      <f7-list-button @click="connect" title="发起会话"></f7-list-button>
     </f7-list>
 
     <!-- 会话列表 -->
@@ -80,6 +92,26 @@ export default {
     )
   },
   methods: {
+    shareLink () {
+      const host = window.location.origin
+      const path = this.$f7router.generateUrl({
+        name: 'initiate-conversation',
+        query: {
+          t: this.sourceScene.id
+        }
+      })
+      const link = `${host}/#!${path}`
+      console.log('share link', link)
+
+      this.$f7.dialog.create({ 
+        title: '分享链接',
+        text: link,
+        content: '<br>将以上链接分享给他人，对方就可以发起与你的会话',
+        buttons: [
+          { text: 'OK' }
+        ]
+      }).open()
+    },
     async refreshScene () {
       const sceneId = parseInt(this.$f7route.params.id)
       const scene = await Scene.find(sceneId)

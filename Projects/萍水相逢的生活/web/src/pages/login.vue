@@ -71,7 +71,8 @@ export default {
         this.$store.dispatch('initToken', token)
         globalStorage.token = token
 
-        this.$f7router.navigate('/scenes/')
+        const { url } = this.$f7route.query || '/scenes/'
+        this.$f7router.navigate(url)
       } catch (e) {
         if (e.code === 'user_not_exist') {
           this.action = 'sign_up'

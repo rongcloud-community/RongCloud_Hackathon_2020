@@ -16,8 +16,8 @@ class Conversation extends Base {
     return new Conversation(conversation)
   }
 
-  static async initiate ({ sourceSceneId, targetSceneNumber }) {
-    const { conversation } = await axios.post(`/scenes/${sourceSceneId}/conversations`, { targetSceneNumber })
+  static async initiate (params) {
+    const { conversation } = await axios.post(`/conversations`, params)
     return new Conversation(conversation)
   }
 
@@ -28,6 +28,11 @@ class Conversation extends Base {
   // 被观察对象的方法在 Vue 中不是响应式的
   getSummaryOfLastMessage () {
     const message = this.lastMessage
+    // TODO: 如果 发起了消息，但是不聊，就会出现问题
+    if (!message) {
+      return null
+    }
+
     switch (message.type) {
       case 'text':
         return message.body.text

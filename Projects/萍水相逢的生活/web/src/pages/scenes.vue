@@ -45,6 +45,7 @@
             close
             @click="updateOne(scene)"
           />
+          <!-- TODO: 好像场景删除后其他人的会话会受到影响 -->
           <f7-swipeout-button 
             text="删除"
             color="red"

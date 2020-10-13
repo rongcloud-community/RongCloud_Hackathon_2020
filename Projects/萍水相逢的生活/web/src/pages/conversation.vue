@@ -1,6 +1,10 @@
 <template>
   <f7-page name="conversation">
-    <f7-navbar back-link="返回">
+    <f7-navbar>
+      <span slot="left">
+        <f7-link icon-f7="house" href="/scenes/" v-if="$f7route.query.quick"></f7-link>
+        <f7-link icon="icon-back" back v-else>返回</f7-link>
+      </span>
       <span slot="title">与 {{ targetScene.nickname }} 沟通中</span>
     </f7-navbar>
 
