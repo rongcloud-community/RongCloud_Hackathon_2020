@@ -1,4 +1,4 @@
-# 谛听聊天室
+# 谛听音乐聊天室
 
 ## 项目介绍
 
@@ -14,13 +14,7 @@
 
 ![1602591556944](img/1602591556944.png)
 
-
-
-
-
 ![1602591572988](img/1602591572988.png)
-
-
 
 ## 前端技术栈
 
@@ -28,22 +22,22 @@
 - SCSS
 - JQuery
 - 融云 IM SDK
-- bootstrap 
-- flexible 
+- bootstrap
+- flexible
 - dayjs
 
 ## 后端技术栈
 
--   Promise
--   axios
--   ejs
--   express
--   express-session
--   moment
--   mysql
--   request
--   rongcloud-sdk
--   urlencode
+- Promise
+- axios
+- ejs
+- express
+- express-session
+- moment
+- mysql
+- request
+- rongcloud-sdk
+- urlencode
 
 ## 参赛人员
 
@@ -58,4 +52,3 @@
         <img src="https://avatars0.githubusercontent.com/u/53321243?s=460&u=3b4d8fa70ce9efc25095f2992e6bbc644e15de07&v=4" style="width: 80px;height: 80px;border-radius: 50%;"> 
     </a>
 </table>
-
