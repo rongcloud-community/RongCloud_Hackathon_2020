@@ -45,7 +45,6 @@
             close
             @click="updateOne(scene)"
           />
-          <!-- TODO: 好像场景删除后其他人的会话会受到影响 -->
           <f7-swipeout-button 
             text="删除"
             color="red"
@@ -127,7 +126,11 @@ export default {
         return scene.id === conversation.sourceScene.id || 
           scene.id === conversation.targetScene.id
       })
-      await scene.reload()
+
+      // scene 可能删除
+      if (scene) {
+        await scene.reload()
+      }
     }
   }
 }
