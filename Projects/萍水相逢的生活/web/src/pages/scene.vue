@@ -33,6 +33,7 @@
     <!-- 会话列表 -->
     <f7-list media-list>
       <f7-list-item v-for="conversation in conversations" :key="conversation.id"
+                    v-if="conversation.lastMessage"
                     :title="conversation.targetScene.nickname" 
                     :text="conversation.getSummaryOfLastMessage()"
                     :link="$f7router.generateUrl({ name: 'conversation', params: { id: conversation.id } })"

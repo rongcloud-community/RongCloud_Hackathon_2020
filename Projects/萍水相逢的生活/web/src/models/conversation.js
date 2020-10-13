@@ -25,13 +25,9 @@ class Conversation extends Base {
     await axios.post(`/conversations/${this.id}/read`)
   }
 
-  // 被观察对象的方法在 Vue 中不是响应式的
+  // MARK: [resources] 被观察对象的方法在 Vue 中不是响应式的
   getSummaryOfLastMessage () {
     const message = this.lastMessage
-    // TODO: 如果 发起了消息，但是不聊，就会出现问题
-    if (!message) {
-      return null
-    }
 
     switch (message.type) {
       case 'text':
