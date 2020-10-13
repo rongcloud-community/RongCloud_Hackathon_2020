@@ -5,6 +5,10 @@ class Scene < ActiveRecord::Base
 
   scope :activated, -> { where(activated: true) }
 
+  def default?
+    user.default_scene == self
+  end
+
   def conversations
     Conversation.where('source_scene_id = ? or target_scene_id = ?', id, id)
   end

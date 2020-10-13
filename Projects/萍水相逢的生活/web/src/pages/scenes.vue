@@ -20,7 +20,7 @@
     <f7-list>
       <f7-list-item v-for="scene in scenes" :key="scene.id"
         :badge="scene.unreadCount" badge-color="red"
-        swipeout @swipeout:delete="remove(scene)"
+        swipeout
         :link="'/scenes/' + scene.id + '/'"
       >
         <span slot="title">
@@ -34,18 +34,22 @@
         <f7-swipeout-actions right>
           <f7-swipeout-button 
             v-if="!scene.isDefault"
+            color="blue"
             text="设为默认"
             close
             @click="setAsDefault(scene)"
           />
           <f7-swipeout-button 
+            color="green"
             text="更新"
             close
             @click="updateOne(scene)"
           />
           <f7-swipeout-button 
             text="删除"
-            delete 
+            color="red"
+            close
+            @click="remove(scene)"
             confirm-text="你确定要删除此场景吗？该操作目前不可恢复！"
           />
         </f7-swipeout-actions>
@@ -89,7 +93,23 @@ export default {
       })
     },
     async remove (scene) {
-      await scene.destroy()
+      this.$f7.dialog.confirm('你确定要删除此场景吗？该操作目前不可恢复！', async () => {
+        try {
+          await scene.destroy()
+          const index = this.scenes.findIndex(s => s.id === scene.id)
+          this.scenes.splice(index, 1)
+        } catch (e) {
+          if (e.response && e.response.data.code === 'forbidden') {
+            this.$f7.toast.show({
+              text: e.response.data.message,
+              position: 'center',
+              closeTimeout: 2000
+            })
+          } else {
+            throw e
+          }
+        }
+      })
     },
     async setAsDefault (scene) {
       const defaultScene = this.scenes.find(scene => scene.isDefault)

@@ -9,7 +9,7 @@ module Entities
       instance.unread_conversation_count
     end
     expose :is_default do |instance, options|
-      instance == options[:current_user].default_scene
+      instance.default?
     end
     expose :created_at
     expose :user_id

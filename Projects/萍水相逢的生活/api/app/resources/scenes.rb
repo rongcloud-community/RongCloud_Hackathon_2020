@@ -54,8 +54,12 @@ module Resources
         delete do
           authorize @scene, :own?
 
-          @scene.update!(activated: false)
-          body false
+          if @scene.default?
+            error!({ code: 'forbidden', message: '默认场景不支持删除' })
+          else
+            @scene.update!(activated: false)
+            body false
+          end
         end
 
         post 'as_default' do
