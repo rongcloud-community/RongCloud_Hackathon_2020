@@ -14,6 +14,7 @@ ShopChat
 ## 功能展示  
 产品列表页面，用户可以查看到所有的产品，也可以通过分类选择要查看的产品类型。  
 ![产品列表](https://github.com/Bojibobo/RongCloud_Hackathon_2020/blob/master/Projects/images/list.jpg)  
+![产品类型](https://github.com/Bojibobo/RongCloud_Hackathon_2020/blob/master/Projects/images/fl.jpg)  
 产品详情页面，用户可以查看某个产品的具体信息。  
 ![产品详情](https://github.com/Bojibobo/RongCloud_Hackathon_2020/blob/master/Projects/images/detail.jpg)  
 购物车，用户可以查看自己添加到购物车里的内容。  
