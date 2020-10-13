@@ -23,16 +23,18 @@ WebSocket
 
 ## 项目使用：
 
-1.需要安装node.js以及express
+1.需要安装node.js express npm
 
 2.进入Projects/mine/mine目录
 
-3.npm start
+3.npm install 
 
-4.打开localhost:3000即可呈现扫雷游戏
+4.npm start
 
-5.扫雷成功后可以留名在排行榜上
+5.打开localhost:3000即可呈现扫雷游戏
 
-6.游戏提供WebSocket的交互接口，基于接口可以测试自己的AI扫雷程序
+6.扫雷成功后可以留名在排行榜上
 
-7.AI程序运行ws服务端，开启ai后需要刷新重启游戏来建立连接。
+7.游戏提供WebSocket的交互接口，基于接口可以测试自己的AI扫雷程序
+
+8.AI程序运行ws服务端，开启ai后需要刷新重启游戏来建立连接。
