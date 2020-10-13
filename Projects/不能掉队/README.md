@@ -1,4 +1,4 @@
-https://github.com/2120256946/RongCloud_Hackathon_2020/blob/master/Projects/images/game.jpg
+
 # 项目介绍  
 ## 队名  
 不能掉队  
@@ -10,7 +10,8 @@ GShow
 本项目展现了游戏网站的场景，使用到融云即时通讯的sdk实现了一个聊天室，实现游戏网站中用户和用户之间的交流。  
 
 ## 使用说明  
-运行程序后访问localhost：8080/index,可进入商主页，点击游戏讨论，即可进入聊天与其他用户进行实时交流（在主页界面需要在url后加上用用户的id信息“?userId=xxx”）。  
+springboot+maven项目，需要使用IDEA打开项目，使用pom.xml导入jar包，安装完成后运行。  
+运行程序后访问localhost：8080/index,可进入商主页，点击游戏讨论，即可进入聊天与其他用户进行实时交流（在主页界面需要在url后加上用用户的id信息“?userId=xxx” localhost：8080/index?userId=xxx）。  
 
 ## 功能展示  
 网站主页页面，用户可以最新的游戏讯息。  
