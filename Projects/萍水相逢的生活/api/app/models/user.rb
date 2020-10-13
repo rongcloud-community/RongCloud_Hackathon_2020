@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   validates :mobile, presence: true, uniqueness: true
   validates :name, presence: true
 
+  has_one :default_scene, class_name: 'Scene'
   has_many :scenes
 
   def to_token

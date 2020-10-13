@@ -6,9 +6,9 @@ class CreateScenes < ActiveRecord::Migration[6.0]
       t.string :number, comment: '场景号，即用户号'
       t.string :avatar, comment: '场景头像'
       t.boolean :activated, default: true, comment: '是否是激活状态，否则就是已注销'
-      t.timestamps
+      t.timestamps comment: '时间戳'
 
-      t.belongs_to :user
+      t.belongs_to :user, comment: '创建它的用户'
     end
   end
 end

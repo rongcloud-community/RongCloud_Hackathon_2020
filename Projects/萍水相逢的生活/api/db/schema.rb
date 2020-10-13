@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_28_160715) do
+ActiveRecord::Schema.define(version: 2020_10_13_084633) do
 
   create_table "conversations", force: :cascade do |t|
     t.datetime "source_readtime", default: "1970-01-01 00:00:00"
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 2020_08_28_160715) do
     t.string "name"
     t.string "mobile"
     t.string "avatar"
+    t.integer "default_scene_id"
+    t.index ["default_scene_id"], name: "index_users_on_default_scene_id"
   end
 
 end
