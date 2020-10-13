@@ -8,6 +8,7 @@ YiyiChat
 ## 如何运行  
 springboot+maven项目，需要使用IDEA打开项目，使用pom.xml导入jar包，安装完成后运行。  
 在浏览器输入localhost：8080/blind进行访问（记得先导入数据库blind.sql到mysql数据库,数据库端口3310，数据库名pyblind用户名为root，密码为123456）  
+可以通过修改application.properties文件修改配置。  
 
 ## 项目简介  
 本项目从盲人日常出行不便的现状出发，旨在利用低成本的简单工具——双目摄像头，结合目标检测、图像识别、
