@@ -24,6 +24,6 @@ git clone到本地，找到index.html文件并在浏览器中打开，映入眼�
 
 ## 项目预览：
 
-![](D:\vscode\融云比赛 good\第一个\Projects\啦啦队\image\1.png)
+todo list：https://images.cnblogs.com/cnblogs_com/xiao-xiaozhi/1862252/o_2010121435261.jpg
 
-![](D:\vscode\融云比赛 good\第一个\Projects\啦啦队\image\2.png)
+聊天室：https://images.cnblogs.com/cnblogs_com/xiao-xiaozhi/1862252/o_2010121435352.jpg
