@@ -5,9 +5,9 @@
 下面是主要界面：
 
 <div  align="center">    
-  <img src="img/rylogin.png" height = "200" alt="登录" align=center />
-  <img src="img/rymain.png" height = "200" alt="主界面" align=center />
-  <img src="img/rygoods.png" height = "200" alt="商品界面" align=center />
+  <img src="https://github.com/wfloss/RongCloud_Hackathon_2020/blob/master/Projects/img/rylogin.png" height = "200" alt="登录" align=center />
+  <img src="https://github.com/wfloss/RongCloud_Hackathon_2020/blob/master/Projects/img/rymain.png" height = "200" alt="主界面" align=center />
+  <img src="https://github.com/wfloss/RongCloud_Hackathon_2020/blob/master/Projects/img/rygoods.png" height = "200" alt="商品界面" align=center />
 </div>
 
 使用到的技术：融云即时通讯，springboot，html，css，js
