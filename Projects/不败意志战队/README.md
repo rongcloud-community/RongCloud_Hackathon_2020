@@ -42,6 +42,22 @@
 - rongcloud-sdk
 - urlencode
 
+
+
+## 项目运行
+
+```
+npm i 
+node app.js
+//打开浏览器 输入网址http://localhost:3000即可
+```
+
+
+
+
+
+
+
 ## 参赛人员
 
 <table>
