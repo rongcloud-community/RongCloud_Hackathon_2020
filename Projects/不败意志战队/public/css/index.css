@@ -727,6 +727,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-image: linear-gradient(135deg, #f6ac8a, #b5d6e8);
 }
 
 .boxcenter .join, .boxcenter .invite {
@@ -813,3 +814,4 @@ body {
   height: 70px;
   border-radius: 20px;
 }
+/*# sourceMappingURL=index.css.map */
