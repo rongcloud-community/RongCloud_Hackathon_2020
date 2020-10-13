@@ -8,23 +8,23 @@
 
    1.首页：首页主要包含各个功能的链接，以及像说说一样各个用户的热门说说
    
-   <img src="image/main1.png" height = "350" alt="首页" align=center />
+   <img src="https://github.com/naerld/RongCloud_Hackathon_2020/blob/master/Projects/image/main1.png" height = "350" alt="首页" align=center />
 
    2.学习：学习界面主要包含了该用户当前的学习内容，比如今日的课程，我的题库、规划以及可以查看总的课程等等
    
-   <img src="image/main2.png" height = "350" alt="学习" align=center />
+   <img src="https://github.com/naerld/RongCloud_Hackathon_2020/blob/master/Projects/image/main2.png" height = "350" alt="学习" align=center />
 
    3.消息：消息界面主要包含了各个班级的群聊内容，点击后可以进入群聊
    
-   <img src="image/main3.png" height = "350" alt="消息" align=center />
+   <img src="https://github.com/naerld/RongCloud_Hackathon_2020/blob/master/Projects/image/main3.png" height = "350" alt="消息" align=center />
 
    4.社区：社区包含了各个用户的留言说说
    
-   <img src="image/main4.png" height = "350" alt="社区" align=center />
+   <img src="https://github.com/naerld/RongCloud_Hackathon_2020/blob/master/Projects/image/main4.png" height = "350" alt="社区" align=center />
    
    5.我的：我的界面展示了各种个人信息，包括关注数和被关注数
    
-   <img src="image/main5.png" height = "350" alt="我的" align=center />
+   <img src="https://github.com/naerld/RongCloud_Hackathon_2020/blob/master/Projects/image/main5.png" height = "350" alt="我的" align=center />
 
 
 
