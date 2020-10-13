@@ -24,7 +24,19 @@ const store = new Vuex.Store({
       setTokenHeader(token)
 
       // 初始化消息库
-      const { token: imToken } = await User.getToken('im')
+      let imToken = null
+      try {
+        const data = await User.getToken('im')
+        imToken = data.token
+      } catch (e) {
+        if (e.response && e.response.data.code === 'token_invalid') {
+          delete globalStorage.token
+          clearTokenHeader()
+          return
+        } else {
+          throw e
+        }
+      }
       await MessageLib.connect(imToken)
 
       // 设置当前用户
