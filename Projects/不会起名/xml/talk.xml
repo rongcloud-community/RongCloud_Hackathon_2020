@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="gb2312" ?>
+<style path="">
+	<textlist>
+		<text sn="0">
+			<character></character> 
+			<color>#660000</color> 
+			<size>12</size> 
+			<method></method>
+		</text>
+		<text sn="1">
+			<character>正在对话：</character> 
+			<color>#666699</color> 
+			<size>12</size> 
+			<method></method>
+		</text>
+		<text sn="2">
+			<character>本系统由&lt;a href=http://www.webstat.cn target=_blank&gt;互联时空&lt;/a&gt;荣誉提供</character> 
+			<color>#3399FF</color> 
+			<size>12</size> 
+			<method></method>
+		</text>
+		<text sn="3">
+			<character>发送短信</character> 
+			<color>red</color> 
+			<size>14</size> 
+			<method></method>
+		</text>
+	</textlist>
+	<imagelist>
+		<image sn="0">
+			<url>main_1.gif</url>
+			<alttext>外左上角图片</alttext>
+			<method></method>
+		</image>
+		<image sn="1">
+			<url>main_2.gif</url>
+			<alttext>外标题栏背景</alttext>
+			<method></method>
+		</image>
+		<image sn="2">
+			<url>main_3.gif</url>
+			<alttext>外右上角图片</alttext>
+			<method></method>
+		</image>
+		<image sn="3">
+			<url>main_4.gif</url>
+			<alttext>外左边框背景</alttext>
+			<method></method>
+		</image>
+		<image sn="4">
+			<url>main_5.gif</url>
+			<alttext>外右边框背景</alttext>
+			<method></method>
+		</image>
+		<image sn="5">
+			<url>talk_1.gif</url>
+			<alttext>内容显示框左上图片</alttext>
+			<method></method>
+		</image>
+		<image sn="6">
+			<url>talk_2.gif</url>
+			<alttext>内容显示框顶部图片</alttext>
+			<method></method>
+		</image>
+		<image sn="7">
+			<url>talk_3.gif</url>
+			<alttext>内容显示框右上图片</alttext>
+			<method></method>
+		</image>
+		<image sn="8">
+			<url>talk_4.gif</url>
+			<alttext>内容显示框左边框背景</alttext>
+			<method></method>
+		</image>
+		<image sn="9">
+			<url>talk_5.gif</url>
+			<alttext>内容显示框右边框背景</alttext>
+			<method></method>
+		</image>
+		<image sn="10">
+			<url>talk_6.gif</url>
+			<alttext>内容显示框左下图片</alttext>
+			<method></method>
+		</image>
+		<image sn="11">
+			<url>talk_7.gif</url>
+			<alttext>内容显示框底部背景</alttext>
+			<method></method>
+		</image>
+		<image sn="12">
+			<url>talk_8.gif</url>
+			<alttext>内容显示框右下背景</alttext>
+			<method></method>
+		</image>
+		<image sn="13">
+			<url>edit_1.gif</url>
+			<alttext>编辑框左上图片</alttext>
+			<method></method>
+		</image>
+		<image sn="14">
+			<url>edit_2.gif</url>
+			<alttext>编辑框顶部背景</alttext>
+			<method></method>
+		</image>
+		<image sn="15">
+			<url>edit_3.gif</url>
+			<alttext>编辑右上图片</alttext>
+			<method></method>
+		</image>
+		<image sn="16">
+			<url>edit_4.gif</url>
+			<alttext>编辑框左边框背景</alttext>
+			<method></method>
+		</image>
+		<image sn="17">
+			<url>edit_5.gif</url>
+			<alttext>编辑框右边框背景</alttext>
+			<method></method>
+		</image>
+		<image sn="18">
+			<url>edit_6.gif</url>
+			<alttext>编辑框左下背景</alttext>
+			<method></method>
+		</image>
+		<image sn="19">
+			<url>edit_7.gif</url>
+			<alttext>编辑框底部背景</alttext>
+			<method></method>
+		</image>
+		<image sn="20">
+			<url>edit_8.gif</url>
+			<alttext>编辑框右下背景</alttext>
+			<method></method>
+		</image>
+		<image sn="21">
+			<url>main_6.gif</url>
+			<alttext>外左下背景</alttext>
+			<method></method>
+		</image>
+		<image sn="22">
+			<url>main_7.gif</url>
+			<alttext>外底部背景</alttext>
+			<method></method>
+		</image>
+		<image sn="23">
+			<url>main_8.gif</url>
+			<alttext>外右下背景</alttext>
+			<method></method>
+		</image>
+		<image sn="24">
+			<url>mainbg.gif</url>
+			<alttext>整体背景</alttext>
+			<method></method>
+		</image>
+		<image sn="25">
+			<url>right_1.gif</url>
+			<alttext>右边版面左上角背景</alttext>
+			<method></method>
+		</image>
+		<image sn="26">
+			<url>right_2.gif</url>
+			<alttext>右边版面左中背景</alttext>
+			<method></method>
+		</image>
+		<image sn="27">
+			<url>right_3.gif</url>
+			<alttext>右边版面右上背景</alttext>
+			<method></method>
+		</image>
+		<image sn="28">
+			<url>right_4.gif</url>
+			<alttext>右边版面左边框背景</alttext>
+			<method></method>
+		</image>
+		<image sn="29">
+			<url>right_5.gif</url>
+			<alttext>右边版面右边框背景</alttext>
+			<method></method>
+		</image>
+		<image sn="30">
+			<url>right_6.gif</url>
+			<alttext>右边版面左下背景</alttext>
+			<method></method>
+		</image>
+		<image sn="31">
+			<url>right_7.gif</url>
+			<alttext>右边版面左中背景</alttext>
+			<method></method>
+		</image>
+		<image sn="32">
+			<url>right_8.gif</url>
+			<alttext>右边版面右下背景</alttext>
+			<method></method>
+		</image>
+		<image sn="33">
+			<url>clarity.gif</url>
+			<alttext>一个像素的透明图片</alttext>
+			<method></method>
+		</image>
+		<image sn="34">
+			<url>send.bmp</url>
+			<alttext>发送按钮图片</alttext>
+			<method>SendMsg()</method>
+		</image>
+		<image sn="35">
+			<url>search.bmp</url>
+			<alttext>搜索按钮图片</alttext>
+			<method>buttonSearch()</method>
+		</image>
+	</imagelist>
+	<widthlist>
+		<width sn="0" des="外框左上角宽度">
+			<value>16</value>
+		</width>
+		<width sn="1" des="外框右上角宽度">
+			<value>13</value>
+		</width>
+		<width sn="2" des="右版面宽度">
+			<value>130</value>
+		</width>
+		<width sn="3" des="显示框左上角宽度">
+			<value>13</value>
+		</width>
+		<width sn="4" des="显示框右上角宽度">
+			<value>16</value>
+		</width>
+		<width sn="5" des="编辑框左上角宽度">
+			<value>12</value>
+		</width>
+		<width sn="6" des="编辑框右上角宽度">
+			<value>16</value>
+		</width>
+		<width sn="7" des="右边版面左上角宽度">
+			<value>8</value>
+		</width>
+		<width sn="8" des="右边版面右上角宽度">
+			<value>8</value>
+		</width>
+		<width sn="9" des="编辑工具条宽度">
+			<value>110</value>
+		</width>
+	</widthlist>
+	<heightlist>
+		<height sn="0" des="外框左上角高度">
+			<value>25</value>
+		</height>
+		<height sn="1" des="外框和显示框之间的间隔高度">
+			<value>5</value>
+		</height>
+		<height sn="2" des="右版面顶框高度">
+			<value>92</value>
+		</height>
+		<height sn="3" des="显示框左上角高度">
+			<value>25</value>
+		</height>
+		<height sn="4" des="显示框左下角高度">
+			<value>21</value>
+		</height>
+		<height sn="5" des="编辑框总高度">
+			<value>130</value>
+		</height>
+		<height sn="6" des="编辑框左上角高度">
+			<value>23</value>
+		</height>
+		<height sn="7" des="编辑框左下角高度">
+			<value>20</value>
+		</height>
+		<height sn="8" des="外框左下角高度">
+			<value>26</value>
+		</height>
+		<height sn="9" des="右边版面左上角高度">
+			<value>25</value>
+		</height>
+		<height sn="10" des="右边版面左下角高度">
+			<value>20</value>
+		</height>
+	</heightlist>
+	<defaultsetting>
+		<setting sn="0" des="显示框字体设置">
+			<color>#330066</color>
+			<fontsize>14</fontsize>
+			<fontfamily>宋体</fontfamily>
+		</setting>
+		<setting sn="1" des="编辑框字体设置">
+			<color>#003366</color>
+			<fontsize>14</fontsize>
+			<fontfamily>宋体</fontfamily>
+		</setting>
+		<setting sn="2" des="对话状态字体设置">
+			<color>gray</color>
+			<fontsize>12</fontsize>
+			<fontfamily>宋体</fontfamily>
+		</setting>
+	</defaultsetting>
+</style>

@@ -1,0 +1,389 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>系统登录注册</title>
+<style type="text/css">
+<!--
+.style11 {font-size: 12px}
+a:link {
+	color: #0000FF;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #0000FF;
+}
+a:hover {
+	text-decoration: none;
+	color:#ff0000;
+}
+a:active {
+	text-decoration: none;
+	color: #FF0000;
+}
+.STYLE12 {color: #FFFFFF}
+.STYLE13 {font-size: 14px}
+
+-->
+</style>
+<script language='javascript'>
+   function setCookie(name, value, expire) {   
+ 	var domain=null;
+	document.cookie = name + "=" + escape(value) +";path=/"+ ((domain)?";domain="+domain:"") + ((expire == null) ? "" : ("; expires=" + expire.toGMTString())); 
+   }
+   function getCookie(Name) {   
+  	var search = Name + "=";
+  	if (window.document.cookie.length > 0) { // if there are any cookies
+    		offset = window.document.cookie.indexOf(search);
+        	if (offset != -1) { // if cookie exists
+      			offset += search.length;          // set index of beginning of value
+        		end = window.document.cookie.indexOf(";", offset)          // set index of end of cookie value
+        		if (end == -1)
+            			end = window.document.cookie.length;
+          		return unescape(window.document.cookie.substring(offset, end));
+    		}
+  	}
+  	return null;
+   }
+   function setLogin(type){    
+		var expire=new Date();
+		expire.setTime( expire.getTime()+5*365*24*60*60*1000 ); //保留5年
+		setCookie("loginType",type,expire);	
+   }
+   function submitLoginForm(){
+   		var loginType=getCookie("loginType");
+		if(loginType==null || loginType=="undefined")
+			loginType="0";
+		document.getElementById("loginType").value=loginType;	
+		document.frm.submit();
+   }
+</script>
+</head>
+
+<body>
+<table width="780" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="50%"><img src="pic/logogif.gif" width="285" height="48"></td>
+    <td width="50%"></td>
+  </tr>
+</table>
+<table width="780" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#990000"  style="table-layout:fixed">
+  <tr valign="center" height=20>
+    <td width="462" bgcolor="#FFFFFF"><span class="STYLE13">百乐客服---互联时空旗下网站</span></td>
+    <td width="318" align="right" bgcolor="#E3F2FD"><div align="center" class="style11">
+      <div align="right"><a href="index.htm">免费使用</a> | <a href="index.htm">如何开始</a> | <a href="#">联系我们 </a>|<a href="manage/help.html"> 使用帮助 </a>|<a href="#" class="style11"> 百乐论坛</a></div>
+    </div>      <div align="center" class="style11"></div>      <div align="center"></div>      <div align="center"></div>      </td>
+  </tr>
+</table>
+
+<table width="780" height="2" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td></td>
+  </tr>
+</table>
+<table width="780" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#990000"  >
+  <tr>
+    <td><table width="100%"  border="0" cellpadding="0" cellspacing="0" background="pic/bg.gif">
+        <tr>
+          <td><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="778" height="100">
+            <param name="movie" value="pic/1.swf">
+            <param name="quality" value="high">
+            <param name="wmode" value="transparent">
+            <embed src="pic/1.swf" width="778" height="100" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" wmode="transparent"></embed>
+          </object></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+<table width="780" height="4" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td></td>
+  </tr>
+</table>
+<table width="780" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="41%"><TABLE cellSpacing=0 cellPadding=0 border=0>
+      <TBODY>
+        <TR>
+          <TD width=8 
+                background=pic/index_t4_a1.png 
+                height=13></TD>
+          <TD align=left 
+                background=pic/index_t4_a2.png >&nbsp;</TD>
+          <TD width=10 
+                background=pic/index_t4_a3.png></TD>
+        </TR>
+        <TR>
+          <TD background=pic/index_t4_b1.png 
+                height=131></TD>
+          <TD vAlign=top align=middle width=300
+                background=pic/index_t4_b2.png><TABLE width="40%" align="center" cellPadding=1 cellSpacing=2>
+             <FORM action=loginValidation.jsp method=post name=frm> <TBODY>
+                
+                <TR>
+                  <TD vAlign=top noWrap width="23%"><span class="style11">用户名</span>：</TD>
+                  <TD width="77%" align=left vAlign=top><DIV class=errorbox-good>
+                      <INPUT tabIndex=1 size=15 
+                        name=username>
+                  </DIV></TD>
+                </TR>
+                <TR>
+                  <TD vAlign=top noWrap><span class="style11">密&nbsp;&nbsp;码：</span>&nbsp;</TD>
+                  <TD vAlign=top align=left><DIV class=errorbox-good>
+                      <input tabindex=2 type=password 
+                        size=15 name=password>
+					<input id='loginType' type="hidden" name="loginType" value="0" >
+                  </DIV></TD>
+                </TR>               
+                <TR align="right">
+                  <TD height="7" colSpan=2 vAlign=center class=header><span style="PADDING-RIGHT: 10px"><INPUT type=image name=confirm src="pic/bdl.gif" onClick="submitLoginForm()">
+                    &nbsp;<a href="reg.jsp"><img src="pic/bzc.gif" width="68" height="25" border="0"></a></span></TD>
+                </TR>
+				 <TR align="right">
+                  <TD height="6" colSpan=2 align="center" vAlign=center   class="style11"> 
+                    <label>
+                    <input type="radio" name="radiobutton" value="radiobutton"  onClick="setLogin('0')">
+                    以后直接登陆到后台
+                    </label>
+                   </TD>
+                </TR>
+				 <TR align="right">
+                  <TD height="6" colSpan=2 align="center" vAlign=center  class="style11"> 
+                    <label>
+                    <input type="radio" name="radiobutton" value="radiobutton" onClick="setLogin('1')">
+                    以后直接登陆到客服
+                    </label>
+                   </TD>
+                </TR>
+              </TBODY></form>
+          </TABLE></TD>
+          <TD 
+              background=pic/index_t4_b3.png></TD>
+        </TR>
+        <TR>
+          <TD background=pic/index_t4_c1.png 
+                height=11></TD>
+          <TD 
+background=pic/index_t4_c2.png></TD>
+          <TD 
+              background=pic/index_t4_c3.png></TD>
+        </TR>
+      </TBODY>
+    </TABLE>
+    <td width="59%"><table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#699EEE">
+      <tr>
+        <td><table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#EEEEEE">
+          <tr>
+            <td bgcolor="#699EEE" class="style11 STYLE12">&nbsp;&nbsp;百乐客服解决方案</td>
+            <td bgcolor="#699EEE">&nbsp;</td>
+            <td bgcolor="#699EEE">&nbsp;</td>
+          </tr>
+          <tr height=8>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><div align="center"><img src="pic/a.gif" alt="d" width="136" height="67"></div></td>
+            <td><div align="center"><img src="pic/b.gif" alt="e" width="136" height="67"></div></td>
+            <td><div align="center"><img src="pic/c.gif" alt="f" width="136" height="67"></div></td>
+          </tr>
+          <tr height=8>
+            <td><div align="center"></div></td>
+            <td><div align="center"></div></td>
+            <td><div align="center"></div></td>
+          </tr>
+          <tr>
+            <td><div align="center"><img src="pic/d.gif" alt="a" width="136" height="67"></div></td>
+            <td><div align="center"><img src="pic/e.gif" alt="b" width="136" height="67"></div></td>
+            <td><div align="center"></div></td>
+          </tr>
+          <tr height=8>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<table width="780" height="4" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td></td>
+  </tr>
+</table>
+<table width="780" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><TABLE width="782" border=0 cellPadding=0 cellSpacing=0>
+      <TBODY>
+        <TR>
+          <TD width=7 background=pic/index_t3_a1.png 
+          height=32></TD>
+          <TD align=left 
+background=pic/index_t3_a2.png><div align="left">
+              <TABLE cellSpacing=0 cellPadding=0 border=0>
+                <TBODY>
+                  <TR>
+                    <TD width="107" height=32><div align="left"><IMG 
+                  src="pic/index_t3_title.png" alt="0" 
+                  width=106 height=32 align="baseline"></div></TD>
+                    <TD width="10"></TD>
+                    <TD width="10"></TD>
+                  </TR>
+                </TBODY>
+              </TABLE>
+          </div>
+              <div align="left"></div></TD>
+          <TD width=10 
+          background=pic/index_t3_a3.png></TD>
+        </TR>
+        <TR>
+          <TD background=pic/index_t3_b1.png 
+          height=246></TD>
+          <TD vAlign=center align=middle width=728 
+          background=pic/index_t3_b2.png><div align="center">
+              <TABLE cellSpacing=0 cellPadding=0 border=0>
+                <TBODY>
+                  <TR vAlign=top align=left>
+                    <TD width=232 
+                background=pic/line_h75.gif 
+                  height=70><TABLE cellSpacing=0 cellPadding=0 border=0>
+                        <TBODY>
+                          <TR>
+                            <TD class=pic01 width=47 height=47><IMG 
+                        src="pic/icon45_0.png" alt="1" width=47 height=47 
+                        border=0></TD>
+                            <TD width=15></TD>
+                            <TD align=left vAlign=top class="style11">　　集成WEB800网页免费电话,提高成交率,降低成本,提升企业形象，同时开启企业VOIP，降低企业70%以上话费</TD>
+                          </TR>
+                        </TBODY>
+                    </TABLE></TD>
+                    <TD width=232 
+                background=pic/line_h75.gif><TABLE cellSpacing=0 cellPadding=0 border=0>
+                        <TBODY>
+                          <TR>
+                            <TD class=pic01 width=47 height=47><IMG 
+                        src="pic/icon45_1.png" alt="2" width=47 height=47 
+                        border=0></TD>
+                            <TD width=15></TD>
+                            <TD vAlign=top align=left class="style11">　　集成手机短信增值业务，即便不上网，客户也能通过短信找到你，客服短信群发互动，轻松商务</TD>
+                          </TR>
+                        </TBODY>
+                    </TABLE></TD>
+                    <TD background=pic/line_h75.gif><TABLE cellSpacing=0 cellPadding=0 border=0>
+                        <TBODY>
+                          <TR>
+                            <TD class=pic01 width=47 height=47><IMG 
+                        src="pic/icon45_2.png" alt="3" width=47 height=47 
+                        border=0></TD>
+                            <TD width=15></TD>
+                            <TD width="163" align=left vAlign=top class="style11">　 首创过客聊天室，让你和浏览者零距离接触，近在咫尺，顾客就在你身边，访问者轨迹清晰可见，咨询有的放矢<br>
+                              　
+                              </TD>
+                          </TR>
+                        </TBODY>
+                    </TABLE></TD>
+                  </TR>
+                  <TR vAlign=top align=left>
+                    <TD background=pic/line_h75.gif 
+                height=70><TABLE cellSpacing=0 cellPadding=0 border=0>
+                        <TBODY>
+                          <TR>
+                            <TD class=pic01 width=47 height=47><img 
+                        src="pic/icon45_3.png" alt="4" width=47 height=47 
+                        border=0></TD>
+                            <TD width=15></TD>
+                            <TD width="161" align=left vAlign=top>　　<span class="style11">强大的服务器群集高性能J2EE分布式服务器时刻进行着负载均衡，独享高品质带宽保证系统正常运转</span></TD>
+                          </TR>
+                        </TBODY>
+                    </TABLE></TD>
+                    <TD background=pic/line_h75.gif><TABLE cellSpacing=0 cellPadding=0 border=0>
+                        <TBODY>
+                          <TR>
+                            <TD class=pic01 width=47 height=47><IMG 
+                        src="pic/icon45_4.png" alt="5" width=47 height=47 
+                        border=0></TD>
+                            <TD width=15></TD>
+                            <TD width="166" align=left vAlign=top><span class="style11">　　首推行业信用点服务商业模式，各种版本不限客服数量，消除高投入风险，助你轻松级跃发展</span></TD>
+                          </TR>
+                        </TBODY>
+                    </TABLE></TD>
+                    <TD background=pic/line_h75.gif><TABLE cellSpacing=0 cellPadding=0 border=0>
+                        <TBODY>
+                          <TR>
+                            <TD class=pic01 width=47 height=47><IMG 
+                        src="pic/icon45_5.png" alt="6" width=47 height=47 
+                        border=0></TD>
+                            <TD width=15></TD>
+                            <TD width="165" align=left vAlign=top class="style11">　<span class="style11">　</span>精准的广告推送，您和浏览者对话时，
+                              你可以适时推送公司宣传、产品宣传、视频广告</TD>
+                          </TR>
+                        </TBODY>
+                    </TABLE></TD>
+                  </TR>
+                  <TR vAlign=top align=left>
+                    <TD height=70><TABLE cellSpacing=0 cellPadding=0 border=0>
+                        <TBODY>
+                          <TR>
+                            <TD class=pic01 width=47 height=47><IMG 
+                        src="pic/icon45_6.png" alt="7" width=47 height=47 
+                        border=0></TD>
+                            <TD width=15></TD>
+                            <TD width="163" align=left vAlign=top class="style11">　　集成网站流量统计系统，提供即时的访问者地区、页面访问频度、搜索引擎等统计分析报告，助你清晰决策</TD>
+                          </TR>
+                        </TBODY>
+                    </TABLE></TD>
+                    <TD><TABLE cellSpacing=0 cellPadding=0 border=0>
+                        <TBODY>
+                          <TR>
+                            <TD class=pic01 width=47 height=47><IMG 
+                        src="pic/icon45_8.png" alt="9" width=47 height=47 
+                        border=0></TD>
+                            <TD width=15></TD>
+                            <TD width="162" align=left vAlign=top class="style11">　　集成网站/服务器运行监控，让你在第一时间知道网站/服务器状态，网站/服务器宕机立即知晓</TD>
+                          </TR>
+                        </TBODY>
+                    </TABLE></TD>
+                    <TD><TABLE width="238" border=0 cellPadding=0 cellSpacing=0>
+                        <TBODY>
+                          <TR>
+                            <TD class=pic01 width=49 height=47><IMG 
+                        src="pic/icon45_7.png" alt="8" width=47 height=47 
+                        border=0></TD>
+                            <TD width=15></TD>
+                            <TD width="174" align=left vAlign=top class="style11">　　多网站同时管理，轻松应对。浮动图标多款即改即得，留言、历史记录、文件传送、客服聊天查询、黑名单、访客标注等</TD>
+                          </TR>
+                        </TBODY>
+                    </TABLE></TD>
+                  </TR>
+                </TBODY>
+              </TABLE>
+          </div></TD>
+          <TD background=pic/index_t3_b3.png></TD>
+        </TR>
+        <TR>
+          <TD background=pic/index_t3_c1.png 
+          height=11></TD>
+          <TD background=pic/index_t3_c2.png></TD>
+          <TD 
+        background=pic/index_t3_c3.png></TD>
+        </TR>
+      </TBODY>
+    </TABLE></td>
+  </tr>
+</table>
+<CENTER>
+<hr color="red" width=780>
+<br>
+<span class="style11"><img src="img/hd315_v06.gif" width="20" height="24">Copyright&copy; 2006 Uniscom Net Technology Corp 北京互联时空网络技术有限公司<br>
+              <img src="img/icp_v06.gif" width="18" height="20">《中华人民共和国电信与信息服务业务经营许可证》编号: 京ICP证040834<br>
+            联系电话： 010-51668337 地址：北京上地信息产业基地上地佳园4－2－901<BR>
+</span>
+             
+          
+</CENTER> 
+</body>
+</html>
+<div id='webimFloat'></div>
+<script> function g(p){var r;d=document.cookie;s=d.indexOf(p+"=");if(s>=0){e=d.indexOf(";", s+p.length+1);r=d.substring(s+p.length+5,e-1)}; return r;} document.write("<scrip"+"t src=\"http://www.100im.cn/webTalk.jsp?a=-1&frmurl="+escape(top.document.referrer)+"&curURL="+escape(top.document.URL)+"&p="+screen.width+"*"+screen.height+"&vid="+g("vMAC")+"&rt="+g("rt")+"&lvp="+g("lvp")+"&ck="+navigator.cookieEnabled+"\"></scrip"+"t>"); </script>

@@ -1,0 +1,110 @@
+.p9black {  font-family: "宋体", "Verdana"; font-size: 12px; color: #000000}
+.t-b-border {
+	border-top-width: 1px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #FFFFFF;
+	border-right-color: black;
+	border-bottom-color: #FFFFFF;
+	border-left-color: black;
+}
+.p12black { font-family: "宋体", "Verdana"; font-size: 14px; color: #000000 }
+.l-r-border {
+	border-top: 0px solid #FFFFFF;
+	border-right: 1px solid #FFFFFF;
+	border-bottom: 0px solid #CCCCCC;
+	border-left: 1px solid #FFFFFF;
+}
+.p9gray {
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+	font-size: 11px;
+	color: #666666;
+	line-height: 20px;
+	font-weight: normal;
+}
+.p9orange { font-family: "宋体", "Verdana"; font-size: 12px; color: #FF6600}
+.inputstyle {
+	font-family: "宋体", "Verdana";
+	color: #000000;
+	border: 1px solid #CCCCCC;
+	height: 20px;
+	background-color: #FF9900;
+	font-size: 12px;
+
+}
+.9pv {  font-family: "Verdana", "Arial", "Helvetica", "sans-serif"; font-size: 11px; color: #000000}
+.b-border {
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #BCBCBC;
+	border-right-color: black;
+	border-bottom-color: #FFFFFF;
+	border-left-color: black;
+}
+.bgnorepeat {  background-repeat: no-repeat}
+.bg-bottom { background-position: bottom}
+a:link {  font-family: "宋体", "Verdana"; font-size: 12px; color: #000000; text-decoration: none; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px}
+a:visited {  font-family: "宋体", "Verdana"; font-size: 12px; color: #000000; text-decoration: none; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px}
+a:hover {  font-family: "宋体", "Verdana"; font-size: 12px; color: #FF6600; text-decoration: none; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px}
+.allborder { border: #BCBCBC; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; font-family: "宋体", "Verdana"; font-size: 12px; color: #000000}
+.test {
+	position: relative;
+	height: 100px;
+	width: 200px;
+	left: 40%;
+	top: 40%;
+
+
+
+}
+.p9blue {
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+	font-size: 14px;
+	color: #336699;
+	font-weight: bold;
+
+}
+.t-border {
+
+	border-top-width: 0px;
+	border-right-width: 1px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #BCBCBC;
+	border-right-color: #FFFFFF;
+	border-bottom-color: #FFFFFF;
+	border-left-color: black;
+}
+.p9white {
+font-family: "宋体", "Verdana"; font-size: 12px; color: #FFFFFF
+}
+.p12blue {
+
+font-family: "Verdana", "Arial", "Helvetica", "sans-serif"; font-size: 11px; color: #336699
+}
+
+a.menu:link {  font-family: "宋体", "Verdana"; font-size: 12px; color: #FFFFFF; text-decoration: none; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px}
+a.menu:visited {  font-family: "宋体", "Verdana"; font-size: 12px; color: #FFFFFF; text-decoration: none; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px}
+a.menu:hover {  font-family: "宋体", "Verdana"; font-size: 12px; color: #FFFFFF; text-decoration: underline; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px}
+.p12white {
+	font-family: "宋体", "Verdana";
+	font-size: 14px;
+	color: #FFFFFF;
+	font-weight: bold;
+
+}

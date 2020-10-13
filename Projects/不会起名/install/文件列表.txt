@@ -1,0 +1,26 @@
+
+注册页面按调用顺序列表：
+
+index.htm 	安装首页
+home.htm  	简介
+require.htm 	安装说明
+request.htm 	系统检测
+   －supportJsp.jsp      	检查支持程序（JSP）
+   －supportJspWrite.jsp 	检查目录及文件权限（文件写入权限）
+   －supportJspDatabase.jsp 	检查数据库支持（MySQL）
+   －supportJspUpload.jsp 	检查上传文件方式
+dbinstall.html 	安装数据库: 获取数据库参数
+   －saveDbConfig.jsp		保存数据库参数到配置文件并检测参数有效
+dbinstall.jsp  	安装所有的数据空表（重复安装会删除原有数据）
+dbinstall1.jsp  初始化搜索引擎关键字定位数据
+dbinstall2.html 初始化IP地址库数据
+   －convertIP.jsp		将ip.txt中的数据存入数据表中
+ini_setup.html  域名绑定和管理员登陆信息
+   －initial.jsp		保存域名信息和超级管理员登陆信息
+regTestSite.html 注册测试网站
+   －regSave.jsp		保存测试网站的注册信息
+ok.html		安装结束页面
+
+其它文件：
+ip.txt		文本ip地址数据
+
