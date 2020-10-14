@@ -33,7 +33,7 @@ export class AppComponent {
         if (!(event['routerEvent']['url'].search('/register')+1)) {
           this.userAuthDo()
         }
-        this.from = event['routerEvent']['url'].search(';from=') ? event['routerEvent']['url'].slice(0, event['routerEvent']['url'].search(';from=')) : event['routerEvent']['url']
+        this.from = (event['routerEvent']['url'].search(';from=')+1) ? event['routerEvent']['url'].slice(0, event['routerEvent']['url'].search(';from=')) : event['routerEvent']['url']
       }
     })
   }

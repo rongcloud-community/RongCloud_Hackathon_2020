@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class RongCloudService {
   conversationList = []
   finalTargetInfos = []
+  watched: boolean
   im: any
 
   rongInit(finalUserInfo: userInfo) {
@@ -20,7 +21,9 @@ export class RongCloudService {
       if (res['status'] == 'success') {
         that.conversationList = res['conversations']
         that.finalTargetInfos = res['targetInfos']
-        that.watch(im)
+        if (!that.watched) {
+          that.watch(im)
+        }
       }
     })
     this.im = im
@@ -48,6 +51,14 @@ export class RongCloudService {
 
   sendMessage(mes: message) {
     return this.http.post('/api/sendMessage', mes)
+  }
+
+  editMessage(mes: message) {
+    return this.http.post('/api/editMessage', mes)
+  }
+
+  recallMessage(mes: message) {
+    return this.http.post('/api/recallMessage', mes)
   }
 
   readConversation(conv: conversation) {

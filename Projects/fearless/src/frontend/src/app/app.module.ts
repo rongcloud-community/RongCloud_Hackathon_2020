@@ -29,6 +29,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDividerModule} from '@angular/material/divider'; 
 import {MatListModule} from '@angular/material/list'
 import {MatBadgeModule} from '@angular/material/badge'; 
+import {MatDialogModule} from '@angular/material/dialog'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -53,7 +54,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       {path: 'singleChat', component: SingleChatComponent},
       {path: 'login', component: LoginComponent},
       {path: 'register', component: RegisterComponent},
-      {path: '', component: HomeComponent}
+      {path: '', redirectTo: 'singleChat', pathMatch: 'full'}
     ]),
     ReactiveFormsModule,
     HttpClientModule,
@@ -73,7 +74,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatGridListModule,
     MatDividerModule,
     MatListModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -40,18 +40,27 @@
                   <mat-card-subtitle>{{timeclock(message.SentTime)}}</mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content>
-                  <p [innerHTML]="message.Content.Content">
+                  <p [innerHTML]="message.Content.ContentHTML ? message.Content.ContentHTML : message.Content.Content">
                   </p>
                 </mat-card-content>
+                <mat-card-actions>
+                    <button *ngIf="ableToRecallEdit(message)" (click)="editTrigger(message)" mat-button>编辑</button>
+                    <button *ngIf="ableToRecallEdit(message)" (click)="recallMessage(message)" mat-button>撤回</button>
+                </mat-card-actions>
               </mat-card>
             </ng-template>            
         </div>
     </mat-grid-tile>
     <mat-grid-tile colspan="2" rowspan="1">
-        <form [formGroup]="messageForm" (ngSubmit)="onSub()" class="messageForm">
+        <label for="picUp" (click)="uploadPic($event)"><button type="file" mat-icon-button><mat-icon>insert_photo</mat-icon></button></label>
+        <input type="file" name="picUp" hidden>
+        <form [formGroup]="messageForm" (ngSubmit)="onSub()" class="messageForm" (keydown)="keyDownForm($event)">
             <mat-form-field>
-                <mat-label>输入消息</mat-label>
-                <textarea formControlName="message" type="text" matInput></textarea>
+                <mat-label *ngIf="editToggle else enterField">编辑消息（Ctrl+Enter发送，支持Markdown）</mat-label>
+                <ng-template #enterField>
+                    <mat-label>输入消息（Ctrl+Enter发送，支持Markdown）</mat-label>
+                </ng-template>
+                <textarea formControlName="message" type="text" [errorStateMatcher]="matcher" matInput></textarea>
                 <button type="submit" [disabled]="!messageForm.valid || !currentCon" mat-raised-button color="primary">发送</button>
             </mat-form-field>
         </form>
