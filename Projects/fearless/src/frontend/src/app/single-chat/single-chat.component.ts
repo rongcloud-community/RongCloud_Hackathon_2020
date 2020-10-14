@@ -79,7 +79,7 @@ export class SingleChatComponent implements OnInit {
     }
   }
 
-  getTargetInfo = (userId: string) => this.rongSer.finalTargetInfos[userId]
+  getTargetInfo = (userId: string) => this.rongSer.finalTargetInfos && this.rongSer.finalTargetInfos[userId] ? this.rongSer.finalTargetInfos[userId] : this.route.params['_value']['chat'] == userId ? {userId: this.route.params['_value']['chat'], nickname: this.route.params['_value']['chatnick'], portraitUri: this.route.params['_value']['chatpor'], relation: this.route.params['_value']['chatrel']} : {}
 
   avatarUriVar = (uri: string) => uri.startsWith('http://') || uri.startsWith('https://') ? uri : '/assets/IM-icon.png'
 
@@ -124,7 +124,7 @@ export class SingleChatComponent implements OnInit {
           targetId: that.currentCon['targetId'],
           type: RongIMLib.CONVERSATION_TYPE.PRIVATE
         });
-        if (that.rongSer.finalTargetInfos[that.currentCon['targetId']]['relation'] == 1) {
+        if ((that.rongSer.finalTargetInfos && that.rongSer.finalTargetInfos[that.currentCon['targetId']] && that.rongSer.finalTargetInfos[that.currentCon['targetId']]['relation'] == 1) || that.getTargetInfo(that.currentCon['targetId'])['relation'] == 1) {
           conversation.send({
             messageType: 's:person',
             content: {content: that.messageForm.value['message']}

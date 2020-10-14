@@ -18,7 +18,7 @@
         <mat-card-actions>
             <button *ngIf="finalUserInfo().isAdmin || finalUserInfo().userID == curUserInfo.userID" [routerLink]="finalUserInfo().userID == curUserInfo.userID ? ['/editInfo', {from: from}] : ['/editInfo', curUserInfo.userID, {from: from}]" mat-button>编辑</button>
             <button (click)="curUserInfo.relation == 1 ? changeRelation(0) : changeRelation(1)" mat-button>{{curUserInfo.relation == 1 ? '解除好友关系' : '加为好友'}}</button>
-            <button *ngIf="curUserInfo.relation == 1" [routerLink]="['/singleChat', {chat: curUserInfo.userID}]" mat-button>开始聊天</button>
+            <button *ngIf="curUserInfo.relation == 1" [routerLink]="['/singleChat', {chat: curUserInfo.userID, chatnick: curUserInfo.nickname, chatpor: curUserInfo.portraitUri, chatrel: curUserInfo.relation}]" mat-button>开始聊天</button>
             <button (click)="curUserInfo.relation == -1 ? changeRelation(0) : changeRelation(-1)" mat-button>{{curUserInfo.relation == -1 ? '从黑名单中移除' : '加入黑名单'}}</button>
         </mat-card-actions>
     </mat-card>    

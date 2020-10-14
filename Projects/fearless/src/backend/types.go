@@ -51,7 +51,8 @@ func (user *userDB) userLogin(w http.ResponseWriter, r *http.Request) error {
 func (user *userDB) addNewUser() error {
 	err := user.queryUserDB()
 	checkErr(err)
-	if user.Token != "" {
+
+	if len(user.Token) != 0 {
 		return fmt.Errorf(`userID %s already in use`, user.UserID)
 	}
 

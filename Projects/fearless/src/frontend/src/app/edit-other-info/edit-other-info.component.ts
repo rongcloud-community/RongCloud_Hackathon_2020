@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ApplicationRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'
 import { FormBuilder, FormControl, Validators } from '@angular/forms'
 import { AcccountManagementService } from '../account-management.service'
@@ -21,7 +21,11 @@ export class EditOtherInfoComponent implements OnInit {
 
   err: string = ''
 
-  constructor(private route: ActivatedRoute, private accSer: AcccountManagementService, private router: Router, private fb: FormBuilder) { }
+  hasErr(thing: string) {
+    return this.appRef.components[0].instance.hasErr(this.infoForm, thing)
+  }
+
+  constructor(private route: ActivatedRoute, private accSer: AcccountManagementService, private router: Router, private fb: FormBuilder, private appRef: ApplicationRef) { }
 
   ngOnInit() {
     this.accSer.userinfoOther(this.finalUserInfo).subscribe(res => {

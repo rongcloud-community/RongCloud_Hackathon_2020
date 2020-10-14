@@ -32,6 +32,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.appRef.components[0].instance.setTitle('注册')
   }
 
   onSubmit() {
