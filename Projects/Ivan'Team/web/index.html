@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/plugins/boostrap/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/rolling/css/rolling.css">
+
+    <link rel="stylesheet" href="assets/stylesheets/style.css">
+    <style>
+        .thumbnail img {
+            height: 220px;
+            object-fit: cover;
+        }
+
+    </style>
+</head>
+<body class="rooms">
+<div class="scrollbar-macosx">
+    <div class="header">
+        <div class="toptext">
+            <a href="#">
+                <span class="glyphicon glyphicon-home"></span>
+                <b>聊天室</b>
+            </a>
+        </div>
+        <div class="clapboard hidden"></div>
+    </div>
+    <div class="main container">
+        <div class="room_list">
+            <div class="col-xs-6 col-sm-6 col-md-4">
+                <a href="room.html?roomId=yxrs" class="thumbnail">
+                    <img src="assets/images/room/yxrs.jpg" alt="鱼香肉丝">
+                    <span class="number"><span class='glyphicon glyphicon-user'></span><span
+                            class=" xyrs">0</span>人</span>
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-4">
+                <a href="room.html?roomId=hmjmf" class="thumbnail">
+                    <img src="assets/images/room/hmjmf.jpg" alt="黄焖鸡米饭">
+                    <span class="number"><span class='glyphicon glyphicon-user'></span><span
+                            class=" hmjmf">0</span>人</span>
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-4">
+                <a href="room.html?roomId=gbjd" class="thumbnail">
+                    <img src="assets/images/room/gbjd.jpg" alt="宫保鸡丁">
+                    <span class="number"><span class='glyphicon glyphicon-user'></span><span
+                            class="gbjd">0</span>人</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+
+<script src="https://cdn.ronghub.com/RongIMLib-2.5.0.min.js"></script>
+<script src="https://cdn.ronghub.com/RongRTC.3.0.3.min.js"></script>
+<script>
+    var token = '';
+    $(function () {
+        $.post("http://106.54.255.244:9001/fetchRooms.php", {
+            user_id: 'Ivan'
+        }, function (res) {
+            var result = JSON.parse(res);
+            $(".yxrs").html(result.yxrs)
+            $(".gbjd").html(result.gbjd)
+            $(".hmjmf").html(result.hmjmf)
+        })
+    })
+</script>
+</body>
+</html>
