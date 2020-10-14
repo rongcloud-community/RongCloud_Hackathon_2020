@@ -1,0 +1,104 @@
+<!--
+  ~ 项目名：Listener
+  ~ 作者：@happy_fsyy
+  ~ 联系我：https://github.com/happyfsyy
+  ~ Copyright (c) 2020. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  ~ Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+  ~ Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+  ~ Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+  ~ Vestibulum commodo. Ut rhoncus gravida arcu.
+  -->
+
+<resources>
+    <string name="app_name">Listener</string>
+    <string name="failure_text">网络异常</string>
+    <string name="splash_text1">找一个树洞，把秘密说进去</string>
+    <string name="splash_text2">——《花样年华》</string>
+    <string name="splash_text3">-听你说</string>
+    <string name="login_number_prefix">+86</string>
+    <string name="login_number_hint">手机号</string>
+    <string name="login_verified_text">验证码</string>
+    <string name="login_verified_btn">获取验证码</string>
+    <string name="login_verified_sent">验证码已发送</string>
+    <string name="login_verified_error">验证码发送失败</string>
+    <string name="login_verified_resend">重新获取验证码</string>
+    <string name="login">登录</string>
+    <string name="lonely">独白</string>
+    <string name="encounter">遇见</string>
+    <string name="personal">个人</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="lonely_open_hint">世界那么大，总有可以与你产生情感共鸣的人…</string>
+    <string name="lonely_private_hint">总有一些话我们说不出口，即使对最亲近的人也无法诉说…</string>
+    <string name="lonely_buried_hint">我只是个树洞，我不说话，但我会保存你说的话…</string>
+    <string name="lonely_submit_success">发布成功了</string>
+    <string name="lonely_tags">标签：</string>
+    <string name="lonely_tag">如：工作烦恼</string>
+    <string name="lonely_open">发布到广场：</string>
+    <string name="lonely_private">仅自己可见：</string>
+    <string name="lonely_buried">埋起来：</string>
+    <string name="lonely_notes">注：\n既然埋起来了，那么自己也会看不到，除非…</string>
+    <string name="personal_userName">阿乐246</string>
+    <string name="personal_signature">你还没有编辑你的签名</string>
+    <string name="personal_index">我的主页</string>
+    <string name="personal_private">仅自己可见</string>
+    <string name="personal_buried">埋起来的</string>
+    <string name="personal_feedback">建议与反馈</string>
+    <string name="date_just_now">刚刚</string>
+    <string name="date_minutes">%d分钟前</string>
+    <string name="date_hours">%d小时前</string>
+    <string name="date_days">%d天前</string>
+    <string name="date_month">%d个月前</string>
+    <string name="detail_title">详情</string>
+    <string name="private_title">仅自己可见</string>
+    <string name="feedback_title">建议与反馈</string>
+    <string name="profile_title">编辑个人资料</string>
+    <string name="profile_photo_prefix">更换头像</string>
+    <string name="profile_username_prefix">昵称</string>
+    <string name="profile_signature_prefix">签名</string>
+    <string name="profile_signature">你还没有编辑你的签名</string>
+    <string name="feedback_question_header">问题描述</string>
+    <string name="feedback_question_hint">输入您的问题，以便我们提供更好的帮助…</string>
+    <string name="feedback_img_header">添加图片（选填）</string>
+    <string name="feedback_submit">提交</string>
+    <string name="comment_inner_more">查看更多></string>
+    <string name="detail_edit_hint">回复@%s:</string>
+    <string name="edit_content_toast">内容不可以为空</string>
+    <string name="profile_edit_username">更新昵称</string>
+    <string name="profile_edit_sign">更新签名</string>
+    <string name="dialog_confirm">确定</string>
+    <string name="dialog_cancel">取消</string>
+    <string name="profile_username_toast">昵称不可以为空</string>
+    <string name="profile_sign_toast">签名不可以为空</string>
+    <string name="popup_take_photo">拍一张</string>
+    <string name="popup_albums">从手机相册选择</string>
+    <string name="cancel">取消</string>
+    <string name="write_external_denied">您禁止了权限</string>
+    <string name="home_send_energy">送出能量</string>
+    <string name="home_get_energy">获得能量</string>
+    <string name="home_get_likes">收到点赞</string>
+    <string name="home_post_header_my">我的帖子</string>
+    <string name="home_post_header_his">他的帖子</string>
+    <string name="home_comment_header_my">我的回复</string>
+    <string name="home_comment_header_his">他的回复</string>
+    <string name="home_header_num">%d条</string>
+    <string name="home_private_msg">私信</string>
+    <string name="home_comment_inner_text1">回复了帖子：%s</string>
+    <string name="home_comment_inner_text2">回复了评论：%s</string>
+    <string name="toast_comment_success">评论发表成功</string>
+    <string name="toast_network_exception">网络异常</string>
+    <string name="detail_report">举报</string>
+    <string name="detail_share_wechat">分享到微信</string>
+    <string name="toast_report_success">举报成功</string>
+    <string name="toast_share_wechat">还未做这个功能</string>
+    <string name="submit_text">正在提交…</string>
+    <string name="buried_message">您还未开通此功能</string>
+    <string name="home_no_data">该用户还未发表任何动态</string>
+    <string name="phone_number_empty">手机号不可以为空</string>
+    <string name="phone_number_error">手机号格式错误</string>
+    <string name="sending">正在发送…</string>
+    <string name="logging">登录中…</string>
+    <string name="login_failure">登录失败</string>
+    <string name="private_no_data">您还未发表任何动态</string>
+    <string name="conversation_header">私信</string>
+</resources>

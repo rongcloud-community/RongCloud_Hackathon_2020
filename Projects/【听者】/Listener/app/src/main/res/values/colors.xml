@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ 项目名：Listener
+  ~ 作者：@happy_fsyy
+  ~ 联系我：https://github.com/happyfsyy
+  ~ Copyright (c) 2020. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  ~ Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+  ~ Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+  ~ Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+  ~ Vestibulum commodo. Ut rhoncus gravida arcu.
+  -->
+
+<resources>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#cccccc</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="toolbarBg">#e8e8e8</color>
+    <color name="listDividerColor">#d6d6d6</color>
+    <color name="bottomTabBg">#f4f4f4</color>
+    <color name="backgroundColor">#e8e8e8</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="textColor">#333333</color>
+    <color name="grayTextColor">#666666</color>
+    <color name="tagColor">#80a9d3</color>
+    <color name="scrollbarColor">#6699cc</color>
+    <color name="innerCommentBg">#f5f5f5</color>
+    <color name="innerCommentMoreColor">#6699cc</color>
+</resources>

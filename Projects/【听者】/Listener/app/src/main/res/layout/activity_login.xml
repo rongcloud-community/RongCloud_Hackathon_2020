@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ 项目名：Listener
+  ~ 作者：@happy_fsyy
+  ~ 联系我：https://github.com/happyfsyy
+  ~ Copyright (c) 2020. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  ~ Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+  ~ Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+  ~ Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+  ~ Vestibulum commodo. Ut rhoncus gravida arcu.
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@color/colorPrimary">
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:scaleType="fitXY"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/listener2"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/login_number"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:inputType="phone"
+                android:background="@null"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/commonTextSize"
+                android:hint="@string/login_number_hint" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/commonTextSize"
+                android:textColor="#888888"
+                android:text="@string/login_number_prefix"
+                android:layout_gravity="center_vertical"
+                android:gravity="end"
+                android:layout_marginStart="@dimen/inner_padding"
+                />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/listDividerColor"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+            <EditText
+                android:id="@+id/login_code"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:inputType="number"
+                android:background="@null"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/commonTextSize"
+                android:hint="@string/login_verified_text"/>
+            <TextView
+                android:id="@+id/login_getCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/inner_padding"
+                android:gravity="end"
+                android:text="@string/login_verified_btn"
+                android:textColor="#888888"
+                android:textSize="@dimen/commonTextSize" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/listDividerColor"/>
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:background="@drawable/register_login_bg"
+            android:layout_marginTop="20dp"
+            android:textSize="@dimen/commonTextSizeBig"
+            android:textColor="#666666"
+            />
+    </LinearLayout>
+</RelativeLayout>
