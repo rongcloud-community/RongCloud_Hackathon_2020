@@ -52,6 +52,14 @@ RongIMLib-3.0.7
 
 [https://rongcloud.babybichu.cn](https://rongcloud.babybichu.cn)
 
+测试帐号（管理员）：
+user id  - sim
+密码 - aaaaaaaa
+
+测试帐号（普通用户）：
+user id  - test2
+密码 - aaaaaaaa
+
 ## 项目前景
 
 因为个人时间限制，所以还有很多待开发的功能，比如——
