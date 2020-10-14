@@ -15,6 +15,8 @@ import 'package:crypto/crypto.dart';
 import 'dart:convert';
 import 'package:flutter_amap_location/flutter_amap_location.dart';
 
+import 'package:location_permissions/location_permissions.dart';
+
 // 推荐中心页面
 class DiscoverPage extends StatefulWidget {
   DiscoverPage({Key key}) : super(key: key);
@@ -79,6 +81,20 @@ class _DiscoverPageState extends State<DiscoverPage> {
     super.initState();
     _networkConnect(); //网络连接
     // 在初始化时请求数据
+    _reqPostion();
+  }
+
+  void _reqPostion() async {
+    PermissionStatus permission = await LocationPermissions()
+        .checkPermissionStatus(level: LocationPermissionLevel.locationAlways);
+    if (permission == PermissionStatus.denied ||
+        permission == PermissionStatus.unknown ||
+        permission == PermissionStatus.restricted) {
+      PermissionStatus permission1 = await LocationPermissions()
+          .requestPermissions(
+              permissionLevel: LocationPermissionLevel.locationAlways);
+      print(permission1);
+    }
     // 监听定位事件
     FlutterAmapLocation.listenLocation(_onLocationEvent, _onLocationError);
     FlutterAmapLocation.setOnceLocation(true);
@@ -94,7 +110,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
     }
   }
 
-  void _onLocationEvent(Object event) {
+  void _onLocationEvent(Object event) async {
     // print(event);
     Map<String, Object> loc = Map.castFrom(event);
     jingdu = loc['longitude'];

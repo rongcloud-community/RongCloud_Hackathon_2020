@@ -40,9 +40,9 @@ dependencies:
   # geolocator: ^6.0.0
   flutter_amap_location:
   crypto: ^2.1.5
+  location_permissions: ^3.0.0+1
   # 融云SDK
   rongcloud_im_plugin: ^4.0.2
-
 
 
 dev_dependencies:

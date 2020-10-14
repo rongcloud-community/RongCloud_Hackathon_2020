@@ -1,4 +1,4 @@
-package com.example.rongcloud_im_plugin_example;
+package com.example.together_panda;
 
 import android.content.Context;
 import android.os.Bundle;

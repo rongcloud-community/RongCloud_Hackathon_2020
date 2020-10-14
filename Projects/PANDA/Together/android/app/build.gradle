@@ -25,9 +25,9 @@ apply plugin: 'com.android.application'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 // key注册
-def keystorePropertiesFile = rootProject.file("key.properties")
-def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+// def keystorePropertiesFile = rootProject.file("key.properties")
+// def keystoreProperties = new Properties()
+// keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
     compileSdkVersion 28
@@ -38,7 +38,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.rongcloud_im_plugin_example"
+        applicationId "com.example.together_panda"
         minSdkVersion 23
         targetSdkVersion 28
         versionCode 5
@@ -59,32 +59,32 @@ android {
         }
     }
 
-    // buildTypes {
-    //     release {
-    //         // TODO: Add your own signing config for the release build.
-    //         // Signing with the debug keys for now, so `flutter run --release` works.
-    //         signingConfig signingConfigs.debug
-    //         shrinkResources false
-    //         minifyEnabled false
-    //     }
-    // }
-
-    signingConfigs {
+    buildTypes {
         release {
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig signingConfigs.debug
+            shrinkResources false //[1]
+            minifyEnabled false //[2]
         }
     }
 
-    buildTypes {
-       release {
-           signingConfig signingConfigs.release
-           shrinkResources false //[1]
-           minifyEnabled false //[2]
-       }
-    }
+    // signingConfigs {
+    //     release {
+    //         keyAlias keystoreProperties['keyAlias']
+    //         keyPassword keystoreProperties['keyPassword']
+    //         storeFile file(keystoreProperties['storeFile'])
+    //         storePassword keystoreProperties['storePassword']
+    //     }
+    // }
+
+    // buildTypes {
+    //    release {
+    //        signingConfig signingConfigs.release
+    //        shrinkResources false //[1]
+    //        minifyEnabled false //[2]
+    //    }
+    // }
 
 
 

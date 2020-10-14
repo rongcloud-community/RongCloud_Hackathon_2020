@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage>
 
   @override
   void initState() {
-     FlutterAmapLocation.listenLocation(_onLocationEvent, _onLocationError);
+    FlutterAmapLocation.listenLocation(_onLocationEvent, _onLocationError);
     _floatRadius = _height * 2 / 3;
     _animationController =
         AnimationController(vsync: this, duration: Duration(milliseconds: 400));

@@ -28,7 +28,7 @@ packages:
       name: camera
       url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub"
     source: hosted
-    version: "0.5.8+7"
+    version: "0.5.8+8"
   characters:
     dependency: transitive
     description:
@@ -253,7 +253,7 @@ packages:
       name: image_gallery_saver
       url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub"
     source: hosted
-    version: "1.5.0"
+    version: "1.6.0"
   image_picker:
     dependency: "direct main"
     description:
@@ -275,6 +275,13 @@ packages:
       url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub"
     source: hosted
     version: "0.16.1"
+  location_permissions:
+    dependency: "direct main"
+    description:
+      name: location_permissions
+      url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub"
+    source: hosted
+    version: "3.0.0+1"
   matcher:
     dependency: transitive
     description:
@@ -400,7 +407,7 @@ packages:
       name: rongcloud_im_plugin
       url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub"
     source: hosted
-    version: "4.0.2+1"
+    version: "4.0.3"
   rxdart:
     dependency: "direct main"
     description:

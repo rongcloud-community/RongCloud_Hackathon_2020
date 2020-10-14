@@ -1,5 +1,7 @@
+import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
+import 'package:rongcloud_im_plugin_project/im/util/dialog_util.dart';
 import 'package:rongcloud_im_plugin_project/im/util/style.dart';
 import 'package:rongcloud_im_plugin_project/other/discover_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -50,13 +52,14 @@ class _PublishPageState extends State<PublishPage> {
 
   // post请求发布文章
   void _postPublish() async {
+    _networkConnect(); //网络连接
     try {
       Map params = {
         "uid": userId,
         "content": textController.text,
         "findMates": _sSwitchItem,
-        'lng': jingdu.toString(),
-        'lat': weidu.toString()
+        'lng': jingdu==null?0.0.toString():jingdu.toString(),
+        'lat': jingdu==null?0.0.toString():weidu.toString()
       };
       Response response = await Dio().post(
           "http://api.mashiro.online/center/add",
@@ -65,10 +68,19 @@ class _PublishPageState extends State<PublishPage> {
       print(response.data);
       if (response.data['code'] == 200) {
         textController.text = '';
+        Fluttertoast.showToast(msg: "动态发布成功~");
         Navigator.pop(context);
       }
     } catch (e) {
       print(e);
+    }
+  }
+
+  void _networkConnect() async {
+    var connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult == ConnectivityResult.none) {
+      print('-请连接网络-');
+      Fluttertoast.showToast(msg: "网络未连接，请连接网络重试");
     }
   }
 
@@ -161,17 +173,21 @@ class _PublishPageState extends State<PublishPage> {
                       onChanged: (value) {
                         print(value);
                         if (value) {
-                          Fluttertoast.showToast(
-                            msg: "已开启looking for mates, 大家可以在推荐中心找到你喽！",
-                            textColor: Colors.teal[300],
-                            backgroundColor: Colors.white24,
-                          );
+                          // Fluttertoast.showToast(
+                          //   msg: "已开启looking for mates, 大家可以在推荐中心找到你喽！",
+                          //   textColor: Colors.teal[300],
+                          //   backgroundColor: Colors.white24,
+                          // );
+                          DialogUtil.showAlertDiaLog(context,
+                              "已开启looking for mates, \n大家可以在推荐中心找到你喽！\n注：推荐中无法查看自己的动态哦~");
                         } else {
-                          Fluttertoast.showToast(
-                            msg: "已关闭looking for mates，您的动态会展示在个人中心",
-                            textColor: Colors.teal[300],
-                            backgroundColor: Colors.white24,
-                          );
+                          // Fluttertoast.showToast(
+                          //   msg: "已关闭looking for mates，您的动态会展示在个人中心",
+                          //   textColor: Colors.teal[300],
+                          //   backgroundColor: Colors.white24,
+                          // );
+                          DialogUtil.showAlertDiaLog(
+                              context, "已关闭looking for mates \n您的动态会展示在个人中心");
                         }
                         setState(() {
                           this._sSwitchItem = value;
