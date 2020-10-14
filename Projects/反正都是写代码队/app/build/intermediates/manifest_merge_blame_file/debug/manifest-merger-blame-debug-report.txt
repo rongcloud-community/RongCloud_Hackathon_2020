@@ -1,0 +1,508 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="answer.question"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+8-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="28" />
+9-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml
+10    <!-- 音视频需要网络权限 和 监听网络状态权限 -->
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:5:5-67
+11-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:6:5-79
+12-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:6:22-76
+13    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+13-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:7:5-79
+13-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:7:22-76
+14    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+14-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:8:5-76
+14-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:8:22-73
+15    <!-- 摄像头采集需要 -->
+16    <uses-permission android:name="android.permission.CAMERA" />
+16-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:10:5-65
+16-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:10:22-62
+17    <!-- 音频采集需要 -->
+18    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+18-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:12:5-71
+18-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:12:22-68
+19    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+19-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:13:5-80
+19-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:13:22-77
+20
+21    <!-- 保存图片，拍照等 -->
+22    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 消息通道保活 -->
+22-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:12:5-81
+22-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:12:22-78
+23    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- 访问相册，访问文件系统等 -->
+23-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:18:5-68
+23-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:18:22-65
+24    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 拍照等 -->
+24-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:12:5-80
+24-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:12:22-77
+25    <uses-permission android:name="android.permission.WRITE_SETTINGS" /> <!-- 网络 -->
+25-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:19:5-73
+25-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:19:22-70
+26    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- 使用ActivityManager需要 -->
+26-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:21:5-76
+26-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:21:22-73
+27    <uses-permission android:name="android.permission.GET_TASKS" /> <!-- 适配 Android 8.0 -->
+27-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:28:5-68
+27-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:28:22-65
+28    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" /> <!-- 新消息震动提醒 -->
+28-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:30:5-83
+28-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:30:22-80
+29    <uses-permission android:name="android.permission.VIBRATE" />
+29-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:34:5-66
+29-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:34:22-63
+30    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+30-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:12:5-74
+30-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:12:22-71
+31    <uses-permission android:name="android.permission.BLUETOOTH" />
+31-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:13:5-68
+31-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:13:22-65
+32    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
+32-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:14:5-85
+32-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:14:22-82
+33    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 读取电话的状态信息的权限 -->
+33-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:15:5-78
+33-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:15:22-75
+34    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+34-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:20:5-75
+34-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:20:22-72
+35    <uses-permission android:name="android.permission.CAPTURE_VIDEO_OUTPUT" />
+35-->[cn.rongcloud.sdk:call_lib:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/6bdf7bb59d6a1454e11752f7a3f96511/call_lib-4.0.3/AndroidManifest.xml:19:5-79
+35-->[cn.rongcloud.sdk:call_lib:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/6bdf7bb59d6a1454e11752f7a3f96511/call_lib-4.0.3/AndroidManifest.xml:19:22-76
+36
+37    <application
+37-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:14:5-33:19
+38        android:allowBackup="true"
+38-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:15:9-35
+39        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
+39-->[com.android.support:support-compat:28.0.0] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/00567bd0de14b33d1bf8a440dc72bff8/support-compat-28.0.0/AndroidManifest.xml:22:18-91
+40        android:debuggable="true"
+41        android:extractNativeLibs="false"
+42        android:icon="@mipmap/ic_launcher"
+42-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:16:9-43
+43        android:label="@string/app_name"
+43-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:17:9-41
+44        android:roundIcon="@mipmap/ic_launcher_round"
+44-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:18:9-54
+45        android:supportsRtl="true"
+45-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:19:9-35
+46        android:testOnly="true"
+47        android:theme="@style/AppTheme" >
+47-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:20:9-40
+48        <activity
+48-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:21:9-32:20
+49            android:name="answer.question.Home"
+49-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:22:13-33
+50            android:configChanges="orientation|keyboardHidden|screenSize"
+50-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:23:13-74
+51            android:label="@string/app_name"
+51-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:24:13-45
+52            android:theme="@style/FullscreenTheme"
+52-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:26:13-51
+53            android:usesCleartextTraffic="true" >
+53-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:25:13-48
+54            <intent-filter>
+54-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:27:13-31:29
+55                <action android:name="android.intent.action.MAIN" />
+55-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:28:17-69
+55-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:28:25-66
+56
+57                <category android:name="android.intent.category.LAUNCHER" />
+57-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:30:17-77
+57-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:30:27-74
+58            </intent-filter>
+59        </activity>
+60        <!-- imlib config begin -->
+61        <service
+61-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:25:9-27:38
+62            android:name="io.rong.imlib.ipc.RongService"
+62-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:26:13-57
+63            android:process=":ipc" />
+63-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:27:13-35
+64
+65        <receiver android:name="io.rong.imlib.ConnectChangeReceiver" />
+65-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:29:9-72
+65-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:29:19-69
+66        <receiver
+66-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:30:9-32:38
+67            android:name="io.rong.imlib.HeartbeatReceiver"
+67-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:31:13-59
+68            android:process=":ipc" /> <!-- imlib config end -->
+68-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:32:13-35
+69        <!-- 必选： SDK 核心功能 -->
+70        <service
+70-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:37:9-41:46
+71            android:name="io.rong.push.rongpush.PushService"
+71-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:38:13-61
+72            android:exported="true"
+72-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:39:13-36
+73            android:permission="android.permission.BIND_JOB_SERVICE"
+73-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:40:13-69
+74            android:process="io.rong.push" /> <!-- push 相关事件接收器 -->
+74-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:41:13-43
+75        <receiver
+75-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:44:9-59:20
+76            android:name="io.rong.push.rongpush.PushReceiver"
+76-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:45:13-62
+77            android:process="io.rong.push" > <!-- 此处进程可以改名，名称需要和PushService所在进程统一 -->
+77-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:46:13-43
+78            <!-- 心跳事件和网络切换事件监听,必须 -->
+79            <intent-filter>
+79-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:48:13-51:29
+80                <action android:name="io.rong.push.intent.action.HEART_BEAT" />
+80-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:49:17-80
+80-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:49:25-77
+81                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+81-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:50:17-79
+81-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:50:25-76
+82            </intent-filter>
+83
+84            <!-- 部分用户事件监听, 用来提高推送拉活率; 可移除 -->
+85            <intent-filter>
+85-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:54:13-58:29
+86                <action android:name="android.intent.action.USER_PRESENT" />
+86-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:55:17-77
+86-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:55:25-74
+87                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+87-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:56:17-87
+87-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:56:25-84
+88                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+88-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:57:17-90
+88-->[cn.rongcloud.sdk:im_lib:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/343e7d22ac3395e00d0ddfaeb03bbbf2/im_lib-4.0.3.1/AndroidManifest.xml:57:25-87
+89            </intent-filter>
+90        </receiver>
+91
+92        <activity
+92-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:37:9-39:52
+93            android:name="io.rong.imkit.plugin.location.AMapLocationActivity"
+93-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:38:13-78
+94            android:screenOrientation="portrait" />
+94-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:39:13-49
+95        <activity
+95-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:40:9-42:52
+96            android:name="io.rong.imkit.plugin.location.AMapLocationActivity2D"
+96-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:41:13-80
+97            android:screenOrientation="portrait" />
+97-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:42:13-49
+98        <activity android:name="io.rong.imkit.plugin.location.AMapPreviewActivity" />
+98-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:43:9-86
+98-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:43:19-83
+99        <activity android:name="io.rong.imkit.plugin.location.AMapPreviewActivity2D" />
+99-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:44:9-88
+99-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:44:19-85
+100        <activity android:name="io.rong.imkit.plugin.location.AMapRealTimeActivity" />
+100-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:45:9-87
+100-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:45:19-84
+101        <activity android:name="io.rong.imkit.plugin.location.AMapRealTimeActivity2D" />
+101-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:46:9-89
+101-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:46:19-86
+102        <activity
+102-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:47:9-50:71
+103            android:name="io.rong.imkit.plugin.location.SearchLocationActivity"
+103-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:48:13-80
+104            android:screenOrientation="portrait"
+104-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:49:13-49
+105            android:windowSoftInputMode="stateVisible|adjustResize" />
+105-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:50:13-68
+106        <activity
+106-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:51:9-54:52
+107            android:name="io.rong.imkit.plugin.image.PictureSelectorActivity"
+107-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:52:13-78
+108            android:configChanges="keyboardHidden|orientation|screenSize"
+108-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:53:13-74
+109            android:screenOrientation="portrait" />
+109-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:54:13-49
+110        <activity
+110-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:55:9-57:52
+111            android:name="io.rong.imkit.plugin.image.PicturePreviewActivity"
+111-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:56:13-77
+112            android:screenOrientation="portrait" /> <!-- 开发者可以修改 RongBaseActivity 的 rc_base_activity_layout 布局文件调整 actionbar -->
+112-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:57:13-49
+113        <activity
+113-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:60:9-69:20
+114            android:name="io.rong.imkit.tools.RongWebviewActivity"
+114-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:61:13-67
+115            android:exported="false"
+115-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:62:13-37
+116            android:screenOrientation="portrait" >
+116-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:63:13-49
+117            <intent-filter>
+117-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:64:13-68:29
+118                <action android:name="io.rong.imkit.intent.action.webview" />
+118-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:65:17-78
+118-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:65:25-75
+119
+120                <category android:name="android.intent.category.DEFAULT" />
+120-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:67:17-76
+120-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:67:27-73
+121            </intent-filter>
+122        </activity>
+123        <activity
+123-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:70:9-79:20
+124            android:name="io.rong.imkit.tools.CombineWebViewActivity"
+124-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:71:13-70
+125            android:exported="false"
+125-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:72:13-37
+126            android:screenOrientation="portrait" >
+126-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:73:13-49
+127            <intent-filter>
+127-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:74:13-78:29
+128                <action android:name="io.rong.imkit.intent.action.combinewebview" />
+128-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:75:17-85
+128-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:75:25-82
+129
+130                <category android:name="android.intent.category.DEFAULT" />
+130-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:67:17-76
+130-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:67:27-73
+131            </intent-filter>
+132        </activity>
+133        <activity
+133-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:80:9-83:52
+134            android:name="io.rong.imkit.widget.provider.TakingPicturesActivity"
+134-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:81:13-80
+135            android:configChanges="orientation|keyboardHidden"
+135-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:82:13-63
+136            android:screenOrientation="portrait" />
+136-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:83:13-49
+137        <activity
+137-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:84:9-93:20
+138            android:name="io.rong.imkit.activity.PicturePagerActivity"
+138-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:85:13-71
+139            android:exported="false"
+139-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:86:13-37
+140            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+140-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:87:13-71
+141            <intent-filter>
+141-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:88:13-92:29
+142                <action android:name="io.rong.imkit.intent.action.picturepagerview" />
+142-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:89:17-87
+142-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:89:25-84
+143
+144                <category android:name="android.intent.category.DEFAULT" />
+144-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:67:17-76
+144-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:67:27-73
+145            </intent-filter>
+146        </activity>
+147        <activity
+147-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:94:9-101:20
+148            android:name="io.rong.imkit.activity.CombinePicturePagerActivity"
+148-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:95:13-78
+149            android:exported="false"
+149-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:96:13-37
+150            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+150-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:97:13-71
+151            <intent-filter>
+151-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:98:13-100:29
+152                <category android:name="android.intent.category.DEFAULT" />
+152-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:67:17-76
+152-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:67:27-73
+153            </intent-filter>
+154        </activity>
+155        <activity
+155-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:102:9-105:67
+156            android:name="io.rong.imkit.mention.MemberMentionedActivity"
+156-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:103:13-73
+157            android:configChanges="orientation|keyboardHidden"
+157-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:104:13-63
+158            android:windowSoftInputMode="adjustPan|stateHidden" />
+158-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:105:13-64
+159        <activity android:name="io.rong.imkit.activity.FileManagerActivity" />
+159-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:106:9-79
+159-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:106:19-76
+160        <activity android:name="io.rong.imkit.activity.FileListActivity" />
+160-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:107:9-76
+160-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:107:19-73
+161        <activity
+161-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:108:9-117:20
+162            android:name="io.rong.imkit.activity.FilePreviewActivity"
+162-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:109:13-70
+163            android:exported="false"
+163-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:110:13-37
+164            android:screenOrientation="portrait" >
+164-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:111:13-49
+165            <intent-filter>
+165-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:112:13-116:29
+166                <action android:name="io.rong.imkit.intent.action.openfile" />
+166-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:113:17-79
+166-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:113:25-76
+167
+168                <category android:name="android.intent.category.DEFAULT" />
+168-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:67:17-76
+168-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:67:27-73
+169            </intent-filter>
+170        </activity>
+171        <activity
+171-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:118:9-127:20
+172            android:name="io.rong.imkit.activity.WebFilePreviewActivity"
+172-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:119:13-73
+173            android:exported="false"
+173-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:120:13-37
+174            android:screenOrientation="portrait" >
+174-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:121:13-49
+175            <intent-filter>
+175-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:122:13-126:29
+176                <action android:name="io.rong.imkit.intent.action.openwebfile" />
+176-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:123:17-82
+176-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:123:25-79
+177
+178                <category android:name="android.intent.category.DEFAULT" />
+178-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:67:17-76
+178-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:67:27-73
+179            </intent-filter>
+180        </activity>
+181        <activity
+181-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:128:9-131:52
+182            android:name="io.rong.imkit.activity.CSLeaveMessageActivity"
+182-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:129:13-73
+183            android:configChanges="orientation|keyboardHidden"
+183-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:130:13-63
+184            android:screenOrientation="portrait" />
+184-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:131:13-49
+185        <activity
+185-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:132:9-141:20
+186            android:name="io.rong.imkit.activity.GIFPreviewActivity"
+186-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:133:13-69
+187            android:exported="false"
+187-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:134:13-37
+188            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+188-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:135:13-71
+189            <intent-filter>
+189-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:136:13-140:29
+190                <action android:name="io.rong.imkit.intent.action.gifrview" />
+190-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:137:17-79
+190-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:137:25-76
+191
+192                <category android:name="android.intent.category.DEFAULT" />
+192-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:67:17-76
+192-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:67:27-73
+193            </intent-filter>
+194        </activity>
+195        <activity android:name="io.rong.imkit.activity.SelectConversationActivity" /> <!-- new voip config start -->
+195-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:142:9-86
+195-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:142:19-83
+196        <activity
+196-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:25:9-36:20
+197            android:name="io.rong.callkit.MultiVideoCallActivity"
+197-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:26:13-66
+198            android:exported="true"
+198-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:27:13-36
+199            android:launchMode="singleTop"
+199-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:28:13-43
+200            android:screenOrientation="portrait"
+200-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:29:13-49
+201            android:windowSoftInputMode="stateHidden|adjustResize" >
+201-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:30:13-67
+202            <intent-filter>
+202-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:31:13-35:29
+203                <action android:name="io.rong.intent.action.voip.MULTIVIDEO" />
+203-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:32:17-80
+203-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:32:25-77
+204
+205                <category android:name="android.intent.category.DEFAULT" />
+205-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:67:17-76
+205-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:67:27-73
+206            </intent-filter>
+207        </activity>
+208        <activity
+208-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:37:9-53:20
+209            android:name="io.rong.callkit.SingleCallActivity"
+209-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:38:13-62
+210            android:exported="true"
+210-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:39:13-36
+211            android:launchMode="singleTop"
+211-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:40:13-43
+212            android:screenOrientation="portrait"
+212-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:41:13-49
+213            android:windowSoftInputMode="stateHidden|adjustResize" >
+213-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:42:13-67
+214            <intent-filter>
+214-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:43:13-47:29
+215                <action android:name="io.rong.intent.action.voip.SINGLEVIDEO" />
+215-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:44:17-81
+215-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:44:25-78
+216
+217                <category android:name="android.intent.category.DEFAULT" />
+217-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:67:17-76
+217-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:67:27-73
+218            </intent-filter>
+219            <intent-filter>
+219-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:48:13-52:29
+220                <action android:name="io.rong.intent.action.voip.SINGLEAUDIO" />
+220-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:49:17-81
+220-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:49:25-78
+221
+222                <category android:name="android.intent.category.DEFAULT" />
+222-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:67:17-76
+222-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:67:27-73
+223            </intent-filter>
+224        </activity>
+225        <activity
+225-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:54:9-65:20
+226            android:name="io.rong.callkit.MultiAudioCallActivity"
+226-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:55:13-66
+227            android:exported="true"
+227-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:56:13-36
+228            android:launchMode="singleTop"
+228-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:57:13-43
+229            android:screenOrientation="portrait"
+229-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:58:13-49
+230            android:windowSoftInputMode="stateHidden|adjustResize" >
+230-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:59:13-67
+231            <intent-filter>
+231-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:60:13-64:29
+232                <action android:name="io.rong.intent.action.voip.MULTIAUDIO" />
+232-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:61:17-80
+232-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:61:25-77
+233
+234                <category android:name="android.intent.category.DEFAULT" />
+234-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:67:17-76
+234-->[cn.rongcloud.sdk:im_kit:4.0.3.1] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/db064999f7ce72fa4c19ef39fce75aa7/im_kit-4.0.3.1/AndroidManifest.xml:67:27-73
+235            </intent-filter>
+236        </activity> <!-- new voip config end -->
+237        <!-- Android Q 后台无法弹出Activity，通过通知栏提醒用户 -->
+238        <receiver android:name="io.rong.callkit.VoIPBroadcastReceiver" >
+238-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:71:9-76:20
+238-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:71:19-71
+239            <intent-filter>
+239-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:72:13-75:29
+240                <action android:name="action.push.CallInviteMessage" />
+240-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:73:17-72
+240-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:73:25-69
+241                <action android:name="action.push.CallInviteMessage.CLICKED" />
+241-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:74:17-80
+241-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:74:25-77
+242            </intent-filter>
+243        </receiver>
+244
+245        <activity android:name="io.rong.callkit.CallSelectMemberActivity" />
+245-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:78:9-77
+245-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:78:19-74
+246
+247        <receiver android:name="io.rong.callkit.util.RTCPhoneStateReceiver" >
+247-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:80:9-84:20
+247-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:80:19-76
+248            <intent-filter>
+248-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:81:13-83:29
+249                <action android:name="android.intent.action.PHONE_STATE" />
+249-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:82:17-76
+249-->[cn.rongcloud.sdk:call_kit:4.0.3] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/89327c3866219add0521b4dad124893f/call_kit-4.0.3/AndroidManifest.xml:82:25-73
+250            </intent-filter>
+251        </receiver>
+252
+253        <meta-data
+253-->[com.android.support:exifinterface:26.1.0] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/0be5f33329d00dade31cf48f9fe978b4/exifinterface-26.1.0/AndroidManifest.xml:23:9-25:38
+254            android:name="android.support.VERSION"
+254-->[com.android.support:exifinterface:26.1.0] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/0be5f33329d00dade31cf48f9fe978b4/exifinterface-26.1.0/AndroidManifest.xml:24:13-51
+255            android:value="26.1.0" />
+255-->[com.android.support:exifinterface:26.1.0] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/0be5f33329d00dade31cf48f9fe978b4/exifinterface-26.1.0/AndroidManifest.xml:25:13-35
+256    </application>
+257
+258</manifest>
