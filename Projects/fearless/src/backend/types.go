@@ -208,6 +208,7 @@ func (user *userDB) requestRongAPI(reqType string, uri string, data *url.Values)
 	log.Output(1, fmt.Sprintf("[Responce] code: %d", user.code))
 	log.Output(1, "[Responce] userId: "+user.UserID)
 	log.Output(1, "[Responce] token: "+user.Token)
+	log.Output(1, "[Responce] from: "+rongURI+uri)
 	// }
 
 	// fmt.Println("code: ", result.Code, "userID: ", result.UserID, "token: ", result.Token)
