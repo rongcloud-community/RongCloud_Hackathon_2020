@@ -41,7 +41,7 @@ func main() {
 
 	http.HandleFunc("/", homepage)
 
-	http.Handle("/uploads/", http.StripPrefix("/uploads", http.FileServer(http.Dir("./uploads"))))
+	http.Handle("/uploads/", http.StripPrefix("/uploads", http.FileServer(http.Dir(uploadPath))))
 
 	log.Fatal(http.ListenAndServe(":8081", nil))
 }
