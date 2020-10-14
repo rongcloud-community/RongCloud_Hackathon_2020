@@ -1,1 +1,1 @@
-export const appid = '0vnjpoad0ik5z'
+export const appid = 'appid'
