@@ -23,8 +23,15 @@ rongcloud_im_plugin: ^4.0.2
 ## 文件夹目录
 
 * SNS文件夹：后端
+
 * Together文件夹：flutter项目源码
+
 * 真机安装包：android真机安装包
+
+  在线下载链接：https://yww.uy/orjfy
+  访问密码：panda（无大小写区别）
+
+  安装**注意**事项：请您**将所有权限**打开以便体验功能
 
 
 
@@ -521,6 +528,9 @@ yarn start
 ## 编译好的真机安装包
 
 只有android版本
+
+Together下载链接：https://yww.uy/orjfy
+访问密码：panda（无大小写区别）
 
 #### 注意事项：
 
