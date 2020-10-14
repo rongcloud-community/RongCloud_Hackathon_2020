@@ -5,15 +5,21 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"path"
+	"path/filepath"
 )
 
 func main() {
+	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
+	if err != nil {
+		log.Fatal(err)
+	}
 	if len(os.Getenv("RONG_UPLOADPATH")) > 0 {
 		uploadPath = os.Getenv("RONG_UPLOADPATH")
 	} else {
-		uploadPath = "uploads"
+		uploadPath = path.Join(dir, "uploads")
 	}
-	var err error
+	// var err error
 	db, err = sql.Open("postgres", psqlInfo)
 	checkErr(err)
 	defer db.Close()
