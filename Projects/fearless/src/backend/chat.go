@@ -167,7 +167,7 @@ func uploadFile(w http.ResponseWriter, r *http.Request) {
 	log.Output(1, "file upload successful")
 
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "statusText": "File uploaded successfully", "filePath": targetFile.Name()})
+	json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "statusText": "File uploaded successfully", "filePath": filepath.Base(targetFile.Name())})
 }
 
 // TODO: conversation model for chat messages

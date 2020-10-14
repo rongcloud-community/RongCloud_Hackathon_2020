@@ -5,14 +5,13 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"path"
 )
 
 func main() {
 	if len(os.Getenv("RONG_UPLOADPATH")) > 0 {
 		uploadPath = os.Getenv("RONG_UPLOADPATH")
 	} else {
-		uploadPath = path.Join(dir, "uploads")
+		uploadPath = "uploads"
 	}
 	var err error
 	db, err = sql.Open("postgres", psqlInfo)
