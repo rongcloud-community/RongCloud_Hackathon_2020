@@ -28,7 +28,7 @@ rongcloud_im_plugin: ^4.0.2
 
 * 真机安装包：android真机安装包
 
-  在线下载链接：https://yww.uy/wMOD9
+  在线下载链接：https://yww.uy/9Rl2e
   访问密码：panda（无大小写区别）
 
   安装**注意**事项：请您**将所有权限**打开以便体验功能
@@ -529,7 +529,7 @@ yarn start
 
 只有android版本
 
-Together下载链接：https://yww.uy/wMOD9
+Together下载链接：https://yww.uy/9Rl2e
 访问密码：panda（无大小写区别）
 
 #### 注意事项：
