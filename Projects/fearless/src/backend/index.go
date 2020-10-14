@@ -1,12 +1,19 @@
 package main
 
 import (
+	"database/sql"
 	"log"
 	"net/http"
 )
 
 func main() {
-	// rongIns.PrivateURI("https://api-sg01.ronghub.com", "http://api.sms.ronghub.com")
+	var err error
+	db, err = sql.Open("postgres", psqlInfo)
+	checkErr(err)
+	defer db.Close()
+	db.SetMaxOpenConns(100)
+	db.SetMaxIdleConns(10)
+
 	http.HandleFunc("/userinfo/changeOthers", changeUserInfoOther)
 	http.HandleFunc("/userinfo/changeSelf", changeUserInfoSelf)
 	http.HandleFunc("/userinfoOther", userInfoOther)
@@ -18,6 +25,9 @@ func main() {
 	http.HandleFunc("/updateConversation", conversationUpdate)
 	http.HandleFunc("/sendMessage", sendMessage)
 	http.HandleFunc("/readMessage", readMessage)
+	http.HandleFunc("/editMessage", editMessage)
+	http.HandleFunc("/uploadFile", uploadFile)
+	http.HandleFunc("/recallMessage", recallMessage)
 	http.HandleFunc("/readConversation", readConversation)
 	http.HandleFunc("/logout", logout)
 	http.HandleFunc("/login", login)

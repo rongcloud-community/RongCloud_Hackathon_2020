@@ -1,6 +1,7 @@
 package main
 
 import (
+	"database/sql"
 	"fmt"
 	"os"
 )
@@ -16,4 +17,5 @@ var (
 	psqlInfo = fmt.Sprintf("host=%s port=%s user=%s "+
 		"dbname=%s sslmode=disable",
 		host, port, user, dbname)
+	db *sql.DB
 )

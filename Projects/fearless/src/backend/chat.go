@@ -1,59 +1,79 @@
 package main
 
 import (
-	"database/sql"
 	"encoding/json"
+	"fmt"
+	"io/ioutil"
+	"log"
 	"net/http"
 )
 
 func sendMessage(w http.ResponseWriter, r *http.Request) {
-	db, err := sql.Open("postgres", psqlInfo)
-	checkErr(err)
-	err = createMessageTable(db)
+	err := createMessageTable()
 	checkErr(err)
 	mes := message{}
 	json.NewDecoder(r.Body).Decode(&mes)
-	err = mes.send(db)
-	checkErr(err)
+	err = mes.send()
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(map[string]interface{}{"status": "success"})
-	db.Close()
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]interface{}{"status": "error", "statusText": err.Error()})
+	} else {
+		json.NewEncoder(w).Encode(map[string]interface{}{"status": "success"})
+	}
 }
 
 func readMessage(w http.ResponseWriter, r *http.Request) {
-	db, err := sql.Open("postgres", psqlInfo)
-	checkErr(err)
-	err = createMessageTable(db)
+	err := createMessageTable()
 	checkErr(err)
 	mes := message{}
 	json.NewDecoder(r.Body).Decode(&mes)
-	err = mes.read(db)
+	err = mes.read()
 	checkErr(err)
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(map[string]interface{}{"status": "success"})
-	db.Close()
+}
+
+func recallMessage(w http.ResponseWriter, r *http.Request) {
+	mes := message{}
+	json.NewDecoder(r.Body).Decode(&mes)
+	err := mes.recall()
+	w.Header().Set("Content-Type", "application/json")
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]interface{}{"status": "error", "errorText": err.Error()})
+	} else {
+		json.NewEncoder(w).Encode(map[string]interface{}{"status": "success"})
+	}
+}
+
+func editMessage(w http.ResponseWriter, r *http.Request) {
+	mes := message{}
+	json.NewDecoder(r.Body).Decode(&mes)
+	err := mes.edit()
+	w.Header().Set("Content-Type", "application/json")
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]interface{}{"status": "error", "errorText": err.Error()})
+	} else {
+		json.NewEncoder(w).Encode(map[string]interface{}{"status": "success"})
+	}
 }
 
 func readConversation(w http.ResponseWriter, r *http.Request) {
-	db, err := sql.Open("postgres", psqlInfo)
-	checkErr(err)
-	session, err := sessionInfoAndTrueRemote(db, r)
+	session := userSession{}
+	err := session.getSessionFromRequest(r)
 	checkErr(err)
 	conv := conversation{}
 	json.NewDecoder(r.Body).Decode(&conv)
 	conv.SenderUserID = session.userinDB
-	conv.read(db)
+	conv.read()
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(map[string]interface{}{"status": "success"})
-	db.Close()
 }
 
 func conversationUpdate(w http.ResponseWriter, r *http.Request) {
-	db, err := sql.Open("postgres", psqlInfo)
+	err := createConversationTable()
 	checkErr(err)
-	err = createConversationTable(db)
-	checkErr(err)
-	session, err := sessionInfoAndTrueRemote(db, r)
+	session := userSession{}
+	err = session.getSessionFromRequest(r)
 	checkErr(err)
 	if err != nil {
 		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
@@ -62,22 +82,20 @@ func conversationUpdate(w http.ResponseWriter, r *http.Request) {
 		json.NewDecoder(r.Body).Decode(&cons)
 		for _, con := range cons {
 			con.SenderUserID = session.userinDB
-			err = con.update(db)
+			err = con.update()
 			checkErr(err)
 		}
 
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(map[string]interface{}{"status": "success"})
 	}
-	db.Close()
 }
 
 func conversationGet(w http.ResponseWriter, r *http.Request) {
-	db, err := sql.Open("postgres", psqlInfo)
+	err := createConversationTable()
 	checkErr(err)
-	err = createConversationTable(db)
-	checkErr(err)
-	session, err := sessionInfoAndTrueRemote(db, r)
+	session := userSession{}
+	err = session.getSessionFromRequest(r)
 	checkErr(err)
 	if err != nil {
 		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
@@ -86,9 +104,7 @@ func conversationGet(w http.ResponseWriter, r *http.Request) {
 			finalCons        []map[string]interface{}
 			finalTargetInfos map[string]interface{} = make(map[string]interface{})
 		)
-		queryFmt, err := db.Prepare(`SELECT UnreadMessageCount, LatestMessage, TargetID, HasMentiond, MentiondInfo, LastUnreadTime, NotificationStatus, IsTop, Type, HasMentioned, MentionedInfo FROM conversation WHERE SenderUserID=$1 ORDER BY UpdateTime DESC;`)
-		checkErr(err)
-		queryRes, err := queryFmt.Query(session.userinDB)
+		queryRes, err := db.Query(`SELECT UnreadMessageCount, LatestMessage, TargetID, HasMentiond, MentiondInfo, LastUnreadTime, NotificationStatus, IsTop, Type, HasMentioned, MentionedInfo FROM conversation WHERE SenderUserID=$1 ORDER BY UpdateTime DESC;`, session.userinDB)
 		checkErr(err)
 		for queryRes.Next() {
 			conCur := conversation{}
@@ -105,27 +121,49 @@ func conversationGet(w http.ResponseWriter, r *http.Request) {
 			finalMentionedInfo := map[string]interface{}{"type": conCur.MentionedInfo.Type, "userIdList": conCur.MentionedInfo.UserIDList}
 			finalCon := map[string]interface{}{"unreadMessageCount": conCur.UnreadMessageCount, "latestMessage": finalLatestMessage, "targetId": conCur.TargetID, "hasMentiond": conCur.HasMentiond, "mentiondInfo": finalMentiondInfo, "lastUnreadTime": conCur.LastUnreadTime, "notificationStatus": conCur.NotificationStatus, "isTop": conCur.IsTop, "type": conCur.Type, "hasMentioned": conCur.HasMentioned, "mentionedInfo": finalMentionedInfo}
 			finalCons = append(finalCons, finalCon)
+
 			finalTargetInfo := userDB{}
 			finalTargetInfo.UserID = conCur.TargetID
-			err = finalTargetInfo.queryUserDB(db)
+			err = finalTargetInfo.queryUserDB()
 			checkErr(err)
 			finalTargetInfos[conCur.TargetID] = map[string]string{"portraitUri": finalTargetInfo.PortraitURI, "nickname": finalTargetInfo.Nickname}
 		}
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "conversations": finalCons, "targetInfos": finalTargetInfos})
 	}
-	db.Close()
 }
 
 func conversationMessagesGet(w http.ResponseWriter, r *http.Request) {
-	db, err := sql.Open("postgres", psqlInfo)
-	checkErr(err)
 	var conversationCur conversation
 	json.NewDecoder(r.Body).Decode(&conversationCur)
-	err = conversationCur.queryMessages(db, r)
+	err := conversationCur.queryMessages(r)
 	checkErr(err)
+	log.Output(1, fmt.Sprintf(`Connection number now: %d, inuse: %d, idle: %d`, db.Stats().OpenConnections, db.Stats().InUse, db.Stats().Idle))
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "messages": conversationCur.Messages})
+}
+
+func uploadFile(w http.ResponseWriter, r *http.Request) {
+	r.ParseMultipartForm(1 << 20)
+
+	file, handler, err := r.FormFile("file")
+	checkErr(err)
+	defer file.Close()
+	log.Output(1, fmt.Sprintf(`File Header: %s`, handler.Header))
+	log.Output(1, fmt.Sprintf(`File Name: %s`, handler.Filename))
+	log.Output(1, fmt.Sprintf(`File Size: %+v`, handler.Size))
+
+	targetFile, err := ioutil.TempFile("uploads", "upload-*")
+	checkErr(err)
+	defer targetFile.Close()
+
+	fileBytes, err := ioutil.ReadAll(file)
+	checkErr(err)
+	targetFile.Write(fileBytes)
+	log.Output(1, "file upload successful")
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "statusText": "File uploaded successfully"})
 }
 
 // TODO: conversation model for chat messages
@@ -162,7 +200,7 @@ func conversationMessagesGet(w http.ResponseWriter, r *http.Request) {
 // 	"mentionedInfo": null
 //   }
 
-func createConversationTable(db *sql.DB) (err error) {
+func createConversationTable() (err error) {
 	crt, err := db.Prepare(`CREATE TABLE IF NOT EXISTS conversation (
 		id SERIAL PRIMARY KEY,
 		senderUserId varchar(64) NOT NULL,
@@ -206,7 +244,7 @@ func createConversationTable(db *sql.DB) (err error) {
 // 	"expansion": null
 //   },
 
-func createMessageTable(db *sql.DB) (err error) {
+func createMessageTable() (err error) {
 	crt, err := db.Prepare(`CREATE TABLE IF NOT EXISTS message (
 		id SERIAL PRIMARY KEY,
 		type int NOT NULL,

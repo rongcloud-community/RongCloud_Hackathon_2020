@@ -6,22 +6,19 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"strings"
 )
 
 func userInfo(w http.ResponseWriter, r *http.Request) {
-	db, err := sql.Open("postgres", psqlInfo)
-	checkErr(err)
-
 	w.Header().Set("Content-Type", "application/json")
 
-	session, err := sessionInfoAndTrueRemote(db, r)
+	session := userSession{}
+	err := session.getSessionFromRequest(r)
 	if err != nil {
 		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 	} else {
 		var curUser userDB
 		curUser.UserID = session.userinDB
-		err = curUser.queryUserDB(db)
+		err = curUser.queryUserDB()
 		if err != nil {
 			panic(err)
 			// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
@@ -29,37 +26,34 @@ func userInfo(w http.ResponseWriter, r *http.Request) {
 			json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "userInfo": map[string]interface{}{"userID": curUser.UserID, "nickname": curUser.Nickname, "portraitUri": curUser.PortraitURI, "token": curUser.Token, "isAdmin": curUser.isAdmin}})
 		}
 	}
-	db.Close()
-	log.Output(1, "database closed connection from userInfo")
+	log.Output(1, fmt.Sprintf(`Connection number now: %d, inuse: %d, idle: %d`, db.Stats().OpenConnections, db.Stats().InUse, db.Stats().Idle))
 }
 
 func userInfoOther(w http.ResponseWriter, r *http.Request) {
-	db, err := sql.Open("postgres", psqlInfo)
-	checkErr(err)
-
 	w.Header().Set("Content-Type", "application/json")
 
-	session, err := sessionInfoAndTrueRemote(db, r)
+	session := userSession{}
+	err := session.getSessionFromRequest(r)
 	if err != nil {
 		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 	} else {
 		var curUser userDB
 		curUser.UserID = session.userinDB
-		err = curUser.queryUserDB(db)
+		err = curUser.queryUserDB()
 		if err != nil {
 			panic(err)
 			// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 		} else {
 			var targetUser userDB
 			json.NewDecoder(r.Body).Decode(&targetUser)
-			err = targetUser.queryUserDB(db)
+			err = targetUser.queryUserDB()
 			if err != nil {
 				panic(err)
 				// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 			} else {
 				curRelation := userRelation{}
 				curRelation.SubjectID, curRelation.ObjectID = curUser.UserID, targetUser.UserID
-				err = curRelation.query(db)
+				err = curRelation.query()
 				if err != nil {
 					panic(err)
 				}
@@ -67,14 +61,11 @@ func userInfoOther(w http.ResponseWriter, r *http.Request) {
 			}
 		}
 	}
-	db.Close()
 }
 
 func changeUserInfoSelf(w http.ResponseWriter, r *http.Request) {
-	db, err := sql.Open("postgres", psqlInfo)
-	checkErr(err)
-
-	_, err = sessionInfoAndTrueRemote(db, r)
+	session := userSession{}
+	err := session.getSessionFromRequest(r)
 	if err != nil {
 		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 	} else {
@@ -116,24 +107,21 @@ func changeUserInfoSelf(w http.ResponseWriter, r *http.Request) {
 			json.NewEncoder(w).Encode(map[string]string{"status": "failure", "statusText": err.Error()})
 		}
 	}
-	db.Close()
 }
 
 func changeUserInfoOther(w http.ResponseWriter, r *http.Request) {
-	db, err := sql.Open("postgres", psqlInfo)
-	checkErr(err)
-
 	w.Header().Set("Content-Type", "application/json")
 	var userCur userDB
 	json.NewDecoder(r.Body).Decode(&userCur)
 
-	session, err := sessionInfoAndTrueRemote(db, r)
+	session := userSession{}
+	err := session.getSessionFromRequest(r)
 	if err != nil {
 		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 	} else {
 		var curUser userDB
 		curUser.UserID = session.userinDB
-		err = curUser.queryUserDB(db)
+		err = curUser.queryUserDB()
 		if err != nil {
 			panic(err)
 
@@ -179,21 +167,18 @@ func changeUserInfoOther(w http.ResponseWriter, r *http.Request) {
 			json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": "Sorry, you are not in the admin group!"})
 		}
 	}
-	db.Close()
 }
 
 func userList(w http.ResponseWriter, r *http.Request) {
-	db, err := sql.Open("postgres", psqlInfo)
-	checkErr(err)
-
 	w.Header().Set("Content-Type", "application/json")
-	session, err := sessionInfoAndTrueRemote(db, r)
+	session := userSession{}
+	err := session.getSessionFromRequest(r)
 	if err != nil {
 		json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
 	} else {
 		var curUser userDB
 		curUser.UserID = session.userinDB
-		err = curUser.queryUserDB(db)
+		err = curUser.queryUserDB()
 		if err != nil {
 			panic(err)
 			// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
@@ -211,34 +196,5 @@ func userList(w http.ResponseWriter, r *http.Request) {
 			json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": "Sorry, you are not in the admin group!"})
 		}
 	}
-	db.Close()
-}
-
-func sessionInfoAndTrueRemote(db *sql.DB, r *http.Request) (session userSession, err error) {
-	var remote string
-	if xFor := r.Header.Get("X-FORWARDED-FOR"); xFor != "" {
-		remoteArray := strings.Split(xFor, ", ")
-		remote = remoteArray[len(remoteArray)-1]
-	} else {
-		remote = strings.Split(r.RemoteAddr, ":")[0]
-	}
-
-	sessionID, err := r.Cookie("SESSIONID")
-	if err != nil && strings.Contains(err.Error(), "not present") {
-		err = fmt.Errorf(`Session ID not existed`)
-		return
-	}
-
-	sessionFmt, err := db.Prepare(`SELECT sessionid, userinDB, remote FROM sessions WHERE sessionid=$1;`)
-	checkErr(err)
-	sessionQuery, err := sessionFmt.Query(sessionID.Value)
-	checkErr(err)
-	sessionQuery.Next()
-	sessionQuery.Scan(&session.sessionID, &session.userinDB, &session.remote)
-
-	if session.remote != remote {
-		err = fmt.Errorf(`Session remote not matched`)
-	}
-
-	return
+	log.Output(1, fmt.Sprintf(`Connection number now: %d, inuse: %d, idle: %d`, db.Stats().OpenConnections, db.Stats().InUse, db.Stats().Idle))
 }

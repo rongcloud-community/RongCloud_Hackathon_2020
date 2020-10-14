@@ -1,7 +1,6 @@
 package main
 
 import (
-	"database/sql"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -27,17 +26,20 @@ type userDB struct {
 	code        int
 }
 
-func (user *userDB) userLogin(db *sql.DB, w http.ResponseWriter, r *http.Request) error {
+func (user *userDB) userLogin(w http.ResponseWriter, r *http.Request) error {
 	userInDB := userDB{}
 	userInDB.UserID = user.UserID
-	err := userInDB.queryUserDB(db)
+	err := userInDB.queryUserDB()
 	if err != nil {
 		panic(err)
-	} else if user.UserID == "" {
+	} else if userInDB.Password == "" {
 		return errors.New("no corresponding user found")
 	} else if bcrypt.CompareHashAndPassword([]byte(userInDB.Password), []byte(user.Password)) == nil {
-		err = createSessionTable(db)
-		session, err := user.addToSessionTable(db, r)
+		err = userInDB.forkAreaVerification()
+		checkErr(err)
+		err = createSessionTable()
+		checkErr(err)
+		session, err := userInDB.addToSessionTable(r)
 		if session != "" {
 			http.SetCookie(w, &http.Cookie{Name: "SESSIONID", Value: session, Expires: time.Now().Add(24 * time.Hour), Path: "/"})
 		}
@@ -46,8 +48,8 @@ func (user *userDB) userLogin(db *sql.DB, w http.ResponseWriter, r *http.Request
 	return errors.New("password not matched")
 }
 
-func (user *userDB) addNewUser(db *sql.DB) error {
-	err := user.queryUserDB(db)
+func (user *userDB) addNewUser() error {
+	err := user.queryUserDB()
 	checkErr(err)
 	if user.Token != "" {
 		return fmt.Errorf(`userID %s already in use`, user.UserID)
@@ -66,7 +68,7 @@ func (user *userDB) addNewUser(db *sql.DB) error {
 	return err
 }
 
-func (user *userDB) addToSessionTable(db *sql.DB, r *http.Request) (string, error) {
+func (user *userDB) addToSessionTable(r *http.Request) (string, error) {
 	chkfmt, err := db.Prepare(`SELECT sessionID, userinDB, remote FROM sessions WHERE userinDB=$1;`)
 	if err != nil {
 		return "", err
@@ -110,17 +112,13 @@ func (user *userDB) addToSessionTable(db *sql.DB, r *http.Request) (string, erro
 	return session, err
 }
 
-func (user *userDB) queryUserDB(db *sql.DB) (err error) {
-	qfmt, err := db.Prepare(`SELECT userid, nickname, password, portraituri, token, isAdmin FROM accounts WHERE userid=$1;`)
-	if err != nil {
-		return
-	}
-	userQuery, err := qfmt.Query(user.UserID)
-	if err != nil {
-		return
-	}
-	userQuery.Next()
+func (user *userDB) queryUserDB() (err error) {
+	userQuery := db.QueryRow(`SELECT userid, nickname, password, portraituri, token, isAdmin FROM accounts WHERE userid=$1;`, user.UserID)
 	userQuery.Scan(&user.UserID, &user.Nickname, &user.Password, &user.PortraitURI, &user.Token, &user.isAdmin)
+	return
+}
+
+func (user *userDB) forkAreaVerification() (err error) {
 	var forkArea string
 	if strings.Contains(rongURI, "cn") {
 		forkArea = "cn"
@@ -130,19 +128,18 @@ func (user *userDB) queryUserDB(db *sql.DB) (err error) {
 	if !strings.Contains(user.Token, forkArea) {
 		err = user.registerAPI()
 		checkErr(err)
-		err = user.write(db)
+		err = user.write()
 		checkErr(err)
 	}
 	return
 }
 
-func (user *userDB) write(db *sql.DB) error {
+func (user *userDB) write() error {
 	userQu := userDB{}
-	queDo, err := db.Query(`SELECT userid FROM accounts WHERE userid=$1;`, user.UserID)
+	userQu.UserID = user.UserID
+	err := userQu.queryUserDB()
 	checkErr(err)
-	queDo.Next()
-	queDo.Scan(&userQu.UserID)
-	if userQu.UserID == user.UserID {
+	if userQu.Password != "" {
 		// ONLY MADE FOR TOKEN CHANGE NOW
 		if user.Token != "" {
 			_, err := db.Exec(`UPDATE accounts SET token=$1 WHERE userID=$2;`, user.Token, user.UserID)
@@ -233,9 +230,33 @@ type userSession struct {
 	remote    string
 }
 
-func (session *userSession) clear(db *sql.DB) (err error) {
+func (session *userSession) clear() (err error) {
 	_, err = db.Exec(`DELETE FROM sessions WHERE sessionID=$1;`, session.sessionID)
 	checkErr(err)
+
+	return
+}
+func (session *userSession) getSessionFromRequest(r *http.Request) (err error) {
+	var remote string
+	if xFor := r.Header.Get("X-FORWARDED-FOR"); xFor != "" {
+		remoteArray := strings.Split(xFor, ", ")
+		remote = remoteArray[len(remoteArray)-1]
+	} else {
+		remote = strings.Split(r.RemoteAddr, ":")[0]
+	}
+
+	sessionID, err := r.Cookie("SESSIONID")
+	if err != nil && strings.Contains(err.Error(), "not present") {
+		err = fmt.Errorf(`Session ID not existed`)
+		return
+	}
+
+	sessionQuery := db.QueryRow(`SELECT sessionid, userinDB, remote FROM sessions WHERE sessionid=$1;`, sessionID.Value)
+	sessionQuery.Scan(&session.sessionID, &session.userinDB, &session.remote)
+
+	if session.remote != remote {
+		err = fmt.Errorf(`Session remote not matched`)
+	}
 
 	return
 }
@@ -252,10 +273,10 @@ type userRelation struct {
 	Relation  int
 }
 
-func (relation *userRelation) write(db *sql.DB) (err error) {
+func (relation *userRelation) write() (err error) {
 	relationExisted := userRelation{}
 	relationExisted.ObjectID, relationExisted.SubjectID = relation.ObjectID, relation.SubjectID
-	err = relationExisted.query(db)
+	err = relationExisted.query()
 	if err != nil {
 		return fmt.Errorf(`Database Query Error: %s`, err.Error())
 	}
@@ -281,22 +302,15 @@ func (relation *userRelation) write(db *sql.DB) (err error) {
 	return
 }
 
-func (relation *userRelation) query(db *sql.DB) (err error) {
-	relationQueryPre, err := db.Prepare(`SELECT id, relation FROM userRelation WHERE subjectID = $1 AND objectID = $2;`)
-	if err != nil {
-		return
-	}
-	relationQuery, err := relationQueryPre.Query(relation.SubjectID, relation.ObjectID)
-	if err != nil {
-		return
-	}
-	relationQuery.Next()
+func (relation *userRelation) query() (err error) {
+	relationQuery := db.QueryRow(`SELECT id, relation FROM userRelation WHERE subjectID = $1 AND objectID = $2;`, relation.SubjectID, relation.ObjectID)
 	relationQuery.Scan(&relation.id, &relation.Relation)
 	return
 }
 
 type messageContent struct {
-	Content string
+	Content     string
+	ContentHTML string
 }
 
 type message struct {
@@ -320,26 +334,62 @@ type message struct {
 }
 
 // message sent
-func (mes *message) send(db *sql.DB) error {
-	md := []byte(mes.Content.Content)
-	mes.Content.Content = string(markdown.ToHTML(md, nil, nil))
+func (mes *message) send() error {
+	mes.Content.ContentHTML = string(markdown.ToHTML([]byte(mes.Content.Content), nil, nil))
 	content, err := json.Marshal(&mes.Content)
 	checkErr(err)
+	relationCur := userRelation{}
+	relationCur.SubjectID = mes.SenderUserID
+	relationCur.ObjectID = mes.TargetID
+	relationCur.query()
 	if mes.TargetID == "" {
 		err = errors.New("No target ID for the message")
-	} else {
+	} else if relationCur.Relation == 1 {
 		_, err = db.Exec(`INSERT INTO message (Type, TargetID, MessageType, MessageUID, IsPersited, IsCounted, IsStatusMessage, SenderUserID, Content, SentTime, ReceivedTime, MessageDirection, IsOffLineMessage, DisableNotification, CanIncludeExpansion, Expansion) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16);`, mes.Type, mes.TargetID, mes.MessageType, mes.MessageUID, mes.IsPersited, mes.IsCounted, mes.IsStatusMessage, mes.SenderUserID, string(content), mes.SentTime, mes.ReceivedTime, mes.MessageDirection, mes.IsOffLineMessage, mes.DisableNotification, mes.CanIncludeExpansion, mes.Expansion)
+	} else {
+		err = errors.New("you're not friends")
 	}
 	return err
 }
 
 // message read
-func (mes *message) read(db *sql.DB) error {
+func (mes *message) read() error {
 	updatePre, err := db.Prepare(`UPDATE message SET IsCounted=$1 WHERE id =$2;`)
 	if err != nil {
 		panic(err)
 	}
 	_, err = updatePre.Exec(false, mes.ID)
+	return err
+}
+
+// message edit
+func (mes *message) edit() (err error) {
+	que := db.QueryRow(`SELECT senttime FROM message WHERE MessageUID=$1;`, mes.MessageUID)
+	var senttime int
+	que.Scan(&senttime)
+	if time.Now().UnixNano()/int64(time.Millisecond)-int64(senttime) < 300000 {
+		mes.Content.ContentHTML = string(markdown.ToHTML([]byte(mes.Content.Content), nil, nil))
+		content, err := json.Marshal(&mes.Content)
+		checkErr(err)
+		_, err = db.Exec(`UPDATE message SET Content=$1 WHERE MessageUID=$2;`, content, mes.MessageUID)
+		checkErr(err)
+	} else {
+		err = errors.New("Cannot edit since it's more than 5 minute-old")
+	}
+	return err
+}
+
+// message recall
+func (mes *message) recall() (err error) {
+	que := db.QueryRow(`SELECT senttime FROM message WHERE MessageUID=$1;`, mes.MessageUID)
+	var senttime int
+	que.Scan(&senttime)
+	if time.Now().UnixNano()/int64(time.Millisecond)-int64(senttime) < 300000 {
+		_, err = db.Exec(`DELETE FROM message WHERE MessageUID=$1;`, mes.MessageUID)
+		checkErr(err)
+	} else {
+		err = errors.New("Cannot recall since it's more than 5 minute-old")
+	}
 	return err
 }
 
@@ -380,21 +430,13 @@ type conversation struct {
 	Messages           []message
 }
 
-func (con *conversation) query(db *sql.DB) error {
-	queryFmt, err := db.Prepare(`SELECT ID, LatestMessage, UnreadMessageCount, HasMentiond, MentiondInfo, LastUnreadTime, NotificationStatus, IsTop, Type, HasMentioned, MentionedInfo FROM conversation WHERE SenderUserID=$1 AND TargetID=$2;`)
-	if err != nil {
-		panic(err)
-	}
-	if targetCon, err := queryFmt.Query(con.SenderUserID, con.TargetID); err != nil {
-		panic(err)
-	} else {
-		targetCon.Next()
-		targetCon.Scan(&con.ID, &con.LatestMessage, &con.UnreadMessageCount, &con.HasMentiond, &con.MentiondInfo, &con.LastUnreadTime, &con.NotificationStatus, &con.IsTop, &con.Type, &con.HasMentioned, &con.MentionedInfo)
-	}
+func (con *conversation) query() (err error) {
+	targetCon := db.QueryRow(`SELECT ID, LatestMessage, UnreadMessageCount, HasMentiond, MentiondInfo, LastUnreadTime, NotificationStatus, IsTop, Type, HasMentioned, MentionedInfo FROM conversation WHERE SenderUserID=$1 AND TargetID=$2;`, con.SenderUserID, con.TargetID)
+	targetCon.Scan(&con.ID, &con.LatestMessage, &con.UnreadMessageCount, &con.HasMentiond, &con.MentiondInfo, &con.LastUnreadTime, &con.NotificationStatus, &con.IsTop, &con.Type, &con.HasMentioned, &con.MentionedInfo)
 	return err
 }
 
-func (con *conversation) read(db *sql.DB) error {
+func (con *conversation) read() error {
 	_, err := db.Exec(`UPDATE conversation SET unreadMessageCount=0 WHERE SenderUserID=$1 AND TargetID=$2;`, con.SenderUserID, con.TargetID)
 	checkErr(err)
 	_, err = db.Exec(`UPDATE message SET IsCounted=$1 WHERE TargetID=$2;`, false, con.SenderUserID)
@@ -402,44 +444,37 @@ func (con *conversation) read(db *sql.DB) error {
 	return err
 }
 
-func (con *conversation) update(db *sql.DB) error {
+func (con *conversation) update() error {
 	conQuery := conversation{}
 	conQuery.SenderUserID = con.SenderUserID
 	conQuery.TargetID = con.TargetID
-	err := conQuery.query(db)
+	err := conQuery.query()
 	checkErr(err)
 	if conQuery.ID == 0 {
 		// INSERT
-		insertPre, err := db.Prepare(`INSERT INTO conversation (SenderUserID, LatestMessage, UnreadMessageCount, HasMentiond, MentiondInfo, LastUnreadTime, NotificationStatus, IsTop, Type, TargetID, HasMentioned, MentionedInfo, UpdateTime) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13);`)
-		if err != nil {
-			panic(err)
-		}
 		latestMes, err := json.Marshal(&con.LatestMessage)
 		checkErr(err)
 		mentiondInfo, err := json.Marshal(&con.MentiondInfo)
 		checkErr(err)
 		mentionedInfo, err := json.Marshal(&con.MentionedInfo)
 		checkErr(err)
-		_, err = insertPre.Exec(con.SenderUserID, latestMes, con.UnreadMessageCount, con.HasMentiond, mentiondInfo, con.LastUnreadTime, con.NotificationStatus, con.IsTop, con.Type, con.TargetID, con.HasMentioned, mentionedInfo, con.LatestMessage.ReceivedTime)
+		_, err = db.Exec(`INSERT INTO conversation (SenderUserID, LatestMessage, UnreadMessageCount, HasMentiond, MentiondInfo, LastUnreadTime, NotificationStatus, IsTop, Type, TargetID, HasMentioned, MentionedInfo, UpdateTime) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13);`, con.SenderUserID, latestMes, con.UnreadMessageCount, con.HasMentiond, mentiondInfo, con.LastUnreadTime, con.NotificationStatus, con.IsTop, con.Type, con.TargetID, con.HasMentioned, mentionedInfo, con.LatestMessage.ReceivedTime)
 		return err
 	}
 	// UPDATE
-	updatePre, err := db.Prepare(`UPDATE conversation SET UnreadMessageCount=$1, HasMentiond=$2, MentiondInfo=$3, LastUnreadTime=$4, NotificationStatus=$5, IsTop=$6, Type=$7, HasMentioned=$8, MentionedInfo=$9, LatestMessage=$10, UpdateTime=$11 WHERE id =$12;`)
-	if err != nil {
-		panic(err)
-	}
 	latestMes, err := json.Marshal(&con.LatestMessage)
 	checkErr(err)
 	mentiondInfo, err := json.Marshal(&con.MentiondInfo)
 	checkErr(err)
 	mentionedInfo, err := json.Marshal(&con.MentionedInfo)
 	checkErr(err)
-	_, err = updatePre.Exec(con.UnreadMessageCount, con.HasMentiond, mentiondInfo, con.LastUnreadTime, con.NotificationStatus, con.IsTop, con.Type, con.HasMentioned, mentionedInfo, latestMes, con.LatestMessage.ReceivedTime, conQuery.ID)
+	_, err = db.Exec(`UPDATE conversation SET UnreadMessageCount=$1, HasMentiond=$2, MentiondInfo=$3, LastUnreadTime=$4, NotificationStatus=$5, IsTop=$6, Type=$7, HasMentioned=$8, MentionedInfo=$9, LatestMessage=$10, UpdateTime=$11 WHERE id =$12;`, con.UnreadMessageCount, con.HasMentiond, mentiondInfo, con.LastUnreadTime, con.NotificationStatus, con.IsTop, con.Type, con.HasMentioned, mentionedInfo, latestMes, con.LatestMessage.ReceivedTime, conQuery.ID)
 	return err
 }
 
-func (con *conversation) queryMessages(db *sql.DB, r *http.Request) error {
-	session, err := sessionInfoAndTrueRemote(db, r)
+func (con *conversation) queryMessages(r *http.Request) error {
+	session := userSession{}
+	err := session.getSessionFromRequest(r)
 	checkErr(err)
 	queRes, err := db.Query(`SELECT type, targetid, messagetype, messageuid, ispersited, iscounted, isstatusmessage, senderuserid, content, senttime, receivedtime, messagedirection, isofflinemessage, disablenotification, canincludeexpansion, expansion FROM message WHERE (TargetId=$1 AND SenderUserID=$2) OR (TargetId=$2 AND SenderUserID=$1) ORDER BY senttime DESC;`, con.TargetID, session.userinDB)
 	checkErr(err)
