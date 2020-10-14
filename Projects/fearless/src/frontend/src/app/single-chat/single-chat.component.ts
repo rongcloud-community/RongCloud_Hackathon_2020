@@ -8,6 +8,9 @@ import { ErrorStateMatcher } from '@angular/material/core'
 import { AcccountManagementService } from '../account-management.service'
 import { userInfo, conversation, message } from '../data'
 import RongIMLib from '../RongIMLib-3.0.7-dev.es.js'
+import { MatDialog } from '@angular/material/dialog';
+import { UploadFileComponent } from '../upload-file/upload-file.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -53,7 +56,7 @@ export class SingleChatComponent implements OnInit {
   })
   matcher = new MyErrorStateMatcher()
 
-  constructor(private route: ActivatedRoute, private router: Router, private accSer: AcccountManagementService, public rongSer: RongCloudService, private fb: FormBuilder, private store: Store, private appRef: ApplicationRef) { }
+  constructor(private route: ActivatedRoute, private router: Router, private accSer: AcccountManagementService, public rongSer: RongCloudService, private fb: FormBuilder, private store: Store, private appRef: ApplicationRef, private snackbar: MatSnackBar, public dialog: MatDialog) { }
 
   getCurMessages() {
     var that = this
@@ -121,23 +124,28 @@ export class SingleChatComponent implements OnInit {
           targetId: that.currentCon['targetId'],
           type: RongIMLib.CONVERSATION_TYPE.PRIVATE
         });
-        conversation.send({
-          messageType: 's:person',
-          content: {content: that.messageForm.value['message']}
-        }).then(message => {
-          that.rongSer.sendMessage(message).subscribe(res => {
-            if (res['status'] == 'success') {
-              console.log("信息发送成功，", message)
-              that.getCurMessages()
+        if (that.rongSer.finalTargetInfos[that.currentCon['targetId']]['relation'] == 1) {
+          conversation.send({
+            messageType: 's:person',
+            content: {content: that.messageForm.value['message']}
+          }).then(message => {
+            that.rongSer.sendMessage(message).subscribe(res => {
+              if (res['status'] == 'success') {
+                that.openSnackBar("信息发送成功")
+                console.log("信息发送成功，", message)
+                that.getCurMessages()
 
-              that.messageForm.reset({message: ''})
-              that.messageForm.markAsPristine()
-              that.messageForm.markAsUntouched()
-            }
+                that.messageForm.reset({message: ''})
+                that.messageForm.markAsPristine()
+                that.messageForm.markAsUntouched()
+              }
+            })
+          }, err => {
+            onerr(err)
           })
-        }, err => {
-          onerr(err)
-        })
+        } else {
+          that.openSnackBar("你们还不是朋友")
+        }
       }
       function connect(callback) {
         var things = that.rongSer.rongInit(that.finalSelfInfo)
@@ -163,8 +171,17 @@ export class SingleChatComponent implements OnInit {
     }
   }
 
-  uploadPic = (e) => {
-    console.log(e)
+  uploadPic = () => {
+    const dialogRef = this.dialog.open(UploadFileComponent, {
+      width: 'auto',
+      data: {title: '上传消息图片（限一张）'}
+    })
+
+    dialogRef.afterClosed().subscribe(res => {
+      this.accSer.uploadFile(res).subscribe(res => {
+        console.log(res)
+      })
+    })
   }
 
   unreadLineStatus = (mes) => {
@@ -246,6 +263,12 @@ export class SingleChatComponent implements OnInit {
         }
       }
     })
+  }
+
+  openSnackBar(message: string, action?: string) {
+    this.snackbar.open(message, action ? action : "确认", {
+      duration: 2000,
+    });
   }
 
 }

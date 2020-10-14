@@ -29,8 +29,10 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDividerModule} from '@angular/material/divider'; 
 import {MatListModule} from '@angular/material/list'
 import {MatBadgeModule} from '@angular/material/badge'; 
-import {MatDialogModule} from '@angular/material/dialog'; 
+import { MatDialogModule } from '@angular/material/dialog'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBarModule } from '@angular/material/snack-bar'
+import { UploadFileComponent } from './upload-file/upload-file.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EditMyInfoComponent,
     UserListComponent,
     UserListProfileComponent,
-    EditOtherInfoComponent
+    EditOtherInfoComponent,
+    UploadFileComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +78,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatDividerModule,
     MatListModule,
     MatBadgeModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

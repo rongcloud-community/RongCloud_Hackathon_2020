@@ -44,5 +44,11 @@ export class AcccountManagementService {
     return this.http.get('/api/logout')
   }
 
+  uploadFile(file: FileList): Observable<any> {
+    const data = new FormData()
+    data.append("file", file[0])
+    return this.http.post('/api/uploadFile', data)
+  }
+
   constructor(private http: HttpClient) { }
 }

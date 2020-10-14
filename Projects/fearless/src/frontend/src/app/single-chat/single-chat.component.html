@@ -1,4 +1,4 @@
-<mat-grid-list cols="3" rows="7" rowHeight="6:1">
+<mat-grid-list cols="3" rows="7" rowHeight="5.6:1">
     <mat-grid-tile colspan="1" rowspan="7">
         <mat-grid-tile-header>对话列表</mat-grid-tile-header>
         <div class="mat-list-container">
@@ -52,8 +52,9 @@
         </div>
     </mat-grid-tile>
     <mat-grid-tile colspan="2" rowspan="1">
-        <label for="picUp" (click)="uploadPic($event)"><button type="file" mat-icon-button><mat-icon>insert_photo</mat-icon></button></label>
-        <input type="file" name="picUp" hidden>
+        <button mat-icon-button (click)="uploadPic()">
+            <mat-icon>insert_photo</mat-icon>
+        </button>
         <form [formGroup]="messageForm" (ngSubmit)="onSub()" class="messageForm" (keydown)="keyDownForm($event)">
             <mat-form-field>
                 <mat-label *ngIf="editToggle else enterField">编辑消息（Ctrl+Enter发送，支持Markdown）</mat-label>

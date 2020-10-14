@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"path/filepath"
 )
 
 func sendMessage(w http.ResponseWriter, r *http.Request) {
@@ -126,7 +127,10 @@ func conversationGet(w http.ResponseWriter, r *http.Request) {
 			finalTargetInfo.UserID = conCur.TargetID
 			err = finalTargetInfo.queryUserDB()
 			checkErr(err)
-			finalTargetInfos[conCur.TargetID] = map[string]string{"portraitUri": finalTargetInfo.PortraitURI, "nickname": finalTargetInfo.Nickname}
+			curRelation := userRelation{}
+			curRelation.SubjectID, curRelation.ObjectID = session.userinDB, conCur.TargetID
+			err = curRelation.query()
+			finalTargetInfos[conCur.TargetID] = map[string]interface{}{"portraitUri": finalTargetInfo.PortraitURI, "nickname": finalTargetInfo.Nickname, "relation": curRelation.Relation}
 		}
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "conversations": finalCons, "targetInfos": finalTargetInfos})
@@ -153,7 +157,7 @@ func uploadFile(w http.ResponseWriter, r *http.Request) {
 	log.Output(1, fmt.Sprintf(`File Name: %s`, handler.Filename))
 	log.Output(1, fmt.Sprintf(`File Size: %+v`, handler.Size))
 
-	targetFile, err := ioutil.TempFile("uploads", "upload-*")
+	targetFile, err := ioutil.TempFile(uploadPath, "upload-*"+filepath.Ext(handler.Filename))
 	checkErr(err)
 	defer targetFile.Close()
 
@@ -163,7 +167,7 @@ func uploadFile(w http.ResponseWriter, r *http.Request) {
 	log.Output(1, "file upload successful")
 
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "statusText": "File uploaded successfully"})
+	json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "statusText": "File uploaded successfully", "filePath": targetFile.Name()})
 }
 
 // TODO: conversation model for chat messages
