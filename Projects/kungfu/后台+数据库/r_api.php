@@ -442,7 +442,7 @@ switch ($arr_get["m"]) {
         if ($arr_get['yid'] != '') {
             // 连接数据库
             $mysqli = getMysqli();
-            $sql = 'SELECT info.a_id,tel,name,fullname,portrait,age,identity,onetime,school,degree,resume FROM info,j_info WHERE info.a_id=j_info.a_id AND (info.a_id =  \'' . $arr_get['yid'] . '\' OR info.tel =  \'' . $arr_get['yid'] . '\' OR info.name LIKE  \'' . $arr_get['yid'] . '\' OR info.fullname =  \'' . $arr_get['fullname'] . '\')';
+            $sql = 'SELECT info.a_id,tel,name,fullname,portrait,age,identity,onetime,school,degree,resume FROM info,j_info WHERE info.a_id=j_info.a_id AND (info.a_id = \'' . $arr_get['yid'] . '\' OR info.tel = \'' . $arr_get['yid'] . '\' OR info.name LIKE \'%' . $arr_get['yid'] . '%\' OR info.fullname LIKE \'%' . $arr_get['yid'] . '%\')';
             $resultUser = mysqli_query($mysqli, $sql);
             if (mysqli_num_rows($resultUser) > 0) {
                 // 初始化返回值
