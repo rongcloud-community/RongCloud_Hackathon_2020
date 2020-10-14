@@ -15,4 +15,4 @@ web/room.html 聊天室详情页
 cd Ivan'sTeam/web
 
 ```
-浏览器打开``index.html`文件`
+浏览器打开``index.html``文件
