@@ -1,0 +1,271 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:2:1-159:12
+INJECTED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:2:1-159:12
+INJECTED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:2:1-159:12
+INJECTED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:2:1-159:12
+INJECTED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:2:1-159:12
+INJECTED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:2:1-159:12
+INJECTED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:2:1-159:12
+	package
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:3:5-28
+		INJECTED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml
+		INJECTED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:2:1-159:12
+		INJECTED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:2:1-159:12
+		INJECTED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:6:5-80
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:6:22-77
+uses-permission#android.permission.CAMERA
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:11:5-65
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:11:22-62
+uses-permission#android.permission.WRITE_SETTINGS
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:13:5-73
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:13:22-70
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:15:5-76
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:15:22-73
+uses-permission#android.permission.INTERNET
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:16:5-67
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:16:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:17:5-79
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:17:22-76
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:18:5-76
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:18:22-73
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:20:5-71
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:20:22-68
+uses-permission#android.permission.GET_TASKS
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:22:5-68
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:22:22-65
+uses-permission#android.permission.REQUEST_INSTALL_PACKAGES
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:24:5-83
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:24:22-80
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:26:5-81
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:26:22-78
+uses-permission#android.permission.VIBRATE
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:28:5-66
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:28:22-63
+application
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:30:5-157:19
+activity#io.rong.imkit.plugin.location.AMapLocationActivity
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:32:9-34:52
+	android:screenOrientation
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:34:13-49
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:33:13-78
+activity#io.rong.imkit.plugin.location.AMapLocationActivity2D
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:35:9-37:52
+	android:screenOrientation
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:37:13-49
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:36:13-80
+activity#io.rong.imkit.plugin.location.AMapPreviewActivity
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:39:9-86
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:39:19-83
+activity#io.rong.imkit.plugin.location.AMapPreviewActivity2D
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:40:9-88
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:40:19-85
+activity#io.rong.imkit.plugin.location.AMapRealTimeActivity
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:42:9-87
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:42:19-84
+activity#io.rong.imkit.plugin.location.AMapRealTimeActivity2D
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:43:9-89
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:43:19-86
+activity#io.rong.imkit.plugin.location.SearchLocationActivity
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:45:9-48:71
+	android:screenOrientation
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:47:13-49
+	android:windowSoftInputMode
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:48:13-68
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:46:13-80
+activity#io.rong.imkit.plugin.image.PictureSelectorActivity
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:50:9-53:52
+	android:screenOrientation
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:53:13-49
+	android:configChanges
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:52:13-74
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:51:13-78
+activity#io.rong.imkit.plugin.image.PicturePreviewActivity
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:55:9-57:52
+	android:screenOrientation
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:57:13-49
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:56:13-77
+activity#io.rong.imkit.tools.RongWebviewActivity
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:60:9-68:20
+	android:screenOrientation
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:63:13-49
+	android:exported
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:62:13-37
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:61:13-67
+intent-filter#action:name:io.rong.imkit.intent.action.webview+category:name:android.intent.category.DEFAULT
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:64:13-67:29
+action#io.rong.imkit.intent.action.webview
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:65:17-78
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:65:25-75
+category#android.intent.category.DEFAULT
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:66:17-76
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:66:27-73
+activity#io.rong.imkit.tools.CombineWebViewActivity
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:70:9-78:20
+	android:screenOrientation
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:73:13-49
+	android:exported
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:72:13-37
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:71:13-70
+intent-filter#action:name:io.rong.imkit.intent.action.combinewebview+category:name:android.intent.category.DEFAULT
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:74:13-77:29
+action#io.rong.imkit.intent.action.combinewebview
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:75:17-85
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:75:25-82
+activity#io.rong.imkit.widget.provider.TakingPicturesActivity
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:80:9-83:52
+	android:screenOrientation
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:83:13-49
+	android:configChanges
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:82:13-63
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:81:13-80
+activity#io.rong.imkit.activity.PicturePagerActivity
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:85:9-93:20
+	android:exported
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:87:13-37
+	android:theme
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:88:13-71
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:86:13-71
+intent-filter#action:name:io.rong.imkit.intent.action.picturepagerview+category:name:android.intent.category.DEFAULT
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:89:13-92:29
+action#io.rong.imkit.intent.action.picturepagerview
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:90:17-87
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:90:25-84
+activity#io.rong.imkit.activity.CombinePicturePagerActivity
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:96:9-103:20
+	android:exported
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:98:13-37
+	android:theme
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:99:13-71
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:97:13-78
+intent-filter#category:name:android.intent.category.DEFAULT
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:100:13-102:29
+activity#io.rong.imkit.mention.MemberMentionedActivity
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:105:9-108:67
+	android:windowSoftInputMode
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:108:13-64
+	android:configChanges
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:107:13-63
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:106:13-73
+activity#io.rong.imkit.activity.FileManagerActivity
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:109:9-79
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:109:19-76
+activity#io.rong.imkit.activity.FileListActivity
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:110:9-76
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:110:19-73
+activity#io.rong.imkit.activity.FilePreviewActivity
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:111:9-119:20
+	android:screenOrientation
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:114:13-49
+	android:exported
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:113:13-37
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:112:13-70
+intent-filter#action:name:io.rong.imkit.intent.action.openfile+category:name:android.intent.category.DEFAULT
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:115:13-118:29
+action#io.rong.imkit.intent.action.openfile
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:116:17-79
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:116:25-76
+activity#io.rong.imkit.activity.WebFilePreviewActivity
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:120:9-128:20
+	android:screenOrientation
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:123:13-49
+	android:exported
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:122:13-37
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:121:13-73
+intent-filter#action:name:io.rong.imkit.intent.action.openwebfile+category:name:android.intent.category.DEFAULT
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:124:13-127:29
+action#io.rong.imkit.intent.action.openwebfile
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:125:17-82
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:125:25-79
+activity#io.rong.imkit.activity.CSLeaveMessageActivity
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:130:9-133:52
+	android:screenOrientation
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:133:13-49
+	android:configChanges
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:132:13-63
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:131:13-60
+activity#io.rong.imkit.activity.GIFPreviewActivity
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:135:9-143:20
+	android:exported
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:137:13-37
+	android:theme
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:138:13-71
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:136:13-69
+intent-filter#action:name:io.rong.imkit.intent.action.gifrview+category:name:android.intent.category.DEFAULT
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:139:13-142:29
+action#io.rong.imkit.intent.action.gifrview
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:140:17-79
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:140:25-76
+activity#io.rong.imkit.activity.SelectConversationActivity
+ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:145:9-86
+	android:name
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml:145:19-83
+uses-sdk
+INJECTED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml
+INJECTED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml
+INJECTED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml
+INJECTED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml
+		INJECTED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml
+		ADDED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml
+		INJECTED from /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/src/main/AndroidManifest.xml

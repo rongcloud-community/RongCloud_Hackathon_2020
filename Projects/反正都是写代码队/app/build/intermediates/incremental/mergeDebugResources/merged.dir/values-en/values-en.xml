@@ -460,10 +460,6 @@ Please turn it on in the application permission management page of \"Settings\"<
     <string name="rc_sight">Video Clip</string>
     <string name="rc_src_file_not_found">Source file does not exist.</string>
     <string name="rc_sunsay_format">Sun</string>
-    <string name="rc_test_kit_paste">Paste</string>
-    <string name="rc_test_kit_permission_allow">Allow</string>
-    <string name="rc_test_phrases_tv_he">he he</string>
-    <string name="rc_test_phrases_tv_hei">hei hei</string>
     <string name="rc_thuresday_format">Thu</string>
     <string name="rc_toast_message_destruct">The message cannot be viewed due to automatically destroyed</string>
     <string name="rc_tuesday_format">Tue</string>
