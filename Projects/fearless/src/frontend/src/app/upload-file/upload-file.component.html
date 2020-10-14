@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>上传文件</h1>
 <div mat-dialog-content>
-    <input type="file" [value]="data.file" (input)="valueChange($event)">
+    <input type="file" [value]="data.file" accept="image-*" (input)="valueChange($event)">
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">取消</button>

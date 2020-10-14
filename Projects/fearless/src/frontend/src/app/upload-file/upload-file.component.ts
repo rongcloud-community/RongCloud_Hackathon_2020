@@ -1,8 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AcccountManagementService } from '../account-management.service';
 
 interface FileForm {
   file: any
+  result: any
 }
 
 @Component({
@@ -11,8 +13,8 @@ interface FileForm {
   styleUrls: ['./upload-file.component.styl']
 })
 export class UploadFileComponent implements OnInit {
-
   constructor(
+    private accSer: AcccountManagementService,
     public dialogRef: MatDialogRef<UploadFileComponent>,
     @Inject(MAT_DIALOG_DATA) public data: FileForm) { }
 
@@ -21,7 +23,6 @@ export class UploadFileComponent implements OnInit {
   }
 
   valueChange(e) {
-    console.log(e)
     this.data.file = e.target.files
   }
 

@@ -4,9 +4,15 @@ import (
 	"database/sql"
 	"log"
 	"net/http"
+	"os"
 )
 
 func main() {
+	if len(os.Getenv("RONG_UPLOADPATH")) > 0 {
+		uploadPath = os.Getenv("RONG_UPLOADPATH")
+	} else {
+		uploadPath = "uploads"
+	}
 	var err error
 	db, err = sql.Open("postgres", psqlInfo)
 	checkErr(err)
@@ -32,6 +38,10 @@ func main() {
 	http.HandleFunc("/logout", logout)
 	http.HandleFunc("/login", login)
 	http.HandleFunc("/register", register)
+
 	http.HandleFunc("/", homepage)
+
+	http.Handle("/uploads/", http.StripPrefix("/uploads", http.FileServer(http.Dir("./uploads"))))
+
 	log.Fatal(http.ListenAndServe(":8081", nil))
 }

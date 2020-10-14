@@ -182,7 +182,7 @@ func userList(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			panic(err)
 			// json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": err.Error()})
-		} else if curUser.isAdmin {
+		} else {
 			var userList []listedUser
 			userListQuery, err := db.Query(`SELECT userid, nickname, portraituri, isadmin FROM accounts;`)
 			checkErr(err)
@@ -192,8 +192,6 @@ func userList(w http.ResponseWriter, r *http.Request) {
 				userList = append(userList, theUser)
 			}
 			json.NewEncoder(w).Encode(map[string]interface{}{"status": "success", "data": userList})
-		} else {
-			json.NewEncoder(w).Encode(map[string]string{"status": "error", "statusText": "Sorry, you are not in the admin group!"})
 		}
 	}
 	log.Output(1, fmt.Sprintf(`Connection number now: %d, inuse: %d, idle: %d`, db.Stats().OpenConnections, db.Stats().InUse, db.Stats().Idle))

@@ -5,7 +5,7 @@
     <mat-menu #menu="matMenu">
       <ng-template [ngIf]="userAuth" [ngIfElse]="guestMenu">
         <a [routerLink]="['/editInfo', {from: from}]"><button mat-menu-item>修改个人信息</button></a>
-        <a routerLink="/userList"><button *ngIf="finalUserInfo && finalUserInfo.isAdmin" mat-menu-item>查看用户列表</button></a>
+        <a routerLink="/userList"><button mat-menu-item>查看用户列表</button></a>
       </ng-template>
       <ng-template #guestMenu>
         <a [routerLink]="['/login']"><button mat-menu-item>登陆帐号</button></a>

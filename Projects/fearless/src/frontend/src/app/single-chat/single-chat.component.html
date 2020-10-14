@@ -4,7 +4,7 @@
         <div class="mat-list-container">
         <mat-list>
             <ng-template ngFor let-conv [ngForOf]="rongSer.conversationList" let-i="index">
-                <mat-list-item (click)="changeCurCon(i)">
+                <mat-list-item (click)="changeCurCon(i)" class="clickable">
                     <div [matBadge]="conv.unreadMessageCount || null" mat-card-avatar [style]="'background-image: url(' + getAvatarUri(conv.targetId) + '); background-size: 100% auto;'"></div>
                     <span class='convPre'>
                         {{getTargetInfo(conv.targetId).nickname}}
@@ -18,7 +18,7 @@
         </mat-list>     
         </div>
     </mat-grid-tile>
-    <mat-grid-tile colspan="2" rowspan="6">
+    <mat-grid-tile colspan="2" rowspan="5">
         <mat-grid-tile-header>{{currentCon && currentCon.targetId && currentCon.targetId.length ? '与'+getTargetInfo(currentCon.targetId).nickname+'的对话' : '对话'}}</mat-grid-tile-header>
         <div class="conversationList" *ngIf="currentConMessages">
             <ng-template ngFor let-message [ngForOf]="currentConMessages">
@@ -51,7 +51,7 @@
             </ng-template>            
         </div>
     </mat-grid-tile>
-    <mat-grid-tile colspan="2" rowspan="1">
+    <mat-grid-tile colspan="2" rowspan="2">
         <button mat-icon-button (click)="uploadPic()">
             <mat-icon>insert_photo</mat-icon>
         </button>

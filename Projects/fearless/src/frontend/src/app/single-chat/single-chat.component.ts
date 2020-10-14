@@ -51,10 +51,10 @@ export class SingleChatComponent implements OnInit {
   }
   currentConMessages = []
   messageForm = this.fb.group({
-    pic: this.fb.control(''),
     message: this.fb.control('', [Validators.required])
   })
   matcher = new MyErrorStateMatcher()
+  picNum: number
 
   constructor(private route: ActivatedRoute, private router: Router, private accSer: AcccountManagementService, public rongSer: RongCloudService, private fb: FormBuilder, private store: Store, private appRef: ApplicationRef, private snackbar: MatSnackBar, public dialog: MatDialog) { }
 
@@ -107,7 +107,7 @@ export class SingleChatComponent implements OnInit {
             console.log('链接失败: ', error.code, error.msg);
             that.getCurMessages()
           })
-        } else if (window['rongIm']) {
+        } else {
           console.log('获取会话列表成功', this.rongSer.conversationList);
           this.getCurMessages()
         }
@@ -120,7 +120,7 @@ export class SingleChatComponent implements OnInit {
     } else {
       var that = this
       function send(onerr) {
-        var conversation = window['rongIm'].Conversation.get({
+        var conversation = that.rongSer.im.Conversation.get({
           targetId: that.currentCon['targetId'],
           type: RongIMLib.CONVERSATION_TYPE.PRIVATE
         });
@@ -133,6 +133,7 @@ export class SingleChatComponent implements OnInit {
               if (res['status'] == 'success') {
                 that.openSnackBar("信息发送成功")
                 console.log("信息发送成功，", message)
+                that.picNum = 0
                 that.getCurMessages()
 
                 that.messageForm.reset({message: ''})
@@ -152,36 +153,46 @@ export class SingleChatComponent implements OnInit {
         things[0].then(function(user) {
           console.log('链接成功, 链接用户 id 为: ', user.id)
           that.store.dispatch({ type: 'Logging into Rongcloud IM success' })
-          window['rongIm'] = things[1]
           callback()
         }).catch(function(error) {
           console.log('链接失败: ', error.code, error.msg);
         })
       }
-      if (window['rongIm']) {
         send((err) => {
           console.error(err)
           connect(() => send(err => console.error(err)))
         })
-      } else {
-        connect(() => {
-          send(err => console.error(err))
-        })
-      }
     }
   }
 
   uploadPic = () => {
-    const dialogRef = this.dialog.open(UploadFileComponent, {
-      width: 'auto',
-      data: {title: '上传消息图片（限一张）'}
-    })
-
-    dialogRef.afterClosed().subscribe(res => {
-      this.accSer.uploadFile(res).subscribe(res => {
-        console.log(res)
+    if (!this.picNum) {
+      const dialogRef = this.dialog.open(UploadFileComponent, {
+        width: 'auto',
+        data: {title: '上传消息图片（限一张）'}
       })
-    })
+
+      dialogRef.afterClosed().subscribe(res => {
+        if (res) {
+          this.accSer.uploadFile(res).subscribe(result => {
+            if (result['status']) {
+              switch (result['status']) {
+                case 'success':
+                  this.openSnackBar('上传成功')
+                  this.picNum++
+                  this.messageForm.setValue({message: this.messageForm.value['message'].length ? `${this.messageForm.value['message']}  \n![](/api/${result['filePath']})` : `![](/api/${result['filePath']})`})
+                  break
+                default:
+                  this.openSnackBar('上传失败')
+                  break
+              }
+            }
+          })
+        }
+      })
+    } else {
+      this.openSnackBar('一条信息最多上传一张图片')
+    }
   }
 
   unreadLineStatus = (mes) => {
@@ -230,12 +241,25 @@ export class SingleChatComponent implements OnInit {
   ableToRecallEdit = (mes: any) => mes['SenderUserID'] == this.finalSelfInfo.userID && new Date().getTime() - mes['SentTime'] < 300000
 
   recallMessage(mes: message) {
-    this.rongSer.recallMessage(mes).subscribe(res => {
-      if (res['status'] == "success") {
-        console.log("撤回成功")
-        this.getCurMessages()
-      }
-    })
+    const conversation = this.rongSer.im.Conversation.get({
+      targetId: mes['TargetID'],
+      type: RongIMLib.CONVERSATION_TYPE.PRIVATE
+    });
+    const that = this
+    conversation.recall({
+      messageUId: mes['MessageUID'],
+      sentTime: mes['SentTime']
+    }).then(function(message){
+      that.rongSer.recallMessage(mes).subscribe(res => {
+        if (res['status'] == "success") {
+          console.log("撤回成功", message)
+          that.openSnackBar("消息撤回成功")
+          that.getCurMessages()
+        }
+      })
+    }, err => {
+      console.log(err)
+    });
   }
 
   editTrigger(mes: any) {
