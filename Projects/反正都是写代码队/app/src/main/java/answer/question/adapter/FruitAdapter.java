@@ -1,6 +1,7 @@
 package answer.question.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
-import java.util.Random;
 
 import answer.question.R;
 import answer.question.Token;
@@ -52,13 +52,21 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
                 public void onClick(View view) {
                     /*Intent intent = new Intent(getContext(), CallActivity.class);
                     getContext().startActivity(intent);*/
-                    String targetUserId;
-                    do {
-                        Random rand = new Random();
-                        targetUserId = String.valueOf(rand.nextInt(19) + 1);
-                    } while (targetUserId.equals(Token.getCurrent()));
 
-                    RongCallKit.startSingleCall(getContext(), "2", RongCallKit.CallMediaType.CALL_MEDIA_TYPE_VIDEO);
+                    String targetUserId = null;
+
+                    for (String userId : Token.getUserIds()) {
+
+                        boolean isOnline = Token.checkOnline(userId);
+                        if (!userId.equals(Token.getCurrent()) && isOnline) {
+                            targetUserId = userId;
+                            break;
+                        }
+                    }
+
+                    Log.d("正在发起通话，ID", targetUserId);
+
+                    RongCallKit.startSingleCall(getContext(), targetUserId, RongCallKit.CallMediaType.CALL_MEDIA_TYPE_VIDEO);
                 }
             });
 

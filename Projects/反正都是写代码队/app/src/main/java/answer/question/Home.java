@@ -10,23 +10,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
-import org.apache.commons.codec.digest.DigestUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import java.util.stream.Collectors;
 
 import answer.question.adapter.Fruit;
 import answer.question.adapter.FruitAdapter;
@@ -98,6 +83,9 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+
+        StrictMode.setThreadPolicy(policy);
         // 先拿到数据并放在适配器上
         initFruits(); //初始化水果数据
         FruitAdapter adapter = new FruitAdapter(Home.this, R.layout.fruit_item, fruitList);
@@ -108,7 +96,7 @@ public class Home extends AppCompatActivity {
 
         RongIM.init(this, APPKEY);
         for (String userId : Token.getUserIds()) {
-            boolean isOnline = checkOnline(userId);
+            boolean isOnline = Token.checkOnline(userId);
             if (!isOnline) {
                 Log.i("用户ID正在链接", userId);
                 Token.setCurrent(userId);
@@ -136,83 +124,6 @@ public class Home extends AppCompatActivity {
                 Log.i("用户ID在线", userId);
             }
         }
-    }
-
-    private boolean checkOnline(String userId) {
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-
-        StrictMode.setThreadPolicy(policy);
-        String url = "https://api2-cn.ronghub.com/user/checkOnline.json";
-        HashMap<String, String> params = new HashMap<>();
-        HashMap<String, String> headers = new HashMap<>();
-        Random rand = new Random();
-        String appSecret = "tgfZIcilRvLn";
-        String nonce = String.valueOf(rand.nextInt(500) + 1000);
-        String timeStamp = String.valueOf(System.currentTimeMillis());
-
-        String signature = DigestUtils.sha1Hex(appSecret + nonce + timeStamp);
-        headers.put("App-Key", APPKEY);
-        headers.put("Nonce", nonce);
-        headers.put("Timestamp", timeStamp);
-        headers.put("Signature", signature);
-
-        params.put("userId", userId);
-
-        String response = post(url, params, headers);
-        if (null == response) {
-            return false;
-        }
-        try {
-            JSONObject jsonObject = new JSONObject(response);
-            int status = jsonObject.getInt("status");
-            return status == 1;
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    private String post(String urlPath, Map<String, String> params, Map<String, String> headers) {
-        String result = null;
-        try {
-            URL url = new URL(urlPath);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("POST");
-            connection.setDoOutput(true);
-            connection.setDoInput(true);
-            connection.setUseCaches(false);
-            if (!headers.isEmpty()) {
-                for (Map.Entry<String, String> header : headers.entrySet()) {
-                    connection.setRequestProperty(header.getKey(), header.getValue());
-                }
-            }
-            connection.connect();
-            StringBuilder bodyBuilder = new StringBuilder();
-            if (!params.isEmpty()) {
-                for (Map.Entry<String, String> param : params.entrySet()) {
-                    bodyBuilder.append(param.getKey()).append("=").append(param.getValue()).append("&");
-                }
-            }
-            String body = bodyBuilder.toString().substring(0, bodyBuilder.length() - 1);
-
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(connection.getOutputStream(), "UTF-8"));
-            writer.write(body);
-            writer.close();
-
-            int responseCode = connection.getResponseCode();
-            if (responseCode == HttpURLConnection.HTTP_OK) {
-                InputStream inputStream = connection.getInputStream();
-                //将流转换为字符串。
-                result = new BufferedReader(new InputStreamReader(inputStream))
-                        .lines()
-                        .parallel()
-                        .collect(Collectors.joining(System.lineSeparator()));
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return result;
     }
 
     // 初始化数据
