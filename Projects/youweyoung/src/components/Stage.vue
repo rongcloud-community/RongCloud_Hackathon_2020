@@ -6,8 +6,9 @@
       :width="canvasPixelWidth"
       height="450"
     ></canvas>
-    <section v-if="isPlayer" class="controller pd">
-      <div class="frow">
+    <section v-if="isPlayer" class="controller">
+      <div class="frow cnty">
+        <span class="tip">所选角色</span>
         <el-radio-group @change="chooseCharactor" v-model="myCharactorName">
           <el-radio-button label="暂无"></el-radio-button>
           <el-radio-button
@@ -21,7 +22,7 @@
       <div v-if="hasPlayer" class="mgt">
         <div class="frow">
           <DirPanel @tap="handleMove" />
-          <div class="ani-picker">
+          <div class="ani-picker f1">
             <el-button
               @click="play({ name: ani })"
               v-for="ani in animations"
@@ -31,10 +32,38 @@
               {{ ani }}
             </el-button>
           </div>
+          <div class="f1 fcol pd">
+            <div class="distance frow">
+              <span class="tip" style="line-height:38px;">移动距离：</span>
+              <el-slider
+              class="f1"
+                v-model="moveDistance"
+                :max="150"
+                :min="50"
+              ></el-slider>
+            </div>
+            <div style="align-self:flex-start;">
+              <span class="tip">加速模式：</span>
+              <el-switch
+                v-model="moveRun"
+                active-color="#13ce66"
+                inactive-color="#ff4949"
+              >
+              </el-switch>
+            </div>
+          </div>
         </div>
       </div>
       <!-- <el-button @click="clear">清空</el-button> -->
     </section>
+    <audio
+      ref="bgmPlayer"
+      autoplay
+      style="display: none"
+      loop
+      :src="bgm"
+      id="bgm"
+    ></audio>
   </div>
 </template>
 
@@ -51,7 +80,7 @@ import { Component, Vue, Watch, Prop } from "vue-property-decorator";
 import RoomView from "../views/Room.vue";
 import DirPanel from "./DirPanel.vue";
 import { users } from "@/api/mock/data";
-
+const resourcePrefix = "./static/resources";
 let player: Charactor | null = null;
 let ctx: CanvasRenderingContext2D | null;
 @Component({ name: "Stage", components: { DirPanel } })
@@ -61,17 +90,21 @@ export default class Stage extends Vue {
   @Prop({ default: false }) isPlayer!: boolean;
   @Prop({}) config!: any;
   refreshId?: number;
+  background: string = "";
+  items: any[] = [];
+  moveDistance = 0;
+  moveRun = false;
   get height() {
     const aw = document.body.clientWidth;
     const ah = document.documentElement?.clientHeight || 600;
     return (
       Math.round(
-        Math.min(this.isPlayer ? (aw * 9) / 16 : (aw * 3) / 4, (ah * 2) / 3)
+        Math.min(this.isPlayer ? (aw * 9) / 16 : (aw * 3) / 4, (ah * 3) / 5)
       ) + "px"
     );
   }
   get canvasPixelWidth() {
-    return this.isPlayer ? 800 : 600;
+    return this.isPlayer ? 900 : 600;
   }
   myCharactorName = "暂无";
   hasPlayer = false;
@@ -79,21 +112,27 @@ export default class Stage extends Vue {
   app?: Application;
   walking = false;
   charactors: any[] = [];
+  bgm: string = "";
   busy = false;
+  private mounted() {
+    this.$nextTick(() => {
+      (this.$refs.bgmPlayer as any).volume = 0.3;
+    });
+  }
   handleMove(dir: any) {
     let val;
     switch (dir) {
       case "up":
-        val = { y: -100 };
+        val = { y: -this.moveDistance };
         break;
       case "down":
-        val = { y: 100 };
+        val = { y: this.moveDistance };
         break;
       case "left":
-        val = { x: -100 };
+        val = { x: -this.moveDistance };
         break;
       case "right":
-        val = { x: 100 };
+        val = { x: this.moveDistance };
         break;
       case "middle":
         this.flip({ dir: 0 });
@@ -186,7 +225,7 @@ export default class Stage extends Vue {
     }
     const app = new Application({
       view,
-      width: 800,
+      width: 900,
       height: 450,
     });
     if (!this.isPlayer) {
@@ -200,45 +239,48 @@ export default class Stage extends Vue {
       t.lineStyle(2, 0xff0000);
 
       // draw a rectangle
-      t.drawRect(0, 0, 200, 450);
+      t.drawRect(0, 0, 150, 450);
+      t.drawRect(750, 0, 150, 450);
       app.stage.addChild(t);
       console.log("----------draw box--------------");
     }
-    loadScript().then((doc) => {
-      this.charactors = doc.charactors;
-    });
+    const doc = await loadScript();
+    this.charactors = doc.charactors;
+    this.bgm = resourcePrefix + doc.bgm;
+    this.background = resourcePrefix + doc.background;
+    this.items = doc.items;
     this.storage = new rtc.Storage();
     Charactor.app = app;
     this.setupStageScene();
     this.recoverStage();
     // console.log(this.$refs.stage)
   }
-  setupStageScene() {
+  async setupStageScene() {
     const app = Charactor.app;
     console.log(`this.config---`);
-    console.log(this.config);
-    app.loader.add(this.config.stageImages).load(() => {
-      const texture = PIXI.Texture.from(this.config.stageImages);
-      var sprite = new PIXI.Sprite(texture);
-      console.log(app.loader.resources[this.config.stageImages].texture);
-      //添加到舞台
-      sprite.width = 600;
-      sprite.height = 450;
-      sprite.x =  200;
-      app.stage.addChild(sprite);
-      // app.render()
-      //渲染到渲染器
-    });
+    const src = this.background;
+    if (!src) {
+      return;
+    }
+    const texture = PIXI.Texture.from(src);
+    var sprite = new PIXI.Sprite(texture);
+    //添加到舞台
+    sprite.width = 600;
+    sprite.height = 450;
+    sprite.x = 150;
+    console.log(src);
+    app.stage.addChild(sprite);
+    // app.render()
   }
   updateFrame(src: HTMLCanvasElement) {
     if (!ctx) return;
-    ctx.drawImage(src, 200, 0, 600, 450, 0, 0, 600, 450);
+    ctx.drawImage(src, 150, 0, 600, 450, 0, 0, 600, 450);
     this.refreshId = requestAnimationFrame(this.updateFrame.bind(this, src));
   }
   async recoverStage() {
     const charactors = await this.syncData<any[]>("charactors", []);
     this.charactorsPicked = deepCopy(charactors);
-    console.log("start recover -----------");
+    console.log(`start recover ----------- ${this.isPlayer}`);
     console.log(charactors);
     for (const el of charactors) {
       const conf = await this.syncData(`char:${el.uid}`, {});
@@ -256,11 +298,14 @@ export default class Stage extends Vue {
             this.hasPlayer = true;
             this.myCharactorName = el.config.name;
             this.animations = Array.from(player.animationNames);
+          } else {
+            this.$message.error("网络错误，请重进");
+            this.$router.go(-1);
           }
+          return;
         }
-      } else {
-        Charactor.create({ ...el.config, ...conf });
       }
+      Charactor.create({ ...el.config, ...conf });
     }
   }
   get chars() {
@@ -298,6 +343,7 @@ export default class Stage extends Vue {
       const s = await (this.$parent as RoomView).broadcast("REVOKE:flip", {
         stop: true,
         uid: UserModule.uid,
+        dir,
       });
       if (!s) {
         return;
@@ -354,7 +400,7 @@ export default class Stage extends Vue {
     x = undefined as number | undefined,
     y = undefined as number | undefined,
     stop = false,
-    time = 2,
+    time = 1,
     uid = "",
   }) {
     console.log(`moveTo ${x} ${y} ${stop} `);
@@ -366,6 +412,7 @@ export default class Stage extends Vue {
       if (typeof y === "number") {
         y = player!.y + y;
       }
+      time = this.moveRun ? 3 : 1;
       const s = await (this.$parent as RoomView).broadcast("REVOKE:moveTo", {
         stop: true,
         uid: UserModule.uid,
@@ -392,7 +439,7 @@ export default class Stage extends Vue {
     // });
     Charactor.list.forEach((el) => el.destory());
     Charactor.list = [];
-    Charactor.app.destroy();
+    Charactor.app?.destroy();
     Charactor.app = null as any;
     ctx = null;
     if (this.refreshId) cancelAnimationFrame(this.refreshId);
@@ -406,11 +453,27 @@ export default class Stage extends Vue {
   background-color: black;
 }
 section.controller {
+  padding: 0.5rem;
   .ani-picker {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     margin-left: 1rem;
+  }
+  .tip {
+    color: white;
+    margin: 0 0.5rem;
+    font-size: 0.8rem;
+  }
+  .params{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding:0.5rem;
+    .distance{
+      display: flex;
+      align-items: center;
+    }
   }
 }
 </style>

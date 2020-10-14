@@ -35,13 +35,22 @@ export class Charactor {
       if (charactor.destination) {
         const [time, tx, ty] = charactor.destination
         if (tx !== charactor.x) {
-          const dx = tx - charactor.x
-          charactor.x = dx < 0 ? Math.max(tx, charactor.x - 1 * time) : Math.min(tx, charactor.x + 1 * time)
-          // charactor.el.armature.flipX = dx < 0
+          const d = tx - charactor.x
+          const dx = d < 0 ? Math.max(tx, charactor.x - 1 * time) : Math.min(tx, charactor.x + 1 * time)
+          if (dx < 0) {
+            charactor.x = 900
+            charactor.destination[1] = 900 + dx
+          } else if (dx > 900) {
+            charactor.x = 0
+            charactor.destination[1] = dx - 900
+          } else {
+            charactor.x = dx
+          }
         }
         if (ty !== charactor.y) {
           const d = ty - charactor.y
-          charactor.y = d < 0 ? Math.max(ty, charactor.y - 1 * time) : Math.min(ty, charactor.y + 1 * time)
+          const dy = d < 0 ? Math.max(ty, charactor.y - 1 * time) : Math.min(ty, charactor.y + 1 * time)
+          charactor.y = dy
         }
         if (tx === charactor.x && ty === charactor.y) {
           charactor.destination = undefined
@@ -193,7 +202,8 @@ export class Charactor {
     console.log(`move to ${x} ${y} ${time}`)
     let name = this.animationNames.find(el => el.indexOf('走') > -1)
     if (time > 1) {
-      name = this.animationNames.find(el => el.indexOf('跑') > -1 || el.indexOf('飞') > -1)
+      let nn = this.animationNames.find(el => el.indexOf('跑') > -1 || el.indexOf('飞') > -1)
+      if (nn) name = nn
     }
     if (name) {
       this.play({
@@ -215,8 +225,8 @@ export class Charactor {
       width: this.el.width,
       height: this.el.height,
       scale: [this.el.scale.x, this.el.scale.y],
-      flipX: this.el.armature.flipX,
-      flipY: this.el.armature.flipY,
+      flipX: !!this.el.armature.flipX,
+      flipY: !!this.el.armature.flipY,
       config: this.config
     }
   }

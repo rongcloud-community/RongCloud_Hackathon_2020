@@ -4,6 +4,7 @@ export * from './dragonbone'
 export * from './db'
 export * from './hash'
 export * from './channel'
+export * from './router'
 
 export function sleep(ms: number) {
     return new Promise(res => {

@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <Header />
-    <div class="ctx-body">
-      <div class="info">Message:{{ message }};Status:{{ imstatus }}</div>
-      <router-view />
+    <div class="info">
+      Message:{{ message }};Status:{{ imstatus }}
     </div>
+    <router-view class="ctx-body" />
   </div>
 </template>
 
@@ -13,23 +13,25 @@
 import Header from "@/components/Header.vue";
 import { Component, Vue, Watch } from "vue-property-decorator";
 import { RTCModule } from "./store/rtc";
+import { UserModule } from "./store/user";
 import { SimDB } from "./utils";
 
 @Component({ name: "home", components: { Header } })
 export default class App extends Vue {
   private created() {
-    const db = new SimDB();
-    const user = db.get("user");
-    if (!user) {
-      console.log("to logon");
-      this.$router.replace("/logon");
-    }
+    UserModule.init();
+  }
+  private get canConnect() {
+    return UserModule.role > 0 && this.imstatus === 1;
   }
   private get message() {
     return RTCModule.message;
   }
   private get imstatus() {
     return RTCModule.imstatus;
+  }
+  private async connect() {
+    await RTCModule.getCert(UserModule.uid);
   }
   private async initSDK() {}
 }
@@ -47,17 +49,18 @@ export default class App extends Vue {
   align-items: center;
   min-height: 100%;
   background-color: lightgrey;
+  .info {
+    background-color: chartreuse;
+    color: white;
+    font-size: 0.8rem;
+    width: 100%;
+    border-bottom: 1px solid white;
+  }
   .ctx-body {
     flex: 1;
     max-width: 60rem;
     background-color: skyblue;
     width: 100%;
-    .info{
-      font-size: 0.8rem;
-      margin: 0.25rem 0;
-      padding-bottom: 0.25rem;;
-      border-bottom: 1px solid white;
-    }
   }
 }
 .content {

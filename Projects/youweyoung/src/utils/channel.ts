@@ -1,9 +1,9 @@
-export class Channel {
+export class Channel<T = string> {
   public name: string;
   private proxy?: BroadcastChannel;
   private map = new Set<{
-    name: string;
-    func: (e: any) => void;
+    name: T;
+    func: (e?: any) => void;
   }>();
   static connect(name: string) {
     return new Channel(name);
@@ -25,7 +25,7 @@ export class Channel {
       };
     }
   }
-  emit(name: string, data: any) {
+  emit(name: T, data?: any) {
     if (!Channel.fallback) {
       this.proxy?.postMessage({
         name,
@@ -38,7 +38,7 @@ export class Channel {
       }
     });
   }
-  on(name: string, func: (data: any) => void) {
+  on(name: T, func: (data?: any) => void) {
     const e = {
       name,
       func,

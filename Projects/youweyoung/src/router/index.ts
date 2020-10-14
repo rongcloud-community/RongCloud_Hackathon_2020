@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Home from "../views/Home.vue";
 import { UserModule } from "../store/user";
-import { mergeMeta } from "@/utils/router";
+import { mergeMeta ,mainBus} from "@/utils";
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
@@ -10,6 +10,9 @@ const routes: Array<RouteConfig> = [
     path: "/",
     name: "Home",
     component: Home,
+    meta:{
+      public:1
+    }
   },
   {
     path: "/room",
@@ -38,6 +41,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
+  console.log(to)
   if (!to.meta.public && UserModule.role === 0) next({ name: "Logon" });
   else next();
 });

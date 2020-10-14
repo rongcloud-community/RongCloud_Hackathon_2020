@@ -8,7 +8,7 @@ import {
 } from "vuex-module-decorators";
 import store from "./index";
 import { getRTCData } from "../api";
-import { initRTC } from "../utils";
+import { initRTC, mainBus } from "../utils";
 import router from "@/router";
 const RongIMLib = (window as any).RongIMLib;
 
@@ -86,6 +86,7 @@ class RTC extends VuexModule implements IRTCState {
             this.SET_MESSAGE("断开连接");
             break;
           case RongIMLib.ConnectionStatus.KICKED_OFFLINE_BY_OTHER_CLIENT:
+            mainBus.emit('force-logout')
             this.SET_MESSAGE("其他设备登录");
             break;
           case RongIMLib.ConnectionStatus.DOMAIN_INCORRECT:
@@ -131,6 +132,13 @@ class RTC extends VuexModule implements IRTCState {
       },
     });
   }
+
+
 }
+
+mainBus.on('user-logon', async (e) => {
+  await RTCModule.getCert(e.uid)
+  await RTCModule.init();
+})
 
 export const RTCModule = getModule(RTC);

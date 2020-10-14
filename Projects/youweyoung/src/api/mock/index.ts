@@ -10,9 +10,10 @@ export async function userLogon(data: { id: string; pwd: string }) {
     return {
       data: {
         uid: user.uid,
-        token: "user.token",
+        token: user.token,
         role: user.role,
         nickname: user.nickname,
+        avatar: user.avatar
       },
     };
   }
@@ -22,6 +23,15 @@ export async function userLogon(data: { id: string; pwd: string }) {
       code: 404,
     },
   };
+}
+
+export async function getUserInfo(uid: string) {
+  const el = users.find(e => e.uid === uid)
+  return el ? ({
+    avatar: el.avatar,
+    nickname: el.nickname,
+    uid: el.uid
+  }) : null
 }
 
 export async function getRTCData(uid: string) {

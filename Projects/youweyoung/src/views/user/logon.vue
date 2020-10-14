@@ -36,6 +36,7 @@
 import { Component, Vue, Watch } from "vue-property-decorator";
 import { userLogon } from "../../api";
 import { mainBus } from "../../utils";
+import { UserModule } from "@/store/user";
 let room: any;
 @Component({ name: "logon", components: {} })
 export default class Room extends Vue {
@@ -50,6 +51,11 @@ export default class Room extends Vue {
     }
     mainBus.emit("user-logon", data);
     this.$router.replace('/')
+  }
+  created(){
+    if(UserModule.hasLogon){
+      this.$router.replace('/')
+    }
   }
 }
 </script>

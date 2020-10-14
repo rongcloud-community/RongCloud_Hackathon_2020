@@ -1,22 +1,14 @@
 <template>
   <div class="home">
     <div class="room-list">
-      <div
+      <RoomCard
         class="room-card"
         v-for="room in roomsProcessed"
         :key="room.roomId"
-        :style="{ backgroundImage: room.bg }"
+        :config="room"
+        @join="join"
       >
-        <h3 class="room-name">{{ room.name }}</h3>
-        <p class="room-desc">{{ room.desc }}</p>
-        <el-button
-          class="room-join-btn"
-          @click="join(room)"
-          :disabled="!!room.forbid"
-        >
-          <span><span class="mgr">加</span>入</span>
-        </el-button>
-      </div>
+      </RoomCard>
     </div>
     <el-button @click="connect" v-if="imstatus === 2">连接</el-button>
   </div>
@@ -26,14 +18,15 @@
 import { RTCModule } from "@/store/rtc";
 import { UserModule } from "@/store/user";
 import { loadRoomList } from "@/api";
+import RoomCard from "@/components/RoomCard.vue";
 // @ is an alias to /src
 
 import { Component, Vue, Watch } from "vue-property-decorator";
 
-@Component({ name: "home" })
+@Component({ name: "home", components: { RoomCard } })
 export default class Home extends Vue {
   private get uid() {
-    return UserModule.uid;
+    return UserModule.uid || "未登录";
   }
   private joined = false;
   private rooms: any[] = [];
@@ -44,7 +37,7 @@ export default class Home extends Vue {
     return RTCModule.imstatus;
   }
   created() {
-    this.connect();
+    if (UserModule.hasLogon) this.connect();
     loadRoomList(0, 10).then((e) => {
       if (Array.isArray(e)) {
         this.rooms = e;
@@ -53,10 +46,7 @@ export default class Home extends Vue {
     });
   }
   private get roomsProcessed() {
-    return this.rooms.map((el) => {
-      (el as any).forbid = this.imstatus !== 0;
-      return el;
-    });
+    return this.rooms;
   }
   private async connect() {
     await RTCModule.getCert(this.uid);
@@ -64,12 +54,18 @@ export default class Home extends Vue {
     console.log(RTCModule);
   }
   private async join(e: any) {
-    console.log(e)
+    if (!UserModule.hasLogon) {
+      this.$message.warning("请先登录");
+      return this.$router.push("/logon");
+    }
     if (e.password) {
       const t = prompt("请输入房间密码");
       if (t !== e.password) {
         return this.$message.error("密码错误");
       }
+    }
+    if (this.imstatus !== 0) {
+      return this.$alert("连接服务器失败，请刷新页面后重试");
     }
     this.$router.push(`/room?roomId=${e.roomId}`);
   }
@@ -83,37 +79,6 @@ export default class Home extends Vue {
     display: flex;
     padding: 1rem 0;
     flex-wrap: wrap;
-    .room-card {
-      padding: 1rem;
-      background-color: white;
-      margin: 1rem 1rem 0 0;
-      flex: 1;
-      min-width: 16rem;
-      background-size: cover;
-      display: flex;
-      flex-direction: column;
-      .room-name {
-        background-color: rgba(240, 185, 6, 0.89);
-        color: white;
-        padding: 0.25rem;
-        margin-top: 0;
-      }
-      .room-desc {
-        background-color: rgba(255, 255, 255, 0.4);
-        text-align: left;
-        text-indent: 2rem;
-        padding: 0.25rem;
-        flex: 1;
-      }
-      .room-join-btn {
-        background-color: rgba(51, 235, 235, 0.49);
-        border: none;
-        color: black;
-        font-weight: bold;
-        display: flex;
-        justify-content: center;
-      }
-    }
   }
   .mgr {
     margin-right: 2rem;

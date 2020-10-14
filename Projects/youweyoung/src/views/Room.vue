@@ -17,6 +17,12 @@
         <button size="mini" @click="leave">离开</button>
       </div>
       <Stage ref="stage" :isPlayer="isPlayer" :config="roomInfo" />
+      <ChatMessage
+        style="background-color: white; height: 10rem; overflow-y: auto"
+        :uid="uid"
+        :messages="messages"
+      />
+      <RichInput ref="chatInput" @send="sendMessage" />
     </section>
   </div>
 </template>
@@ -25,7 +31,9 @@
 import { RTCModule } from "@/store/rtc";
 import { UserModule } from "@/store/user";
 import Stage from "@/components/Stage.vue";
-import { loadRoomInfo } from "@/api";
+import ChatMessage from "@/components/ChatMessage.vue";
+import RichInput from "@/components/RichInput.vue";
+import { loadRoomInfo, getUserInfo } from "@/api";
 // @ is an alias to /src
 import { rtc, Channel, sleep } from "@/utils";
 import { Component, Vue, Watch } from "vue-property-decorator";
@@ -34,7 +42,8 @@ let room: any;
 let mediaStream: MediaStream;
 let stream: any;
 let stage: Stage;
-@Component({ name: "room", components: { Stage } })
+let lastUID:string;
+@Component({ name: "room", components: { Stage, ChatMessage, RichInput } })
 export default class Room extends Vue {
   message: any;
   readonly channel = new Channel("room");
@@ -44,6 +53,21 @@ export default class Room extends Vue {
   sound: HTMLVideoElement = document.createElement("video");
   isPlayer = false;
   users: string[] = [];
+  messages: any[] = [];
+  async sendMessage(data: any) {
+    if (!this.message) {
+      return this.$message.error("尚未连接到服务器");
+    }
+    if (await this.broadcast("CHAT", { data })) {
+      this.messages.push({
+        data,
+        sender: this.uid,
+        nickname: UserModule.nickname,
+        avatar: UserModule.avatar,
+      });
+      (this.$refs.chatInput as RichInput).reset();
+    }
+  }
   private get uid() {
     return UserModule.uid;
   }
@@ -58,7 +82,6 @@ export default class Room extends Vue {
   }
   private joined = false;
   private broadcastBusy = false;
-  private totalUser = 0;
   async broadcast(name: string, content: any, cb?: any) {
     if (!this.message) return;
     if (this.broadcastBusy) {
@@ -74,7 +97,7 @@ export default class Room extends Vue {
       setTimeout(() => {
         this.broadcastBusy = false;
         if (typeof cb === "function") cb();
-      }, 200);
+      }, 100);
       t = res;
     } catch (error) {
       this.broadcastBusy = false;
@@ -267,26 +290,59 @@ export default class Room extends Vue {
     }
     return true;
   }
-  private messageHandler(message: {
+  private async messageHandler(message: {
     name: string;
     content: any;
     senderId: string;
+    uId: string;
   }) {
-    console.log("handler methods ");
+    console.log("handler methods -----");
+    console.log(message);
+    if(lastUID===message.uId){
+      return
+    }
+    lastUID = message.uId
     const [action, payload] = message.name.split(":");
+    const sender = message.senderId;
+    const content = message.content;
+    const uuid = message.uId;
     switch (action) {
       case "C":
-        this.$message.success(message.content.txt);
+        this.$message.success(content.txt);
         break;
       case "U": {
-        const data = JSON.parse(message.content);
-        stage?.updateById(payload, data);
+        stage?.updateById(payload, content);
         break;
       }
       case "Char": {
-        stage?.updateCharactors(message.content, message.senderId);
+        stage?.updateCharactors(content, sender);
         break;
       }
+      case "CHAT":
+        {
+          const e = {
+            ...content,
+            sender,
+            id: uuid,
+          } as any;
+          const sd = this.messages.find((el) => el.sender === sender);
+          console.log(`get user ${sender} info :`);
+          if (sd) {
+            e.avatar = sd.avatar;
+            e.nickname = sd.nickname;
+            console.log(sd);
+          } else {
+            const user = await getUserInfo(sender);
+            console.log("----get---");
+            console.log(user);
+            if (user) {
+              e.avatar = user.avatar;
+              e.nickname = user.nickname;
+            }
+          }
+          this.messages.push(e);
+        }
+        break;
       case "REVOKE": {
         if (stage) (stage as any)[payload].call(stage, message.content);
         break;
