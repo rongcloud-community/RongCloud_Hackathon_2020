@@ -36,7 +36,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
   double _latitude = 0.0;
   // ignore: unused_field
   String _address;
-  String tips = '小伙伴们正在来的路上....\n(请确保定位是开启状态)';
+  String tips = '小伙伴们正在来的路上....\n(请确保允许定位权限并开启位置服务)';
 
   // 请求
   void _getDiscoverDatas() async {
@@ -158,8 +158,10 @@ class _DiscoverPageState extends State<DiscoverPage> {
           ? DiscoverContent(data: _dataList, id: userId)
           : Container(
               alignment: Alignment.center,
-              child: Text(this.tips),
-            ),
+              child: Text(
+                this.tips,
+                textAlign: TextAlign.center,
+              )),
     );
   }
 }
