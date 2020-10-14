@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <form id="register">
+        <div>
+            <input type="text" name="u_id" id="uid" placeholder="用户名">
+        </div>
+        <div>
+            <input type="text" name="uname" id="uname" placeholder="请输入您的昵称">
+        </div>
+        <div>
+            <input type="text" name="portraitUri" id="portraitUri" placeholder="请输入您的头像地址">
+        </div>
+        <div>
+            <input type="radio" name="gender" value="男">男
+            <input type="radio" name="gender" value="女">女
+        </div>
+        <div>
+            <textarea name="bio" id="" cols="30" rows="10">
+
+            </textarea>
+        </div>
+        <input type="button" value="注册" id="send">
+    </form>
+    <p></p> -->
+    <!-- 引入jQuery -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        // // 绑定事件
+        // $("#send").click(function() {
+        //     // 获取表单序列化数据
+        //     let fromdata = $("#register").serialize();
+        //     // 发送ajax请求
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "/register",
+        //         data: fromdata,
+        //         success: function(results) {
+        //             if (results.code == 200) {
+        //                 $("p").text("用户注册成功!");
+        //             } else {
+        //                 $("p").text("用户已经存在!")
+        //             }
+        //         }
+        //     })
+        // })
+        $(document.documentElement).click(function () {
+            // 发送ajax请求
+            $.ajax({
+                type: "POST",
+                url: "/login",
+                data: {
+                    uid: "zhouke",
+                    password: "123456"
+                },
+                success: function (results) {
+                    if (results.code == 200) {
+                        $("p").text("用户注册成功!");
+                    } else {
+                        $("p").text("用户已经存在!")
+                    }
+                }
+            })
+        })
+
+        // 创建xhr
+        let xhr = new XMLHttpRequest();
+        // 设置url
+        xhr.open("GET", "http://v1.hitokoto.cn");
+        // 发送请求
+        xhr.send();
+        // 监听状态
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // 将json转换为对象
+                let obj = JSON.parse(xhr.responseText);
+                console.log(obj);
+            }
+        }
+    </script>
+</body>
+
+</html>
