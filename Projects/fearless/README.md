@@ -44,7 +44,7 @@ RongIMLib-3.0.7
 * `/logout`：登出
 * `/login`：登陆
 * `/register`：注册
-* `/uploads/`：上传后的路径
+* `/uploads/`：上传后的路径，注意后端路径下要放uploads文件夹
 
 ## 项目前景
 
