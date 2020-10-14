@@ -9,14 +9,14 @@
 
 **在线预览**
 
-玩家 A: https://yuhongda0315.github.io/hackathon13/index.html?id=0
+玩家 A: https://yuhongda0315.github.io/hackathon13/index.html?id=0&roomid=i98793
 
-玩家 B: https://yuhongda0315.github.io/hackathon13/index.html?id=1
+玩家 B: https://yuhongda0315.github.io/hackathon13/index.html?id=1&roomid=i98793
 
 **本地预览**
 
-玩家 A: http://localhost:xxx/index.html?id=0
+玩家 A: http://localhost:xxx/index.html?id=0&roomid=i98793
 
-玩家 B: http://localhost:xxx/index.html?id=1
+玩家 B: http://localhost:xxx/index.html?id=1&roomid=i98793
 
 

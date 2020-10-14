@@ -16,14 +16,10 @@
     RESTART: 'TT:restart'
   };
 
+  var QueryString = utils.getQueryString();
+
   var getChatroomId = () => {
-    var KEY = 'thirteen_room_id'
-    var roomId = utils.Cache.get(KEY);
-    if (!roomId) {
-      roomId = `I_${Date.now()}`;
-      utils.Cache.set(KEY, roomId)
-    }
-    return roomId;
+    return QueryString.roomid;
   }
 
   var checkGame = (isCurrent) => {
@@ -44,7 +40,7 @@
   var setVideo = (node, user) => {
     node.srcObject = user.stream.mediaStream;
   };
-  var QueryString = utils.getQueryString();
+  
   IPC.startIM({
     appKey, token: users[QueryString.id || 0]
   }, {
