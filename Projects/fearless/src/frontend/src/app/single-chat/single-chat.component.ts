@@ -180,7 +180,7 @@ export class SingleChatComponent implements OnInit {
                 case 'success':
                   this.openSnackBar('上传成功')
                   this.picNum++
-                  this.messageForm.setValue({message: this.messageForm.value['message'].length ? `${this.messageForm.value['message']}  \n![](/api/${result['filePath']})` : `![](/api/${result['filePath']})`})
+                  this.messageForm.setValue({message: this.messageForm.value['message'].length ? `${this.messageForm.value['message']}  \n![](/api/uploads/${result['filePath']})` : `![](/api/uploads/${result['filePath']})`})
                   break
                 default:
                   this.openSnackBar('上传失败')

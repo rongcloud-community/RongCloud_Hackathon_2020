@@ -48,6 +48,10 @@ RongIMLib-3.0.7
 
 注意后端运行前要定义好几个环境变量，见connectinfo.go
 
+## 线上地址
+
+[https://rongcloud.babybichu.cn](https://rongcloud.babybichu.cn)
+
 ## 项目前景
 
 因为个人时间限制，所以还有很多待开发的功能，比如——
