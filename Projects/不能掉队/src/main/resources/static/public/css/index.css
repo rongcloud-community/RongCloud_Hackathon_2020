@@ -1,0 +1,85 @@
+
+body,html{background: url(../images/bglogo.jpg) no-repeat #eee center 122px;}
+a{color: #333;}
+a:hover{color: #333;}
+a:visited{color: #333;}
+.main{width: 1100px; margin:0 auto;}
+.top{margin-top: 380px;}
+/* 推荐专区 */
+.container{display: inline-block; width: 100%; background: #fff;}
+.big-area{padding:10px 10px 5px; width:1100px; overflow:hidden; height:320px; border-bottom:1px dotted #ddd;}
+.big-area li{float:left; margin:10px; width: 250px; position:relative; overflow: hidden; border: 1px solid #a2a2a2; box-shadow: 0 2px 2px #bdbdbd; height: 280px;}
+.big-area li img{display:block; width:250px; height:282px;}
+.big-area li:hover{border-color: #009bff;}
+.big-area li:hover .container_cover,
+.big-area li:hover .container_hover{-webkit-transform: translate(0, 282px); -moz-transform: translate(0, 282px); -ms-transform: translate(0, 282px); -o-transform: translate(0, 282px); transform: translate(0, 282px);}
+.container_cover{background-color: #666; bottom: 282px; height: 100%; opacity: 0.7; position: absolute; width: 100%; -webkit-transition: transform .25s; -moz-transition: transform .25s; -ms-transition: transform .25s; -o-transition: transform .25s; transition: transform .25s;}
+.container_hover{bottom: 282px; color: #fff; height: 100%; padding: 0 10px; position: absolute; -webkit-transition: transform .25s; -moz-transition: transform .25s; -ms-transition: transform .25s; -o-transition: transform .25s; transition: transform .25s;}
+.container_hover h2{margin-top: 51px; text-align: center;}
+.container_hover p{font-size: 12px;}
+.container_hover .container_b{bottom: 0; color: #fff; padding-bottom: 10px; position: absolute; width: 92%;}
+.container_con{background: linear-gradient(to top, #333, transparent); background: -webkit-linear-gradient(to top, #333, transparent); background: -moz-linear-gradient(to top, #333, transparent); background: -o-linear-gradient(to top, #333, transparent); bottom: 0; color: #fff; position: absolute; text-align: center; width: 100%; height: 45px; -webkit-transition: transform .25s; -moz-transition: transform .25s; -ms-transition: transform .25s; -o-transition: transform .25s; transition: transform .25s;}
+.big-area li:hover .container_con{-webkit-transform: translate(0, 38px); -moz-transform: translate(0, 38px); -ms-transform: translate(0, 38px); -o-transform: translate(0, 38px); transform: translate(0, 38px);}
+.container_con h2{font-size:24px; font-weight:normal;}
+.container_con p{height:40px; overflow:hidden; text-align:justify;}
+.container_b{color:#009bff; padding-top:5px; font-size: 12px;}
+.container_b span{float:right; background-color:#009bff; border-radius:2px; text-align:center; width:52px; height:22px; line-height:22px; color:#fff;}
+.small-area{padding:10px; width:1100px; overflow:hidden; height:150px;}
+.small-area li{float:left; margin:10px 9px 10px; width:90px;}
+.small-area li img{display:block; width: 90px; height: 90px; border-radius: 20px;}
+.small-area li p{text-align:center; height:22px; line-height:22px; overflow:hidden; margin-top:3px; font-size:14px;}
+.small-area .app_90 img{-webkit-transition: transform .25s; -moz-transition: transform .25s; -ms-transition: transform .25s; -o-transition: transform .25s; transition: transform .25s;}
+.small-area a.app_90:hover img{-webkit-transform: scale(1.05, 1.05); -moz-transform: scale(1.05, 1.05); -ms-transform: scale(1.05, 1.05); -o-transform: scale(1.05, 1.05); transform: scale(1.05, 1.05);}
+
+/* banner 新闻专区 */
+.fl-content{width:100%; margin: 10px auto; background: #fff; display: inline-block; padding: 20px;}
+.fl-banner{width:635px; height:300px; overflow:hidden; position:relative; float:left; margin-right:2px;}
+.fl-news{width:360px; float:left; margin: 0 30px;}
+.hot_news{border-bottom:1px dotted #ddd; margin-bottom:20px; padding-bottom:20px;}
+.hot_news li{text-align:center;}
+.hot_news h2{overflow:hidden; height:32px;}
+.hot_news h2 a{color:#009bff; font:bold 16px/32px "Microsoft YaHei"; padding:0px; cursor:pointer;}
+.hot_news h2 a.tit_hui{color:#333;}
+.hot_news h2 a:hover{text-decoration:underline;}
+.hot_news a{color:#8b8; padding:0 10px;}
+.hot_news a:hover{color:#009bff;}
+.new_lists li{line-height:32px; height:32px; overflow:hidden; font-size: 12px;}
+.new_lists li:hover a{color:#009bff;}
+.new_lists li span{color:#8f8f8f; float:right;}
+.new_lists li i{font-style:normal;}
+.news_more{border: 1px solid #ddd; line-height: 30px; margin-top: 10px; text-align: center; font-size: 12px; cursor: pointer}
+.news_more:hover{border: 1px solid #009bff!important;}
+.news_more:hover a{color: #009bff;}
+.nivo-directionNav a{display:block; width:30px; height:30px; background:url(../images/arrows.png) no-repeat; text-indent:-9999px; border:0;}
+a.nivo-nextNav{background-position:-30px 0; right:60px;}
+a.nivo-prevNav{left:15px;}
+.nivo-controlNav{ display: none}
+
+/* 新游上线 */
+.game_line{width: 100%; display: inline-block; background: #fff; padding: 20px;}
+.game_title{border-bottom: 2px solid; font-size:18px; color:#009bff; font-weight:bold; margin-bottom:10px; height: 40px;}
+.game_title .more{float:right; font-size:14px; padding-right:20px; color:#999; font-weight:normal;}
+.game_title .more:hover{background:url(../images/more-on.jpg) no-repeat right center;}
+.game_title .more:hover{color:#009bff;}
+.game_content li{float: left; width: 265px; cursor: pointer; padding: 20px; margin: 10px 0; height: 120px;}
+.game_content li:hover{background-color:transparent; box-shadow: 0 0 10px #cdcdcd;}
+.game_content li > div{float: left;}
+.game_content .game_icon{width:100px;}
+.game_content .game_icon img{width:90px; height: 90px; border-radius: 20px; transition:all 0.2s}
+.game_content .game_item{width:calc(100% - 100px);}
+.game_content .game_item > div{font-size: 12px; color: #999; margin-top: 20px;}
+.game_content .game_item .name{font-size: 14px; color: #333; margin-top: 10px;}
+.game_content .game_item .notice_l img{width: 20px; height: 20px; margin-right: 5px}
+.game_content li .img_code{opacity: 0;}
+.game_content li .notice_l{opacity: 0; display: none}
+.game_content li:hover .notice_l{opacity: 1; display:block!important;}
+.game_content li:hover .category{opacity: 0; display: none}
+.game_content li:hover .img_logo{opacity: 0; display: none}
+.game_content li:hover .img_code,.notice_l{opacity: 1; display: block;}
+
+/* 友情链接 */
+.p_link{width: 100%; display: inline-block; background: #fff; padding: 20px; margin: 10px 0;}
+.link_title{border-bottom: 2px solid; font-size:18px; color:#009bff; font-weight:bold; margin-bottom:10px; height: 40px;}
+.link_con{padding:10px 20px 10px 0;}
+.link_con a{font-size:16px; display:inline-block; margin:5px 10px 5px 0;}
+.link_con a:hover{color: #009bff}
