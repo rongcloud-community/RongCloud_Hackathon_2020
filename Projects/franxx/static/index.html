@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://cdn.ronghub.com/RongIMLib-3.0.5-dev.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="index.js" defer></script>
+    <title>ivote</title>
+</head>
+
+<body>
+    <h2>ivote</h2>
+    <div id="tovote">
+        <h4>参与投票</h4>
+        <p>输入投票id</p>
+        <input type="text" name="voteinput" id="voteinput">
+        <input type="button" onclick="getvote();" value="投票">
+    </div>
+    <div id="create">
+        <h4>创建投票</h4>
+        <p>投票标题</p>
+        <input type="text" name="title" id="title">
+        <p>投票选项</p>
+        <div id="optionlist">
+            <div class="option">
+                <input type="text">
+                <input type="button" value="删除" onclick="this.parentElement.remove();">
+            </div>
+            <div class="option">
+                <input type="text">
+                <input type="button" value="删除" onclick="this.parentElement.remove();">
+            </div>
+        </div>
+        <input type="button" value="增加" onclick="addoption();">
+        <input type="button" value="提交" onclick="submit();">
+    </div>
+    <div id="result">
+        <h4>投票结果</h4>
+        <div id="resultlist">
+        </div>
+    </div>
+    <div id="dovote">
+        <h4>参与投票</h4>
+        <p id="votetitle">标题</p>
+        <div id="votelist">
+        </div>
+    </div>
+</body>
+
+</html>
