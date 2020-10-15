@@ -1,0 +1,127 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "考研宝典",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 0
+			}
+		}
+	    ,{
+            "path" : "pages/login/login",
+            "style" : {
+				"navigationBarTitleText": "登录"
+			}
+        }
+        ,{
+            "path" : "pages/advice/advice",
+            "style" : {
+				"navigationBarTitleText": "咨询",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 0
+			}
+        }
+        ,{
+            "path" : "pages/article/article",
+            "style" : {
+				"navigationBarTitleText": "文章",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 0
+			}
+        }
+        ,{
+            "path" : "pages/mine/mine",
+            "style" : {
+				"navigationBarTitleText": "我的"
+			}
+        }
+        ,{
+            "path" : "pages/index/detail/detail",
+            "style" : {
+				"navigationBarTitleText": "招生详情"
+			}
+        }
+        ,{
+            "path" : "pages/article/detail/detail",
+            "style" : {
+				"navigationBarTitleText": "文章详情"
+			}
+        }
+        ,{
+            "path" : "pages/mine/collect/collect",
+            "style" : {
+				"navigationBarTitleText": "收藏的文章",
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 0
+			}
+        }
+        ,{
+            "path" : "pages/message/message",
+            "style" : {
+				"navigationBarTitleText": "消息"
+			}
+        }
+        ,{
+            "path" : "pages/advice/detail/detail",
+            "style" : {
+				"navigationBarTitleText": "详情介绍"
+			}
+        }
+        ,{
+            "path" : "pages/advice/chat/chat",
+            "style" : {
+				"navigationBarTitleText": "对话"
+			}
+        }
+        ,{
+            "path" : "pages/register/register",
+            "style" : {
+				"navigationBarTitleText": "注册"
+			}
+        }
+        ,{
+            "path" : "pages/article/view/view",
+            "style" : {
+				"navigationBarTitleText": "页面查看"
+			}
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "考研宝典",
+		"navigationBarBackgroundColor": "#15a596",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#15a596",
+		"borderStyle": "white",
+		"list": [{
+		        "pagePath": "pages/index/index",
+		        "iconPath": "/static/home.png",
+		        "selectedIconPath": "/static/home_hl.png",
+		        "text": "首页"
+		    }, {
+		        "pagePath": "pages/advice/advice",
+		        "iconPath": "/static/ad.png",
+		        "selectedIconPath": "/static/ad_hl.png",
+		        "text": "咨询"
+		    }, {
+		        "pagePath": "pages/article/article",
+		        "iconPath": "/static/article.png",
+		        "selectedIconPath": "/static/article_hl.png",
+		        "text": "文章"
+		    }, {
+		        "pagePath": "pages/message/message",
+		        "iconPath": "/static/message.png",
+		        "selectedIconPath": "/static/message_hl.png",
+		        "text": "消息"
+		    }, {
+		        "pagePath": "pages/mine/mine",
+		        "iconPath": "/static/mine.png",
+		        "selectedIconPath": "/static/mine_hl.png",
+		        "text": "我的"
+		    }]
+	}
+}
