@@ -55,6 +55,7 @@ export class SingleChatComponent implements OnInit {
   })
   matcher = new MyErrorStateMatcher()
   picNum: number
+  currentScreen: string = 'both'
 
   constructor(private route: ActivatedRoute, private router: Router, private accSer: AcccountManagementService, public rongSer: RongCloudService, private fb: FormBuilder, private store: Store, private appRef: ApplicationRef, private snackbar: MatSnackBar, public dialog: MatDialog) { }
 
@@ -89,6 +90,9 @@ export class SingleChatComponent implements OnInit {
 
   ngOnInit() {
     this.appRef.components[0].instance.setTitle('聊天')
+    if (screen.width <= 800) {
+      this.currentScreen = 'list'
+    }
     if (this.route.params['_value']['chat']) {
       this.currentCon['targetId'] = this.route.params['_value']['chat']
     }
@@ -229,7 +233,14 @@ export class SingleChatComponent implements OnInit {
   changeCurCon(i: number) {
     this.currentCon = this.rongSer.conversationList[i]
     this.rongSer.read(this.currentCon)
+    if (screen.width <= 800) {
+      this.currentScreen = 'con'
+    }
     this.getCurMessages()
+  }
+
+  backToList() {
+    this.currentScreen = 'list'
   }
 
   keyDownForm(e: Event) {

@@ -1,6 +1,6 @@
-<mat-grid-list cols="3" rows="7" rowHeight="5.6:1">
-    <mat-grid-tile colspan="1" rowspan="7">
-        <mat-grid-tile-header>对话列表</mat-grid-tile-header>
+<div class="chat-window">
+    <div class="convList" [hidden]="currentScreen == 'con'">
+        <div class="header">对话列表</div>
         <div class="mat-list-container">
         <mat-list>
             <ng-template ngFor let-conv [ngForOf]="rongSer.conversationList" let-i="index">
@@ -17,11 +17,15 @@
             </ng-template>  
         </mat-list>     
         </div>
-    </mat-grid-tile>
-    <mat-grid-tile colspan="2" rowspan="5">
-        <mat-grid-tile-header>{{currentCon && currentCon.targetId && currentCon.targetId.length ? '与'+getTargetInfo(currentCon.targetId).nickname+'的对话' : '对话'}}</mat-grid-tile-header>
-        <div class="conversationList" *ngIf="currentConMessages">
-            <ng-template ngFor let-message [ngForOf]="currentConMessages">
+    </div>
+    <div class="convCur" [hidden]="currentScreen == 'list'">
+        <div class="header">
+            <button class="back" (click)="backToList()" mat-icon-button>
+                <mat-icon>keyboard_backspace</mat-icon>
+            </button>
+            {{currentCon && currentCon.targetId && currentCon.targetId.length ? '与'+getTargetInfo(currentCon.targetId).nickname+'的对话' : '对话'}}</div>
+        <div class="conversationList">
+            <ng-template *ngIf="currentConMessages" ngFor let-message [ngForOf]="currentConMessages">
               <ng-template [ngIf]="unreadLineStatus(message)">
                 <mat-card id="unReadSep">
                     <mat-card-content>
@@ -50,21 +54,22 @@
               </mat-card>
             </ng-template>            
         </div>
-    </mat-grid-tile>
-    <mat-grid-tile colspan="2" rowspan="2">
-        <button mat-icon-button (click)="uploadPic()">
-            <mat-icon>insert_photo</mat-icon>
-        </button>
-        <form [formGroup]="messageForm" (ngSubmit)="onSub()" class="messageForm" (keydown)="keyDownForm($event)">
-            <mat-form-field>
-                <mat-label *ngIf="editToggle else enterField">编辑消息（Ctrl+Enter发送，支持Markdown）</mat-label>
-                <ng-template #enterField>
-                    <mat-label>输入消息（Ctrl+Enter发送，支持Markdown）</mat-label>
-                </ng-template>
-                <textarea formControlName="message" type="text" [errorStateMatcher]="matcher" matInput></textarea>
-                <button type="submit" [disabled]="!messageForm.valid || !currentCon" mat-raised-button color="primary">发送</button>
-            </mat-form-field>
-        </form>
-    </mat-grid-tile>
-</mat-grid-list>
+        <div>
+            <button mat-icon-button (click)="uploadPic()">
+                <mat-icon>insert_photo</mat-icon>
+            </button>
+            <form [formGroup]="messageForm" (ngSubmit)="onSub()" class="messageForm" (keydown)="keyDownForm($event)">
+                <mat-form-field>
+                    <mat-label *ngIf="editToggle else enterField">编辑消息（Ctrl+Enter发送，支持Markdown）</mat-label>
+                    <ng-template #enterField>
+                        <mat-label>输入消息（Ctrl+Enter发送，支持Markdown）</mat-label>
+                    </ng-template>
+                    <textarea formControlName="message" type="text" [errorStateMatcher]="matcher" matInput></textarea>
+                    <button type="submit" [disabled]="!messageForm.valid || !currentCon" mat-raised-button color="primary">发送</button>
+                </mat-form-field>
+            </form>
+        </div>
+    </div>
+    
+</div>
   
