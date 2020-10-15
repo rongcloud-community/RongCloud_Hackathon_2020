@@ -1,0 +1,287 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="io.rong.imkit"
+4    android:versionCode="160241824"
+5    android:versionName="v1.1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="19"
+8-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml
+10
+11    <!-- 访问相册，访问文件系统等 -->
+12    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+12-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:6:5-80
+12-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:6:22-77
+13    <!-- 发送位置消息，实时位置共享，如果您需要定位相关的功能，可以打开以下注释 -->
+14    <!-- <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> -->
+15    <!-- <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> -->
+16    <!-- 拍照 -->
+17    <uses-permission android:name="android.permission.CAMERA" />
+17-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:11:5-65
+17-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:11:22-62
+18    <!-- 拍照等 -->
+19    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+19-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:13:5-73
+19-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:13:22-70
+20    <!-- 网络 -->
+21    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+21-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:15:5-76
+21-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:15:22-73
+22    <uses-permission android:name="android.permission.INTERNET" />
+22-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:16:5-67
+22-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:16:22-64
+23    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+23-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:17:5-79
+23-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:17:22-76
+24    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+24-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:18:5-76
+24-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:18:22-73
+25    <!-- 录音 -->
+26    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+26-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:20:5-71
+26-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:20:22-68
+27    <!-- 使用ActivityManager需要 -->
+28    <uses-permission android:name="android.permission.GET_TASKS" />
+28-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:22:5-68
+28-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:22:22-65
+29    <!-- 适配 Android 8.0 -->
+30    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+30-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:24:5-83
+30-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:24:22-80
+31    <!-- 保存图片，拍照等 -->
+32    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+32-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:26:5-81
+32-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:26:22-78
+33    <!-- 新消息震动提醒 -->
+34    <uses-permission android:name="android.permission.VIBRATE" />
+34-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:28:5-66
+34-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:28:22-63
+35
+36    <application>
+36-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:30:5-157:19
+37        <activity
+37-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:32:9-34:52
+38            android:name="io.rong.imkit.plugin.location.AMapLocationActivity"
+38-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:33:13-78
+39            android:screenOrientation="portrait" />
+39-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:34:13-49
+40        <activity
+40-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:35:9-37:52
+41            android:name="io.rong.imkit.plugin.location.AMapLocationActivity2D"
+41-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:36:13-80
+42            android:screenOrientation="portrait" />
+42-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:37:13-49
+43        <activity android:name="io.rong.imkit.plugin.location.AMapPreviewActivity" />
+43-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:39:9-86
+43-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:39:19-83
+44        <activity android:name="io.rong.imkit.plugin.location.AMapPreviewActivity2D" />
+44-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:40:9-88
+44-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:40:19-85
+45        <activity android:name="io.rong.imkit.plugin.location.AMapRealTimeActivity" />
+45-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:42:9-87
+45-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:42:19-84
+46        <activity android:name="io.rong.imkit.plugin.location.AMapRealTimeActivity2D" />
+46-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:43:9-89
+46-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:43:19-86
+47        <activity
+47-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:45:9-48:71
+48            android:name="io.rong.imkit.plugin.location.SearchLocationActivity"
+48-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:46:13-80
+49            android:screenOrientation="portrait"
+49-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:47:13-49
+50            android:windowSoftInputMode="stateVisible|adjustResize" />
+50-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:48:13-68
+51        <activity
+51-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:50:9-53:52
+52            android:name="io.rong.imkit.plugin.image.PictureSelectorActivity"
+52-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:51:13-78
+53            android:configChanges="keyboardHidden|orientation|screenSize"
+53-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:52:13-74
+54            android:screenOrientation="portrait" />
+54-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:53:13-49
+55        <activity
+55-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:55:9-57:52
+56            android:name="io.rong.imkit.plugin.image.PicturePreviewActivity"
+56-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:56:13-77
+57            android:screenOrientation="portrait" />
+57-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:57:13-49
+58
+59        <!-- 开发者可以修改 RongBaseActivity 的 rc_base_activity_layout 布局文件调整 actionbar -->
+60        <activity
+60-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:60:9-68:20
+61            android:name="io.rong.imkit.tools.RongWebviewActivity"
+61-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:61:13-67
+62            android:exported="false"
+62-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:62:13-37
+63            android:screenOrientation="portrait" >
+63-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:63:13-49
+64            <intent-filter>
+64-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:64:13-67:29
+65                <action android:name="io.rong.imkit.intent.action.webview" />
+65-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:65:17-78
+65-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:65:25-75
+66
+67                <category android:name="android.intent.category.DEFAULT" />
+67-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:66:17-76
+67-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:66:27-73
+68            </intent-filter>
+69        </activity>
+70        <activity
+70-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:70:9-78:20
+71            android:name="io.rong.imkit.tools.CombineWebViewActivity"
+71-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:71:13-70
+72            android:exported="false"
+72-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:72:13-37
+73            android:screenOrientation="portrait" >
+73-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:73:13-49
+74            <intent-filter>
+74-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:74:13-77:29
+75                <action android:name="io.rong.imkit.intent.action.combinewebview" />
+75-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:75:17-85
+75-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:75:25-82
+76
+77                <category android:name="android.intent.category.DEFAULT" />
+77-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:66:17-76
+77-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:66:27-73
+78            </intent-filter>
+79        </activity>
+80        <activity
+80-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:80:9-83:52
+81            android:name="io.rong.imkit.widget.provider.TakingPicturesActivity"
+81-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:81:13-80
+82            android:configChanges="orientation|keyboardHidden"
+82-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:82:13-63
+83            android:screenOrientation="portrait" />
+83-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:83:13-49
+84        <activity
+84-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:85:9-93:20
+85            android:name="io.rong.imkit.activity.PicturePagerActivity"
+85-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:86:13-71
+86            android:exported="false"
+86-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:87:13-37
+87            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+87-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:88:13-71
+88            <intent-filter>
+88-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:89:13-92:29
+89                <action android:name="io.rong.imkit.intent.action.picturepagerview" />
+89-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:90:17-87
+89-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:90:25-84
+90
+91                <category android:name="android.intent.category.DEFAULT" />
+91-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:66:17-76
+91-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:66:27-73
+92            </intent-filter>
+93        </activity>
+94        <activity
+94-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:96:9-103:20
+95            android:name="io.rong.imkit.activity.CombinePicturePagerActivity"
+95-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:97:13-78
+96            android:exported="false"
+96-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:98:13-37
+97            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+97-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:99:13-71
+98            <intent-filter>
+98-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:100:13-102:29
+99                <category android:name="android.intent.category.DEFAULT" />
+99-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:66:17-76
+99-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:66:27-73
+100            </intent-filter>
+101        </activity>
+102        <activity
+102-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:105:9-108:67
+103            android:name="io.rong.imkit.mention.MemberMentionedActivity"
+103-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:106:13-73
+104            android:configChanges="orientation|keyboardHidden"
+104-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:107:13-63
+105            android:windowSoftInputMode="adjustPan|stateHidden" />
+105-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:108:13-64
+106        <activity android:name="io.rong.imkit.activity.FileManagerActivity" />
+106-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:109:9-79
+106-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:109:19-76
+107        <activity android:name="io.rong.imkit.activity.FileListActivity" />
+107-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:110:9-76
+107-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:110:19-73
+108        <activity
+108-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:111:9-119:20
+109            android:name="io.rong.imkit.activity.FilePreviewActivity"
+109-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:112:13-70
+110            android:exported="false"
+110-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:113:13-37
+111            android:screenOrientation="portrait" >
+111-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:114:13-49
+112            <intent-filter>
+112-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:115:13-118:29
+113                <action android:name="io.rong.imkit.intent.action.openfile" />
+113-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:116:17-79
+113-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:116:25-76
+114
+115                <category android:name="android.intent.category.DEFAULT" />
+115-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:66:17-76
+115-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:66:27-73
+116            </intent-filter>
+117        </activity>
+118        <activity
+118-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:120:9-128:20
+119            android:name="io.rong.imkit.activity.WebFilePreviewActivity"
+119-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:121:13-73
+120            android:exported="false"
+120-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:122:13-37
+121            android:screenOrientation="portrait" >
+121-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:123:13-49
+122            <intent-filter>
+122-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:124:13-127:29
+123                <action android:name="io.rong.imkit.intent.action.openwebfile" />
+123-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:125:17-82
+123-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:125:25-79
+124
+125                <category android:name="android.intent.category.DEFAULT" />
+125-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:66:17-76
+125-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:66:27-73
+126            </intent-filter>
+127        </activity>
+128        <activity
+128-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:130:9-133:52
+129            android:name="io.rong.imkit.activity.CSLeaveMessageActivity"
+129-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:131:13-60
+130            android:configChanges="orientation|keyboardHidden"
+130-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:132:13-63
+131            android:screenOrientation="portrait" />
+131-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:133:13-49
+132        <activity
+132-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:135:9-143:20
+133            android:name="io.rong.imkit.activity.GIFPreviewActivity"
+133-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:136:13-69
+134            android:exported="false"
+134-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:137:13-37
+135            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+135-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:138:13-71
+136            <intent-filter>
+136-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:139:13-142:29
+137                <action android:name="io.rong.imkit.intent.action.gifrview" />
+137-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:140:17-79
+137-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:140:25-76
+138
+139                <category android:name="android.intent.category.DEFAULT" />
+139-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:66:17-76
+139-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:66:27-73
+140            </intent-filter>
+141        </activity>
+142        <activity android:name="io.rong.imkit.activity.SelectConversationActivity" />
+142-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:145:9-86
+142-->D:\Android\workspace\app5\SingTogether\IMKit_Source\src\main\AndroidManifest.xml:145:19-83
+143        <!-- 此部分代码需要移植到您的 app 下的 manifest，并且 authorities 指定您的包名。例如：com.android.FileProvider -->
+144        <!-- 否则使用拍照功能时，会崩溃 -->
+145        <!-- <provider -->
+146        <!-- android:name="android.support.v4.content.FileProvider" -->
+147        <!-- android:authorities="包名.FileProvider" -->
+148        <!-- android:grantUriPermissions="true" -->
+149        <!-- android:exported="false"> -->
+150        <!-- <meta-data -->
+151        <!-- android:name="android.support.FILE_PROVIDER_PATHS" -->
+152        <!-- android:resource="@xml/rc_file_path"/> -->
+153        <!-- </provider> -->
+154    </application>
+155
+156</manifest>

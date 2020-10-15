@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="rc_emoji_code">
+        <item>0x1f603</item>
+        <item>0x1f600</item>
+        <item>0x1f60a</item>
+        <item>0x263a</item>
+        <item>0x1f609</item>
+        <item>0x1f60d</item>
+        <item>0x1f618</item>
+        <item>0x1f61a</item>
+        <item>0x1f61c</item>
+        <item>0x1f61d</item>
+        <item>0x1f633</item>
+        <item>0x1f601</item>
+        <item>0x1f614</item>
+        <item>0x1f60c</item>
+        <item>0x1f612</item>
+        <item>0x1f61f</item>
+        <item>0x1f61e</item>
+        <item>0x1f623</item>
+        <item>0x1f622</item>
+        <item>0x1f602</item>
+        <item>0x1f62d</item>
+        <item>0x1f62a</item>
+        <item>0x1f630</item>
+        <item>0x1f605</item>
+        <item>0x1f613</item>
+        <item>0x1f62b</item>
+        <item>0x1f629</item>
+        <item>0x1f628</item>
+        <item>0x1f631</item>
+        <item>0x1f621</item>
+        <item>0x1f624</item>
+        <item>0x1f616</item>
+        <item>0x1f606</item>
+        <item>0x1f60b</item>
+        <item>0x1f637</item>
+        <item>0x1f60e</item>
+        <item>0x1f634</item>
+        <item>0x1f632</item>
+        <item>0x1f635</item>
+        <item>0x1f608</item>
+        <item>0x1f47f</item>
+        <item>0x1f62f</item>
+        <item>0x1f62c</item>
+        <item>0x1f615</item>
+        <item>0x1f636</item>
+        <item>0x1f607</item>
+        <item>0x1f60f</item>
+        <item>0x1f611</item>
+        <item>0x1f648</item>
+        <item>0x1f649</item>
+        <item>0x1f64a</item>
+        <item>0x1f47d</item>
+        <item>0x1f4a9</item>
+        <item>0x2764</item>
+        <item>0x1f494</item>
+        <item>0x1f525</item>
+        <item>0x1f4a2</item>
+        <item>0x1f4a4</item>
+        <item>0x1f6ab</item>
+        <item>0x2b50</item>
+        <item>0x26a1</item>
+        <item>0x1f319</item>
+        <item>0x2600</item>
+        <item>0x26c5</item>
+        <item>0x2601</item>
+        <item>0x2744</item>
+        <item>0x2614</item>
+        <item>0x26c4</item>
+        <item>0x1f44d</item>
+        <item>0x1f44e</item>
+        <item>0x1f91d</item>
+        <item>0x1f44c</item>
+        <item>0x1f44a</item>
+        <item>0x270a</item>
+        <item>0x270c</item>
+        <item>0x270b</item>
+        <item>0x1f64f</item>
+        <item>0x261d</item>
+        <item>0x1f44f</item>
+        <item>0x1f4aa</item>
+        <item>0x1f46a</item>
+        <item>0x1f46b</item>
+        <item>0x1f47c</item>
+        <item>0x1f434</item>
+        <item>0x1f436</item>
+        <item>0x1f437</item>
+        <item>0x1f47b</item>
+        <item>0x1f339</item>
+        <item>0x1f33b</item>
+        <item>0x1f332</item>
+        <item>0x1f384</item>
+        <item>0x1f381</item>
+        <item>0x1f389</item>
+        <item>0x1f4b0</item>
+        <item>0x1f382</item>
+        <item>0x1f356</item>
+        <item>0x1f35a</item>
+        <item>0x1f366</item>
+        <item>0x1f36b</item>
+        <item>0x1f349</item>
+        <item>0x1f377</item>
+        <item>0x1f37b</item>
+        <item>0x2615</item>
+        <item>0x1f3c0</item>
+        <item>0x26bd</item>
+        <item>0x1f3c2</item>
+        <item>0x1f3a4</item>
+        <item>0x1f3b5</item>
+        <item>0x1f3b2</item>
+        <item>0x1f004</item>
+        <item>0x1f451</item>
+        <item>0x1f484</item>
+        <item>0x1f48b</item>
+        <item>0x1f48d</item>
+        <item>0x1f4da</item>
+        <item>0x1f393</item>
+        <item>0x270f</item>
+        <item>0x1f3e1</item>
+        <item>0x1f6bf</item>
+        <item>0x1f4a1</item>
+        <item>0x1f4de</item>
+        <item>0x1f4e2</item>
+        <item>0x1f556</item>
+        <item>0x23f0</item>
+        <item>0x23f3</item>
+        <item>0x1f4a3</item>
+        <item>0x1f52b</item>
+        <item>0x1f48a</item>
+        <item>0x1f680</item>
+        <item>0x1f30f</item>
+    </integer-array>
+    <array name="rc_emoji_description">
+        <item>@string/rc_emoji_smiley_face</item><!--1-->
+        <item>@string/rc_emoji_grinning_face</item><!--2-->
+        <item>@string/rc_emoji_smiley</item><!--3-->
+        <item>@string/rc_emoji_cute</item><!--4-->
+        <item>@string/rc_emoji_winking_face</item><!--5-->
+        <item>@string/rc_emoji_heart_eyes</item><!--6-->
+        <item>@string/rc_emoji_blowing_kiss</item><!--7-->
+        <item>@string/rc_emoji_kiss_face</item><!--8-->
+        <item>@string/rc_emoji_crazy_face</item><!--9-->
+        <item>@string/rc_emoji_tongue_out</item><!--10-->
+        <item>@string/rc_emoji_flushed_face</item><!--11-->
+        <item>@string/rc_emoji_grinning_with_smiling</item><!--12-->
+        <item>@string/rc_emoji_pensive</item><!--13-->
+        <item>@string/rc_emoji_pleased</item><!--14-->
+        <item>@string/rc_emoji_dissatisfied</item><!--15-->
+        <item>@string/rc_emoji_worried_face</item><!--16-->
+        <item>@string/rc_emoji_disappointed_face</item><!--17-->
+        <item>@string/rc_emoji_helpless_face</item><!--18-->
+        <item>@string/rc_emoji_crying</item><!--19-->
+        <item>@string/rc_emoji_laughing_tears</item><!--20-->
+        <item>@string/rc_emoji_sobbing</item><!--21-->
+        <item>@string/rc_emoji_sleepy_face</item><!--22-->
+        <item>@string/rc_emoji_cold_sweat</item><!--23-->
+        <item>@string/rc_emoji_happy_sweat</item><!--24-->
+        <item>@string/rc_emoji_sweat</item><!--25-->
+        <item>@string/rc_emoji_tired_face</item><!--26-->
+        <item>@string/rc_emoji_weary_face</item><!--27-->
+        <item>@string/rc_emoji_fearful_face</item><!--28-->
+        <item>@string/rc_emoji_scream</item><!--29-->
+        <item>@string/rc_emoji_angry_face</item><!--30-->
+        <item>@string/rc_emoji_mad_face</item><!--31-->
+        <item>@string/rc_emoji_confounded_face</item><!--32-->
+        <item>@string/rc_emoji_big_grin</item><!--33-->
+        <item>@string/rc_emoji_hungry</item><!--34-->
+        <item>@string/rc_emoji_mask_face</item><!--35-->
+        <item>@string/rc_emoji_sunglasses</item><!--36-->
+        <item>@string/rc_emoji_sleeping</item><!--37-->
+        <item>@string/rc_emoji_shocked_face</item><!--38-->
+        <item>@string/rc_emoji_dizzy_face</item><!--39-->
+        <item>@string/rc_emoji_purple_devil</item><!--40-->
+        <item>@string/rc_emoji_devil</item><!--41-->
+        <item>@string/rc_emoji_surprised_face</item><!--42-->
+        <item>@string/rc_emoji_grimacing_face</item><!--43-->
+        <item>@string/rc_emoji_confused</item><!--44-->
+        <item>@string/rc_emoji_mouthless</item><!--45-->
+        <item>@string/rc_emoji_halo</item><!--46-->
+        <item>@string/rc_emoji_smirking_face</item><!--47-->
+        <item>@string/rc_emoji_expressionless_face</item><!--48-->
+        <item>@string/rc_emoji_see_no_monkey</item><!--49-->
+        <item>@string/rc_emoji_hear_no_monkey</item><!--50-->
+        <item>@string/rc_emoji_no_speaking</item><!--51-->
+        <item>@string/rc_emoji_alien</item><!--52-->
+        <item>@string/rc_emoji_pile_of_poo</item><!--53-->
+        <item>@string/rc_emoji_love_heart</item><!-- <<<<<<<<<<<<<<<<<< 130 >>>>>>>>>>>>>>>>  -->
+        <item>@string/rc_emoji_broken_heart</item><!--54-->
+        <item>@string/rc_emoji_fire</item><!--55-->
+        <item>@string/rc_emoji_anger</item><!--56-->
+        <item>@string/rc_emoji_zzz</item><!--57-->
+        <item>@string/rc_emoji_prohibited</item><!--58-->
+        <item>@string/rc_emoji_star</item><!--59-->
+        <item>@string/rc_emoji_lightning_bolt</item><!--60-->
+        <item>@string/rc_emoji_crescent_moon</item><!--61-->
+        <item>@string/rc_emoji_sunny</item><!--62-->
+        <item>@string/rc_emoji_cloudy</item><!--63-->
+        <item>@string/rc_emoji_cloud</item><!--64-->
+        <item>@string/rc_emoji_snowflake</item><!--65-->
+        <item>@string/rc_emoji_umbrella</item><!--66-->
+        <item>@string/rc_emoji_snowman</item><!--67-->
+        <item>@string/rc_emoji_thumbs_up</item><!--68-->
+        <item>@string/rc_emoji_thumbs_down</item><!--69-->
+        <item>@string/rc_emoji_shake_hand</item><!--70-->
+        <item>@string/rc_emoji_ok_hand</item><!--71-->
+        <item>@string/rc_emoji_oncoming_fist</item><!--72-->
+        <item>@string/rc_emoji_raised_fist</item><!--73-->
+        <item>@string/rc_emoji_victory_hand</item><!--74-->
+        <item>@string/rc_emoji_raised_fist</item><!--75-->
+        <item>@string/rc_emoji_folded_hands</item><!--76-->
+        <item>@string/rc_emoji_pointing_up</item><!--77-->
+        <item>@string/rc_emoji_clapping_hands</item><!--78-->
+        <item>@string/rc_emoji_flexed_biceps</item><!--79-->
+        <item>@string/rc_emoji_family</item><!--80-->
+        <item>@string/rc_emoji_couple</item><!--81-->
+        <item>@string/rc_emoji_baby_angel</item><!--82-->
+        <item>@string/rc_emoji_horse</item><!--83-->
+        <item>@string/rc_emoji_dog</item><!--84-->
+        <item>@string/rc_emoji_pig</item><!--85-->
+        <item>@string/rc_emoji_ghost</item><!--86-->
+        <item>@string/rc_emoji_rose</item><!--87-->
+        <item>@string/rc_emoji_sunflower</item><!--88-->
+        <item>@string/rc_emoji_pine_tree</item><!--89-->
+        <item>@string/rc_emoji_christmas_tree</item><!--90-->
+        <item>@string/rc_emoji_wrapped_gift</item><!--91-->
+        <item>@string/rc_emoji_party_popper</item><!--92-->
+        <item>@string/rc_emoji_money_bag</item><!--93-->
+        <item>@string/rc_emoji_birthday_cake</item><!--94-->
+        <item>@string/rc_emoji_barbecue</item><!--95-->
+        <item>@string/rc_emoji_cooked_rice</item><!--96-->
+        <item>@string/rc_emoji_ice_cream</item><!--97-->
+        <item>@string/rc_emoji_chocolate_bar</item><!--98-->
+        <item>@string/rc_emoji_watermelon</item><!--99-->
+        <item>@string/rc_emoji_wine_glass</item><!--100-->
+        <item>@string/rc_emoji_cheers</item><!--101-->
+        <item>@string/rc_emoji_coffee</item><!--102-->
+        <item>@string/rc_emoji_basketball</item><!--103-->
+        <item>@string/rc_emoji_soccer_ball</item><!--104-->
+        <item>@string/rc_emoji_snowboarder</item><!--105-->
+        <item>@string/rc_emoji_microphone</item><!--106-->
+        <item>@string/rc_emoji_musical_note</item><!--107-->
+        <item>@string/rc_emoji_game_die</item><!--108-->
+        <item>@string/rc_emoji_mahjone_red_dragon</item><!--109-->
+        <item>@string/rc_emoji_crown</item><!--110-->
+        <item>@string/rc_emoji_lipstick</item><!--111-->
+        <item>@string/rc_emoji_kiss</item><!--112-->
+        <item>@string/rc_emoji_ring</item><!--113-->
+        <item>@string/rc_emoji_books</item><!--114-->
+        <item>@string/rc_emoji_graduation_cap</item><!--115-->
+        <item>@string/rc_emoji_pencil</item><!--116-->
+        <item>@string/rc_emoji_house_with_garden</item><!--117-->
+        <item>@string/rc_emoji_shower</item><!--118-->
+        <item>@string/rc_emoji_light_bulb</item><!--119-->
+        <item>@string/rc_emoji_telephone_receiver</item><!--120-->
+        <item>@string/rc_emoji_loudspeaker</item><!--121-->
+        <item>@string/rc_emoji_clock</item><!--122-->
+        <item>@string/rc_emoji_alarm_clock</item><!--123-->
+        <item>@string/rc_emoji_hourglass</item><!--124-->
+        <item>@string/rc_emoji_bomb</item><!--125-->
+        <item>@string/rc_emoji_pistol</item><!--126-->
+        <item>@string/rc_emoji_capsule</item><!--127-->
+        <item>@string/rc_emoji_rocket</item><!--128-->
+        <item>@string/rc_emoji_globe</item><!--129-->
+    </array>
+    <array name="rc_emoji_res">
+        <item>@drawable/u1f603</item>
+        <item>@drawable/u1f600</item>
+        <item>@drawable/u1f60a</item>
+        <item>@drawable/u263a</item>
+        <item>@drawable/u1f609</item>
+        <item>@drawable/u1f60d</item>
+        <item>@drawable/u1f618</item>
+        <item>@drawable/u1f61a</item>
+        <item>@drawable/u1f61c</item>
+        <item>@drawable/u1f61d</item>
+        <item>@drawable/u1f633</item>
+        <item>@drawable/u1f601</item>
+        <item>@drawable/u1f614</item>
+        <item>@drawable/u1f60c</item>
+        <item>@drawable/u1f612</item>
+        <item>@drawable/u1f61f</item>
+        <item>@drawable/u1f61e</item>
+        <item>@drawable/u1f623</item>
+        <item>@drawable/u1f622</item>
+        <item>@drawable/u1f602</item>
+        <item>@drawable/u1f62d</item>
+        <item>@drawable/u1f62a</item>
+        <item>@drawable/u1f630</item>
+        <item>@drawable/u1f605</item>
+        <item>@drawable/u1f613</item>
+        <item>@drawable/u1f62b</item>
+        <item>@drawable/u1f629</item>
+        <item>@drawable/u1f628</item>
+        <item>@drawable/u1f631</item>
+        <item>@drawable/u1f621</item>
+        <item>@drawable/u1f624</item>
+        <item>@drawable/u1f616</item>
+        <item>@drawable/u1f606</item>
+        <item>@drawable/u1f60b</item>
+        <item>@drawable/u1f637</item>
+        <item>@drawable/u1f60e</item>
+        <item>@drawable/u1f634</item>
+        <item>@drawable/u1f632</item>
+        <item>@drawable/u1f635</item>
+        <item>@drawable/u1f608</item>
+        <item>@drawable/u1f47f</item>
+        <item>@drawable/u1f62f</item>
+        <item>@drawable/u1f62c</item>
+        <item>@drawable/u1f615</item>
+        <item>@drawable/u1f636</item>
+        <item>@drawable/u1f607</item>
+        <item>@drawable/u1f60f</item>
+        <item>@drawable/u1f611</item>
+        <item>@drawable/u1f648</item>
+        <item>@drawable/u1f649</item>
+        <item>@drawable/u1f64a</item>
+        <item>@drawable/u1f47d</item>
+        <item>@drawable/u1f4a9</item>
+        <item>@drawable/u2764</item>
+        <item>@drawable/u1f494</item>
+        <item>@drawable/u1f525</item>
+        <item>@drawable/u1f4a2</item>
+        <item>@drawable/u1f4a4</item>
+        <item>@drawable/u1f6ab</item>
+        <item>@drawable/u2b50</item>
+        <item>@drawable/u26a1</item>
+        <item>@drawable/u1f319</item>
+        <item>@drawable/u2600</item>
+        <item>@drawable/u26c5</item>
+        <item>@drawable/u2601</item>
+        <item>@drawable/u2744</item>
+        <item>@drawable/u2614</item>
+        <item>@drawable/u26c4</item>
+        <item>@drawable/u1f44d</item>
+        <item>@drawable/u1f44e</item>
+        <item>@drawable/u1f91d</item>
+        <item>@drawable/u1f44c</item>
+        <item>@drawable/u1f44a</item>
+        <item>@drawable/u270a</item>
+        <item>@drawable/u270c</item>
+        <item>@drawable/u270b</item>
+        <item>@drawable/u1f64f</item>
+        <item>@drawable/u261d</item>
+        <item>@drawable/u1f44f</item>
+        <item>@drawable/u1f4aa</item>
+        <item>@drawable/u1f46a</item>
+        <item>@drawable/u1f46b</item>
+        <item>@drawable/u1f47c</item>
+        <item>@drawable/u1f434</item>
+        <item>@drawable/u1f436</item>
+        <item>@drawable/u1f437</item>
+        <item>@drawable/u1f47b</item>
+        <item>@drawable/u1f339</item>
+        <item>@drawable/u1f33b</item>
+        <item>@drawable/u1f332</item>
+        <item>@drawable/u1f384</item>
+        <item>@drawable/u1f381</item>
+        <item>@drawable/u1f389</item>
+        <item>@drawable/u1f4b0</item>
+        <item>@drawable/u1f382</item>
+        <item>@drawable/u1f356</item>
+        <item>@drawable/u1f35a</item>
+        <item>@drawable/u1f366</item>
+        <item>@drawable/u1f36b</item>
+        <item>@drawable/u1f349</item>
+        <item>@drawable/u1f377</item>
+        <item>@drawable/u1f37b</item>
+        <item>@drawable/u2615</item>
+        <item>@drawable/u1f3c0</item>
+        <item>@drawable/u26bd</item>
+        <item>@drawable/u1f3c2</item>
+        <item>@drawable/u1f3a4</item>
+        <item>@drawable/u1f3b5</item>
+        <item>@drawable/u1f3b2</item>
+        <item>@drawable/u1f004</item>
+        <item>@drawable/u1f451</item>
+        <item>@drawable/u1f484</item>
+        <item>@drawable/u1f48b</item>
+        <item>@drawable/u1f48d</item>
+        <item>@drawable/u1f4da</item>
+        <item>@drawable/u1f393</item>
+        <item>@drawable/u270f</item>
+        <item>@drawable/u1f3e1</item>
+        <item>@drawable/u1f6bf</item>
+        <item>@drawable/u1f4a1</item>
+        <item>@drawable/u1f4de</item>
+        <item>@drawable/u1f4e2</item>
+        <item>@drawable/u1f556</item>
+        <item>@drawable/u23f0</item>
+        <item>@drawable/u23f3</item>
+        <item>@drawable/u1f4a3</item>
+        <item>@drawable/u1f52b</item>
+        <item>@drawable/u1f48a</item>
+        <item>@drawable/u1f680</item>
+        <item>@drawable/u1f30f</item>
+    </array>
+    <string name="rc_action_bar_back">返回</string>
+    <string name="rc_action_bar_ok">确定</string>
+    <string name="rc_android.settings.action.MANAGE_OVERLAY_PERMISSION">悬浮窗</string>
+    <string name="rc_audio_input">按住 说话</string>
+    <string name="rc_audio_input_hover">松开 发送</string>
+    <string name="rc_cancel">取消</string>
+    <string name="rc_confirm">确认</string>
+    <string name="rc_emoji_alarm_clock">闹钟</string>
+    <string name="rc_emoji_alien">外星人</string>
+    <string name="rc_emoji_anger">愤怒</string>
+    <string name="rc_emoji_angry_face">生气</string>
+    <string name="rc_emoji_baby_angel">宝贝天使</string>
+    <string name="rc_emoji_barbecue">BBQ</string>
+    <string name="rc_emoji_basketball">篮球</string>
+    <string name="rc_emoji_big_grin">大笑</string>
+    <string name="rc_emoji_birthday_cake">生日蛋糕</string>
+    <string name="rc_emoji_blowing_kiss">飞吻</string>
+    <string name="rc_emoji_bomb">炸弹</string>
+    <string name="rc_emoji_books">书籍</string>
+    <string name="rc_emoji_broken_heart">心碎</string>
+    <string name="rc_emoji_capsule">药</string>
+    <string name="rc_emoji_cheers">干杯</string>
+    <string name="rc_emoji_chocolate_bar">巧克力</string>
+    <string name="rc_emoji_christmas_tree">圣诞树</string>
+    <string name="rc_emoji_clapping_hands">鼓掌</string>
+    <string name="rc_emoji_clock">表</string>
+    <string name="rc_emoji_cloud">云彩</string>
+    <string name="rc_emoji_cloudy">多云</string>
+    <string name="rc_emoji_coffee">咖啡</string>
+    <string name="rc_emoji_cold_sweat">冷汗</string>
+    <string name="rc_emoji_confounded_face">蒙羞</string>
+    <string name="rc_emoji_confused">困惑</string>
+    <string name="rc_emoji_cooked_rice">米饭</string>
+    <string name="rc_emoji_couple">情侣</string>
+    <string name="rc_emoji_crazy_face">调皮</string>
+    <string name="rc_emoji_crescent_moon">弯月</string>
+    <string name="rc_emoji_crown">王冠</string>
+    <string name="rc_emoji_crying">伤心</string>
+    <string name="rc_emoji_cute">萌萌哒</string>
+    <string name="rc_emoji_devil">恶魔</string>
+    <string name="rc_emoji_disappointed_face">失望</string>
+    <string name="rc_emoji_dissatisfied">不满</string>
+    <string name="rc_emoji_dizzy_face">头晕眼花</string>
+    <string name="rc_emoji_dog">狗</string>
+    <string name="rc_emoji_expressionless_face">面无表情</string>
+    <string name="rc_emoji_family">家庭</string>
+    <string name="rc_emoji_fearful_face">可怕</string>
+    <string name="rc_emoji_fire">火</string>
+    <string name="rc_emoji_flexed_biceps">肌肉</string>
+    <string name="rc_emoji_flushed_face">脸红</string>
+    <string name="rc_emoji_folded_hands">祈祷</string>
+    <string name="rc_emoji_game_die">骰子</string>
+    <string name="rc_emoji_ghost">鬼</string>
+    <string name="rc_emoji_globe">地球</string>
+    <string name="rc_emoji_graduation_cap">毕业帽</string>
+    <string name="rc_emoji_grimacing_face">扮鬼脸</string>
+    <string name="rc_emoji_grinning_face">笑嘻嘻</string>
+    <string name="rc_emoji_grinning_with_smiling">露齿而笑</string>
+    <string name="rc_emoji_halo">天使光环</string>
+    <string name="rc_emoji_happy_sweat">尴尬</string>
+    <string name="rc_emoji_hear_no_monkey">不听</string>
+    <string name="rc_emoji_heart_eyes">色眯眯</string>
+    <string name="rc_emoji_helpless_face">无助</string>
+    <string name="rc_emoji_horse">马</string>
+    <string name="rc_emoji_hourglass">沙漏</string>
+    <string name="rc_emoji_house_with_garden">房子</string>
+    <string name="rc_emoji_hungry">馋</string>
+    <string name="rc_emoji_ice_cream">冰淇淋</string>
+    <string name="rc_emoji_kiss">吻</string>
+    <string name="rc_emoji_kiss_face">么么哒</string>
+    <string name="rc_emoji_laughing_tears">喜极而泣</string>
+    <string name="rc_emoji_light_bulb">灯泡</string>
+    <string name="rc_emoji_lightning_bolt">闪电</string>
+    <string name="rc_emoji_lipstick">口红</string>
+    <string name="rc_emoji_loudspeaker">扩音器</string>
+    <string name="rc_emoji_love_heart">爱心</string>
+    <string name="rc_emoji_mad_face">怒气冲冲</string>
+    <string name="rc_emoji_mahjone_red_dragon">麻将</string>
+    <string name="rc_emoji_mask_face">口罩</string>
+    <string name="rc_emoji_microphone">麦克风</string>
+    <string name="rc_emoji_money_bag">钱袋</string>
+    <string name="rc_emoji_mouthless">无口</string>
+    <string name="rc_emoji_musical_note">音乐</string>
+    <string name="rc_emoji_no_speaking">闭嘴</string>
+    <string name="rc_emoji_ok_hand">没问题</string>
+    <string name="rc_emoji_oncoming_fist">击拳</string>
+    <string name="rc_emoji_party_popper">聚会礼花</string>
+    <string name="rc_emoji_pencil">铅笔</string>
+    <string name="rc_emoji_pensive">沉思</string>
+    <string name="rc_emoji_pig">猪</string>
+    <string name="rc_emoji_pile_of_poo">便便</string>
+    <string name="rc_emoji_pine_tree">松树</string>
+    <string name="rc_emoji_pistol">手枪</string>
+    <string name="rc_emoji_pleased">满意</string>
+    <string name="rc_emoji_pointing_up">第一</string>
+    <string name="rc_emoji_prohibited">禁止</string>
+    <string name="rc_emoji_purple_devil">小恶魔</string>
+    <string name="rc_emoji_raised_fist">举起拳头</string>
+    <string name="rc_emoji_raised_hand">举手</string>
+    <string name="rc_emoji_ring">戒指</string>
+    <string name="rc_emoji_rocket">火箭</string>
+    <string name="rc_emoji_rose">玫瑰</string>
+    <string name="rc_emoji_scream">尖叫</string>
+    <string name="rc_emoji_see_no_monkey">不看</string>
+    <string name="rc_emoji_shake_hand">握手</string>
+    <string name="rc_emoji_shocked_face">震惊</string>
+    <string name="rc_emoji_shower">淋浴</string>
+    <string name="rc_emoji_sleeping">睡眠</string>
+    <string name="rc_emoji_sleepy_face">困</string>
+    <string name="rc_emoji_smiley">微笑</string>
+    <string name="rc_emoji_smiley_face">笑脸</string>
+    <string name="rc_emoji_smirking_face">傻笑</string>
+    <string name="rc_emoji_snowboarder">单板滑雪</string>
+    <string name="rc_emoji_snowflake">雪花</string>
+    <string name="rc_emoji_snowman">雪人</string>
+    <string name="rc_emoji_sobbing">哭泣</string>
+    <string name="rc_emoji_soccer_ball">足球</string>
+    <string name="rc_emoji_star">星星</string>
+    <string name="rc_emoji_sunflower">向日葵</string>
+    <string name="rc_emoji_sunglasses">墨镜</string>
+    <string name="rc_emoji_sunny">晴朗</string>
+    <string name="rc_emoji_surprised_face">惊呆</string>
+    <string name="rc_emoji_sweat">汗</string>
+    <string name="rc_emoji_telephone_receiver">电话听筒</string>
+    <string name="rc_emoji_thumbs_down">喝倒彩</string>
+    <string name="rc_emoji_thumbs_up">赞</string>
+    <string name="rc_emoji_tired_face">抓狂</string>
+    <string name="rc_emoji_tongue_out">吐舌头</string>
+    <string name="rc_emoji_umbrella">雨伞</string>
+    <string name="rc_emoji_victory_hand">耶</string>
+    <string name="rc_emoji_watermelon">西瓜</string>
+    <string name="rc_emoji_weary_face">疲惫</string>
+    <string name="rc_emoji_wine_glass">红酒</string>
+    <string name="rc_emoji_winking_face">眨眼</string>
+    <string name="rc_emoji_worried_face">苦瓜脸</string>
+    <string name="rc_emoji_wrapped_gift">礼物</string>
+    <string name="rc_emoji_zzz">ZZZ</string>
+    <string name="rc_ext_cancel">取消</string>
+    <string name="rc_ext_exit_location_sharing">是否结束位置共享？</string>
+    <string name="rc_ext_exit_location_sharing_confirm">结束共享</string>
+    <string name="rc_ext_location_permission_failed">您需要在设置里打开定位权限</string>
+    <string name="rc_ext_search">搜索</string>
+    <string name="rc_ext_search_no_result">暂无结果</string>
+    <string name="rc_ext_send">发送</string>
+    <string name="rc_ext_warning">提示</string>
+    <string name="rc_extension_common_phrases">常用语</string>
+    <string name="rc_location_fail">定位失败</string>
+    <string name="rc_location_fetching">获取中……</string>
+    <string name="rc_location_sharing_exceed_max">超过最大位置共享人数</string>
+    <string name="rc_location_temp_failed">定位失败，请稍后重试</string>
+    <string name="rc_network_exception">网络异常请稍后再试</string>
+    <string name="rc_other_is_sharing_location">%s正在共享位置</string>
+    <string name="rc_others_are_sharing_location">%d人在共享位置</string>
+    <string name="rc_permission_camera">（相机）。</string>
+    <string name="rc_permission_grant_needed">您需要在设置中打开权限</string>
+    <string name="rc_permission_microphone">（麦克风）。</string>
+    <string name="rc_permission_microphone_and_camera">（麦克风，相机）。</string>
+    <string name="rc_picprev_origin">原图</string>
+    <string name="rc_picprev_origin_size">原图(%s)</string>
+    <string name="rc_picprev_select">选择</string>
+    <string name="rc_picsel_catalog_allpic">所有图片</string>
+    <string name="rc_picsel_catalog_number">%d张</string>
+    <string name="rc_picsel_pictype">图片和视频</string>
+    <string name="rc_picsel_selected_max_gif_size_span_with_param">该 GIF 图尺寸过大，无法发送</string>
+    <string name="rc_picsel_selected_max_pic_count">您最多只能选择9张图片</string>
+    <string name="rc_picsel_selected_max_time_span">不能分享超过5分钟的视频</string>
+    <string name="rc_picsel_selected_max_time_span_with_param">不能分享超过%d分钟的视频</string>
+    <string name="rc_picsel_take_picture">拍摄照片</string>
+    <string name="rc_picsel_toolbar">图片和视频</string>
+    <string name="rc_picsel_toolbar_preview">预览</string>
+    <string name="rc_picsel_toolbar_preview_num">预览(%d)</string>
+    <string name="rc_picsel_toolbar_send">发送</string>
+    <string name="rc_picsel_toolbar_send_num">发送(%d/9)</string>
+    <string name="rc_picsel_video_corrupted">不能分享损坏的视频</string>
+    <string name="rc_plugin_destruct">阅后即焚</string>
+    <string name="rc_plugin_image">图片</string>
+    <string name="rc_plugin_location">位置</string>
+    <string name="rc_plugin_location_message">发送位置</string>
+    <string name="rc_plugin_location_sharing">位置实时共享</string>
+    <string name="rc_real_time_exit_notification">离开会话，位置共享也会结束，确定离开？</string>
+    <string name="rc_real_time_join_notification">加入位置共享，聊天中其他人也能看到你的位置，确定加入？</string>
+    <string name="rc_voip_call_audio_start_fail">正在进行语音通话，请稍后再试</string>
+    <string name="rc_voip_call_video_start_fail">正在进行视频通话，请稍后再试</string>
+    <string name="rc_you_are_sharing_location">你正在共享位置</string>
+</resources>
