@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/layout_live"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+    <TextView
+        android:layout_above="@+id/btn_start"
+        android:id="@+id/txt_live_url"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:textSize="12dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:lines="1"
+        android:maxLines="1"
+        android:layout_marginRight="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_height="40dp" />
+
+    <Button
+        android:id="@+id/btn_start"
+        android:text="开启直播"
+        android:layout_above="@+id/btn_join"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp" />
+
+    <Button
+        android:id="@+id/btn_join"
+        android:text="加入直播间"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp" />
+
+
+
+
+
+</RelativeLayout>
