@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<resourceCopies>
+		<log text="PluginDir: $S(PluginDir)"/>
+		<log text="BuildDir: $S(BuildDir)"/>
+		<copyFile src="$S(PluginDir)/Mac/Release/AgoraRtcKit.framework"
+			  dst="$S(BuildDir)/MacOS/AgoraRtcKit.framework"/>
+	</resourceCopies>
+</root>
