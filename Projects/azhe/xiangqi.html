@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>中国象棋</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=100%; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+<body>
+    <button onclick="window.location.href='chat.html'" style="background-color: coral;width: 100px;height: 100px;border-radius: 100%;">棋局控制室</button>
+<div id="content">
+    
+</div>
+
+<script type="text/javascript">
+    //车马相士将士相马车 8*11
+    var qzName=["車","馬","相","仕","将","仕","相","馬","車","炮","炮","兵","兵","兵","兵","兵"];//
+    var qzRedArray=new Array();
+    var qzBlackArray=new Array();
+    var qzArray=new Array();
+    var body_w=document.body.clientWidth;
+    var gameType=0;
+    body_w=body_w%9==0?body_w:body_w-body_w%9;//让坐标为整数
+    body_w=body_w<810?body_w:810;
+    console.log(document.body.clientWidth+"|"+body_w);
+  //  var b=document.getElementsByTagName('body')[0];
+    var b=document.getElementById('content');
+    b.style.textAlign='center';
+    var np=document.createElement('div');
+    var nbut=document.createElement('div');
+    if(body_w==810){
+        np.style.width='1.1em';
+        np.style.float='right';
+        nbut.style.width='2.5em';
+        nbut.style.float='right';
+        nbut.style.padding='1em';
+    }else{
+        np.style.width='50%';
+        np.style.float='right';
+        nbut.style.width='40%';
+        nbut.style.float='right';
+    }
+    np.innerHTML='Good luck';
+    nbut.innerHTML='重新开始游戏';
+    nbut.fontSize=body_w/16+'px';
+    nbut.style.border='solid 2px red';
+    nbut.style.borderRadius='20%';
+    nbut.style.cursor='pointer';
+    nbut.style.fontWeight='bold';
+    nbut.style.color='red';
+    nbut.onclick=function () {
+        newGameStart();
+    };
+    np.id='mark';
+    np.style.fontFamily='微软雅黑';
+    np.style.fontSize=body_w/16+'px';
+    b.appendChild(nbut);
+    b.appendChild(np);
+
+    ///
+    //var w=800,h=900;
+    var w=body_w/9*8,h=w/8*9;
+    var c=document.createElement('canvas');
+    var wh=w/2;    var hh=h/2;    var cell=w/8;    var cellh=cell/2;
+    c.width=w+cell;    c.height=h+cell;    c.id="can";
+    b.appendChild(c);
+    var cxt=c.getContext("2d");
+    cxt.strokeStyle="#ff0000";
+    cxt.font=cell*0.8+"px 微软雅黑";
+    //坐标原点为中心，右下为正，左上为负
+    cxt.translate(wh+cellh,hh+cellh);
+    
+    var mouseClickCount=0;
+    var qzRunTime=0;
+    c.onclick=function(event)
+    {
+        mouseClickCount+=1;
+        console.log("鼠标点击了 "+mouseClickCount+" 次_____________________________________________________");
+        var e = event || window.event;
+        var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+        var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+        var x = e.pageX || e.clientX + scrollX;
+        var y = e.pageY || e.clientY + scrollY;
+        x=x-c.offsetLeft-cellh-wh;y=y-c.offsetTop-cellh-hh;
+        x=Math.abs(x%cell)>cellh?(x>0?x-x%cell+cell:x-x%cell-cell):x-x%cell;
+        y=y>0?y-y%cell+cellh:y-y%cell-cellh;
+        if(gameType==1){
+            clickHere(x,y);
+        }else {
+            np.innerHTML="胜负已分莫强求";
+        }
+
+        console.log ('鼠标点击的坐标x:'+x+' y:'+y);
+    };
+
+    function clickHere(x,y) {
+        var qzHere=checkXYisEmpty(x,y);//空是true，有则返回棋子obj
+        var qzChoose=null;
+        for(i in qzArray){
+            if(qzArray[i].isChoose==true){
+                qzChoose=qzArray[i];
+            }
+        }
+        console.log(typeof qzHere);
+        if(qzHere===true){//点击的地方是空的
+            if(qzChoose===null){//没有选中的棋子
+                console.log("点击的地方是空的,没有选中的棋子");
+            }else{//选中的棋子为qzChoose
+                if(qzChoose.go(x,y)===true){//完成- 走！
+                    qzRunTime+=1;
+                    if(gameType==1){
+                    np.innerHTML="棋局第"+qzRunTime+"步";
+                    }
+                    isJiangJun(qzChoose);
+                    qzChoose.isChoose=false;
+                }
+            }
+
+        }else {//点击的地方是object
+            if(qzChoose===null){//没有选中的棋子
+                if(qzRunTime%2==0 && qzHere.side=='红方'){
+                    console.log("红：之前没有选中棋子，所以选中点击的棋子,下choose");
+                    qzHere.choose();
+                }else  if(qzRunTime%2==1 && qzHere.side=='黑方'){
+                    console.log("黑：之前没有选中棋子，所以选中点击的棋子,下choose");
+                    qzHere.choose();
+                }else{
+                    if(qzRunTime%2==0){
+                        console.log("warn：到红方了");
+                        np.innerHTML="红方回合";
+                    }else{
+                        console.log("warn：到黑方了");
+                        np.innerHTML="黑方回合";
+                    }
+                }
+
+            }else{//选中的棋子为qzChoose,点击的是object
+                if(qzChoose.side==qzHere.side){
+                    console.log("点击的棋子和之前选中的棋子同一边，所以，选中此棋子");
+                    qzChoose.noChoose();
+                    console.log("typeof qzHere:"+typeof qzHere+',下choose');
+                    qzHere.choose();
+
+                }else {
+                    console.log("点击的棋子和之前选中的棋子敌对，所以，尝试 吃子");
+                    if(qzChoose.go(x,y)===true){// 完成- 走！
+                        qzRunTime+=1;
+                        if(gameType==1){
+                            np.innerHTML="棋局第"+qzRunTime+"步";
+                        }
+                        isJiangJun(qzChoose);
+                        qzChoose.isChoose=false;
+                    }
+                }
+            }
+
+        }
+        rePut();
+
+    }
+
+
+    newGameStart();
+    function isJiangJun(obj) {
+
+        var html='';
+        for(i in qzBlackArray){
+            var o=qzBlackArray[i],a=o.x,b=o.y;
+            if(o.go(qzRedArray[4].x,qzRedArray[4].y,true)===true){
+                html+='黑方';
+                o.x=a;o.y=b; rePut();
+                break;
+            }
+        }
+        for(i in qzRedArray){
+            var o=qzRedArray[i],a=o.x,b=o.y;
+            if(o.go(qzBlackArray[4].x,qzBlackArray[4].y,true)===true){
+                html+='红方';
+                o.x=a;o.y=b; rePut();
+                break;
+            }
+        }
+        if(html!==''){np.innerHTML=html+' ：将军 ！';  }
+   }
+    function rePut() {
+        console.log('repout()');
+        createQiPan();
+        for(index in qzArray){
+            var a=qzArray[index];
+            if(a.isDead){continue;}
+            createQZ(a.x,a.y,a.name,a.side,a.isChoose);
+            putQiZi(a);
+        }
+    }
+    function gameOver(side) {
+        gameType=0;
+        np.innerHTML=side+'输了 ！';
+    }
+    function createQZ(x,y,name,side,ischoose,isDead) {
+        var qz=new Object();
+        qz.side=side;
+        qz.x=x;qz.y=y;
+        qz.name=name;
+        qz.isChoose=ischoose?ischoose:false;
+        qz.isDead=isDead?isDead:false;
+        qz.goDead=function () {
+            qz.isDead=true;
+            if(qz.name=='将'){gameOver(qz.side);}
+            console.log('createQZ:'+qz.name+' dead')
+        };
+
+        qz.go=function (a,b,c) {
+            var tryJiangJun=c?c:false;
+            var theWayCanGo=way(qz,a,b,tryJiangJun);
+            var is_empty=checkXYisEmpty(a,b);
+            console.log("createQZ_theWayCanGo:"+theWayCanGo);
+
+            if(theWayCanGo===true) {
+                if (is_empty == true) {
+                    qz.x = a;
+                    qz.y = b;
+                    console.log("createQZ_function_把" + qz.side + "的【" + qz.name + "】移到坐标（" + qz.x + "," + qz.y + "】）");
+                    rePut();
+                    return true;
+                } else if (is_empty.side===qz.side){
+                    console.log('createQZ_function_go_不能这么走！');
+                    if(!tryJiangJun)np.innerHTML="同阵营 !";
+                    return false;
+                }else{
+                    if(qz.name=='炮'){
+                        console.log('createQZ_function_go_不能这么吃，要隔一个子！');
+                        if(!tryJiangJun)np.innerHTML="隔空打炮 !";
+                        return false;
+                    }else{
+                        if(!tryJiangJun)is_empty.goDead();
+                        qz.x = a;
+                        qz.y = b;
+                        console.log("createQZ_function_go_把" + qz.side + "的【" + qz.name + "】移到坐标（" + qz.x + "," + qz.y + "】）");
+                        rePut();
+                        return true;
+                    }
+                }
+            }else if(theWayCanGo===1&&qz.name=='炮'){
+                if(is_empty!==true && is_empty.side!==qz.side){
+                    if(!tryJiangJun)is_empty.goDead();
+                    qz.x = a;
+                    qz.y = b;
+                    console.log("createQZ_function_PaoGo_" +is_empty.name+" Dead;把"+ qz.side + "的【" + qz.name + "】移到坐标（" + qz.x + "," + qz.y + "】）");
+                    rePut();
+                    return true;
+                }else {
+                    if(!tryJiangJun)np.innerHTML="禁止打空炮 ！";
+                }
+            }else {
+                console.log('warn:go else ????????');
+                if(!tryJiangJun)np.innerHTML="你走远了 ！";
+                return false;
+            }
+        };
+
+        qz.choose=function () {
+            cxt.beginPath();
+            cxt.lineWidth=cell/20;
+            cxt.strokeStyle="#ffff00";
+            cxt.arc(qz.x,qz.y,cell/2.2,0,Math.PI*2,true);
+            cxt.stroke();
+            cxt.closePath();
+            cxt.lineWidth=1;
+            qz.isChoose=true;
+            console.log('createQZ_fun_choose_'+qz.side+" 的 【"+qz.name+"】被选中，坐标是：（"+qz.x+","+qz.y+"）");
+        };
+        qz.noChoose=function () {
+            qz.isChoose=false;
+            console.log('createQZ_fun_noChoose_'+qz.side+" 的 【"+qz.name+"】被取消选中，原坐标是：（"+qz.x+","+qz.y+"）");
+        };
+        //   console.log(qz.side+" 已创建："+qz.name+"，坐标是：（"+qz.x+","+qz.y+"）");
+        return qz;
+    }
+    function way(obj,a,b,c){
+        var tryJiangJun=c?c:false;
+        var x=obj.x,
+            y=obj.y,
+            k=obj.name,
+            wayResult,
+            countQiziOnRoad=0;
+        if(x==a&&y==b){return false}//在原来的位置，没有移动
+        console.log("【"+k+"】("+x+","+y+") 在走");
+        switch (k){
+            case "車":
+                if(x==a){//y-b有没有其它棋子
+                    console.log("沿y轴:现在y="+y+"； 目标y=b("+b);
+                    if(Math.abs(y-b)==cell){return true}
+                    if(b<y){
+                        console.log("b<y往上走,x不变,y减小");
+                        for(var f=y-cell;f>b;f-=cell){
+                            console.log("沿y轴:现在y="+f+"； 目标y=b("+b);
+                            if(checkXYisEmpty(a,f)!==true){//路径坐标上有其它棋子
+                                wayResult=false; //不能走
+                                console.log("不能走");
+                                if(!tryJiangJun)np.innerHTML="车步错误";
+                                break;
+                            }else {
+                                wayResult=true;  //能走
+                                console.log("能走");
+                            }
+                        }
+                    }else{
+                        console.log("b>y往下走,x不变,y增大");
+                        for(var f=y+cell;f<b;f+=cell){
+                            console.log("沿y轴:现在y="+f+"； 目标y=b("+b);
+                            if(checkXYisEmpty(a,f)!==true){//路径坐标上有其它棋子
+                                wayResult=false; //不能走
+                                console.log("不能走");
+                                if(!tryJiangJun)np.innerHTML="车步错误";
+                                break;
+                            }else {
+                                wayResult=true;  //能走
+                                console.log("能走");
+                            }
+                        }
+                    }
+                }
+                else if(y==b){//x-a有没有其它棋子
+                    console.log("沿x轴:现在x="+x+"； 目标x=a("+a);
+                    if(Math.abs(x-a)==cell){return true}
+                    if(a<x){
+                        console.log("a<x往左走,y不变,x减小");
+                        for(var f=x-cell;f>a;f-=cell){
+                            console.log("沿x轴:现在x="+f+"； 目标x=a("+a);
+                            if(checkXYisEmpty(f,b)!==true){//路径坐标上有其它棋子
+                                wayResult=false; //不能走
+                                console.log("不能走");
+                                if(!tryJiangJun)np.innerHTML="车步错误";
+                                break;
+                            }else {
+                                wayResult=true;  //能走
+                                console.log("能走");
+                            }
+                        }
+                    }else{
+                        console.log("a>x往右走,y不变,x增大");
+                        for(var f=x+cell;f<a;f+=cell){
+                            console.log("沿y轴:现在x="+f+"； 目标x=a("+a);
+                            if(checkXYisEmpty(f,b)!==true){//路径坐标上有其它棋子
+                                wayResult=false; //不能走
+                                console.log("不能走");
+                                if(!tryJiangJun)np.innerHTML="车步错误";
+                                break;
+                            }else {
+                                wayResult=true;  //能走
+                                console.log("能走");
+                            }
+                        }
+                    }
+                }
+                else{
+                    wayResult=false; //不能走
+                    //  console.log("？？不能走");
+                    if(!tryJiangJun)np.innerHTML="车步错误 ！";
+                }
+                break;
+            case "馬"://xy---ab
+                if(Math.abs(x-a)==2*cell && Math.abs(y-b)==cell){
+                    if(x<a&&checkXYisEmpty(x+cell,y)===true){
+                        wayResult=true;  //能走
+                    }else if(x>a&&checkXYisEmpty(x-cell,y)===true){
+                        wayResult=true;  //能走
+                    }else{
+                        wayResult=false; //不能走
+                        if(!tryJiangJun)np.innerHTML="马步错误";
+                    }
+                }else if(Math.abs(x-a)==cell && Math.abs(y-b)==2*cell){
+                    if(y<b&&checkXYisEmpty(x,y+cell)===true){
+                        wayResult=true;  //能走
+                    }else if(y>b&&checkXYisEmpty(x,y-cell)===true){
+                        wayResult=true;  //能走
+                    }else{
+                        wayResult=false; //不能走
+                        if(!tryJiangJun)np.innerHTML="马步错误";
+                    }
+                }
+                break;
+            case "相":
+
+                if((obj.side=="红方" && b<0)||(obj.side=="黑方"&&b>0)){
+                    wayResult=false; //不能走
+                    console.log('提示：相不能过河');
+                    if(!tryJiangJun)np.innerHTML="相不能过河";
+                    return wayResult;
+                }
+                console.log('相脚：'+(x+a)/2+","+(y+b)/2);
+                if((Math.abs(x-a)==2*cell )&&( Math.abs(y-b)==2*cell)&&(checkXYisEmpty((x+a)/2,(y+b)/2)===true)){
+                    wayResult=true;  //能走
+                }else{
+                    wayResult=false; //不能走
+                    if(!tryJiangJun)np.innerHTML="相步错误";
+                }
+                break;
+            case "仕":
+                if(Math.abs(x-a)==cell && Math.abs(y-b)==cell&&Math.abs(a)<=cell&&Math.abs(b)>=2.5*cell){
+                    wayResult=true;  //能走
+                }else{
+                    wayResult=false; //不能走
+                    if(!tryJiangJun)np.innerHTML="仕步错误";
+                }
+                break;
+            case "将":
+                if(a==x){
+                    if(Math.abs(y-b)==cell&&Math.abs(a)<=cell&&Math.abs(b)>=2.5*cell){
+                        wayResult=true;  //能走
+                    }else{
+                        wayResult=false; //不能走
+                        if(!tryJiangJun)np.innerHTML="将步错误";
+                    }
+                }else if(b==y){
+                    if(Math.abs(a-x)==cell&&Math.abs(a)<=cell&&Math.abs(b)>=2.5*cell){
+                        wayResult=true;  //能走
+                    }else{
+                        wayResult=false; //不能走
+                        if(!tryJiangJun)np.innerHTML="将步错误";
+                    }
+                }
+                break;
+            case "炮":
+
+                if(x==a){//y-b有没有其它棋子
+                    console.log("沿y轴:现在y="+y+"； 目标y=b("+b);
+                    if(Math.abs(y-b)==cell){return true}
+                    if(b<y){
+                        console.log("b<y往上走,x不变,y减小");
+                        for(var f=y-cell;f>b;f-=cell){
+                            console.log("沿y轴:现在y="+f+"； 目标y=b("+b);
+                            if(checkXYisEmpty(a,f)!==true){//路径坐标上有其它棋子
+                                wayResult=false; //不能走
+                                console.log("不能走");
+                                countQiziOnRoad+=1;
+                                if(countQiziOnRoad==2){
+                                    if(!tryJiangJun)np.innerHTML="炮步错误";
+                                    break;
+                                }
+                            }else {
+                                wayResult=true;  //能走
+                                console.log("能走");
+                            }
+                        }
+                    }else{
+                        console.log("b>y往下走,x不变,y增大");
+                        for(var f=y+cell;f<b;f+=cell){
+                            console.log("沿y轴:现在y="+f+"； 目标y=b("+b);
+                            if(checkXYisEmpty(a,f)!==true){//路径坐标上有其它棋子
+                                wayResult=false; //不能走
+                                console.log("不能走");
+                                countQiziOnRoad+=1;
+                                if(countQiziOnRoad==2){
+                                    if(!tryJiangJun)np.innerHTML="炮步错误";
+                                    break;
+                                }
+                            }else {
+                                wayResult=true;  //能走
+                                console.log("能走");
+                            }
+                        }
+                    }
+                }
+                else if(y==b){//x-a有没有其它棋子
+                    console.log("沿x轴:现在x="+x+"； 目标x=a("+a);
+                    if(Math.abs(x-a)==cell){return true}
+                    if(a<x){
+                        console.log("a<x往左走,y不变,x减小");
+                        for(var f=x-cell;f>a;f-=cell){
+                            console.log("沿x轴:现在x="+f+"； 目标x=a("+a);
+                            if(checkXYisEmpty(f,b)!==true){//路径坐标上有其它棋子
+                                wayResult=false; //不能走
+                                console.log("不能走");
+                                countQiziOnRoad+=1;
+                                if(countQiziOnRoad==2){
+                                    if(!tryJiangJun)np.innerHTML="炮步错误";
+                                    break;
+                                }
+                            }else {
+                                wayResult=true;  //能走
+                                console.log("能走");
+                            }
+                        }
+                    }else{
+                        console.log("a>x往右走,y不变,x增大");
+                        for(var f=x+cell;f<a;f+=cell){
+                            console.log("沿y轴:现在x="+f+"； 目标x=a("+a);
+                            if(checkXYisEmpty(f,b)!==true){//路径坐标上有其它棋子
+                                wayResult=false; //不能走
+                                console.log("不能走");
+                                countQiziOnRoad+=1;
+                                if(countQiziOnRoad==2){
+                                    if(!tryJiangJun)np.innerHTML="炮步错误";
+                                    break;
+                                }
+                            }else {
+                                wayResult=true;  //能走
+                                console.log("能走");
+                            }
+                        }
+                    }
+                }
+                else{
+                    wayResult=false; //不能走
+                    if(!tryJiangJun)np.innerHTML="炮步错误 ！";
+                    //  console.log("？？不能走");
+                }
+                break;
+            case "兵":
+                if(obj.side=="红方"){
+                    if(y>0){//未过河
+                        if(x==a&&y-b==cell){
+                            wayResult=true;  //能走
+                        }else {
+                            wayResult=false; //不能走
+                            console.log('红方兵未过河，只能向前走一步！');
+                            if(!tryJiangJun)np.innerHTML="兵步错误";
+                        }
+                    }else{//过河
+                        if((Math.abs(x-a)==cell&&y==b)||(a==x&&y-b==cell)){
+                            wayResult=true;  //能走
+                        }else {
+                            wayResult=false; //不能走
+                            console.log('红方兵未过河，只能向 前、左、右 方向走一步！');
+                            if(!tryJiangJun)np.innerHTML="兵步错误";
+                        }
+                    }
+                }else{
+                    if(y<0){//未过河
+                        if(x==a&&y-b==-cell){
+                            wayResult=true;  //能走
+                            console.log('黑方兵未过河，能走！');
+                        }else {
+                            wayResult=false; //不能走
+                            console.log('黑方兵未过河，只能向前走一步！');
+                            if(!tryJiangJun)np.innerHTML="兵步错误";
+                        }
+                    }else{//过河
+                        if((Math.abs(x-a)==cell&&y==b)||(a==x&&y-b==-cell)){
+                            wayResult=true;  //能走
+                        }else {
+                            wayResult=false; //不能走
+                            console.log('黑方兵未过河，只能向 前、左、右 方向走一步！');
+                            if(!tryJiangJun)np.innerHTML="兵步错误";
+                        }
+                    }
+                }
+                break;
+            default:
+        }
+        if(countQiziOnRoad===1){
+            return countQiziOnRoad;
+        }else{
+            console.log("wayResult:"+wayResult);
+            return wayResult;
+        }
+
+    }
+    function checkXYisEmpty(x,y) {
+        //指定坐标上 是否为空，空则true，有棋子则返回棋子的；
+        //  console.log("指定坐标上 是否为空，空则true，有棋子则返回棋子的side");
+        var re;
+        for(i in qzArray){
+            if(qzArray[i].isDead===true){re=true;continue}
+            //  console.log("检测坐标:"+x+","+y+" 上有没有"+qzArray[i].name);
+            if(qzArray[i].x==x && qzArray[i].y==y){
+                re= qzArray[i].side+"_"+qzArray[i].name+"_"+qzArray[i].x+","+qzArray[i].y;
+                console.log(re);
+                re=qzArray[i];
+                break;
+            }else {
+                re=true;
+            }
+        }
+        console.log("re:"+re);
+        return re;
+    }
+    function putQiZi(object) {
+        cxt.beginPath();
+        cxt.arc(object.x,object.y,cell/2,0,Math.PI*2,true);
+        cxt.fillStyle="#DEB887";
+        cxt.fill();
+        cxt.fillStyle=(object.side=="红方")?"red":"black";
+        cxt.fillText(object.name,object.x-cell*0.4,object.y+cell*0.3);
+        cxt.closePath();
+        if(object.isChoose===true){object.choose()}
+        //     console.log(object.side+""+object.name+"，已到位");
+    }
+    function newGameStart() {
+        gameType=1;
+        createQiPan();
+        for(index in qzName){
+            //   if(qzName[index]=='兵'){continue}
+            switch (qzName[index]){
+                case '炮':
+                    var a=(index==10)?-1:1;
+                    qzRedArray[index]=createQZ(-3*cell*a,2.5*cell,qzName[index],"红方");
+                    qzBlackArray[index]=createQZ(-3*cell*a,-2.5*cell,qzName[index],"黑方");
+                    break;
+                case '兵':
+                    qzRedArray[index]=createQZ(-wh+(index-11)*2*cell,1.5*cell,qzName[index],"红方");
+                    qzBlackArray[index]=createQZ(-wh+(index-11)*2*cell,-1.5*cell,qzName[index],"黑方");
+                    break;
+                default:
+                    qzRedArray[index]=createQZ(-wh+index*cell,hh,qzName[index],"红方");
+                    qzBlackArray[index]=createQZ(-wh+index*cell,-hh,qzName[index],"黑方");
+            }
+            qzArray=qzRedArray.concat(qzBlackArray);
+            putQiZi(qzRedArray[index]);
+            putQiZi(qzBlackArray[index]);
+        }
+        console.log('------------红方先走！（Red First）-------------');
+        np.innerHTML="红方先走";
+
+    }
+    function clearCanvas() {
+        cxt.clearRect(-c.width/2,-c.height/2,c.width,c.height);
+    }
+    function createQiPan() {
+        clearCanvas();
+        cxt.strokeStyle="#ff0000";
+        cxt.lineWidth=1;
+        //横线
+        for(var i=0;i<=9;i++){
+            cxt.moveTo(-wh,-hh+cell*i);
+            cxt.lineTo(wh,-hh+cell*i);
+        }
+        //竖线
+        for(var i=0;i<=8;i++){
+            cxt.moveTo(-wh+cell*i,-hh);
+            if(i!=0 && i!=8){//除两端外，中间竖线 分为两段
+                cxt.lineTo(-wh+cell*i,-cellh);
+                cxt.moveTo(-wh+cell*i,cellh);
+            }
+            cxt.lineTo(-wh+cell*i,hh);
+        }
+        //下方‘米’格
+        cxt.moveTo(-cell,hh);
+        cxt.lineTo(cell,hh-2*cell);
+        cxt.moveTo(-cell,hh-2*cell);
+        cxt.lineTo(cell,hh);
+        //上方‘米’格
+        cxt.moveTo(-cell,-hh);
+        cxt.lineTo(cell,-hh+2*cell);
+        cxt.moveTo(-cell,-hh+2*cell);
+        cxt.lineTo(cell,-hh);
+
+        cxt.stroke();
+        //兵位
+        for(var i=0;i<5;i++){
+            cxt.beginPath();
+            cxt.arc(-wh+2*cell*i,1.5*cell,cell/4,0,Math.PI*2,true);
+            cxt.stroke();
+            cxt.beginPath();
+            cxt.arc(wh-2*cell*i,-1.5*cell,cell/4,0,Math.PI*2,true);
+            cxt.stroke();
+        }
+        //炮位
+        cxt.beginPath();
+        cxt.arc(-3*cell,2.5*cell,cell/4,0,Math.PI*2,true);
+        cxt.stroke();
+        cxt.beginPath();
+        cxt.arc(3*cell,2.5*cell,cell/4,0,Math.PI*2,true);
+        cxt.stroke();
+        cxt.beginPath();
+        cxt.arc(-3*cell,-2.5*cell,cell/4,0,Math.PI*2,true);
+        cxt.stroke();
+        cxt.beginPath();
+        cxt.arc(3*cell,-2.5*cell,cell/4,0,Math.PI*2,true);
+        cxt.stroke();
+        cxt.closePath();
+        //楚河 汉界
+        cxt.fillStyle='#ff0000';
+        cxt.beginPath();
+        cxt.fillText('楚河',-2.5*cell,0.6*cellh);
+        cxt.fillText('汉界',1*cell,0.6*cellh);
+        cxt.closePath();
+    }
+</script>
+﻿</body>
+</html>
