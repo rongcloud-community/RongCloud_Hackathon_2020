@@ -1,0 +1,11 @@
+{
+  "navigationStyle": "default",
+  "navigationBarTitleText": "缘拼",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#30C6B0",
+  "usingComponents": {
+    "drag-button": "/components/drag-button/drag-button",
+    "m-search": "/components/mehaotian-search/mehaotian-search",
+    "uni-tag": "/components/uni-tag/uni-tag"
+  }
+}
