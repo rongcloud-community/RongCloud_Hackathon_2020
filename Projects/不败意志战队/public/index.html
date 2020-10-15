@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <!-- 引入jQuery -->
+    <script src="./lib/jquery-2.0.min.js"></script>
+    <link rel="stylesheet" href="./css/index.css">
+
+    <!-- /* IMLib SDK 压缩版 */ -->
+    <script src="https://cdn.ronghub.com/RongIMLib-3.0.7.min.js"></script>
+    <!-- /* RTCLib SDK 压缩版 */ -->
+    <script src="https://cdn.ronghub.com/RongRTC-3.2.6.min.js"></script>
+    <!-- /* CallLib SDK 压缩版 */ -->
+    <script src="https://cdn.ronghub.com/RongCallLib-3.1.7.min.js"></script>
+</head>
+
+<body>
+    <div class="banner-box">
+        <div class="boxcenter">
+            <div class="join" id="join">
+                <span>加入聊天室</span>
+            </div>
+            <!-- <div class="invite">
+                <span>邀请加入</span>
+            </div> -->
+        </div>
+    </div>
+    <!-- 加入遮罩层 -->
+    <div class="join-box">
+        <div class="join-content">
+            <div class="left">
+                <label for="meeting">
+                    <span>加入聊天室ID : </span> <input type="text" name="meetingID" value="" id="meeting" maxlength="10">
+                </label>
+                <label for="username">
+                    <span>用户名称ID : </span> <input type="text" name="username" value="" id="username" maxlength="5">
+                </label>
+                <div class="join-box-btn">
+                    <button id="meeting_btn_join">加入</button>
+                    <button id="meeting_btn_off">取消</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

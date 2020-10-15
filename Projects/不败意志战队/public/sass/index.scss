@@ -1,0 +1,105 @@
+@import "commont";
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.banner-box {
+  width: 100%;
+  height: 100%;
+  background: url(../img/backgromd.png) repeat-x;
+
+  // background-image: linear-gradient(hotpink, yellowgreen);
+
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .boxcenter {
+    width: 835px;
+
+    height: 500px;
+    // margin: 100px auto;
+    background-color: #ffffff;
+    border-radius: 20px;
+  }
+}
+
+.boxcenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(135deg,#f6ac8a, #b5d6e8)  ;
+
+  .join {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 380px;
+    height: 200px;
+    border: 1px solid #0079fe;
+    margin: 10px;
+    border-radius: 380px/200px;
+    cursor: pointer;
+
+    span {
+      color: #0079fe;
+    }
+  }
+
+  .invite {
+    @extend .join;
+  }
+}
+
+.join-box {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  .join-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    label {
+      display: block;
+      padding: 20px 0;
+    }
+  }
+
+  span {
+    color: #ffffff;
+  }
+
+  input {
+    border-radius: 20px;
+  }
+
+  .join-box-btn {
+    margin-top: 20px;
+  }
+
+  button {
+    // display: block;
+    width: 100px;
+    height: 70px;
+    border-radius: 20px;
+  }
+}
