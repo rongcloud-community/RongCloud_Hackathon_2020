@@ -1,0 +1,19 @@
+{
+  "name": "hackathon13",
+  "version": "1.0.0",
+  "description": "RTC IM Chess",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuhongda0315/hackathon13.git"
+  },
+  "author": "yuhongda0315@163.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yuhongda0315/hackathon13/issues"
+  },
+  "homepage": "https://github.com/yuhongda0315/hackathon13#readme"
+}

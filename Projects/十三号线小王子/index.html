@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>十三号线小王子</title>
+  <link rel="shortcut icon" href="./css/images/13.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<script src="https://cdn.ronghub.com/RongIMLib-3.0.7-dev.js"></script>
+<script src="https://cdn.ronghub.com/RongRTC-3.2.6.js"></script>
+<script src="./js/settings.js"></script>
+<script src="./js/utils.js"></script>
+<script src="./js/chess.js"></script>
+<script src="./js/ipc.js"></script>
+
+<body>
+  <div class="thirteen-container">
+    <header class="thirteen-header">十三号俱乐部</header>
+    <div class="thirteen-rtc">
+      <video id="current-user" muted autoplay></video>
+      <video id="remote-user" autoplay></video>
+    </div>
+    <canvas class="thirteen-chessboard" height="450" width="450"></canvas>
+    <div class="thirteen-info">
+      <button class="thirteen-restart thirteen-button">重新开始</button>
+      <dl class="thirteen-button thirteen-rule">
+        <dt>游戏规则</dt>
+        <dd>你为黑棋，对手为白棋</dd>
+        <dd>优先串联五子为胜</dd>
+      </dl>
+
+      <div class="thirteen-warning  thirteen-button"></div>
+    </div>
+  </div>
+  <script src="./js/core.js"></script>
+</body>
+
+</html>
