@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body {
+                background-image: url("img/0.jpg");
+				background-size: cover;
+
+            }
+			#outer{
+				width: 645px;
+				margin: 0 auto;
+				padding: 10px;
+				background-color: rgb(246, 247, 244);
+				/*设置文本居中*/
+				text-align: center;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			
+			window.onload = function(){
+				var prev = document.getElementById("prev");
+				var next = document.getElementById("next");
+				var img = document.getElementsByTagName("img")[0];
+				var imgArr = ["img/img3.jpeg" , "img/img1.jpeg" ,"img/img2.jpeg"];
+				var index = 0;
+				var info = document.getElementById("info");
+				info.innerHTML = "一共 "+imgArr.length+" 张图片，当前第 "+(index+1)+" 张";
+				prev.onclick = function(){
+					index--;
+					if(index < 0){
+						index = imgArr.length - 1;
+					}
+					img.src = imgArr[index];
+					info.innerHTML = "一共 "+imgArr.length+" 张图片，当前第 "+(index+1)+" 张";
+				};
+				next.onclick = function(){
+					index++;
+					
+					if(index > imgArr.length - 1){
+						index = 0;
+					}
+					img.src = imgArr[index];
+					info.innerHTML = "一共 "+imgArr.length+" 张图片，当前第 "+(index+1)+" 张";
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+            <p id="info"></p>
+            <button id="prev">上一张</button>
+            <button id="next">下一张</button>
+            <button onclick="window.location.href = 'chat.html' ">成长记录</button>
+			<img src="img/img1.jpg" style="height: 650px;width: 500px;" alt="冰棍" />
+			
+		</div>
+	</body>
+</html>
