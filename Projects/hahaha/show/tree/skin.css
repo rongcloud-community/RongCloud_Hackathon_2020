@@ -1,0 +1,231 @@
+A {
+	COLOR: #1e5494
+}
+A:link {
+	COLOR: #1e5494
+}
+A:visited {
+	COLOR: #1e5494
+}
+.tipbg {
+	
+}
+.attbg {
+	BACKGROUND: #e0ecf9
+}
+.topbg {
+	BACKGROUND: url(/htmledition/images/top_bg.jpg) no-repeat right top; FLOAT: right
+}
+.topline {
+	BORDER-RIGHT: 0px; BACKGROUND: url(/htmledition/images/topline.gif) repeat-x 0px -11px; BORDER-LEFT: #fff 8px solid; WIDTH: auto; HEIGHT: 22px
+}
+.toplineimg {
+	BACKGROUND: url(/htmledition/images/topline.gif)
+}
+.addrtitle {
+	COLOR: #798699
+}
+.msg {
+	BACKGROUND: #68af02; COLOR: #ffffff
+}
+.errmsg {
+	BACKGROUND: #efa300; COLOR: #ffffff
+}
+.fdbody {
+	BORDER-RIGHT: #78a3d2 1px solid; BACKGROUND: #9bc2ed; BORDER-LEFT: #fff 8px solid
+}
+.navbar {
+	BACKGROUND: url(/htmledition/images/nav_bg.gif) no-repeat
+}
+.navbar A:hover {
+	COLOR: #2c70c0
+}
+.listbg {
+	BACKGROUND: url(/htmledition/images/navbar_bg.gif) repeat-y
+}
+.navbottom {
+	BACKGROUND: url(/htmledition/images/navbar_bottom.gif)
+}
+.sepline {
+	BORDER-TOP: #d8dee5 1px solid
+}
+.txt_title {
+	COLOR: #0c3980
+}
+.txt_title_tab {
+	BACKGROUND: url(/htmledition/images/ico_titleview.gif) no-repeat center bottom; COLOR: #0c3980
+}
+.txt_title_none A:hover {
+	COLOR: #2c70c0
+}
+LI.fs {
+	COLOR: #0055ac
+}
+LI.fn {
+	BACKGROUND: #528bcb; COLOR: #ffffff
+}
+LI.fn A:link {
+	COLOR: #ffffff
+}
+LI.fn A:visited {
+	COLOR: #ffffff
+}
+.nomail {
+	BACKGROUND: #f5f7fb
+}
+.sizebar {
+	BORDER-RIGHT: #83a8d2 1px solid; BORDER-TOP: #83a8d2 1px solid; BACKGROUND: #ffffff; BORDER-LEFT: #83a8d2 1px solid; BORDER-BOTTOM: #83a8d2 1px solid
+}
+.usebar {
+	BACKGROUND: #b0f37f
+}
+.sizenum {
+	COLOR: #f5f9fd
+}
+.msg {
+	BACKGROUND: #68af02
+}
+.errmsg {
+	BACKGROUND: #eaa000
+}
+.tabtitle {
+	BORDER-TOP: #cce0f5 5px solid; BACKGROUND: #cce0f5
+}
+.tabtitle TD {
+	BORDER-BOTTOM: #aac1de 1px solid
+}
+.tabtitle TD.selected {
+	BORDER-RIGHT: #aac1de 1px solid; BORDER-TOP: #aac1de 1px solid; BACKGROUND: #f2f7fc; BORDER-LEFT: #aac1de 1px solid; LINE-HEIGHT: 27px; BORDER-BOTTOM: medium none; HEIGHT: 27px
+}
+.tabtitle TD A {
+	WIDTH: 100%; LINE-HEIGHT: 27px; HEIGHT: 27px
+}
+.tabtitle TD A:hover {
+	COLOR: #2c70c0
+}
+.settingtable {
+	BACKGROUND: #f2f7fc
+}
+.settingtd {
+	BORDER-TOP: #f9fcff 1px solid; BORDER-BOTTOM: #c9d7e5 1px solid
+}
+.filtertd {
+	BORDER-TOP: #c9d7e5 1px solid
+}
+.filtertd1 {
+	BORDER-BOTTOM: #c9d7e5 1px solid
+}
+.settingline {
+	BORDER-BOTTOM: #fff 1px solid
+}
+.huizhi {
+	BORDER-RIGHT: #fadc80 1px solid; BORDER-TOP: #fadc80 1px solid; BACKGROUND: #fff9e3; BORDER-LEFT: #fadc80 1px solid; BORDER-BOTTOM: #fadc80 1px solid
+}
+.toolbg {
+	CLEAR: both; BACKGROUND: #cce0f5; HEIGHT: 34px
+}
+.toolbg1 {
+	CLEAR: both; BACKGROUND: #cce0f5; HEIGHT: 34px
+}
+.toolbgline {
+	BORDER-BOTTOM: #aac1de 1px solid
+}
+.O {
+	BORDER-TOP: #fff 1px solid; BACKGROUND: #f2f4f6; BORDER-BOTTOM: #c1c8d2 1px solid
+}
+.B {
+	BACKGROUND: #f1f7ff
+}
+.selbar_bt {
+	BORDER-TOP: #fff 1px solid; BACKGROUND: #f2f4f6; BORDER-BOTTOM: #fff 1px solid
+}
+.list_btline {
+	BORDER-TOP: #c1c8d2 1px solid; Z-INDEX: 1000; POSITION: relative; TOP: -1px
+}
+.graytip {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: #ffffe9; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; BORDER-BOTTOM: #e3e6eb 1px solid; TEXT-ALIGN: center
+}
+.searchtip {
+	CLEAR: both; BORDER-RIGHT: #c1c8d2 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #c1c8d2 1px solid; PADDING-LEFT: 13px; BACKGROUND: #f2f4f6; MARGIN-BOTTOM: 4px; PADDING-BOTTOM: 7px; BORDER-LEFT: #c1c8d2 1px solid; PADDING-TOP: 7px; BORDER-BOTTOM: #c1c8d2 1px solid
+}
+.readmailinfo {
+	BORDER-TOP: #fff 1px solid; BACKGROUND: #f2f7fc; BORDER-BOTTOM: #aac1de 1px solid
+}
+.colorname {
+	COLOR: #798699
+}
+.txt {
+	BORDER-RIGHT: #718da6 1px solid; BORDER-TOP: #718da6 1px solid; BORDER-LEFT: #718da6 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #718da6 1px solid; HEIGHT: 20px
+}
+.cpright {
+	BORDER-RIGHT: #7f9db9 1px solid; BORDER-TOP: #7f9db9 1px solid; BACKGROUND: #fff; BORDER-LEFT: #7f9db9 1px solid; BORDER-BOTTOM: #7f9db9 1px solid
+}
+.cptitle {
+	BORDER-BOTTOM: #7f9db9 1px solid; HEIGHT: 25px
+}
+.cptab {
+	BORDER-RIGHT: #7f9db9 1px solid; BORDER-TOP: #7f9db9 1px solid; BORDER-LEFT: #7f9db9 1px solid; WIDTH: 90px; LINE-HEIGHT: 24px; BORDER-BOTTOM: medium none; POSITION: absolute; HEIGHT: 25px; TEXT-ALIGN: center
+}
+.cpslt {
+	FONT-WEIGHT: bold; BACKGROUND: #fff; HEIGHT: 25px
+}
+.cpslt A {
+	COLOR: #000; TEXT-DECORATION: none
+}
+.addrtips {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 6px; PADDING-BOTTOM: 3px; MARGIN: 3px; COLOR: #979ea5; PADDING-TOP: 7px; BORDER-BOTTOM: #d8dee5 1px solid; FONT-FAMILY: ËÎÌו
+}
+.addrsort {
+	BORDER-TOP: #7f9db9 1px solid; PADDING-LEFT: 8px; BACKGROUND: #e0ecf8; CURSOR: pointer; LINE-HEIGHT: 23px; HEIGHT: 23px
+}
+.bartools {
+	BACKGROUND: #fff; BORDER-BOTTOM: #c5d8ee 1px solid
+}
+.colorpanel {
+	BORDER-RIGHT: #b8d3ed 1px solid; BORDER-TOP: #b8d3ed 1px solid; BORDER-LEFT: #b8d3ed 1px solid; BORDER-BOTTOM: #b8d3ed 1px solid
+}
+.colortitle {
+	BORDER-RIGHT: #fff 1px solid; BORDER-TOP: #fff 1px solid; BACKGROUND: #deeeff; FILTER: progid:DXImageTransform.Microsoft.gradient(startColorstr=#deeeff, endColorstr=#ffffff,gradientType=0); BORDER-LEFT: #fff 1px solid; BORDER-BOTTOM: #fff 1px solid
+}
+.bd {
+	BORDER-RIGHT: #a7c5e2 1px solid; BORDER-TOP: #a7c5e2 1px solid; BORDER-LEFT: #a7c5e2 1px solid; BORDER-BOTTOM: #a7c5e2 1px solid
+}
+.biginfo {
+	BACKGROUND: #ebf3fb; COLOR: #4a8f00
+}
+.tpinfo {
+	BORDER-TOP: #d2e2f4 1px solid; BACKGROUND: #fff; COLOR: #6a727a
+}
+.leftpanel {
+	BORDER-BOTTOM: #d3e4f7 1px solid
+}
+.todaytip {
+	BORDER-RIGHT: #b7cde4 1px solid; BORDER-TOP: #b7cde4 1px solid; BORDER-LEFT: #b7cde4 1px solid; BORDER-BOTTOM: #b7cde4 1px solid
+}
+.rightpanel {
+	BORDER-RIGHT: #b7cde4 1px solid; BORDER-TOP: #b7cde4 1px solid; BORDER-LEFT: #b7cde4 1px solid; BORDER-BOTTOM: #b7cde4 1px solid
+}
+.qqshowbd {
+	BORDER-RIGHT: #b7cde4 1px solid; BORDER-TOP: #b7cde4 1px solid; BORDER-LEFT: #b7cde4 1px solid; BORDER-BOTTOM: #b7cde4 1px solid
+}
+.newu {
+	BORDER-RIGHT: #b7cde4 1px solid; BORDER-TOP: #b7cde4 1px solid; BORDER-LEFT: #b7cde4 1px solid; BORDER-BOTTOM: #b7cde4 1px solid
+}
+.tipstitle {
+	BACKGROUND: #e7f0fa
+}
+.colorsure {
+	BACKGROUND: #e7f0fa
+}
+.rightpanel LEGEND {
+	COLOR: #07396d
+}
+.newu LEGEND {
+	COLOR: #07396d
+}
+.tipstitle {
+	COLOR: #07396d
+}
+.mailinfo {
+	FILTER: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#f0f6fd,gradientType=0); BORDER-BOTTOM: #fff 2px solid
+}
