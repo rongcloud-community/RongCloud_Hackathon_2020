@@ -1,0 +1,479 @@
+
+
+    <table id="manage"></table>
+
+    <div id="manage_tool" style="padding: 5px">
+        <div>
+            <a href="javascript:void (0)" class="easyui-linkbutton" plain="true" iconCls="icon-add-new" onclick="manage_tool.add();">新增</a>
+            <a href="javascript:void (0)" class="easyui-linkbutton" plain="true" iconCls="icon-edit-new" onclick="manage_tool.edit();">修改</a>
+            <a href="javascript:void (0)" class="easyui-linkbutton" plain="true" iconCls="icon-delete-new" onclick="manage_tool.remove();">删除</a>
+            <a href="javascript:void (0)" class="easyui-linkbutton" plain="true" iconCls="icon-reload" onclick="manage_tool.reload();">刷新</a>
+            <a href="javascript:void (0)" class="easyui-linkbutton" plain="true" iconCls="icon-redo" onclick="manage_tool.redo();">取消选定</a>
+
+        </div>
+
+        <div id="manage_search" style="padding: 0 0 0 7px;color: #333">
+            查询条件： <input type="text" name="search_condition" class="textbox" style="width: 110px;">
+            创建时间： <input type="text" name="date_from" class="easyui-datebox" editable="true" style="width: 110px">
+            到： <input type="text" name="date_to" class="easyui-datebox" editable="true"  style="width: 110px">
+            <a href="javascript:void (0)" class="easyui-linkbutton" iconCls="icon-search" onclick="manage_tool.search();">查询</a>
+        </div>
+    </div>
+
+    <form id="manage_add" style="margin: 0;padding: 5px 0 0 25px;color:#333;">
+        <p>用户账号:<input type="text" name="username" class="textbox" style="width: 200px"></p>
+        <p>用户密码:<input type="password" name="password" class="textbox" style="width: 200px"></p>
+        <p>用户手机:<input type="text" name="mobile" class="textbox" style="width: 200px"></p>
+        <p>权限分配:<input type="text" name="rules" id="manage_add_rules" class="textbox" style="width: 200px"></p>
+        <p>是否允许登录:<input type="radio" name="is_login" value="0">否 <input type="radio" name="is_login" value="1" checked="checked">是 </p>
+    </form>
+
+    <form id="manage_edit" style="margin: 0;padding: 5px 0 0 25px;color:#333;">
+        <input type="hidden" name="id">
+
+        <p>用户账号:<input type="text" name="edit_username" class="textbox"  style="width: 200px" readonly></p>
+        <p>用户密码:<input type="password" name="edit_password" placeholder="密码留空则不修改" class="textbox" style="width: 200px"></p>
+        <p>用户手机:<input type="text" name="edit_mobile" class="textbox" style="width: 200px"></p>
+        <p>权限分配:<input type="text" name="edit_rules"  id="manage_edit_rules"  class="textbox" style="width: 200px"></p>
+
+        <p>是否允许登录:<input type="radio" name="edit_is_login" value="0">否 <input type="radio" name="edit_is_login" value="1">是 </p>
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    //var name='manage';
+
+    $.extend($.fn.validatebox.defaults.rules, {
+    phoneNum: { //验证手机号
+        validator: function (value, param) {
+            return /^1\d{10}$/.test(value);
+        },
+        message: '请输入正确的手机号码。'
+      },
+    });
+
+    $(function () {
+
+//管理员表格
+    $('#manage').datagrid({
+        url:'/admin/manage?action=getList',
+        fit:true,
+        fitColumns:true,
+        rownumbers:true,
+        border:false,
+        striped:true,
+        toolbar:'#manage_tool',
+        pagination:true,
+        pageList:[10,20,30,40,50],
+        pageNumber:1,
+        pageSize:10,
+        sortName:'create_date',
+        sortOrder:'desc',
+        columns:[[
+            {
+                field:'id',
+                title:'编号',
+                width: 100,
+                checkbox:true,
+
+            },
+
+            {
+                field:'username',
+                title:'用户名',
+                width: 100,
+
+            },
+
+            {
+                field:'role_id',
+                title:'角色名',
+                width: 100,
+
+            },
+
+
+            {
+                field:'create_date',
+                title:'注册时间',
+                width: 100,
+                sortable:true,
+
+            },
+
+            {
+                field:'count',
+                title:'登录次数',
+                width: 100,
+
+
+            },
+
+
+            {
+                field:'last_date',
+                title:'最后登录时间',
+                width: 100,
+                sortable:true,
+            },
+
+
+            {
+                field:'last_ip',
+                title:'最后登录IP',
+                width: 100,
+                sortable:true,
+            },
+
+
+            {
+                field:'is_login',
+                title:'是否允许登录',
+                width: 100,
+                formatter:function (val,row,index) {
+                    if (val == 1){
+                        return '<span style="color: green">是</span>'
+                    }else{
+                        return '<span style="color: red">否</span>'
+                    }
+                }
+            },
+
+
+        ]]
+    });
+
+
+
+    manage_tool={
+
+        add:function(){
+            $('#manage_add').dialog('open');
+            $('#manage_add input[name="username"]').focus();
+        },
+
+        edit:function(){
+            var rows=$('#manage').datagrid('getSelections');
+            if(rows.length>1){
+                $.messager.alert('警告操作','编辑数据只能选定一条数据','warning');
+            }else if(rows.length == 1){
+                $('#manage_edit').dialog('open');
+
+
+                $.ajax({
+                    url:'/admin/manage',
+                    type:'post',
+                    dataType:'json',
+                    data:{
+                        action:"getOne",
+                        id:rows[0].id,
+                    },
+                    beforeSend:function(){
+                        $.messager.progress({
+                            text: '正在获取数据',
+                        });
+                    },
+                    success:function(data,response,state){
+                        $.messager.progress('close');
+                        if(data.status >0){
+                            $('#manage_edit').form('load',{
+                                id:data.result[0].id,
+                                edit_username:data.result[0].username,
+                                edit_is_login:data.result[0].is_login,
+                                edit_mobile:data.result[0].mobile,
+                            });
+                            $('#manage_edit_rules').combobox('setValue',data.result[0].role_id);
+
+                        }
+                    },
+                });
+
+
+            }else if(rows.length == 0){
+                $.messager.alert('警告操作','编辑数据必须选定一条数据','warning');
+
+            }else {
+
+            }
+        },
+        remove:function(){
+            var rows=$('#manage').datagrid('getSelections');
+            if(rows.length>0){
+                $.messager.confirm('确认操作','您真的要删除所选的<strong>'+rows.length+'</strong>条数据吗?',function(flag){
+                    if(flag){
+                        var ids=[];
+                        for(var i=0;i<rows.length;i++){
+                            ids.push(rows[i].id);
+                        }
+                        $.ajax({
+                            url:'/admin/manage',
+                            type:'post',
+                            dataType:'json',
+                            data:{
+                                action:'remove',
+                                ids:ids.join(','),
+                            },
+                            beforeSend:function(){
+                                $('#manage').datagrid('loading');
+                            },
+                            success:function(data,response,state){
+                                if(data){
+                                    $('#manage').datagrid('loaded');
+                                    $('#manage').datagrid('reload');
+                                    $.messager.show({
+                                        title:'操作提醒',
+                                        msg: '数据被删除成功',
+                                    })
+                                }
+                            },
+                        });
+                    }
+                });
+
+            }else {
+                $.messager.alert('警告操作','删除操作必须至少指定一条数据删除','warning');
+            }
+        },
+
+        search:function(){
+            $('#manage').datagrid('load',{
+                condition: $.trim($('#manage_search input[name="search_condition"]').val()),
+                date_from: $.trim($('#manage_search input[name="date_from"]').val()),
+                date_to: $.trim($('#manage_search input[name="date_to"]').val()),
+            });
+        },
+        reload:function(){
+            $('#manage').datagrid('reload');
+        },
+
+        redo:function(){
+            $('#manage').datagrid('unselectAll');
+        },
+    }
+
+
+
+//新增窗口
+    $('#manage_add').dialog({
+        width:350,
+        height:420,
+        iconCls:'icon-user-add',
+        title:'新增管理员',
+        modal:true,
+        closed:true,
+        buttons:[
+            {
+                text:'提交',
+                iconCls:'icon-add-new',
+                handler:function(){
+                    if($('#manage_add').form('validate')){
+                        $.ajax({
+                            url:'/admin/manage',
+                            type:'post',
+                            dataType:'json',
+                            data:{
+                                action:'register',
+                                username: $.trim($('#manage_add input[name="username"]').val()),
+                                password:$('#manage_add input[name="password"]').val(),
+                                mobile:$('#manage_add input[name="mobile"]').val(),
+                                state:$('#manage_add input[name="is_login"]:checked').val(),
+                                role_id:$('#manage_add_rules').combobox('getValue'),
+                            },
+
+                            beforeSend:function(){
+                                $.messager.progress({
+                                    text: '正在尝试提交',
+                                });
+                            },
+                            success:function(data,response,state){
+                                $.messager.progress('close');
+                                if(data.status>0){
+                                    $.messager.show({
+                                        title:'操作提醒',
+                                        msg:'新增用户成功',
+
+                                    });
+                                    $('#manage_add').dialog('close');
+                                    $('#manage').datagrid('load');
+                                } else {
+                                    $.messager.alert('警告操作',data.msg,'warning',function(){
+
+                                    })
+                                }
+
+                            },
+                        });
+                    }
+                },
+
+            },
+            {
+                text:'取消',
+                iconCls:'icon-redo',
+                handler:function(){
+                    $('#manage_add').dialog('close');
+                },
+            }
+        ],
+        onClose:function(){
+            $('#manage_add').form('reset');
+        },
+    });
+
+
+
+//修改窗口
+    $('#manage_edit').dialog({
+        width:350,
+        height:420,
+        iconCls:'icon-user',
+        title:'修改管理员',
+        modal:true,
+        closed:true,
+        buttons:[
+            {
+                text:'提交',
+                iconCls:'icon-edit-new',
+                handler:function(){
+                    if($('#manage_edit').form('validate')){
+
+                        $.ajax({
+                            url:'/admin/manage',
+                            type:'post',
+                            dataType:'json',
+                            data:{
+                                action:"edit",
+                                id: $.trim($('#manage_edit input[name="id"]').val()),
+                                username: $.trim($('#manage_edit input[name=edit_username]').val()),
+                                password:$.trim($('#manage_edit input[name=edit_password]').val()),
+                                mobile:$.trim($('#manage_edit input[name=edit_mobile]').val()),
+                                role_id: $('#manage_edit_rules').combobox('getValue'),
+                                is_login:$('#manage_edit input[name="edit_is_login"]:checked').val(),
+                            },
+
+                            beforeSend:function(){
+                                $.messager.progress({
+                                    text: '正在尝试提交',
+                                });
+                            },
+                            success:function(data,response,state){
+                                $.messager.progress('close');
+
+
+                                if(data.status>0){
+                                    $.messager.show({
+                                        title:'操作提醒',
+                                        msg:'修改用户成功',
+
+                                    });
+
+                                    $('#manage_edit').dialog('close');
+                                    $('#manage').datagrid('load');
+
+
+                                } else {
+                                    $.messager.alert('警告操作',data.mag,'warning',function(){
+
+                                    })
+                                }
+
+                            },
+                        });
+
+                    }
+                },
+
+            },
+            {
+                text:'取消',
+                iconCls:'icon-redo',
+                handler:function(){
+                    $('#manage_edit').dialog('close');
+                },
+            }
+        ],
+        onClose:function(){
+            $('#manage_edit').form('reset');
+        },
+    });
+
+
+
+    //权限分配combotext
+    $('#manage_add_rules').combobox({
+        url:'/admin/role?action=getRole',
+        required:true,
+        valueField:'id',
+        textField:'role_name',
+        editable:false,
+    });
+
+    $('#manage_edit_rules').combobox({
+        url:'/admin/role?action=getRole',
+        required:true,
+        valueField:'id',
+        textField:'role_name',
+        editable:false,
+    });
+
+
+    //字段验证
+
+    $('#manage_add input[name="username"]').validatebox({
+        required:true,
+        validType:'length[2,20]',
+        missingMessage:'请输入管理员账号',
+        invalidMessage:'管理员账号必须在2-20位之间',
+    });
+
+    $('#manage_add input[name="password"]').validatebox({
+        required:true,
+        validType:'length[6,30]',
+        missingMessage:'请输入管理员密码',
+        invalidMessage:'管理员密码必须在6-30位之间',
+    });
+
+
+
+    $('#manage_add input[name="mobile"]').validatebox({
+        required:true,
+        validType:'length[11,11]',
+        missingMessage:'请输入管理员电话',
+        invalidMessage:'管理员电话必须是11位',
+    });
+
+
+
+    $('#manage_edit input[name="edit_password"]').validatebox({
+
+        validType:'length[6,30]',
+        missingMessage:'请输入管理员密码',
+        invalidMessage:'管理员密码必须在6-30位之间',
+    });
+
+    $('#manage_edit input[name="edit_mobile"]').validatebox({
+        required:true,
+        validType:'length[11,11]',
+        missingMessage:'请输入管理员电话',
+        invalidMessage:'管理员电话必须是11位',
+    });
+
+
+
+
+
+    });
+
+</script>
+
+
+

@@ -1,0 +1,435 @@
+
+
+    <table id="role"></table>
+
+    <div id="role_tool" style="padding: 5px">
+        <div>
+            <a href="javascript:void (0)" class="easyui-linkbutton" plain="true" iconCls="icon-add-new" onclick="role_tool.add();">新增</a>
+            <a href="javascript:void (0)" class="easyui-linkbutton" plain="true" iconCls="icon-edit-new" onclick="role_tool.edit();">修改</a>
+            <a href="javascript:void (0)" class="easyui-linkbutton" plain="true" iconCls="icon-delete-new" onclick="role_tool.remove();">删除</a>
+            <a href="javascript:void (0)" class="easyui-linkbutton" plain="true" iconCls="icon-reload" onclick="role_tool.reload();">刷新</a>
+            <a href="javascript:void (0)" class="easyui-linkbutton" plain="true" iconCls="icon-redo" onclick="role_tool.redo();">取消选定</a>
+
+        </div>
+
+        <div id="role_search" style="padding: 0 0 0 7px;color: #333">
+            查询条件： <input type="text" name="search_condition" class="textbox" style="width: 110px;">
+            创建时间： <input type="text" name="date_from" class="easyui-datebox" editable="true" style="width: 110px">
+            到： <input type="text" name="date_to" class="easyui-datebox" editable="true"  style="width: 110px">
+            <a href="javascript:void (0)" class="easyui-linkbutton" iconCls="icon-search" onclick="role_tool.search();">查询</a>
+        </div>
+    </div>
+
+    <form id="role_add" style="margin: 0;padding: 5px 0 0 25px;color:#333;">
+        <p>角色名称:<input type="text" name="role_name" class="textbox" style="width: 200px"></p>
+        <p>菜单分配:<input type="text" name="nav_ids" id="role_add_nav_list" class="textbox" style="width: 200px"></p>
+
+    </form>
+
+    <form id="role_edit" style="margin: 0;padding: 5px 0 0 25px;color:#333;">
+        <input type="hidden" name="id">
+
+         <p>角色名称:<input type="text" name="edit_role_name" class="textbox" style="width: 200px"></p>
+
+         <p>菜单分配:<input type="text" name="edit_nav_ids"  id="role_edit_nav_list"  class="textbox" style="width: 200px"></p>
+
+
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+
+    $(function () {
+
+    //权限表格
+    $('#role').datagrid({
+        url:'/admin/role?action=getList',
+        fit:true,
+        fitColumns:true,
+        rownumbers:true,
+        border:false,
+        striped:true,
+        toolbar:'#role_tool',
+        pagination:true,
+        pageList:[10,20,30,40,50],
+        pageNumber:1,
+        pageSize:10,
+        sortName:'create_date',
+        sortOrder:'DESC',
+        columns:[[
+            {
+                field:'id',
+                title:'编号',
+                width: 100,
+                checkbox:true,
+
+            },
+
+            {
+                field:'role_name',
+                title:'角色名',
+                width: 100,
+
+            },
+
+            {
+                field:'nav_ids',
+                title:'所有权限',
+                width: 100,
+
+            },
+
+
+            {
+                field:'create_date',
+                title:'注册时间',
+                width: 100,
+                sortable:true,
+
+            },
+
+
+        ]]
+    });
+
+
+
+
+    role_tool={
+
+
+        add:function(){
+            $('#role_add').dialog('open');
+            $('#role_add input[name="role_id"]').focus();
+        },
+
+        edit:function(){
+            var rows=$('#role').datagrid('getSelections');
+            if(rows.length>1){
+                $.messager.alert('警告操作','编辑数据只能选定一条数据','warning');
+            }else if(rows.length == 1){
+                $('#role_edit').dialog('open');
+
+
+                $.ajax({
+                    url:'/admin/role',
+                    type:'post',
+                    dataType:'json',
+                    data:{
+                        action:"getOne",
+                        id:rows[0].id,
+                    },
+                    beforeSend:function(){
+                        $.messager.progress({
+                            text: '正在获取数据',
+                        });
+                    },
+                    success:function(data,response,state){
+                        $.messager.progress('close');
+                        if(data.status >0){
+                            $('#role_edit').form('load',{
+                                id:data.result[0].id,
+                                edit_role_name:data.result[0].role_name,
+
+                            });
+
+                            let arr=data.result[0].nav_ids.split(',');
+                            let valueArr=[];
+                            for(let i=0;i<arr.length;i++){
+                                valueArr.push(arr[i]);
+                            }
+
+
+                            $('#role_edit_nav_list').combotree('setValues',valueArr);
+
+                        }
+                    },
+                });
+
+
+            }else if(rows.length == 0){
+                $.messager.alert('警告操作','编辑数据必须选定一条数据','warning');
+
+            }else {
+
+            }
+        },
+        remove:function(){
+            var rows=$('#role').datagrid('getSelections');
+            if(rows.length>0){
+                $.messager.confirm('确认操作','您真的要删除所选的<strong>'+rows.length+'</strong>条数据吗?',function(flag){
+                    if(flag){
+                        var ids=[];
+                        for(var i=0;i<rows.length;i++){
+                            ids.push(rows[i].id);
+                        }
+                        $.ajax({
+                            url:'/admin/role',
+                            type:'post',
+                            dataType:'json',
+                            data:{
+                                action:'remove',
+                                ids:ids.join(','),
+                            },
+                            beforeSend:function(){
+                                $('#role').datagrid('loading');
+                            },
+                            success:function(data,response,state){
+                                if(data){
+                                    $('#role').datagrid('loaded');
+                                    $('#role').datagrid('reload');
+                                    $.messager.show({
+                                        title:'操作提醒',
+                                        msg: '数据被删除成功',
+                                    })
+                                }
+                            },
+                        });
+                    }
+                });
+
+            }else {
+                $.messager.alert('警告操作','删除操作必须至少指定一条数据删除','warning');
+            }
+        },
+
+        search:function(){
+            $('#role').datagrid('load',{
+                condition: $.trim($('#role_search input[name="search_condition"]').val()),
+                date_from: $.trim($('#role_search input[name="date_from"]').val()),
+                date_to: $.trim($('#role_search input[name="date_to"]').val()),
+            });
+        },
+        reload:function(){
+            $('#role').datagrid('reload');
+        },
+
+        redo:function(){
+            $('#role').datagrid('unselectAll');
+        },
+    }
+
+
+
+//新增窗口
+    $('#role_add').dialog({
+        width:350,
+        height:420,
+        iconCls:'icon-user-add',
+        title:'新增管理员',
+        modal:true,
+        closed:true,
+        buttons:[
+            {
+                text:'提交',
+                iconCls:'icon-add-new',
+                handler:function(){
+                    if($('#role_add').form('validate')){
+                        $.ajax({
+                            url:'/admin/role',
+                            type:'post',
+                            dataType:'json',
+                            data:{
+                                action:'register',
+                                role_name: $.trim($('#role_add input[name="role_name"]').val()),
+                                nav_ids: $('#role_add_nav_list').combotree('getText')
+                            },
+
+                            beforeSend:function(){
+                                $.messager.progress({
+                                    text: '正在尝试提交',
+                                });
+                            },
+                            success:function(data,response,state){
+                                $.messager.progress('close');
+                                if(data.status>0){
+                                    $.messager.show({
+                                        title:'操作提醒',
+                                        msg:'新增数据成功',
+
+                                    });
+                                    $('#role_add').dialog('close');
+                                    $('#role').datagrid('load');
+                                } else {
+                                    $.messager.alert('警告操作',data.msg,'warning',function(){
+
+                                    })
+                                }
+
+                            },
+                        });
+                    }
+                },
+
+            },
+            {
+                text:'取消',
+                iconCls:'icon-redo',
+                handler:function(){
+                    $('#role_add').dialog('close');
+                },
+            }
+        ],
+        onClose:function(){
+            $('#role_add').form('reset');
+        },
+    });
+
+
+
+//修改窗口
+    $('#role_edit').dialog({
+        width:350,
+        height:420,
+        iconCls:'icon-user',
+        title:'修改管理员',
+        modal:true,
+        closed:true,
+        buttons:[
+            {
+                text:'提交',
+                iconCls:'icon-edit-new',
+                handler:function(){
+                    if($('#role_edit').form('validate')){
+
+                        $.ajax({
+                            url:'/admin/role',
+                            type:'post',
+                            dataType:'json',
+                            data:{
+                                action:"edit",
+                                id: $.trim($('#role_edit input[name="id"]').val()),
+                                role_name: $.trim($('#role_edit input[name=edit_role_name]').val()),
+                                nav_ids: $('#role_edit_nav_list').combotree('getText')
+
+                            },
+
+                            beforeSend:function(){
+                                $.messager.progress({
+                                    text: '正在尝试提交',
+                                });
+                            },
+                            success:function(data,response,state){
+                                $.messager.progress('close');
+
+
+                                if(data.status>0){
+                                    $.messager.show({
+                                        title:'操作提醒',
+                                        msg:'修改用户成功',
+
+                                    });
+
+                                    $('#role_edit').dialog('close');
+                                    $('#role').datagrid('load');
+
+
+                                } else {
+                                    $.messager.alert('警告操作',data.mag,'warning',function(){
+
+                                    })
+                                }
+
+                            },
+                        });
+
+                    }
+                },
+
+            },
+            {
+                text:'取消',
+                iconCls:'icon-redo',
+                handler:function(){
+                    $('#role_edit').dialog('close');
+                },
+            }
+        ],
+        onClose:function(){
+            $('#role_edit').form('reset');
+        },
+    });
+
+
+
+  //combotree分配权限
+    $('#role_add_nav_list').combotree({
+
+        url:'/admin/nav?action=getRoleNav',
+        lines:true,
+        required:true,
+        multiple:true,
+        checkbox:true,
+        onlyLeafCheck:true,
+        onLoadSuccess: function (node,data) {
+            var _this = this;
+            if (data) {
+                $(data).each(function (index, value) {
+                    if (this.state == 'closed') {
+                        $(_this).tree('expandAll');
+                    }
+                });
+            }
+        },
+
+    });
+
+
+    $('#role_edit_nav_list').combotree({
+
+        url:'/admin/nav?action=getRoleNav',
+        lines:true,
+        required:true,
+        multiple:true,
+        checkbox:true,
+        onlyLeafCheck:true,
+        onLoadSuccess: function (node,data) {
+            var _this = this;
+            if (data) {
+                $(data).each(function (index, value) {
+                    if (this.state == 'closed') {
+                        $(_this).tree('expandAll');
+                    }
+                });
+            }
+        },
+
+    });
+
+
+
+    //字段验证
+
+    $('#role_add input[name="role_name"]').validatebox({
+        required:true,
+        validType:'length[2,20]',
+        missingMessage:'请输入角色名称',
+        invalidMessage:'角色名称必须在2-20位之间',
+    });
+
+    $('#role_edit input[name="edit_role_name"]').validatebox({
+        required:true,
+        validType:'length[2,20]',
+        missingMessage:'请输入角色名称',
+        invalidMessage:'角色名称必须在2-20位之间',
+    });
+
+
+
+
+    });
+
+</script>
+
+
+
