@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ 项目名：Listener
+  ~ 作者：@happy_fsyy
+  ~ 联系我：https://github.com/happyfsyy
+  ~ Copyright (c) 2020. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  ~ Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+  ~ Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+  ~ Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+  ~ Vestibulum commodo. Ut rhoncus gravida arcu.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.fsyy.listener.ui.viewgroup.TitleLayout
+        android:id="@+id/feedback_header"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:titleText="@string/feedback_title" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/outer_padding"
+        android:textSize="@dimen/commonTextSize"
+        android:textColor="@color/textColor"
+        android:text="@string/feedback_question_header" />
+    <EditText
+        android:id="@+id/feedback_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minLines="5"
+        android:maxLines="10"
+        android:layout_margin="@dimen/outer_padding"
+        android:background="@drawable/lonely_item_bg"
+        android:padding="@dimen/inner_padding_top"
+        android:gravity="top"
+        android:hint="@string/feedback_question_hint"
+        android:textSize="@dimen/commonTextSize"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/outer_padding"
+        android:layout_marginTop="@dimen/big_margin_top"
+        android:text="@string/feedback_img_header"
+        android:textSize="@dimen/commonTextSize"
+        android:textColor="@color/textColor" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal"
+        android:background="@drawable/lonely_item_bg"
+        android:layout_margin="@dimen/outer_padding"><ImageView
+            android:id="@+id/feedback_img1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="@dimen/inner_padding"
+            android:scaleType="center"
+            android:src="@drawable/add"/>
+        <ImageView
+            android:id="@+id/feedback_img2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@color/backgroundColor"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="@dimen/inner_padding"
+            android:visibility="invisible"
+            android:scaleType="centerCrop"
+            android:src="@drawable/add"/>
+        <ImageView
+            android:id="@+id/feedback_img3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@color/backgroundColor"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="@dimen/inner_padding"
+            android:visibility="invisible"
+            android:scaleType="centerCrop"
+            android:src="@drawable/add"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/feedback_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/inner_padding_top"
+        android:paddingBottom="@dimen/inner_padding_top"
+        android:text="@string/feedback_submit"
+        android:layout_marginStart="@dimen/outer_padding"
+        android:layout_marginEnd="@dimen/inner_padding"
+        android:background="@drawable/personal_item_bg"
+        android:layout_marginTop="@dimen/outer_padding"
+        android:textSize="@dimen/commonTextSizeBig" />
+</LinearLayout>

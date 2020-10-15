@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ 项目名：Listener
+  ~ 作者：@happy_fsyy
+  ~ 联系我：https://github.com/happyfsyy
+  ~ Copyright (c) 2020. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  ~ Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+  ~ Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+  ~ Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+  ~ Vestibulum commodo. Ut rhoncus gravida arcu.
+  -->
+
+<resources>
+    <!--outer_padding是界面左右两侧默认空出来的间距-->
+    <dimen name="big_margin_top">20dp</dimen>
+    <dimen name="outer_padding">10dp</dimen>
+    <dimen name="inner_padding">10dp</dimen>
+    <dimen name="inner_padding_top">5dp</dimen>
+    <dimen name="cardCornerRadius">8dp</dimen>
+    <dimen name="elevation">5dp</dimen>
+    <dimen name="titleSize">18sp</dimen>
+    <dimen name="commonTextSizeBig">16sp</dimen>
+    <dimen name="commonTextSize">14sp</dimen>
+    <dimen name="commonTextSizeSmall">12sp</dimen>
+    <dimen name="lonely_line_spacing">3dp</dimen>
+    <dimen name="post_small_lineSpace">3dp</dimen>
+    <dimen name="post_big_lineSpace">5dp</dimen>
+</resources>

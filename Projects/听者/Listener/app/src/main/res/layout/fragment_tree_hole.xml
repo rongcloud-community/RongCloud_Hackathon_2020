@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ 项目名：Listener
+  ~ 作者：@happy_fsyy
+  ~ 联系我：https://github.com/happyfsyy
+  ~ Copyright (c) 2020. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  ~ Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+  ~ Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+  ~ Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+  ~ Vestibulum commodo. Ut rhoncus gravida arcu.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/lonely_item_bg"
+    >
+    <ImageView
+        android:id="@+id/tree_hole_header_img"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/private_header_bg"
+        android:scaleType="centerCrop"/>
+    <TextView
+        android:id="@+id/tree_hole_date_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/commonTextSizeBig"
+        android:textColor="@color/textColor"
+        android:layout_margin="@dimen/inner_padding"
+        android:text="10月9日"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/inner_padding"
+        android:layout_marginEnd="@dimen/inner_padding">
+        <TextView
+            android:id="@+id/tree_hole_content_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/commonTextSize"
+            android:textColor="@color/grayTextColor"/>
+    </ScrollView>
+</LinearLayout>

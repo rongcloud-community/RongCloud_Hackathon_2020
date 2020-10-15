@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ 项目名：Listener
+  ~ 作者：@happy_fsyy
+  ~ 联系我：https://github.com/happyfsyy
+  ~ Copyright (c) 2020. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  ~ Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+  ~ Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+  ~ Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+  ~ Vestibulum commodo. Ut rhoncus gravida arcu.
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/toolbarBg">
+    <ImageView
+        android:id="@+id/toolbar_left"
+        android:layout_width="?attr/actionBarSize"
+        android:layout_height="?attr/actionBarSize"
+        android:paddingStart="10dp"
+        android:paddingEnd="26dp"
+        android:paddingTop="18dp"
+        android:paddingBottom="18dp"
+        android:src="@drawable/arrow_back"
+        android:scaleType="fitCenter" />
+    <TextView
+        android:id="@+id/toolbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textSize="@dimen/titleSize"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:text="@string/detail_title"
+        android:textColor="@color/textColor"/>
+    <ImageView
+        android:id="@+id/toolbar_right"
+        android:layout_width="?attr/actionBarSize"
+        android:layout_height="?attr/actionBarSize"
+        android:paddingStart="26dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="18dp"
+        android:paddingBottom="18dp"
+        android:src="@drawable/more"
+        android:scaleType="centerCrop"
+        android:layout_alignParentEnd="true"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/listDividerColor"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>

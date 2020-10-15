@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ 项目名：Listener
+  ~ 作者：@happy_fsyy
+  ~ 联系我：https://github.com/happyfsyy
+  ~ Copyright (c) 2020. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  ~ Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+  ~ Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+  ~ Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+  ~ Vestibulum commodo. Ut rhoncus gravida arcu.
+  -->
+
+<resources>
+    <declare-styleable name="TitleLayout">
+        <attr name="showRight" format="boolean"/>
+        <attr name="showLeft" format="boolean"/>
+        <attr name="titleText" format="string"/>
+        <attr name="android:letterSpacing"/>
+    </declare-styleable>
+    <declare-styleable name="PostItemView">
+    </declare-styleable>
+</resources>

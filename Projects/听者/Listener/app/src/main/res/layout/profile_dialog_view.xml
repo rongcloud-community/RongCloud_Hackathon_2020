@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ 项目名：Listener
+  ~ 作者：@happy_fsyy
+  ~ 联系我：https://github.com/happyfsyy
+  ~ Copyright (c) 2020. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  ~ Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+  ~ Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+  ~ Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+  ~ Vestibulum commodo. Ut rhoncus gravida arcu.
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:paddingStart="@dimen/outer_padding"
+    android:paddingEnd="@dimen/outer_padding">
+    <TextView
+        android:id="@+id/profile_dialog_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/commonTextSize"
+        android:textColor="@color/textColor"
+        android:textStyle="bold"
+        android:text="@string/profile_edit_sign"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/inner_padding"
+        android:layout_marginBottom="@dimen/inner_padding_top" />
+    <EditText
+        android:id="@+id/profile_dialog_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/inner_padding_top"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:maxLength="15"
+        android:layout_marginTop="@dimen/inner_padding_top"
+        android:layout_marginBottom="@dimen/inner_padding"
+        android:layout_below="@id/profile_dialog_header"
+        android:background="@drawable/dialog_edit_bg"
+        android:textSize="@dimen/commonTextSize"/>
+</RelativeLayout>

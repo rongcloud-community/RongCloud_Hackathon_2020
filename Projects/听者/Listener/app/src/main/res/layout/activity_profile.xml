@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ 项目名：Listener
+  ~ 作者：@happy_fsyy
+  ~ 联系我：https://github.com/happyfsyy
+  ~ Copyright (c) 2020. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  ~ Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+  ~ Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+  ~ Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+  ~ Vestibulum commodo. Ut rhoncus gravida arcu.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.fsyy.listener.ui.viewgroup.TitleLayout
+        android:id="@+id/profile_header"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        app:titleText="@string/profile_title" />
+    <RelativeLayout
+        android:id="@+id/profile_photo_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/personal_item_bg"
+        android:layout_marginStart="@dimen/outer_padding"
+        android:layout_marginEnd="@dimen/outer_padding">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/commonTextSize"
+            android:text="@string/profile_photo_prefix"
+            android:layout_marginStart="@dimen/inner_padding"
+            android:textColor="@color/textColor"/>
+        <ImageView
+            android:id="@+id/profile_photo_go"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/arrow_go"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/inner_padding"/>
+        <ImageView
+            android:id="@+id/profile_photo_img"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/photo"
+            android:layout_toStartOf="@id/profile_photo_go"
+            android:layout_marginEnd="@dimen/inner_padding"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/profile_username_layout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/personal_item_bg"
+        android:layout_marginStart="@dimen/outer_padding"
+        android:layout_marginEnd="@dimen/outer_padding"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:id="@+id/profile_username_prefix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/commonTextSize"
+            android:text="@string/profile_username_prefix"
+            android:layout_marginStart="@dimen/inner_padding"
+            android:textColor="@color/textColor"/>
+        <ImageView
+            android:id="@+id/profile_username_go"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/arrow_go"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/inner_padding"/>
+        <TextView
+            android:id="@+id/profile_username_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/profile_username_go"
+            android:layout_toEndOf="@id/profile_username_prefix"
+            android:layout_marginEnd="@dimen/inner_padding"
+            android:textSize="@dimen/commonTextSize"
+            android:textColor="@color/grayTextColor"
+            android:text="@string/personal_userName"
+            android:gravity="end"
+            android:singleLine="true"
+            android:ellipsize="end"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/profile_sign_layout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/personal_item_bg"
+        android:layout_marginStart="@dimen/outer_padding"
+        android:layout_marginEnd="@dimen/outer_padding"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:id="@+id/profile_sign_prefix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/commonTextSize"
+            android:text="@string/profile_signature_prefix"
+            android:layout_marginStart="@dimen/inner_padding"
+            android:textColor="@color/textColor"/>
+        <ImageView
+            android:id="@+id/profile_sign_go"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/arrow_go"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/inner_padding"/>
+        <TextView
+            android:id="@+id/profile_sign_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/profile_sign_go"
+            android:layout_toEndOf="@id/profile_sign_prefix"
+            android:layout_marginEnd="@dimen/inner_padding"
+            android:textSize="@dimen/commonTextSize"
+            android:textColor="@color/grayTextColor"
+            android:text="@string/personal_signature"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:gravity="end"/>
+    </RelativeLayout>
+</LinearLayout>
