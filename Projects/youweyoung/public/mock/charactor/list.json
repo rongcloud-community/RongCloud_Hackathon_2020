@@ -1,0 +1,12 @@
+{
+    "list": [
+        {
+            "name": "恐龙",
+            "key": "Dragon"
+        },
+        {
+            "name": "公鸡",
+            "key": "Rooster"
+        }
+    ]
+}
