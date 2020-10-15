@@ -1,0 +1,189 @@
+{
+  "user": {
+    "_self": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "object",
+        "invalid": "1501"
+      }
+    },
+    "id": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "length": {
+        "max": 64,
+        "min": 1,
+        "invalid": "1005"
+      }
+    },
+    "name": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "length": {
+        "max": 64,
+        "min": 1,
+        "invalid": "1005"
+      }
+    },
+    "portrait": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "length": {
+        "max": 512,
+        "min": 1,
+        "invalid": "1005"
+      }
+    },
+    "minute": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "size": {
+        "max": 43200,
+        "min": 1,
+        "invalid": "1502"
+      },
+      "typeof": {
+        "type": "number",
+        "invalid": "1501"
+      }
+    },
+    "blacklist": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "array",
+        "invalid": "1501"
+      }
+    },
+    "whitelist": {
+      "require": {
+        "must": true,
+        "invalid": "1002"
+      },
+      "typeof": {
+        "type": "array",
+        "invalid": "1501"
+      }
+    },
+    "tag": {
+      "_self": {
+        "require": {
+          "must": true,
+          "invalid": "20005"
+        },
+        "typeof": {
+          "type": "object",
+          "invalid": "20001"
+        }
+      },
+      "userId": {
+        "require": {
+          "must": true,
+          "invalid": "20005"
+        },
+        "length": {
+          "max": 64,
+          "min": 1,
+          "invalid": "20003"
+        }
+      },
+      "tags": {
+        "require": {
+          "must": true,
+          "invalid": "20005"
+        },
+        "size": {
+          "max": 20,
+          "min": 1,
+          "invalid": "20002"
+        },
+        "typeof": {
+          "type": "array",
+          "invalid": "20001"
+        }
+      }
+    },
+    "batchTag": {
+      "_self": {
+        "require": {
+          "must": true,
+          "invalid": "20005"
+        },
+        "typeof": {
+          "type": "object",
+          "invalid": "20001"
+        }
+      },
+      "userIds": {
+        "require": {
+          "must": true,
+          "invalid": "20005"
+        },
+        "size": {
+          "max": 1000,
+          "min": 1,
+          "invalid": "20002"
+        },
+        "typeof": {
+          "type": "array",
+          "invalid": "20001"
+        }
+      },
+      "tags": {
+        "require": {
+          "must": true,
+          "invalid": "20005"
+        },
+        "size": {
+          "max": 20,
+          "min": 1,
+          "invalid": "20002"
+        },
+        "typeof": {
+          "type": "array",
+          "invalid": "20001"
+        }
+      }
+    },
+    "getTag": {
+      "_self": {
+        "require": {
+          "must": true,
+          "invalid": "20005"
+        },
+        "typeof": {
+          "type": "object",
+          "invalid": "20001"
+        }
+      },
+      "userIds": {
+        "require": {
+          "must": true,
+          "invalid": "20005"
+        },
+        "size": {
+          "max": 50,
+          "min": 1,
+          "invalid": "20002"
+        },
+        "typeof": {
+          "type": "array",
+          "invalid": "20001"
+        }
+      }
+    }
+  }
+}

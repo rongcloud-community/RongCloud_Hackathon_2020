@@ -1,0 +1,228 @@
+<html>
+<head>
+    <meta charset="utf8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+
+    <!-- 压缩版 -->
+    <script src="https://cdn.ronghub.com/RongIMLib-3.0.7-dev.min.js"></script>
+    <script src="https://cdn.ronghub.com/RongRTC.3.0.3.min.js"></script>
+    <link rel="stylesheet" href="assets/plugins/boostrap/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/rolling/css/rolling.css">
+
+    <link rel="stylesheet" href="assets/stylesheets/style.css">
+</head>
+<body>
+<body class="room">
+<div class="scrollbar-macosx">
+    <div class="header">
+        <div class="toptext">
+            <a href="index.html">
+                <span class="glyphicon glyphicon-arrow-left"></span> 返回大厅
+            </a>
+        </div>
+        <div class="clapboard hidden"></div>
+    </div>
+    <div class="main container">
+        <div class="col-md-12">
+            <ul class="chat_info">
+
+            </ul>
+        </div>
+    </div>
+    <div class="input">
+        <div class="center">
+            <div class="text">
+                <div class="col-xs-10 col-sm-11">
+                    <input type="text" class="form-control" id="msg" placeholder="输入聊天信息...">
+                </div>
+                <div class="col-xs-2 col-sm-1">
+                    <a id="subxx" role="button"><span class="glyphicon glyphicon-share-alt"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script>
+
+    function GetRequest() {
+        var url = location.search; //获取url中"?"符后的字串
+        var param = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                param[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+            }
+        }
+        return param;
+    }
+
+    var roomId = GetRequest().roomId;
+    var config = {
+        appkey: '3argexb63srre',
+    };
+    var im = RongIMLib.init(config);
+    var conversationList = []; // 当前已存在的会话列表
+    var chatRoom;
+    chatRoom = im.ChatRoom.get({
+        id: roomId
+    });
+    var userId = 'Ivan'
+    var token = '';
+    $(function () {
+        $.post("http://106.54.255.244:9001/fetchToken.php", {
+            user_id: 'Ivan'
+        }, function (res) {
+            var result = JSON.parse(res)
+            token = result.token
+            var user = {
+                token: token
+            }
+
+            im.connect(user).then(function (user) {
+                console.log('链接成功, 链接用户 id 为: ', user.id);
+            }).catch(function (error) {
+                console.log('链接失败: ', error.code, error.msg);
+            });
+            im.watch({
+                conversation: function (event) {
+                    var updatedConversationList = event.updatedConversationList; // 更新的会话列表
+                    console.log('更新会话汇总:', updatedConversationList);
+                    console.log('最新会话列表:', im.Conversation.merge({
+                        conversationList,
+                        updatedConversationList
+                    }));
+                },
+                message: function (event) {
+                    var message = event.message;
+                    var content = {
+                        sendTime: message.sentTime,
+                        content: message.content.content,
+                        userId: message.senderUserId
+                    }
+                    rendMessage(content)
+                    console.log('收到新消息:', message);
+                },
+                status: function (event) {
+                    var status = event.status;
+                    console.log('连接状态码:', status);
+                    if (status == 0) {
+                        chatRoom.join({
+                            count: 20 // 进入后, 自动拉取 20 条聊天室最新消息
+                        }).then(function (res) {
+                            console.log('加入聊天室成功');
+                            renderSystemInfo()
+                        }).catch(function (error) {
+                            console.log(error)
+                        });
+                        fetchMessage()
+
+                        // fetchMessage()
+                    }
+                },
+                expansion: function (event) {
+                    var updatedExpansion = event.updatedExpansion;
+                    var deletedExpansion = event.deletedExpansion;
+                    console.log('消息扩展已更新', updatedExpansion);
+                    /*
+                      {
+                        expansion: { key: 'value' }, // 设置或更新的扩展值
+                        messageUId: 'URIT-URIT-ODMF-DURR' // 设置或更新扩展的消息 uid
+                      }
+                    */
+                    console.log('消息扩展被删除', deletedExpansion);
+                    /*
+                      {
+                        deletedKeys: ['key1', 'key2'], // 删除的扩展键值集合
+                        messageUId: 'URIT-URIT-ODMF-DURR' // 删除扩展的消息 uid
+                      }
+                    */
+                },
+                chatroom: function (event) {
+                    var updatedEntries = event.updatedEntries;
+                    console.log('聊天室 KV 存储监听更新:', updatedEntries);
+                }
+            });
+
+        })
+
+        function joinRoom() {
+
+        }
+
+        function fetchMessage() {
+            console.log(chatRoom)
+            var option = {
+                timestrap: +new Date(),
+                count: 20
+            };
+            chatRoom.getMessages(option).then(function (result) {
+                var list = result.list; // 历史消息列表
+                var hasMore = result.hasMore; // 是否还有历史消息可以获取
+                console.log('获取聊天室历史消息成功', list);
+                if (list.length>0){
+                    for (var i= 0;i<list.length;i++){
+                        var content = {
+                            sendTime: list[i].sentTime,
+                            content: list[i].content.content,
+                            userId: list[i].senderUserId
+                        }
+                        rendMessage(content)
+                    }
+                }
+
+            });
+        }
+
+        $("#subxx").click(function () {
+            var message = $("#msg").val().trim();
+            console.log(message)
+            if (message.length <= 0) {
+                return
+            }
+            send(message)
+        })
+
+        function send(message) {
+            chatRoom.send({
+                messageType: RongIMLib.MESSAGE_TYPE.TEXT, // 填写开发者定义的 messageType
+                content: { // 填写开发者定义的消息内容
+                    content: message // 文本内容
+                },
+                isPersited: true,// 是否存储在服务端,默认为 true
+                isCounted: true,  // 是否计数. 计数消息接收端接收后未读数加 1，默认为 true
+                pushContent: '',  // Push 显示内容
+                pushData: '',  // Push 通知时附加信息, 可不填
+                isStatusMessage: false  // 设置为 true 后 isPersited 和 isCounted 属性失效
+            }).then(function (message) {
+                console.log('发送 s:person 消息成功', message);
+                var content = {
+                    sendTime: message.sentTime,
+                    content: message.content.content,
+                    userId: message.senderUserId
+                }
+                rendMessage(content)
+
+            });
+        }
+
+        function rendMessage(content) {
+            var sendTime = new Date(parseInt(content.sendTime)).toLocaleString().replace(/:\d{1,2}$/, ' ');
+            if (content.userId = userId) {
+                $(".chat_info").append('<li class="right"><img src="assets/images/user/1.png" alt=""><b>' + userId + '</b><i>' + sendTime + '</i><div class="aaa">' + content.content + '</div></li>')
+            } else {
+                $(".chat_info").append('<li class="left"><img src="assets/images/user/12.png" alt=""><b>' + userId + '</b><i>' + sendTime + '</i><div class="aaa">' + content.content + '</div></li>')
+            }
+        }
+        function renderSystemInfo() {
+            $(".chat_info").append('<li class="systeminfo"><span>【'+userId+'】加入了房间</span></li>')
+        }
+    })
+</script>
+</body>
+
+</html>
