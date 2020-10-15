@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>404页面</title>
+<style type="text/css">
+<!--
+* {font-size: 12px;}
+#wrapper { margin: 0 auto;padding: 0;width: 950px;}
+.cuowu{ width:950px; height:250px; float:left; margin-top:40px; padding-top:50px; border:1px solid #ddd;}
+.cuowul{ width:300px; float:left; padding-top:5px; text-align:right;}
+.cuowur{ width:600px; float:right;}
+.cuowur p{ width:600px; float:left; margin:0px; padding:0px; line-height:24px;}
+.cuowur .title{ width:600px; float:left; font-size:21px; font-family:"微软雅黑"; margin:0px; padding:0px; line-height:30px;}
+-->
+</style>
+</head>
+
+<body>
+<div id="wrapper">
+	<div class="cuowu">
+		<div class="cuowul"><img src="http://www.51talk.com/images/cuowuts.jpg" /></div>
+		<div class="cuowur">
+			<p class="title">您浏览的网页暂时不能显示</p>
+			<p>您正在浏览的页面可能已被删除、重命名或暂时不可用。试试下面几种方法吧：</p>
+			<p>1、检查网址是否可用。</p>
+			<p>2、直接访问<a href="/">51Talk首页</a>。</p>
+		</div>
+	</div>
+</div>
+</body>
+</html>
