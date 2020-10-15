@@ -1,0 +1,255 @@
+/*--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+--*/
+/* start editing from here */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
+ol,ul{list-style:none;margin:0;padding:0;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+table{border-collapse:collapse;border-spacing:0;}
+/* start editing from here */
+a{text-decoration:none;}
+.txt-rt{text-align:right;}/* text align right */
+.txt-lt{text-align:left;}/* text align left */
+.txt-center{text-align:center;}/* text align center */
+.float-rt{float:right;}/* float right */
+.float-lt{float:left;}/* float left */
+.clear{clear:both;}/* clear float */
+.pos-relative{position:relative;}/* Position Relative */
+.pos-absolute{position:absolute;}/* Position Absolute */
+.vertical-base{	vertical-align:baseline;}/* vertical align baseline */
+.vertical-top{	vertical-align:top;}/* vertical align top */
+.underline{	padding-bottom:5px;	border-bottom: 1px solid #eee; margin:0 0 20px 0;}/* Add 5px bottom padding and a underline */
+nav.vertical ul li{	display:block;}/* vertical menu */
+nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
+img{max-width:100%;}
+/*end reset*/
+/*--login start here--*/
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #F7D9A3;
+    font-size: 100%;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+}
+/*--header start here--*/
+h1 {
+    text-align: center;
+    font-size: 3em;
+    color: #3C2F24;
+    margin: 2em 0em 1em 0em;
+  
+}
+/*-----*/
+.header{
+	background: #fff;
+	width:40%;
+	margin: 0 auto;
+
+}
+.header-top{
+	 border-bottom: 3px solid #D4D4D4;
+    padding: 1.5em;
+}
+.header-top h2{
+	font-size: 1.2em;
+	float: left;
+}
+.header-top ul{
+	float: right;
+	    border: 1px solid #C1C1C1;
+    border-radius: 5px;
+}
+.header-top li{
+	display: inline-block;
+}
+.header-top li p{
+	color:#8C8B8B;
+	font-size: 1em;
+	padding: 4px 6px;
+}
+.header-top li p.cen{
+	    background: #E4E4E4;
+}
+.whe {
+    vertical-align: bottom;
+    margin-right: 0.5em;
+}
+/*----*/
+.header-bottom{
+}
+.header-bottom1 {
+    float: left;
+    width: 25%;
+   
+}
+.header-head{
+	padding: 2em;
+}
+.header-bottom2 {
+  background: #f1f1f1;  
+}
+.header-bottom1:nth-child(3) {
+    border-right: none;
+}
+.header-head h4{
+	color:#8C8B8B;
+	font-size: 1em;
+}
+.header-head h6{
+	color:#000;
+	font-size: 1.5em;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 1em;
+}
+.header-head img{
+	display: block;
+    margin: 1em auto;
+}
+.bottom-head p{
+	color:#8C8B8B;
+	font-size: 1em;
+	line-height: 1.4em;
+}
+/*----*/
+.copy-right{
+	text-align: center;
+	    padding: 5em 0;
+}
+.copy-right p{
+	color:#000;
+	font-size: 1em;
+}
+.copy-right p a{
+	color: #fff;	
+}
+.copy-right p a:hover{
+	color: #000;	
+}
+/*----*/
+@media(max-width:1366px){
+.header {
+    width: 42%;	
+}
+}
+@media(max-width:1280px){
+.header {
+    width: 45%;
+}	
+}
+@media(max-width:1024px){
+.header {
+    width: 56%;
+}	
+}
+@media(max-width:768px){
+.header {
+    width: 75%;
+}
+h1 {
+    font-size: 2.5em;	
+}
+}
+@media(max-width:736px){
+.header {
+    width: 82%;
+}
+.header-head {
+    padding: 2em 1em;
+}
+}
+@media(max-width:600px){
+
+.copy-right p {
+    font-size: 0.9em;
+    line-height: 1.5em;
+}
+h1 {
+    font-size: 2.3em;
+}
+}
+@media(max-width:480px){
+h1 {
+    font-size: 1.6em;
+}
+.header {
+    width: 97%;
+}
+.bottom-head p {
+    font-size: 0.9em;
+}
+}
+@media(max-width:320px){
+h1 {
+    font-size: 1.4em;
+}
+.header-head h4 {
+    font-size: 0.9em;
+}
+.header-head {
+    padding: 1em 0.3em;
+}
+.bottom-head p {
+    font-size: 0.7em;
+}
+.copy-right {
+    padding: 3em 0;
+}
+}
+
+ .option{
+  /*用div的样式代替select的样式*/
+    margin: 00px;
+   width: 80px;
+    height: 45px;
+    /*border-radius: 5px;*/
+  /*盒子阴影修饰作用,自己随意*/
+ /* box-shadow: 0 0 5px #ccc;*/
+    border: 1px solid #cccccc;
+    position: relative;
+  }
+  .option select{
+  /*清除select的边框样式*/
+  border: none;
+  /*清除select聚焦时候的边框颜色*/
+  outline: none;
+  /*将select的宽高等于div的宽高*/
+  width: 100%;
+    height: 40px;
+    line-height: 40px;
+  /*隐藏select的下拉图标*/
+  appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  /*通过padding-left的值让文字居中*/
+  padding-left: 20px;
+  }
+  /*使用伪类给select添加自己想用的图标*/
+  .option:after{
+      content: "";
+      width: 14px;
+      height: 8px;
+      background: url(../assets/arrow-down.png) no-repeat center;
+    /*通过定位将图标放在合适的位置*/
+    position: absolute;
+      right: 20px;
+      top: 41%;
+    /*给自定义的图标实现点击下来功能*/
+    pointer-events: none;
+    }
+	
+
+	
