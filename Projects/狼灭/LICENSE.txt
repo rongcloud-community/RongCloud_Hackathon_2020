@@ -1,0 +1,8 @@
+﻿EasyJF iula会议系统版权声明
+ 
+EasyJF iula会议系统是一个开源(Open Source)项目，使用GNU LGPL(http://www.gnu.org/licenses/lgpl.html)许可证，版权属于原创者easyjf.com上的iula开发小组(easyjf@163.com)。
+软件作者与easyjf.com网站为该项目提供咨询与技术服务；
+相关服务请与软件作者或easyjf.com联系； 
+本系统的源代码和文档全部公开，任何对源代码的改进和变动，请告知原作者； 
+不能将iula全部或部分编译后，或者经简单修改，单独商品化销售。
+

@@ -1,0 +1,96 @@
+﻿简介
+
+ 
+　　本EasyJF iula会议室系统主要用于EasyJF开源团队的成员网上会议使用，会议系统模拟传统的会议形式，可以同时开设多个不同主题的会议室，每个会议室需要提供访问权限控制功能，会议中能够指定会议发言模式（分为排队发言、自由发言两种），系统能自动记录每个会议室的发言信息，可以供参会人员长期查阅。
+　　会议系统的用户支持游客帐号参加会议，同时也提供跟其它用户系统的接口，比如EasyJF官网中的开源论坛系统。
+　　会议系统暂时使用文字聊天的方式，并提供语音及视频的接口。
+
+　　该系统现在是一个开源项目，项目官方网址www.easyjf.com，有兴趣的朋友都可以参加进来一起开发，通过SVN管理代码协同及版本控制。
+　　svn地址：http://svn.easyjf.com/repository/easyjf/easyjfiula
+　　用户名：easyjf
+　　密码：easyjf
+
+
+
+附加说明：本安装在wlrserver下安装成功通过
+
+
+演示地址：
+
+　　http://www.easyjf.com/chatRoom.ejf?easyJWebCommand=show&ejid=2538093638804337
+
+1、安装数据库
+
+
+cd %iula_home%
+mysql -u root -p
+drop database iuladb;
+create database iuladb;
+alter database iuladb default character set UTF8;
+grant all privileges on iuladb.* to iuladbuser@localhost identified by 'pwd$iuladbuser';
+quit;
+
+type src\iula_mysql.sql | mysql -uroot -p iuladb
+
+当然，也可以直接使用my sql front等工具手动执行数据库脚本安装。其中iula_mssql.sql为mssql的脚本,iula_mysql.sql为sql的脚本。
+
+2、修改配置
+src\main\easyjf-dbo.xml
+修改src\main\easyjf-dbo.xml文件中数据库连接相关字串为
+
+<!--以下为内容开始-->
+<property name="easydbo.connection.driver_class">org.gjt.mm.mysql.Driver</property>
+<property name="easydbo.connection.password">pwd$iuladbuser</property>
+<property name="easydbo.connection.url">jdbc:mysql://127.0.0.1:3306/iuladb</property>
+<property name="easydbo.connection.username">iuladbuser</property>
+<property name="easydbo.dialect">com.easyjf.dbo.sql.MySqlQuery</property>
+<property name="easydbo.show_sql">true</property>
+<!--以下为内容结束-->
+
+
+3、执行编译及发布　
+双击bin\build.bat
+选择war
+即会生成一个release\easyjf-iula-0.1.0.war文件，把该文件拷到tomcat的webapps目录下面，重启tomcat即可。
+
+4、运行程序
+
+http://localhost:8080/easyjf-iula-0.1.0/
+
+首先添加一个会议室，注意最大参与人数必须大于1，刷新时间最好大于3000，不能为0。访问权限及及权限值设置中不要填写数据。然后保存！
+
+然后点击启动会议室
+
+启动成功后，点击会议名标标题，弹出最大化窗口进入会议室主界面。
+
+
+
+技术思路：
+
+用AJAX+J2EE实现一个网上会议室系统
+http://www.easyjf.com/html/20060514/2722156783676355.htm
+
+需求采集
+http://www.easyjf.com/html/bbs/20060605/20298030-1609753.htm
+
+
+
+关于怎么样加入EasyJF团队
+http://www.easyjf.com/html/20060521/3212438514563392.htm
+
+《EasyJF协同及版本控制》
+http://www.easyjf.com/html/20060527/3393419193595177.htm
+
+《EasyJF团队章程》
+http://www.easyjf.com/aboutItemGroup.htm
+
+《EasyJF团队成员工作手册》
+http://www.easyjf.com/html/20060425/23564046-7798686.htm
+
+《EasyJF成员名单》
+http://www.easyjf.com/itemMember.ejf
+
+《EasyJF项目列表》
+http://www.easyjf.com/itemGroup.ejf
+
+

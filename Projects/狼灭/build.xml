@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="EasyJF" default="usage" basedir="." xmlns:artifact="urn:maven-artifact-ant">
+
+	<property file="easyjfbuild.properties" />
+
+	<!--目录定义-->
+
+	<property name="main.src.dir" value="${basedir}/src/main" />
+	<property name="test.src.dir" value="${basedir}/src/test" />
+	<property name="lib.dir" value="${basedir}/lib" />
+	<property name="env.lib.dir" value="${lib.dir}/build/" />
+	<property name="doc.dir" value="${basedir}/doc" />
+	<property name="build.dir" value="${basedir}/build" />
+	<property name="release.dir" value="${basedir}/release" />
+	<property name="web.dir" value="${basedir}/webapps" />
+	<property name="ide.dir" value="${basedir}/misc/ide" />
+	<!--项目属性-->
+	<property name="project.provider.name" value="easyjf" />
+	<property name="project.name" value="iula" />
+	<property name="project.author" value="http://www.easyjf.com/" />
+	<property name="project.version" value="0.1.0" />
+
+	<!--发布文件名-->
+	<property name="project.dist.file" value="${project.provider.name}-${project.name}-${project.version}" />
+
+
+	<path id="build.classpath">
+		<fileset dir="${env.lib.dir}" />
+	</path>
+
+	<tstamp>
+		<format property="datestamp" pattern="yyyy-MM-dd" />
+	</tstamp>
+
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<pathelement location="${env.lib.dir}/ant-contrib.jar" />
+		</classpath>
+	</taskdef>
+
+	<fileset id="private.runtime.fileset" dir="${lib.dir}">
+		<patternset id="private.runtime.patternset">
+			<include name="Easy*.jar" />
+			<include name="servlet*.jar" />
+			<include name="jaxen*.jar" />
+			<include name="commons-beanutils-core*.jar" />
+			<include name="mysql-connector-java-*.jar" />
+			<include name="jtds-*.jar" />
+		</patternset>
+	</fileset>
+
+	<target name="usage">
+		<echo message="EasyJF Build 文件" />
+		<echo message="-----------------------------------------------" />
+		<echo message="可选编译选项" />
+		<echo message="compile        --&gt; 编译Java源文件" />
+		<echo message="jar            --&gt; 生成jar包" />
+		<echo message="war            --&gt; 生成war包" />
+		<echo message="javadoc        --&gt; 生成API文档" />
+		<echo message="maven-jar      --&gt; 用maven管理jar包" />
+		<echo message="test           --&gt; 运行Junit测试" />
+		<echo message="test-report    --&gt; 生成Junit测试报告" />
+		<echo message="eclipse        --&gt; 生成Eclipse项目文件" />
+		<echo message="myeclipse      --&gt; 生成MyEclipse项目文件" />
+		<echo message="idea           --&gt; 生成Idea5项目文件" />
+		<echo message="jbuilder       --&gt; 生成Jbuilder2006项目文件" />
+		<echo message="netbean        --&gt; 生成NetBean5项目文件" />
+		<echo message="clean          --&gt; 清理已编译的文件" />
+		<input message="请输入一个您要执行的任务，可选择的有：" validargs="compile,jar,war,javadoc,maven-jar,test,test-report,eclipse,myeclipse,idea,jbuilder,netbean,clean" addproperty="ant.task" />
+		<echo message="" />
+		<antcall target="${ant.task}" />
+	</target>
+
+	<target name="maven-jar" description="management jar files use maven2">
+		<copy todir="${web.dir}/WEB-INF/lib">
+			<fileset refid="private.runtime.fileset" />
+			<mapper type="flatten" />
+		</copy>
+
+		<echo message="使用Maven2管理jar文件。" />
+		<echo message="如果编译过种中出现少数warning信息属正常，最后Build Sucessful即可。" />
+		<typedef resource="org/apache/maven/artifact/ant/antlib.xml" uri="urn:maven-artifact-ant">
+			<classpath>
+				<pathelement location="${env.lib.dir}/maven-artifact-ant-2.0.4-dep.jar" />
+			</classpath>
+		</typedef>
+
+		<artifact:pom file="pom.xml" id="maven.project" />
+
+		<artifact:dependencies filesetId="runtime.fileset" useScope="runtime">
+			<pom refid="maven.project" />
+		</artifact:dependencies>
+
+		<artifact:dependencies filesetId="all.fileset">
+			<pom refid="maven.project" />
+		</artifact:dependencies>
+
+		<copy todir="${web.dir}/WEB-INF/lib">
+			<fileset refid="runtime.fileset" />
+			<mapper type="flatten" />
+		</copy>
+
+		<copy todir="lib">
+			<fileset refid="all.fileset" />
+			<mapper type="flatten" />
+		</copy>
+	</target>
+
+	<target name="initial">
+		<mkdir dir="${basedir}/release" />
+		<mkdir dir="${web.dir}/WEB-INF/classes" />
+		<mkdir dir="${web.dir}/WEB-INF/lib" />
+	</target>
+
+	<path id="compile.classpath">
+		<fileset dir="${lib.dir}" includes="**/*.jar" />
+	</path>
+
+	<property name="compiler.args" value="-encoding UTF-8" />
+	<patternset id="compiler.resources">
+		<include name="**/?*.html" />
+		<include name="**/?*.txt" />
+		<include name="**/?*.properties" />
+		<include name="**/?*.xml" />
+	</patternset>
+
+	<target name="compile" depends="initial" description="compile project">
+		<antcall target="maven-jar" />
+		<javac destdir="${web.dir}/WEB-INF/classes" fork="true">
+			<compilerarg line="${compiler.args}" />
+			<classpath refid="compile.classpath" />
+			<src path="${main.src.dir}" />
+		</javac>
+		<copy todir="${web.dir}/WEB-INF/classes/">
+			<fileset dir="${main.src.dir}/">
+				<patternset refid="compiler.resources" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="jar" depends="compile" description="gen jar file">
+		<jar destfile="${release.dir}/${project.dist.file}.jar" basedir="${web.dir}/WEB-INF/classes">
+			<include name="**" />
+			<manifest>
+				<attribute name="Author" value="${project.author}" />
+				<section name="iula">
+					<attribute name="Vendor" value="${project.author}" />
+					<attribute name="Version" value="${project.version}" />
+					<attribute name="Date" value="${datestamp}" />
+				</section>
+
+				<section name="Copyright">
+					<attribute name="Copyright" value="(C) ${project.author} 2006" />
+				</section>
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="war" depends="clean,compile" description="gen war file">
+		<property name="warfile" value="${release.dir}/${project.dist.file}.war" />
+		<delete file="${warfile}" />
+		<war destfile="${warfile}" webxml="${web.dir}/WEB-INF/web.xml" basedir="${web.dir}" excludes="**/web.xml">
+			<manifest>
+				<attribute name="Author" value="${project.author}" />
+				<section name="iula">
+					<attribute name="Vendor" value="${project.author}" />
+					<attribute name="Version" value="${project.version}" />
+					<attribute name="Date" value="${datestamp}" />
+				</section>
+
+				<section name="Copyright">
+					<attribute name="Copy" value="(C) ${project.author} 2006" />
+				</section>
+			</manifest>
+		</war>
+	</target>
+
+	<target name="javadoc" description="gen java api document">
+		<javadoc access="public" additionalparam=" -encoding UTF-8 -charset UTF-8 -docencoding UTF-8" author="true" classpath="webapps/WEB-INF/lib/jaxen.jar;webapps/WEB-INF/lib/commons-fileupload-1.0.jar;webapps/WEB-INF/lib/commons-dbcp-1.2.1.jar;webapps/WEB-INF/lib/velocity-dep-1.4.jar;webapps/WEB-INF/lib/dom4j-1.6.1.jar;webapps/WEB-INF/lib/xercesImpl-2.0.2.jar;webapps/WEB-INF/lib/EasyDBO0.5.0.jar;webapps/WEB-INF/lib/EasyJWeb_0.6.0.jar;webapps/WEB-INF/lib/xml-apis-1.0.b2.jar;webapps/WEB-INF/lib/commons-beanutils-1.6.1.jar;webapps/WEB-INF/lib/junit-3.8.1.jar;webapps/WEB-INF/lib/commons-collections-2.1.1.jar;webapps/WEB-INF/lib/log4j-1.2.13.jar;webapps/WEB-INF/lib/commons-pool-1.3.jar;webapps/WEB-INF/lib/servlet-api.jar;webapps/WEB-INF/lib/commons-beanutils-core1.7.1.jar;webapps/WEB-INF/lib/velocity-1.4.jar;webapps/WEB-INF/lib/commons-logging-1.0.4.jar" destdir="${doc.dir}" doctitle="${project.dist.file}-Document" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="*" source="1.5" sourcepath="${main.src.dir}" splitindex="true" use="true" version="true" />
+	</target>
+
+
+
+
+	<macrodef name="init-ide">
+		<attribute name="ide" />
+		<sequential>
+			<copy todir=".">
+				<fileset dir="misc/ide/@{ide}/" />
+			</copy>
+		</sequential>
+	</macrodef>
+
+	<target name="eclipse">
+		<init-ide ide="eclipse" />
+	</target>
+
+	<target name="myeclipse">
+		<init-ide ide="myeclipse" />
+	</target>
+
+	<target name="idea">
+		<init-ide ide="idea" />
+	</target>
+
+	<target name="jbuilder">
+		<init-ide ide="jbuilder" />
+	</target>
+
+	<target name="netbean">
+		<init-ide ide="netbean" />
+	</target>
+
+
+	<target name="clean" description="clean up">
+		<delete dir="${release.dir}" />
+		<delete dir="${web.dir}/WEB-INF/classes" />
+		<delete dir="${web.dir}/WEB-INF/lib" />
+		<delete dir="${doc.dir}" />
+	</target>
+</project>
