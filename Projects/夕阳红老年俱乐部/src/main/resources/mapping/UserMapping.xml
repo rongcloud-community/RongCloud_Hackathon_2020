@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pyblind.dao.IUserDao">
+
+    <resultMap id="BaseResultMap" type="User">
+        <result column="id" jdbcType="BIGINT" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="password" jdbcType="VARCHAR" property="passWord" />
+        <result column="tel" jdbcType="VARCHAR" property="tel" />
+        <result column="wechat" jdbcType="VARCHAR" property="wechat" />
+        <result column="qq" jdbcType="VARCHAR" property="qq" />
+        <result column="ddescribe" jdbcType="VARCHAR" property="ddescribe" />
+        <result column="head" jdbcType="VARCHAR" property="head" />
+        <result column="eid" jdbcType="VARCHAR" property="eid" />
+    </resultMap>
+
+    <select id="SelAll" resultType="User">
+        select * from user
+    </select>
+    <select id="loadId" parameterType="long"  resultType="User">
+        select * from user where user.id = #{id};
+    </select>
+    <select id="getEid" parameterType="long"  resultType="string">
+        select eid from user where user.id = #{id};
+    </select>
+    <select id="unbinding" >
+        update user set eid = null where user.id=#{id};
+    </select>
+    <select id="binding" >
+        update user set eid = #{eid} where user.id=#{id};
+    </select>
+    <select id="updateInfo">
+        update user set
+        <if test="name != null and name != ''">
+             name = #{name}
+        </if>
+        <if test="tel != null and tel != ''">
+             ,tel = #{tel}
+        </if>
+        <if test="qq != null and qq != ''">
+            ,qq = #{qq}
+        </if>
+        <if test="wechat != null and wechat != ''">
+            ,wechat = #{wechat}
+        </if>
+        <if test="describe != null and describe != ''">
+            ,ddescribe = #{describe}
+        </if>
+        <if test="head != null and head != ''">
+            ,head = #{head}
+        </if>
+        where user.id = #{id};
+
+    </select>
+    <select id="getPass" resultType="string">
+        select password from user where user.id = #{id};
+    </select>
+    <select id="setNewPass" >
+        update user set password = #{newPassword} where user.id=#{id};
+    </select>
+    <select id="getName" resultType="string">
+        select name from user where user.id = #{id};
+    </select>
+    <select id="setNewHead" resultType="string">
+         update user set head = #{newHead} where user.id=#{id};
+    </select>
+    <select id="getHead" resultType="string">
+        select head from user where user.id = #{id};
+    </select>
+    <select id="ifExist" resultType="java.lang.Integer">
+        select count(*) from user where name = #{name};
+    </select>
+    <select id="getPassword" resultType="string">
+        select password from user where user.name = #{name};
+    </select>
+    <select id="getId" resultType="long">
+        select id from user where user.name = #{name};
+    </select>
+    <insert id="createNew" >
+       insert into user(name,password,head)
+        values(#{name},#{password},#{head})
+    </insert>
+</mapper>

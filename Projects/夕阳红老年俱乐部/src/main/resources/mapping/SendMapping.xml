@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pyblind.dao.ISendDao">
+
+    <resultMap id="BaseResultMap" type="Send">
+        <result column="sendid" jdbcType="BIGINT" property="id"/>
+        <result column="title" jdbcType="VARCHAR" property="name"/>
+        <result column="content" jdbcType="VARCHAR" property="passWord"/>
+        <result column="state" jdbcType="INTEGER" property="tel"/>
+        <result column="id" jdbcType="BIGINT" property="wechat"/>
+        <result column="sendtime" jdbcType="VARCHAR" property="qq"/>
+    </resultMap>
+    <select id="SelAll" resultType="Send">
+        select * from send order by sendtime desc
+    </select>
+    <select id="getSearch" resultType="Send">
+        select * from send where title like "%"#{search}"%" or content like "%"#{search}"%" order by sendtime desc
+    </select>
+    <select id="getList" resultType="Send">
+        select * from send where send.id=#{id};
+    </select>
+    <select id="getSend" resultType="Send">
+        select * from send where send.sendid=#{sendid};
+    </select>
+    <insert id="insertNew" >
+       insert into send(title,content,state,id,sendtime)
+        values(#{title},#{content},1,#{id},#{nowtime})
+    </insert>
+
+
+
+</mapper>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pyblind.dao.IFocusDao">
+
+    <resultMap id="BaseResultMap" type="Focus">
+        <result column="focusid" jdbcType="BIGINT" property="focusid"/>
+        <result column="user1" jdbcType="BIGINT" property="user1"/>
+        <result column="user2" jdbcType="BIGINT" property="user2"/>
+    </resultMap>
+
+    <select id="getList1" resultType="long">
+        select user2 from focus where user1 = #{id};
+    </select>
+    <select id="getList2" resultType="long">
+        select user1 from focus where user2 = #{id};
+    </select>
+    <select id="count1" resultType="java.lang.Integer">
+        select count(*) from focus where user1 = #{id};
+    </select>
+    <select id="count2" resultType="java.lang.Integer">
+        select count(*) from focus where user2 = #{id};
+    </select>
+    <delete id="delete">
+        delete from focus where user2 = #{id} and user1 = #{fid};
+    </delete>
+    <select id="exist" resultType="java.lang.Integer">
+        select count(*) from focus where user1 = #{fid} and user2 = #{id};
+    </select>
+    <insert id="newFocus" >
+       insert into focus(user1,user2)
+        values(#{fid},#{id})
+    </insert>
+
+</mapper>

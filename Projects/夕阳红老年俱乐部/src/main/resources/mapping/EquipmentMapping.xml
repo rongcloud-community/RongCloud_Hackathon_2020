@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pyblind.dao.IEquipmentDao">
+
+    <resultMap id="BaseResultMap" type="Equipment">
+        <result column="eid" jdbcType="VARCHAR" property="eid"/>
+        <result column="ename" jdbcType="VARCHAR" property="ename"/>
+        <result column="bindingTime" jdbcType="VARCHAR" property="bindingTime"/>
+        <result column="state" jdbcType="INTEGER" property="state"/>
+    </resultMap>
+
+
+    <select id="getInfo" resultType="Equipment">
+        select * from equipment where equipment.eid like #{eid};
+    </select>
+
+</mapper>

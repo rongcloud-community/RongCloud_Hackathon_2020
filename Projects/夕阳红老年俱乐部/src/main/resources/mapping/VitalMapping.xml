@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pyblind.dao.IVitalDao">
+
+    <resultMap id="BaseResultMap" type="Vital">
+        <result column="vid" jdbcType="BIGINT" property="vid"/>
+        <result column="vtime" jdbcType="VARCHAR" property="vtime"/>
+        <result column="place" jdbcType="VARCHAR" property="place"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="typeid" jdbcType="INTEGER" property="typeid"/>
+        <result column="eid" jdbcType="VARCHAR" property="eid"/>
+    </resultMap>
+    <select id="getTpye" parameterType="int"  resultType="string">
+        select tname from type where type.typeid = #{typeid};
+    </select>
+    <select id="getTList" parameterType="string" resultType="Vital">
+        select * from vital where  eid = #{eid}
+        <if test="d != null and d != ''">
+            and vtime like "%"#{d}"%"
+        </if>
+        <if test="search != null and search != ''">
+            and place like "%"#{search}"%"
+        </if>
+
+    </select>
+
+</mapper>
