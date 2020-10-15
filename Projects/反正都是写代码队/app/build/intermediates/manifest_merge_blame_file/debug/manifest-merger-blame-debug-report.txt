@@ -1,0 +1,506 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="answer.question"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+8-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="28" />
+9-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml
+10    <!-- 音视频需要网络权限 和 监听网络状态权限 -->
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:5:5-67
+11-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:6:5-79
+12-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:6:22-76
+13    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+13-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:7:5-79
+13-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:7:22-76
+14    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+14-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:8:5-76
+14-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:8:22-73
+15    <!-- 摄像头采集需要 -->
+16    <uses-permission android:name="android.permission.CAMERA" />
+16-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:10:5-65
+16-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:10:22-62
+17    <!-- 音频采集需要 -->
+18    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+18-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:12:5-71
+18-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:12:22-68
+19    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+19-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:13:5-80
+19-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:13:22-77
+20    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+20-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:5-74
+20-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:22-71
+21    <uses-permission android:name="android.permission.BLUETOOTH" />
+21-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:5-68
+21-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:22-65
+22    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
+22-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:14:5-85
+22-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:14:22-82
+23    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+23-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:15:5-78
+23-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:15:22-75
+24    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+24-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:16:5-81
+24-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:16:22-78
+25    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 读取电话的状态信息的权限 -->
+25-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:5-80
+25-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:22-77
+26    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 拍照等 -->
+26-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:20:5-75
+26-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:20:22-72
+27    <uses-permission android:name="android.permission.WRITE_SETTINGS" /> <!-- 网络 -->
+27-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:5-73
+27-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:22-70
+28    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- 使用ActivityManager需要 -->
+28-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:21:5-76
+28-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:21:22-73
+29    <uses-permission android:name="android.permission.GET_TASKS" /> <!-- 适配 Android 8.0 -->
+29-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:28:5-68
+29-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:28:22-65
+30    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" /> <!-- 新消息震动提醒 -->
+30-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:30:5-83
+30-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:30:22-80
+31    <uses-permission android:name="android.permission.VIBRATE" /> <!-- 消息通道保活 -->
+31-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:5-66
+31-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:22-63
+32    <uses-permission android:name="android.permission.WAKE_LOCK" />
+32-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:18:5-68
+32-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:18:22-65
+33    <uses-permission android:name="android.permission.CAPTURE_VIDEO_OUTPUT" />
+33-->[:CallLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:5-79
+33-->[:CallLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:22-76
+34
+35    <application
+35-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:14:5-33:19
+36        android:allowBackup="true"
+36-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:15:9-35
+37        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
+37-->[com.android.support:support-compat:28.0.0] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/00567bd0de14b33d1bf8a440dc72bff8/support-compat-28.0.0/AndroidManifest.xml:22:18-91
+38        android:debuggable="true"
+39        android:extractNativeLibs="false"
+40        android:icon="@mipmap/ic_launcher"
+40-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:16:9-43
+41        android:label="@string/app_name"
+41-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:17:9-41
+42        android:roundIcon="@mipmap/ic_launcher_round"
+42-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:18:9-54
+43        android:supportsRtl="true"
+43-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:19:9-35
+44        android:testOnly="true"
+45        android:theme="@style/AppTheme" >
+45-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:20:9-40
+46        <activity
+46-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:21:9-32:20
+47            android:name="answer.question.Home"
+47-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:22:13-33
+48            android:configChanges="orientation|keyboardHidden|screenSize"
+48-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:23:13-74
+49            android:label="@string/app_name"
+49-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:24:13-45
+50            android:theme="@style/FullscreenTheme"
+50-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:26:13-51
+51            android:usesCleartextTraffic="true" >
+51-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:25:13-48
+52            <intent-filter>
+52-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:27:13-31:29
+53                <action android:name="android.intent.action.MAIN" />
+53-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:28:17-69
+53-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:28:25-66
+54
+55                <category android:name="android.intent.category.LAUNCHER" />
+55-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:30:17-77
+55-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/src/main/AndroidManifest.xml:30:27-74
+56            </intent-filter>
+57        </activity>
+58        <!-- new voip config start -->
+59        <activity
+59-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:25:9-36:20
+60            android:name="io.rong.callkit.MultiVideoCallActivity"
+60-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:26:13-66
+61            android:exported="true"
+61-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:27:13-36
+62            android:launchMode="singleTop"
+62-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:28:13-43
+63            android:screenOrientation="portrait"
+63-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:29:13-49
+64            android:windowSoftInputMode="stateHidden|adjustResize" >
+64-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:30:13-67
+65            <intent-filter>
+65-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:31:13-35:29
+66                <action android:name="io.rong.intent.action.voip.MULTIVIDEO" />
+66-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:32:17-80
+66-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:32:25-77
+67
+68                <category android:name="android.intent.category.DEFAULT" />
+68-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:17-76
+68-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:27-73
+69            </intent-filter>
+70        </activity>
+71        <activity
+71-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:37:9-53:20
+72            android:name="io.rong.callkit.SingleCallActivity"
+72-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:38:13-62
+73            android:exported="true"
+73-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:39:13-36
+74            android:launchMode="singleTop"
+74-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:40:13-43
+75            android:screenOrientation="portrait"
+75-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:41:13-49
+76            android:windowSoftInputMode="stateHidden|adjustResize" >
+76-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:42:13-67
+77            <intent-filter>
+77-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:43:13-47:29
+78                <action android:name="io.rong.intent.action.voip.SINGLEVIDEO" />
+78-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:44:17-81
+78-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:44:25-78
+79
+80                <category android:name="android.intent.category.DEFAULT" />
+80-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:17-76
+80-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:27-73
+81            </intent-filter>
+82            <intent-filter>
+82-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:48:13-52:29
+83                <action android:name="io.rong.intent.action.voip.SINGLEAUDIO" />
+83-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:49:17-81
+83-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:49:25-78
+84
+85                <category android:name="android.intent.category.DEFAULT" />
+85-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:17-76
+85-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:27-73
+86            </intent-filter>
+87        </activity>
+88        <activity
+88-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:54:9-65:20
+89            android:name="io.rong.callkit.MultiAudioCallActivity"
+89-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:55:13-66
+90            android:exported="true"
+90-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:56:13-36
+91            android:launchMode="singleTop"
+91-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:57:13-43
+92            android:screenOrientation="portrait"
+92-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:58:13-49
+93            android:windowSoftInputMode="stateHidden|adjustResize" >
+93-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:59:13-67
+94            <intent-filter>
+94-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:60:13-64:29
+95                <action android:name="io.rong.intent.action.voip.MULTIAUDIO" />
+95-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:61:17-80
+95-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:61:25-77
+96
+97                <category android:name="android.intent.category.DEFAULT" />
+97-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:17-76
+97-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:27-73
+98            </intent-filter>
+99        </activity> <!-- new voip config end -->
+100        <!-- Android Q 后台无法弹出Activity，通过通知栏提醒用户 -->
+101        <receiver android:name="io.rong.callkit.VoIPBroadcastReceiver" >
+101-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:71:9-76:20
+101-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:71:19-71
+102            <intent-filter>
+102-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:72:13-75:29
+103                <action android:name="action.push.CallInviteMessage" />
+103-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:73:17-72
+103-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:73:25-69
+104                <action android:name="action.push.CallInviteMessage.CLICKED" />
+104-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:74:17-80
+104-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:74:25-77
+105            </intent-filter>
+106        </receiver>
+107
+108        <activity android:name="io.rong.callkit.CallSelectMemberActivity" />
+108-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:78:9-77
+108-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:78:19-74
+109
+110        <receiver android:name="io.rong.callkit.util.RTCPhoneStateReceiver" >
+110-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:80:9-84:20
+110-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:80:19-76
+111            <intent-filter>
+111-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:81:13-83:29
+112                <action android:name="android.intent.action.PHONE_STATE" />
+112-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:82:17-76
+112-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:82:25-73
+113            </intent-filter>
+114        </receiver>
+115
+116        <activity
+116-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:37:9-39:52
+117            android:name="io.rong.imkit.plugin.location.AMapLocationActivity"
+117-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:38:13-78
+118            android:screenOrientation="portrait" />
+118-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:39:13-49
+119        <activity
+119-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:40:9-42:52
+120            android:name="io.rong.imkit.plugin.location.AMapLocationActivity2D"
+120-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:41:13-80
+121            android:screenOrientation="portrait" />
+121-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:42:13-49
+122        <activity android:name="io.rong.imkit.plugin.location.AMapPreviewActivity" />
+122-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:43:9-86
+122-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:43:19-83
+123        <activity android:name="io.rong.imkit.plugin.location.AMapPreviewActivity2D" />
+123-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:44:9-88
+123-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:44:19-85
+124        <activity android:name="io.rong.imkit.plugin.location.AMapRealTimeActivity" />
+124-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:45:9-87
+124-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:45:19-84
+125        <activity android:name="io.rong.imkit.plugin.location.AMapRealTimeActivity2D" />
+125-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:46:9-89
+125-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:46:19-86
+126        <activity
+126-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:47:9-50:71
+127            android:name="io.rong.imkit.plugin.location.SearchLocationActivity"
+127-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:48:13-80
+128            android:screenOrientation="portrait"
+128-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:49:13-49
+129            android:windowSoftInputMode="stateVisible|adjustResize" />
+129-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:50:13-68
+130        <activity
+130-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:51:9-54:52
+131            android:name="io.rong.imkit.plugin.image.PictureSelectorActivity"
+131-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:52:13-78
+132            android:configChanges="keyboardHidden|orientation|screenSize"
+132-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:53:13-74
+133            android:screenOrientation="portrait" />
+133-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:54:13-49
+134        <activity
+134-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:55:9-57:52
+135            android:name="io.rong.imkit.plugin.image.PicturePreviewActivity"
+135-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:56:13-77
+136            android:screenOrientation="portrait" /> <!-- 开发者可以修改 RongBaseActivity 的 rc_base_activity_layout 布局文件调整 actionbar -->
+136-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:57:13-49
+137        <activity
+137-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:60:9-69:20
+138            android:name="io.rong.imkit.tools.RongWebviewActivity"
+138-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:61:13-67
+139            android:exported="false"
+139-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:62:13-37
+140            android:screenOrientation="portrait" >
+140-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:63:13-49
+141            <intent-filter>
+141-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:64:13-68:29
+142                <action android:name="io.rong.imkit.intent.action.webview" />
+142-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:65:17-78
+142-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:65:25-75
+143
+144                <category android:name="android.intent.category.DEFAULT" />
+144-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:17-76
+144-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:27-73
+145            </intent-filter>
+146        </activity>
+147        <activity
+147-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:70:9-79:20
+148            android:name="io.rong.imkit.tools.CombineWebViewActivity"
+148-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:71:13-70
+149            android:exported="false"
+149-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:72:13-37
+150            android:screenOrientation="portrait" >
+150-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:73:13-49
+151            <intent-filter>
+151-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:74:13-78:29
+152                <action android:name="io.rong.imkit.intent.action.combinewebview" />
+152-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:75:17-85
+152-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:75:25-82
+153
+154                <category android:name="android.intent.category.DEFAULT" />
+154-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:17-76
+154-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:27-73
+155            </intent-filter>
+156        </activity>
+157        <activity
+157-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:80:9-83:52
+158            android:name="io.rong.imkit.widget.provider.TakingPicturesActivity"
+158-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:81:13-80
+159            android:configChanges="orientation|keyboardHidden"
+159-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:82:13-63
+160            android:screenOrientation="portrait" />
+160-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:83:13-49
+161        <activity
+161-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:84:9-93:20
+162            android:name="io.rong.imkit.activity.PicturePagerActivity"
+162-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:85:13-71
+163            android:exported="false"
+163-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:86:13-37
+164            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+164-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:87:13-71
+165            <intent-filter>
+165-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:88:13-92:29
+166                <action android:name="io.rong.imkit.intent.action.picturepagerview" />
+166-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:89:17-87
+166-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:89:25-84
+167
+168                <category android:name="android.intent.category.DEFAULT" />
+168-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:17-76
+168-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:27-73
+169            </intent-filter>
+170        </activity>
+171        <activity
+171-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:94:9-101:20
+172            android:name="io.rong.imkit.activity.CombinePicturePagerActivity"
+172-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:95:13-78
+173            android:exported="false"
+173-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:96:13-37
+174            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+174-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:97:13-71
+175            <intent-filter>
+175-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:98:13-100:29
+176                <category android:name="android.intent.category.DEFAULT" />
+176-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:17-76
+176-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:27-73
+177            </intent-filter>
+178        </activity>
+179        <activity
+179-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:102:9-105:67
+180            android:name="io.rong.imkit.mention.MemberMentionedActivity"
+180-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:103:13-73
+181            android:configChanges="orientation|keyboardHidden"
+181-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:104:13-63
+182            android:windowSoftInputMode="adjustPan|stateHidden" />
+182-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:105:13-64
+183        <activity android:name="io.rong.imkit.activity.FileManagerActivity" />
+183-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:106:9-79
+183-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:106:19-76
+184        <activity android:name="io.rong.imkit.activity.FileListActivity" />
+184-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:107:9-76
+184-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:107:19-73
+185        <activity
+185-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:108:9-117:20
+186            android:name="io.rong.imkit.activity.FilePreviewActivity"
+186-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:109:13-70
+187            android:exported="false"
+187-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:110:13-37
+188            android:screenOrientation="portrait" >
+188-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:111:13-49
+189            <intent-filter>
+189-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:112:13-116:29
+190                <action android:name="io.rong.imkit.intent.action.openfile" />
+190-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:113:17-79
+190-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:113:25-76
+191
+192                <category android:name="android.intent.category.DEFAULT" />
+192-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:17-76
+192-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:27-73
+193            </intent-filter>
+194        </activity>
+195        <activity
+195-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:118:9-127:20
+196            android:name="io.rong.imkit.activity.WebFilePreviewActivity"
+196-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:119:13-73
+197            android:exported="false"
+197-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:120:13-37
+198            android:screenOrientation="portrait" >
+198-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:121:13-49
+199            <intent-filter>
+199-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:122:13-126:29
+200                <action android:name="io.rong.imkit.intent.action.openwebfile" />
+200-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:123:17-82
+200-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:123:25-79
+201
+202                <category android:name="android.intent.category.DEFAULT" />
+202-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:17-76
+202-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:27-73
+203            </intent-filter>
+204        </activity>
+205        <activity
+205-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:128:9-131:52
+206            android:name="io.rong.imkit.activity.CSLeaveMessageActivity"
+206-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:129:13-73
+207            android:configChanges="orientation|keyboardHidden"
+207-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:130:13-63
+208            android:screenOrientation="portrait" />
+208-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:131:13-49
+209        <activity
+209-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:132:9-141:20
+210            android:name="io.rong.imkit.activity.GIFPreviewActivity"
+210-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:133:13-69
+211            android:exported="false"
+211-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:134:13-37
+212            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+212-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:135:13-71
+213            <intent-filter>
+213-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:136:13-140:29
+214                <action android:name="io.rong.imkit.intent.action.gifrview" />
+214-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:137:17-79
+214-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:137:25-76
+215
+216                <category android:name="android.intent.category.DEFAULT" />
+216-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:17-76
+216-->[:CallKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:27-73
+217            </intent-filter>
+218        </activity>
+219        <activity android:name="io.rong.imkit.activity.SelectConversationActivity" /> <!-- imlib config begin -->
+219-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:142:9-86
+219-->[:IMKit] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMKit/build/intermediates/library_manifest/debug/AndroidManifest.xml:142:19-83
+220        <service
+220-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:25:9-27:38
+221            android:name="io.rong.imlib.ipc.RongService"
+221-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:26:13-57
+222            android:process=":ipc" />
+222-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:27:13-35
+223
+224        <receiver android:name="io.rong.imlib.ConnectChangeReceiver" />
+224-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:29:9-72
+224-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:29:19-69
+225        <receiver
+225-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:30:9-32:38
+226            android:name="io.rong.imlib.HeartbeatReceiver"
+226-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:31:13-59
+227            android:process=":ipc" /> <!-- imlib config end -->
+227-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:32:13-35
+228        <!-- 必选： SDK 核心功能 -->
+229        <service
+229-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:37:9-41:46
+230            android:name="io.rong.push.rongpush.PushService"
+230-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:38:13-61
+231            android:exported="true"
+231-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:39:13-36
+232            android:permission="android.permission.BIND_JOB_SERVICE"
+232-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:40:13-69
+233            android:process="io.rong.push" /> <!-- push 相关事件接收器 -->
+233-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:41:13-43
+234        <receiver
+234-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:44:9-59:20
+235            android:name="io.rong.push.rongpush.PushReceiver"
+235-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:45:13-62
+236            android:process="io.rong.push" > <!-- 此处进程可以改名，名称需要和PushService所在进程统一 -->
+236-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:46:13-43
+237            <!-- 心跳事件和网络切换事件监听,必须 -->
+238            <intent-filter>
+238-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:48:13-51:29
+239                <action android:name="io.rong.push.intent.action.HEART_BEAT" />
+239-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:49:17-80
+239-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:49:25-77
+240                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+240-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:50:17-79
+240-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:50:25-76
+241            </intent-filter>
+242
+243            <!-- 部分用户事件监听, 用来提高推送拉活率; 可移除 -->
+244            <intent-filter>
+244-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:54:13-58:29
+245                <action android:name="android.intent.action.USER_PRESENT" />
+245-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:55:17-77
+245-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:55:25-74
+246                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+246-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:56:17-87
+246-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:56:25-84
+247                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+247-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:57:17-90
+247-->[:IMLib] /Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/build/intermediates/library_manifest/debug/AndroidManifest.xml:57:25-87
+248            </intent-filter>
+249        </receiver>
+250
+251        <meta-data
+251-->[com.android.support:exifinterface:26.1.0] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/0be5f33329d00dade31cf48f9fe978b4/exifinterface-26.1.0/AndroidManifest.xml:23:9-25:38
+252            android:name="android.support.VERSION"
+252-->[com.android.support:exifinterface:26.1.0] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/0be5f33329d00dade31cf48f9fe978b4/exifinterface-26.1.0/AndroidManifest.xml:24:13-51
+253            android:value="26.1.0" />
+253-->[com.android.support:exifinterface:26.1.0] /Users/kumfo/.gradle/wrapper/dists/gradle-2.14.1-all/caches/transforms-2/files-2.1/0be5f33329d00dade31cf48f9fe978b4/exifinterface-26.1.0/AndroidManifest.xml:25:13-35
+254    </application>
+255
+256</manifest>

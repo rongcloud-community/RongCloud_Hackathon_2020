@@ -1,0 +1,19 @@
+#Wed Oct 14 20:50:13 CST 2020
+path.1=classes.dex
+path.0=classes.dex
+renamed.5=classes6.dex
+renamed.4=classes5.dex
+renamed.3=classes4.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
+base.5=/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/build/intermediates/dex/debug/mergeLibDexDebug/classes_3.dex
+base.4=/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/build/intermediates/dex/debug/mergeLibDexDebug/classes_2.dex
+base.3=/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/build/intermediates/dex/debug/mergeLibDexDebug/classes_1.dex
+base.2=/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/build/intermediates/dex/debug/mergeLibDexDebug/classes_0.dex
+base.1=/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex
+base.0=/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+path.5=classes_3.dex
+path.4=classes_2.dex
+path.3=classes_1.dex
+path.2=classes_0.dex

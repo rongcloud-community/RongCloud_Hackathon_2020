@@ -1,0 +1,108 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="io.rong.imlib"
+4    android:versionCode="20200928"
+5    android:versionName="4.0.3.1_hotfix/4.0.3" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+8-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml
+9        android:targetSdkVersion="23" />
+9-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml
+10
+11    <!-- 保存图片，拍照等 -->
+12    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+12-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:5:5-81
+12-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:5:22-78
+13    <!-- 网络 -->
+14    <uses-permission android:name="android.permission.INTERNET" />
+14-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:7:5-67
+14-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:7:22-64
+15    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+15-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:8:5-79
+15-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:8:22-76
+16    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+16-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:9:5-76
+16-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:9:22-73
+17    <!-- 消息通道保活 -->
+18    <uses-permission android:name="android.permission.WAKE_LOCK" />
+18-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:11:5-68
+18-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:11:22-65
+19
+20    <!-- 定位，如果您需要定位相关的功能，可以打开以下注释 -->
+21    <!-- <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> -->
+22    <application>
+22-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:15:5-57:19
+23
+24        <!-- imlib config begin -->
+25        <service
+25-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:18:9-20:38
+26            android:name="io.rong.imlib.ipc.RongService"
+26-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:19:13-57
+27            android:process=":ipc" />
+27-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:20:13-35
+28
+29        <receiver android:name="io.rong.imlib.ConnectChangeReceiver" />
+29-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:22:9-72
+29-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:22:19-69
+30        <receiver
+30-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:24:9-26:38
+31            android:name="io.rong.imlib.HeartbeatReceiver"
+31-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:25:13-59
+32            android:process=":ipc" />
+32-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:26:13-35
+33        <!-- imlib config end -->
+34
+35
+36        <!-- 必选： SDK 核心功能 -->
+37        <service
+37-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:30:9-34:46
+38            android:name="io.rong.push.rongpush.PushService"
+38-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:31:13-61
+39            android:exported="true"
+39-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:32:13-36
+40            android:permission="android.permission.BIND_JOB_SERVICE"
+40-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:33:13-69
+41            android:process="io.rong.push" />
+41-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:34:13-43
+42
+43        <!-- push 相关事件接收器 -->
+44        <receiver
+44-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:37:9-52:20
+45            android:name="io.rong.push.rongpush.PushReceiver"
+45-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:38:13-62
+46            android:process="io.rong.push" > <!-- 此处进程可以改名，名称需要和PushService所在进程统一 -->
+46-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:39:13-43
+47            <!-- 心跳事件和网络切换事件监听,必须 -->
+48            <intent-filter>
+48-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:41:13-44:29
+49                <action android:name="io.rong.push.intent.action.HEART_BEAT" />
+49-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:42:17-80
+49-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:42:25-77
+50                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+50-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:43:17-79
+50-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:43:25-76
+51            </intent-filter>
+52
+53            <!-- 部分用户事件监听, 用来提高推送拉活率; 可移除 -->
+54            <intent-filter>
+54-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:47:13-51:29
+55                <action android:name="android.intent.action.USER_PRESENT" />
+55-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:48:17-77
+55-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:48:25-74
+56                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+56-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:49:17-87
+56-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:49:25-84
+57                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+57-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:50:17-90
+57-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/IMLib/AndroidManifest.xml:50:25-87
+58            </intent-filter>
+59        </receiver>
+60
+61        <!-- 必选： SDK 核心功能 -->
+62
+63
+64        <!-- end -->
+65    </application>
+66
+67</manifest>

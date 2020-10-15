@@ -1,0 +1,158 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="io.rong.callkit"
+4    android:versionCode="20200928"
+5    android:versionName="4.0.3.1_hotfix/4.0.3" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="19"
+8-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="26" />
+9-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+11-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:6:5-80
+11-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:6:22-77
+12    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+12-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:7:5-74
+12-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:7:22-71
+13    <uses-permission android:name="android.permission.BLUETOOTH" />
+13-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:8:5-68
+13-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:8:22-65
+14    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
+14-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:9:5-85
+14-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:9:22-82
+15    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+15-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:10:5-78
+15-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:10:22-75
+16    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+16-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:11:5-81
+16-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:11:22-78
+17    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+17-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:12:5-80
+17-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:12:22-77
+18
+19    <!-- 读取电话的状态信息的权限 -->
+20    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+20-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:15:5-75
+20-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:15:22-72
+21
+22    <application>
+22-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:17:5-80:19
+23
+24        <!-- new voip config start -->
+25        <activity
+25-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:20:9-31:20
+26            android:name="io.rong.callkit.MultiVideoCallActivity"
+26-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:21:13-51
+27            android:exported="true"
+27-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:22:13-36
+28            android:launchMode="singleTop"
+28-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:23:13-43
+29            android:screenOrientation="portrait"
+29-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:24:13-49
+30            android:windowSoftInputMode="stateHidden|adjustResize" >
+30-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:25:13-67
+31            <intent-filter>
+31-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:26:13-30:29
+32                <action android:name="io.rong.intent.action.voip.MULTIVIDEO" />
+32-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:27:17-80
+32-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:27:25-77
+33
+34                <category android:name="android.intent.category.DEFAULT" />
+34-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:29:17-76
+34-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:29:27-73
+35            </intent-filter>
+36        </activity>
+37        <activity
+37-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:32:9-48:20
+38            android:name="io.rong.callkit.SingleCallActivity"
+38-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:33:13-47
+39            android:exported="true"
+39-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:34:13-36
+40            android:launchMode="singleTop"
+40-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:35:13-43
+41            android:screenOrientation="portrait"
+41-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:36:13-49
+42            android:windowSoftInputMode="stateHidden|adjustResize" >
+42-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:37:13-67
+43            <intent-filter>
+43-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:38:13-42:29
+44                <action android:name="io.rong.intent.action.voip.SINGLEVIDEO" />
+44-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:39:17-81
+44-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:39:25-78
+45
+46                <category android:name="android.intent.category.DEFAULT" />
+46-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:29:17-76
+46-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:29:27-73
+47            </intent-filter>
+48            <intent-filter>
+48-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:43:13-47:29
+49                <action android:name="io.rong.intent.action.voip.SINGLEAUDIO" />
+49-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:44:17-81
+49-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:44:25-78
+50
+51                <category android:name="android.intent.category.DEFAULT" />
+51-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:29:17-76
+51-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:29:27-73
+52            </intent-filter>
+53        </activity>
+54        <activity
+54-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:49:9-60:20
+55            android:name="io.rong.callkit.MultiAudioCallActivity"
+55-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:50:13-51
+56            android:exported="true"
+56-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:51:13-36
+57            android:launchMode="singleTop"
+57-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:52:13-43
+58            android:screenOrientation="portrait"
+58-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:53:13-49
+59            android:windowSoftInputMode="stateHidden|adjustResize" >
+59-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:54:13-67
+60            <intent-filter>
+60-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:55:13-59:29
+61                <action android:name="io.rong.intent.action.voip.MULTIAUDIO" />
+61-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:56:17-80
+61-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:56:25-77
+62
+63                <category android:name="android.intent.category.DEFAULT" />
+63-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:29:17-76
+63-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:29:27-73
+64            </intent-filter>
+65        </activity>
+66
+67        <!-- new voip config end -->
+68
+69
+70        <!-- Android Q 后台无法弹出Activity，通过通知栏提醒用户 -->
+71        <receiver android:name="io.rong.callkit.VoIPBroadcastReceiver" >
+71-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:65:9-71:20
+71-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:66:13-65
+72            <intent-filter>
+72-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:67:13-70:29
+73                <action android:name="action.push.CallInviteMessage" />
+73-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:68:17-72
+73-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:68:25-69
+74                <action android:name="action.push.CallInviteMessage.CLICKED" />
+74-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:69:17-79
+74-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:69:25-77
+75            </intent-filter>
+76        </receiver>
+77
+78        <activity android:name="io.rong.callkit.CallSelectMemberActivity" />
+78-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:73:9-71
+78-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:73:19-59
+79
+80        <receiver android:name="io.rong.callkit.util.RTCPhoneStateReceiver" >
+80-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:75:9-79:20
+80-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:75:19-61
+81            <intent-filter>
+81-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:76:13-78:29
+82                <action android:name="android.intent.action.PHONE_STATE" />
+82-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:77:17-75
+82-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallKit/src/main/AndroidManifest.xml:77:25-73
+83            </intent-filter>
+84        </receiver>
+85    </application>
+86
+87</manifest>

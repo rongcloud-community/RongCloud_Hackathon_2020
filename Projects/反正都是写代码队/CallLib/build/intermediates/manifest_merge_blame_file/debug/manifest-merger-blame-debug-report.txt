@@ -1,0 +1,46 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="io.rong.calllib"
+4    android:versionCode="20200928"
+5    android:versionName="4.0.3.1_hotfix/4.0.3" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+8-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallLib/AndroidManifest.xml
+9        android:targetSdkVersion="23" />
+9-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallLib/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.CAMERA" />
+11-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallLib/AndroidManifest.xml:8:5-65
+11-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallLib/AndroidManifest.xml:8:22-62
+12    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+12-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallLib/AndroidManifest.xml:9:5-79
+12-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallLib/AndroidManifest.xml:9:22-76
+13    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+13-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallLib/AndroidManifest.xml:10:5-80
+13-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallLib/AndroidManifest.xml:10:22-77
+14    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+14-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallLib/AndroidManifest.xml:11:5-71
+14-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallLib/AndroidManifest.xml:11:22-68
+15    <uses-permission android:name="android.permission.BLUETOOTH" />
+15-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallLib/AndroidManifest.xml:12:5-68
+15-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallLib/AndroidManifest.xml:12:22-65
+16    <uses-permission android:name="android.permission.INTERNET" />
+16-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallLib/AndroidManifest.xml:13:5-67
+16-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallLib/AndroidManifest.xml:13:22-64
+17    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+17-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallLib/AndroidManifest.xml:14:5-81
+17-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallLib/AndroidManifest.xml:14:22-78
+18    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+18-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallLib/AndroidManifest.xml:15:5-79
+18-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallLib/AndroidManifest.xml:15:22-76
+19    <uses-permission android:name="android.permission.CAPTURE_VIDEO_OUTPUT" />
+19-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallLib/AndroidManifest.xml:16:5-79
+19-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallLib/AndroidManifest.xml:16:22-76
+20
+21    <application android:supportsRtl="true" >
+21-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallLib/AndroidManifest.xml:4:5-6:19
+21-->/Users/kumfo/hackathon/RongCloud_Hackathon_2020/Projects/反正都是写代码队/CallLib/AndroidManifest.xml:5:9-35
+22    </application>
+23
+24</manifest>
