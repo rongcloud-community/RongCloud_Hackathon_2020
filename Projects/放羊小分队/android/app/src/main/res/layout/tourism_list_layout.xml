@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:background="@drawable/title_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <ImageView
+            android:id="@+id/tourism_list_back"
+            android:clickable="true"
+            android:src="@drawable/ic_back_black"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+        <TextView
+            android:layout_centerInParent="true"
+            android:text="蜜月游"
+            style="@style/Text18BlackStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:src="@drawable/tourismlist_event"
+                android:scaleType="fitXY"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+
+            <LinearLayout
+                android:background="#ececec"
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/tourismlist_tourism1"
+                        android:background="@drawable/tourismlist_rectangle"
+                        android:orientation="vertical"
+                        android:layout_width="160dp"
+                        android:layout_height="180dp">
+                        <ImageView
+                            android:scaleType="fitXY"
+                            android:src="@drawable/tourism_pic1"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp" />
+                        <TextView
+                            android:text="希腊一地轻奢蜜月9天7晚"
+                            style="@style/Text14BlackStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="¥30561起"
+                            style="@style/Text14RedStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:background="@drawable/tourismlist_rectangle"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="vertical"
+                        android:layout_width="160dp"
+                        android:layout_height="180dp">
+                        <ImageView
+                            android:scaleType="fitXY"
+                            android:src="@drawable/tourism_pic2"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp" />
+                        <TextView
+                            android:text="日本5天4晚私家团"
+                            style="@style/Text14BlackStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="¥8268起"
+                            style="@style/Text14RedStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:background="@drawable/tourismlist_rectangle"
+                        android:orientation="vertical"
+                        android:layout_width="160dp"
+                        android:layout_height="180dp">
+                        <ImageView
+                            android:scaleType="fitXY"
+                            android:src="@drawable/tourism_pic3"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp" />
+                        <TextView
+                            android:text="法瑞意三地11日9晚深度蜜月游"
+                            style="@style/Text14BlackStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="¥35800起"
+                            style="@style/Text14RedStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:background="@drawable/tourismlist_rectangle"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="vertical"
+                        android:layout_width="160dp"
+                        android:layout_height="180dp">
+                        <ImageView
+                            android:scaleType="fitXY"
+                            android:src="@drawable/tourism_pic4"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp" />
+                        <TextView
+                            android:text="大理——丽江4天3晚蜜月游"
+                            style="@style/Text14BlackStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="¥19999起"
+                            style="@style/Text14RedStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:background="@drawable/tourismlist_rectangle"
+                        android:orientation="vertical"
+                        android:layout_width="160dp"
+                        android:layout_height="180dp">
+                        <ImageView
+                            android:scaleType="fitXY"
+                            android:src="@drawable/tourism_pic5"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp" />
+                        <TextView
+                            android:text="泰国清迈8日6晚蔚蓝经典"
+                            style="@style/Text14BlackStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="¥7936起"
+                            style="@style/Text14RedStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:background="@drawable/tourismlist_rectangle"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="vertical"
+                        android:layout_width="160dp"
+                        android:layout_height="180dp">
+                        <ImageView
+                            android:scaleType="fitXY"
+                            android:src="@drawable/tourism_pic6"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp" />
+                        <TextView
+                            android:text="巴厘岛7日5晚半自助游"
+                            style="@style/Text14BlackStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="¥6398起"
+                            style="@style/Text14RedStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

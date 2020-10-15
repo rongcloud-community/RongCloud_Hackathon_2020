@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="task_circle_to_left">10dp</dimen>
+    <dimen name="day_date1_width">30dp</dimen>
+    <dimen name="day_date2_height">40dp</dimen>
+    <dimen name="test">19dp</dimen>
+    <dimen name="home_ic_marginleft">20dp</dimen>
+    <dimen name="tourism_marginleft">20dp</dimen>
+</resources>

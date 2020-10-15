@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:background="@drawable/my_gradient"
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="440dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/my_shadow"
+            android:layout_centerHorizontal="true"
+            android:layout_width="333dp"
+            android:layout_height="180dp">
+
+            <TextView
+                android:textSize="18sp"
+                android:textColor="#000"
+                android:text="婚礼倒计时100天"
+                android:layout_marginTop="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                style="@style/Text14BlackStyle"
+                android:text="fuchs"
+                android:layout_marginTop="3dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp">
+
+                <TextView
+                    android:text="0"
+                    style="@style/Text14BlackStyle"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="45dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="0"
+                    style="@style/Text14BlackStyle"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="0"
+                    style="@style/Text14BlackStyle"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="162dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="0"
+                    style="@style/Text14BlackStyle"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="217dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="收藏"
+                    style="@style/Text14BlackStyle"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="33dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="购物车"
+                    style="@style/Text14BlackStyle"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="83dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="订单/预约"
+                    style="@style/Text14BlackStyle"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="136dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="发布"
+                    style="@style/Text14BlackStyle"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="207dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="我的\n钱包"
+                    android:singleLine="false"
+                    style="@style/Text14BlackStyle"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="266dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <com.example.kosakai.happygoat.CircleImageView
+            android:layout_marginTop="40dp"
+            android:scaleType="centerCrop"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_headicon"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+        
+        <RelativeLayout
+            android:background="@drawable/my_shadow"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="300dp"
+            android:layout_width="333dp"
+            android:layout_height="140dp">
+           <RelativeLayout
+               android:clickable="true"
+               android:id="@+id/task_rlayout"
+               android:layout_width="165dp"
+               android:layout_height="80dp">
+               <TextView
+                   android:text="结婚任务"
+                   style="@style/Text16BlackStyle"
+                   android:layout_marginLeft="53dp"
+                   android:layout_marginTop="20dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" />
+               <TextView
+                   android:text="已完成： 0/35"
+                   style="@style/Text14GrayStyle"
+                   android:layout_marginLeft="41dp"
+                   android:layout_marginTop="54dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" />
+           </RelativeLayout>
+            <RelativeLayout
+                android:gravity="center"
+                android:layout_marginTop="70dp"
+                android:clickable="true"
+                android:layout_width="165dp"
+                android:layout_height="60dp">
+         
+                <Button
+                    android:text="记任务"
+                    android:background="@drawable/shape_my_btn1"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp" />
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:clickable="true"
+                android:id="@+id/note_rlayout"
+                android:layout_marginLeft="166dp"
+                android:layout_width="165dp"
+                android:layout_height="80dp">
+                <TextView
+                    android:text="结婚记账"
+                    style="@style/Text16BlackStyle"
+                    android:layout_marginLeft="53dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="已支出： ¥0.00"
+                    style="@style/Text14GrayStyle"
+                    android:layout_marginLeft="41dp"
+                    android:layout_marginTop="54dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:gravity="center"
+                android:layout_marginLeft="166dp"
+                android:layout_marginTop="70dp"
+                android:clickable="true"
+                android:layout_width="165dp"
+                android:layout_height="60dp">
+                <Button
+                    android:text="记笔账"
+                    android:background="@drawable/shape_my_btn2"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

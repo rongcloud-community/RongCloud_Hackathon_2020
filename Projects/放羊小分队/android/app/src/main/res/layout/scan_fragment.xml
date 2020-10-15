@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginBottom="70dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:background="@drawable/title_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <TextView
+            android:layout_centerInParent="true"
+            android:text="发现"
+            style="@style/Text18BlackStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+    <ScrollView
+        android:layout_marginTop="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/scan_hotel"
+                android:clickable="true"
+                android:src="@drawable/find_hotel"
+                android:scaleType="fitXY"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="170dp"
+                android:layout_height="100dp" />
+
+            <ImageView
+                android:id="@+id/scan_hotel1"
+                android:src="@drawable/find_star"
+                android:scaleType="fitXY"
+                android:layout_marginLeft="220dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="170dp"
+                android:layout_height="100dp" />
+
+            <ImageView
+                android:id="@+id/scan_photo"
+                android:src="@drawable/find_wedding"
+                android:scaleType="fitXY"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="140dp"
+                android:layout_width="170dp"
+                android:layout_height="100dp" />
+
+            <ImageView
+                android:id="@+id/scan_tourism"
+                android:src="@drawable/find_tourism"
+                android:scaleType="fitXY"
+                android:layout_marginLeft="220dp"
+                android:layout_marginTop="140dp"
+                android:layout_width="170dp"
+                android:layout_height="100dp" />
+            
+            <ImageView
+                android:id="@+id/scan_event1"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/scan_event1"
+                android:scaleType="fitXY"
+                android:layout_marginTop="260dp"
+                android:layout_width="360dp"
+                android:layout_height="120dp" />
+
+            <ImageView
+                android:id="@+id/scan_event2"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/scan_event2"
+                android:scaleType="fitXY"
+                android:layout_marginTop="400dp"
+                android:layout_width="360dp"
+                android:layout_height="120dp" />
+
+            <ImageView
+                android:id="@+id/scan_event3"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/scan_event3"
+                android:scaleType="fitXY"
+                android:layout_marginTop="540dp"
+                android:layout_width="360dp"
+                android:layout_height="120dp" />
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+
+</RelativeLayout>

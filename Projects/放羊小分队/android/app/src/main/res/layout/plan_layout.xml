@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/photo_img"
+        android:scaleType="fitXY"
+        android:src="@drawable/plan_pic1"
+        android:layout_width="match_parent"
+        android:layout_height="230dp" />
+    <ImageView
+        android:id="@+id/plan_back"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_back"
+        android:layout_width="20dp"
+        android:layout_height="20dp" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="230dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <TextView
+            android:text="粉银色创意婚礼"
+            style="@style/Text14BlackStyle"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="¥20000"
+            style="@style/Text14YellowStyle"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginTop="310dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="司仪"
+                android:layout_marginLeft="20dp"
+                style="@style/Text14GrayStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                style="@style/Text14BlackStyle"
+                android:text="全程资深婚礼司仪一名【见面沟通+彩排+婚礼当天主持】"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="化妆"
+                android:layout_marginLeft="20dp"
+                style="@style/Text14GrayStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                style="@style/Text14BlackStyle"
+                android:text="全程资深化妆师一名（包括伴娘简易装、母亲简易装，提供首饰头饰，提前免费预约试妆）"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="摄影"
+                android:layout_marginLeft="20dp"
+                style="@style/Text14GrayStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                style="@style/Text14BlackStyle"
+                android:text="资深婚礼摄影师一名，提供8小时跟拍服务(含精修80-100张)"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="摄像"
+                android:layout_marginLeft="20dp"
+                style="@style/Text14GrayStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                style="@style/Text14BlackStyle"
+                android:text="资深婚礼摄像师两名，提供8小时摄像服务（含后期编辑并制作精美DVD一盘，不低于180秒精剪MV一张）"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="其他"
+                android:layout_marginLeft="20dp"
+                style="@style/Text14GrayStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                style="@style/Text14BlackStyle"
+                android:text="（A.提供婚礼配乐，B.配置专业DJ一名，C.专业督导一名）"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:background="@drawable/bottom_rectangle"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <LinearLayout
+            android:background="@drawable/bottom_rectangle"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="70dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:src="@drawable/ic_kefu"
+                android:scaleType="fitXY"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+            <TextView
+                android:text="在线咨询"
+                style="@style/Text12BlackStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:background="@drawable/bottom_rectangle"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="70dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:src="@drawable/ic_phone"
+                android:scaleType="fitXY"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+            <TextView
+                android:text="在线咨询"
+                style="@style/Text12BlackStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center"
+            android:background="#e5332d"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:text="免费领取设计方案"
+                style="@style/Text14WhiteStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
