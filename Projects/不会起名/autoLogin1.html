@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>无标题文档</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+
+<SCRIPT type=text/javascript>
+var win=null;
+//全局变量timeID定义
+var timeID;
+ //绘制进度条 参数：rstime1 数字 越小进度条越快
+ function fnc_timer01_form(rstime1) {
+	var New_Ret;
+	New_Ret = 0 ;
+	if (New_Ret == 0){		 
+		//进度条背景
+		win.document.write("<div id=\"timer01_form_bg\" style=\"position:absolute;top:200;left:50;width:400;height:30;background:#000000\">");
+		win.document.write("</div>");
+		//进度条
+		win.document.write("<div id=\"timer01_form\" style=\"position:absolute;top:200;left:50;width:0;height:30;background:#00ff00\">");
+		win.document.write("</div>");
+		//进度条显示文字
+		win.document.write("<div id=\"timer_moji\" style=\"position:absolute;top:200;left:50;width:200;height:30;\">");
+		win.document.write("载入中...");
+		win.document.write("</div>");
+		// 开始绘制进度条
+		try{fnc_timer01(0, rstime1);}catch(e){}
+	}
+}
+
+function fnc_timer01(var_timer, var_lim_sec) {
+	var var_date= new Date();
+	var var_now= var_date.getTime(); 
+	if (var_timer == 0) {
+		var_timer = var_now;
+	}
+	else if (((var_now - var_timer) / 1000) < var_lim_sec) {
+		try{
+		if(win!=null && win.timer01_form){
+				win.timer01_form.style.width = Math.round((400 * (((var_now - var_timer) / 1000) / var_lim_sec))*10) / 10; 
+				if (((var_now - var_timer) / 1000) > (var_lim_sec * 0.8)){
+				win.timer01_form.style.background="#ffff00";
+			}
+		} 
+		}catch(e){}
+	}
+	else {
+		try{
+		if(win!=null && win.timer01_form){
+			
+			win.timer01_form.style.width = "400";
+			var_timer = 0;
+			win.timer01_form.style.background="#ff0000"; 
+		}
+		}catch(e){}
+	} 
+	if (var_timer != 0) {
+	timeID = setTimeout(("fnc_timer01(" + var_timer + "," + var_lim_sec + ")"), 100);
+	}
+}
+
+function submitLoginForm()
+{	
+
+	var username=document.getElementById("username").value;
+	var password=document.getElementById("password").value;
+	if(username=="" )
+	{
+		alert("请输入用户名");
+		return;
+	}	
+	if(password=="")
+	{
+		alert("请输入密码");
+		return;
+	}	
+	var expDate   = new Date();
+	expDate.setTime( expDate.getTime() + 365 * 24 * 60 * 60 * 1000);
+	try{
+		addCookie("imu", username, expDate, "/", null, false);	
+		addCookie("imp", password, expDate, "/", null, false);	
+	}catch(e){}	
+	if(document.getElementById("status")){
+		document.getElementById("status").innerHTML="<font color=red size=2>登陆中<br>请稍候<br>...</font>";
+		setTimeout('clearStatus()',10000);
+	}
+	var url = "http://client.100im.cn/loginValidation1.jsp?username="+username+"&password="+password;		 
+	//win = window.open("", "", "Status=no,scrollbars=on,width=600,height=550,top=0,left=0");  
+	//win.document.write("<span id='_PercentBar'></span>");	
+	//if(win!=null){	
+		//fnc_timer01_form(5);//from 0 to 100 within xx seconds
+		//win.location=url;	
+		window.location=url;	  
+	//} 
+}
+function clearStatus()
+{
+	if(document.getElementById("status"))
+		document.getElementById("status").innerHTML="";
+} 
+ 
+function addCookie(name, value, expires, path, domain, secure){
+	var expString    = ((expires == null)? "" : ("; expires=" + expires.toGMTString()));
+	var pathString   = ((path == null)   ? "" : ("; path   =" + path));
+	var domainString = ((domain == null) ? "" : ("; domain =" + domain));
+	var secureString = ((secure == true) ? "; secure" : "");
+	var cookiev      = name+"="+value+expString+pathString+domainString+secureString;
+	document.cookie  = cookiev;
+}
+function readCookie(name){
+	var result        = null;
+	var myCookie      = " " + document.cookie + ";";
+	var searchName    = " " + name + "=";
+	var startOfCookie = myCookie.indexOf(searchName);
+	var endOfCookie;
+	if(startOfCookie != -1)	{
+		startOfCookie += searchName.length;
+		endOfCookie    = myCookie.indexOf(";", startOfCookie);
+		result         = myCookie.substring(startOfCookie,endOfCookie);
+	}
+	return result;
+}
+
+</SCRIPT>
+<LINK href="autoLogin.files/style_index.css" type=text/css rel=stylesheet>
+<META content="MSHTML 6.00.2900.3157" name=GENERATOR><style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+}
+-->
+</style></HEAD>
+<BODY background=autoLogin.files/17_6.gif scroll=no>
+<TABLE class=conn9 height=400 cellSpacing=0 cellPadding=0 width=500 align=left 
+background=autoLogin.files/loginbk2.jpg border=0>
+  <TBODY>
+  <TR>
+    <TD width=164 height=194>&nbsp;</TD>
+    <TD width=336 height=194>&nbsp;</TD></TR>
+  <TR>
+    <TD height=120>&nbsp;</TD>
+    <TD vAlign=top align=left height=120>
+      <TABLE class=conn9 height=90 cellSpacing=0 cellPadding=0 width=200 
+      align=left border=0>
+        <TBODY>
+        <TR>
+          <TD height=32><INPUT class=inp2 id=username size=32 
+        name=username></TD></TR>
+        <TR>
+          <TD height=32><INPUT class=inp2 id=password type=password size=32 
+            name=password></TD></TR>
+        <TR>
+          <TD vAlign=bottom height=50><IMG style="CURSOR: hand" 
+            onclick=submitLoginForm(); height=32 src="autoLogin.files/nkq.gif" 
+            width=91>&nbsp;&nbsp;&nbsp;&nbsp;<A 
+            href="http://client.100im.cn/findMyLoginInfo.jsp" target="_blank"><IMG 
+            style="CURSOR: hand" height=32 src="autoLogin.files/nkd.gif" 
+            width=91 border=0></A></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD height=86>&nbsp;</TD>
+    <TD height=86>&nbsp;</TD></TR></TBODY></TABLE>
+<script type="text/javascript">
+	try
+	{
+		//window.moveTo(300,200);
+		//window.resizeTo(500,400);  
+	}
+	catch(e){}
+	var imu=readCookie("imu");
+	var imp=readCookie("imp");
+	if(imu!=null && imp!=null){
+		document.getElementById("username").value=imu;
+		document.getElementById("password").value=imp;
+		//submitLoginForm(); //自动登陆
+	}	 
+	self.resizeTo(500,500);
+	//setInterval("mytimer()", 100);
+	window.document.title="xxxx";
+</script>	
+</BODY></HTML>

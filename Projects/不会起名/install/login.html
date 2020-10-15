@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>TaokeOCS V3.2——登录页</title>
+<script type="text/javascript">
+var win=null;
+//全局变量timeID定义
+var timeID;
+ //绘制进度条 参数：rstime1 数字 越小进度条越快
+ function fnc_timer01_form(rstime1) {
+	var New_Ret;
+	New_Ret = 0 ;
+	if (New_Ret == 0){		 
+		//进度条背景
+		win.document.write("<div id=\"timer01_form_bg\" style=\"position:absolute;top:200;left:50;width:400;height:30;background:#000000\">");
+		win.document.write("</div>");
+		//进度条
+		win.document.write("<div id=\"timer01_form\" style=\"position:absolute;top:200;left:50;width:0;height:30;background:#00ff00\">");
+		win.document.write("</div>");
+		//进度条显示文字
+		win.document.write("<div id=\"timer_moji\" style=\"position:absolute;top:200;left:50;width:200;height:30;\">");
+		win.document.write("载入中...");
+		win.document.write("</div>");
+		// 开始绘制进度条
+		try{fnc_timer01(0, rstime1);}catch(e){}
+	}
+}
+
+function fnc_timer01(var_timer, var_lim_sec) {
+	var var_date= new Date();
+	var var_now= var_date.getTime(); 
+	if (var_timer == 0) {
+		var_timer = var_now;
+	}
+	else if (((var_now - var_timer) / 1000) < var_lim_sec) {
+		try{
+		if(win!=null && win.timer01_form){
+				win.timer01_form.style.width = Math.round((400 * (((var_now - var_timer) / 1000) / var_lim_sec))*10) / 10; 
+				if (((var_now - var_timer) / 1000) > (var_lim_sec * 0.8)){
+				win.timer01_form.style.background="#ffff00";
+			}
+		} 
+		}catch(e){}
+	}
+	else {
+		try{
+		if(win!=null && win.timer01_form){
+			
+			win.timer01_form.style.width = "400";
+			var_timer = 0;
+			win.timer01_form.style.background="#ff0000"; 
+		}
+		}catch(e){}
+	} 
+	if (var_timer != 0) {
+	timeID = setTimeout(("fnc_timer01(" + var_timer + "," + var_lim_sec + ")"), 100);
+	}
+}
+function submitLoginForm()
+{	
+	var username=document.getElementById("username").value;
+	var password=document.getElementById("password").value;
+	if(username=="" )
+	{
+		alert("请输入用户名");
+		return;
+	}	
+	if(password=="")
+	{
+		alert("请输入密码");
+		return;
+	}	
+	if(document.getElementById("status")){
+		document.getElementById("status").innerHTML="<font color=red size=2>登陆中<br>请稍候<br>...</font>";
+		setTimeout('clearStatus()',10000);
+	}
+	var url = "../loginValidation.jsp?username="+username+"&password="+password;		 
+	win = window.open("", "", "Status=no,scrollbars=on,width=600,height=550,top=0,left=0");  
+	//win.document.write("<span id='_PercentBar'></span>");
+	if(win!=null){	
+		fnc_timer01_form(5);//from 0 to 100 within xx seconds
+		win.location=url;	  
+	}
+	else
+		alert("新开窗口被拦截，请点击按钮'登陆'打开");
+}
+function clearStatus()
+{
+	if(document.getElementById("status"))
+		document.getElementById("status").innerHTML="";
+} 
+function ifPressReturn()
+{
+	if(event.keyCode!=0)
+			if(event.keyCode==13)
+				submitLoginForm();
+}
+</script>
+<link href="css.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+-->
+</style></head>
+
+<body>
+<div align="center">
+  <p>&nbsp;</p>
+  <p><img src="images/N27_3.jpg" width="136" height="71" />    </p>
+</div>
+<table width="100%" height="10" border="0" cellpadding="0" cellspacing="0" class="p9black">
+  <tr>
+    <td height="10" background="images/index_07.jpg" class="p9black">&nbsp;</td>
+  </tr>
+</table>
+<form id="frm" name="frm" method="post"  action="" >
+  <p>&nbsp;</p>
+  <table width="301" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#999999" class="p12blue">
+    <tr>
+      <td height="30" colspan="2" align="center" valign="middle" bgcolor="#E6E6E6" class="con9b">TaokeOCS V3.2在线客服管理系统</td>
+    </tr>
+    <tr>
+      <td width="56" height="30" align="right" valign="middle" bgcolor="#FFFFFF" class="con9b">用户名</td>
+      <td width="188" height="30" bgcolor="#FFFFFF">&nbsp;
+          <input name="username" type="text" class="inp" id="username" value="admin@127_com" /></td>
+    </tr>
+    <tr>
+      <td height="30" align="center" valign="middle" bgcolor="#FFFFFF" class="con9b">密&nbsp;&nbsp;码</td>
+      <td height="30" bgcolor="#FFFFFF">&nbsp;
+          <input name="password" type="password" class="inp" id="password"  onkeyup="ifPressReturn()" value="123456" />
+          123456</td>
+    </tr>
+    <tr>
+      <td height="30" colspan="2" align="center" valign="bottom" bgcolor="#FFFFFF"><img src="../images/N27_12.jpg" width="68" height="25" onclick="submitLoginForm();" style="cursor:hand" />&nbsp;<a href="findMyLoginInfo.jsp"><img src="../images/N27_14.jpg" width="68" height="25" border="0" /></a></td>
+    </tr>
+    <tr>
+      <td height="30" colspan="2" valign="bottom" bgcolor="#FFFFFF" id="status">&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

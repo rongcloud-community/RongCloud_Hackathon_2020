@@ -1,0 +1,57 @@
+.top {
+	FONT-WEIGHT: normal; FONT-SIZE: 9pt; COLOR: #ffffff; FONT-STYLE: normal; FONT-FAMILY: "宋体"; BACKGROUND-COLOR: #4292c0; TEXT-DECORATION: none
+}
+.title1 {
+	FONT-WEIGHT: normal; FONT-SIZE: 16pt; COLOR: #999494; FONT-STYLE: normal; FONT-FAMILY: "华文中宋"; FONT-VARIANT: normal; TEXT-DECORATION: none
+}
+.title2 {
+	FONT-WEIGHT: normal; FONT-SIZE: 12pt; COLOR: #999494; FONT-STYLE: normal; FONT-FAMILY: "宋体"; FONT-VARIANT: normal; TEXT-DECORATION: none
+}
+.content {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; COLOR: #0066cc; FONT-STYLE: normal; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.content1 {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; COLOR: #339900; FONT-STYLE: normal; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.more {
+	FONT-WEIGHT: normal; FONT-SIZE: 9pt; COLOR: #ffffff; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+.titlebottom {
+	FONT-WEIGHT: normal; FONT-SIZE: 9pt; COLOR: #999999; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.content2 {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; COLOR: #ff6666; FONT-STYLE: normal; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.content3 {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; COLOR: #ff9900; FONT-STYLE: normal; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.C {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 6px; PADDING-BOTTOM: 0px; PADDING-TOP: 2px; HEIGHT: 19px; BACKGROUND-COLOR: #e8f3ff
+}
+.cu {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #ff0000; FONT-STYLE: normal; FONT-FAMILY: "宋体"; FONT-VARIANT: normal; TEXT-DECORATION: none
+}
+#search_td1 {
+	WIDTH: 350px
+}
+#search_td1 INPUT {
+	BORDER-RIGHT: #d0d0d0 1px solid; BORDER-TOP: #d0d0d0 1px solid; PADDING-LEFT: 8px; BACKGROUND: url(../../img/ver5/site/search_input_bg.gif) repeat-x; BORDER-LEFT: #d0d0d0 1px solid; WIDTH: 332px; COLOR: #535353; LINE-HEIGHT: 22px; BORDER-BOTTOM: #d0d0d0 1px solid; HEIGHT: 22px
+}
+.conn9 {
+	FONT-WEIGHT: normal; FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.g12B {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: normal; FONT-STYLE: normal; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.daxiao {
+	FONT: 12px "宋体"
+}
+.inp {
+	BORDER-RIGHT: #84a1bd 1px solid; PADDING-RIGHT: 2px; BACKGROUND-POSITION: -70px -424px; BORDER-TOP: #84a1bd 1px solid; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; BORDER-LEFT: #84a1bd 1px solid; WIDTH: 157px; PADDING-TOP: 2px; BORDER-BOTTOM: #84a1bd 1px solid
+}
+.xiao {
+	FONT-SIZE: 1px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.conn10 {
+	FONT: bold 12pt "幼圆"; COLOR: #333333; TEXT-DECORATION: none
+}

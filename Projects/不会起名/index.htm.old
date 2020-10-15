@@ -1,0 +1,157 @@
+<HTML>
+<HEAD>
+<TITLE>淘客在线</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=gb2312">
+<style type="text/css">
+<!--
+.STYLE1 {color: #FFFFFF}
+body,td,th {
+	font-family: 宋体;
+	font-size: 12px;
+	color: #000000;
+}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+}
+.STYLE2 {
+	font-size: 18px;
+	font-family: "黑体";
+	font-weight: bold;
+	color: #3698D5;
+}
+.STYLE6 {
+	font-size: 16px;
+	font-family: "黑体";
+}
+.STYLE7 {
+	color: #FF0000;
+	font-size: 24px;
+	font-family: "黑体";
+}
+.css {
+	font-family: "宋体";
+	font-size: 12px;
+	font-style: normal;
+	height: 17px;
+	valgin:center;
+}
+-->
+</style>
+</HEAD>
+<BODY BGCOLOR=#FFFFFF LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<!-- ImageReady Slices (未标题-1) -->
+<table width="1005" height="1" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="103" height="7"><img src="images/1_21.gif" width="996" height="7"></td>
+  </tr>
+</table>
+<table width="1005" border="0" align="center" cellpadding="0" cellspacing="0">
+  
+  <tr>
+    <td width="200"><img src="images/logo2.gif" width="152" height="70"></td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/888.gif" width="608" height="34"></td>
+  </tr>
+</table>
+<TABLE WIDTH=900 BORDER=0 align="center" CELLPADDING=0 CELLSPACING=0>
+	<TR>
+		<TD>
+			<IMG SRC="images/index_1.jpg" WIDTH=243 HEIGHT=162 ALT=""></TD>
+		<TD>
+			<IMG SRC="images/index_2.jpg" WIDTH=257 HEIGHT=162 ALT=""></TD>
+		<TD ROWSPAN=3 align="center" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td height="5"><img src="images/1_17.gif" width="505" height="5"></td>
+          </tr>
+          <tr>
+            <td width="12%" height="40">&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.100im.cn">网站首页</a> | <a href="#">关于百乐</a> | <a href="#">免费使用</a> | <a href="#">如何开始</a> | <a href="#">联系我们</a> | <a href="#">使用帮助</a> | <a href="#">百乐论坛</a></td>
+          </tr>
+        </table>
+		  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td><img src="images/1-16.gif" width="505" height="5"></td>
+            </tr>
+          </table>
+		  <table width="95%" border="0" align="center" cellpadding="0" cellspacing="3">
+            <tr>
+              <td height="20" valign="middle"><img src="images/9-2.gif" width="473" height="68"></td>
+            </tr>
+          </table>
+		  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td><img src="images/1_18.gif" width="505" height="24"></td>
+            </tr>
+          </table>
+		  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td height="45"><br>
+                &nbsp;&nbsp;<span class="STYLE2">主要功能：</span></td>
+            </tr>
+            <tr>
+              <td height="5"><img src="images/1_17.gif" width="505" height="5"></td>
+            </tr>
+            <tr>
+              <td align="center"><img src="images/666.gif" width="453" height="140"></td>
+            </tr>
+          </table></TD>
+		<TD>
+			<IMG SRC="images/spacer.gif" WIDTH=1 HEIGHT=162 ALT=""></TD>
+	</TR>
+	<TR>
+		<TD width="243">
+			<IMG SRC="images/index_4.jpg" WIDTH=243 HEIGHT=171 ALT=""></TD>
+		<TD width="257">
+			<IMG SRC="images/index_5.jpg" WIDTH=257 HEIGHT=171 ALT=""></TD>
+		<TD>
+			<IMG SRC="images/spacer.gif" WIDTH=1 HEIGHT=171 ALT=""></TD>
+	</TR>
+	<TR>
+		<TD ROWSPAN=2 valign="top">
+			<IMG SRC="images/index_6.jpg" WIDTH=243 HEIGHT=158 ALT=""></TD>
+		<TD ROWSPAN=2 valign="top">
+			<IMG SRC="images/index_7.jpg" WIDTH=257 HEIGHT=158 ALT=""></TD>
+		<TD>
+			<IMG SRC="images/spacer.gif" WIDTH=1 HEIGHT=22 ALT=""></TD>
+	</TR>
+	<TR>
+		<TD valign="top"><table width="133" height="101" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td background="images/index_8.jpg">&nbsp;</td>
+          </tr>
+        </table>
+		  <form name="form1" method="post" action="">
+		    <table width="488" height="30" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width="8" background="images/1_1.gif">&nbsp;</td>
+                <td width="62" align="center" background="images/1_3.gif"><span class="STYLE1">用户名：</span> </td>
+                <td width="8"><img src="images/1_4.gif" width="8" height="30"></td>
+                <td width="74" background="images/1_6.gif"><input name="textfield" type="text" class="css" size="10"></td>
+                <td width="8"><img src="images/1_7.gif" width="8" height="30"></td>
+                <td width="46" align="center" background="images/1_3.gif"><span class="STYLE1">密码：</span> </td>
+                <td width="8"><img src="images/1_4.gif" width="8" height="30"></td>
+                <td width="119" background="images/1_6.gif"><input name="textfield2" type="text" class="css" size="20"></td>
+                <td width="8"><img src="images/1_7.gif" width="8" height="30"></td>
+                <td width="129" background="images/1_3.gif"><label>
+                  <input type="submit" name="Submit" value=" 登陆 ">
+                </label>
+                <label>
+               <input type="button" value=" 注册 " onClick="window.open('http://www.100im.cn/reg.jsp','blank_','scrollbars=yes,resizable=yes,width=650,height=450')">
+                </label></td>
+                <td width="8"><img src="images/1_11.gif" width="9" height="30"></td>
+              </tr>
+            </table>
+          </form>
+	  </TD>
+		
+	</TR>
+</TABLE>
+</BODY>
+</HTML>

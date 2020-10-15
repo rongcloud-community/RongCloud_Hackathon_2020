@@ -1,0 +1,38 @@
+/*************************************************
+/* #Description: 菜单的效果样式文件，将鼠标的移动效果通过类绑定到行为文件上。
+/* #Creation Date: 2005年4月30日
+/* #Generator: EditPlus2.12
+/* #Author: wysl_8114@hotmail.com
+/*******************************************************************************************************/
+a.menu:link
+{
+	color: #000000;
+	font-size: 12px;
+	text-decoration: none;
+	}
+a.menu:visited
+{
+	color: #000000;
+	font-size: 12px;
+	text-decoration: none;
+	}
+a.menu:hover
+{
+	color: #666666;
+	font-size: 12px;
+	text-decoration: none;
+	}
+a.menu:actived
+{
+	color: #000000;
+	font-size: 12px;
+	text-decoration: none;
+	}
+.a_effect
+{
+	behavior: url("css/behavior_a.htc");
+	}
+.b_effect
+{
+	behavior: url("css/behavior_b.htc");
+	}

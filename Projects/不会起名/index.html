@@ -1,0 +1,448 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>淘客——淘尽天下客，让你与客户动起来 ！</title>
+<meta name=keywords content="网站客服,主动营销,QQ客服,在线客服,即时通讯,免费短信,免费电话,流量统计">
+<meta name="description" content="最好的网络营销工具，比QQ客服更专业、更出色的网站在线客服工具，具有网站监控、流量统计、即时通讯的功能">
+  <script src="http://cdn.ronghub.com/RongIMLib-2.5.9.js"></script>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+a:link {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	font-weight: normal;
+	color: #385994;
+	text-decoration: none;
+}
+a:hover {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	font-weight: normal;
+	color: #FF9900;
+	text-decoration: underline;
+}
+a:visited {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	font-weight: normal;
+	color: #666699;
+	text-decoration: none;
+}
+-->
+</style>
+
+</head>
+<link href="css/style11.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+var win=null;
+//全局变量timeID定义
+var timeID;
+ //绘制进度条 参数：rstime1 数字 越小进度条越快
+ function fnc_timer01_form(rstime1) {
+	var New_Ret;
+	New_Ret = 0 ;
+	if (New_Ret == 0){		 
+		//进度条背景
+		win.document.write("<div id=\"timer01_form_bg\" style=\"position:absolute;top:200;left:50;width:400;height:30;background:#000000\">");
+		win.document.write("</div>");
+		//进度条
+		win.document.write("<div id=\"timer01_form\" style=\"position:absolute;top:200;left:50;width:0;height:30;background:#00ff00\">");
+		win.document.write("</div>");
+		//进度条显示文字
+		win.document.write("<div id=\"timer_moji\" style=\"position:absolute;top:200;left:50;width:200;height:30;\">");
+		win.document.write("载入中...");
+		win.document.write("</div>");
+		// 开始绘制进度条
+		try{fnc_timer01(0, rstime1);}catch(e){}
+	}
+}
+
+function fnc_timer01(var_timer, var_lim_sec) {
+	var var_date= new Date();
+	var var_now= var_date.getTime(); 
+	if (var_timer == 0) {
+		var_timer = var_now;
+	}
+	else if (((var_now - var_timer) / 1000) < var_lim_sec) {
+		try{
+		if(win!=null && win.timer01_form){
+				win.timer01_form.style.width = Math.round((400 * (((var_now - var_timer) / 1000) / var_lim_sec))*10) / 10; 
+				if (((var_now - var_timer) / 1000) > (var_lim_sec * 0.8)){
+				win.timer01_form.style.background="#ffff00";
+			}
+		} 
+		}catch(e){}
+	}
+	else {
+		try{
+		if(win!=null && win.timer01_form){
+			
+			win.timer01_form.style.width = "400";
+			var_timer = 0;
+			win.timer01_form.style.background="#ff0000"; 
+		}
+		}catch(e){}
+	} 
+	if (var_timer != 0) {
+	timeID = setTimeout(("fnc_timer01(" + var_timer + "," + var_lim_sec + ")"), 100);
+	}
+}
+function submitLoginForm()
+{	
+	var username=document.getElementById("username").value;
+	var password=document.getElementById("password").value;
+	if(username=="" )
+	{
+		alert("请输入用户名");
+		return;
+	}	
+	if(password=="")
+	{
+		alert("请输入密码");
+		return;
+	}	
+	if(document.getElementById("status")){
+		document.getElementById("status").innerHTML="<font color=red size=2>登陆中<br>请稍候<br>...</font>";
+		setTimeout('clearStatus()',10000);
+	}
+	var url = "http://client.100im.cn/loginValidation.jsp?username="+username+"&password="+password;		 
+	win = window.open("", "", "Status=no,scrollbars=on,width=600,height=550,top=0,left=0");  
+	//win.document.write("<span id='_PercentBar'></span>");
+	if(win!=null){	
+		fnc_timer01_form(5);//from 0 to 100 within xx seconds
+		win.location=url;	  
+	}
+	else
+		alert("新开窗口被拦截，请点击按钮'登陆'打开");
+}
+function clearStatus()
+{
+	if(document.getElementById("status"))
+		document.getElementById("status").innerHTML="";
+} 
+function ifPressReturn()
+{
+	if(event.keyCode!=0)
+			if(event.keyCode==13)
+				submitLoginForm();
+}
+</script>	
+<link href="css/style_index.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<table width="737" height="75" border="0" align="center" cellpadding="0" cellspacing="0" class="con9">
+  <tr>
+    <td width="136" rowspan="2" align="left" valign="bottom"><img src="images/N27_3.jpg" alt="淘客" width="136" height="71" /></td>
+    <td width="354" align="right" valign="bottom" class="con9"><span class="cu"><a href="free1.html" class="cu"><span class="cu">迎“国庆” 淘客大赠送 </span></a>&nbsp;&nbsp;&nbsp;</span></td>
+    <td width="247" align="left" valign="bottom"><table width="246" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="51" valign="bottom"><table width="246" height="25" border="0" cellpadding="0" cellspacing="0" class="con9">
+          <tr>
+            <td width="10" height="25" align="left" valign="middle">&nbsp;</td>
+            <td width="72" align="left" valign="middle"><a href="jcty.html"><img src="images/N274_6.jpg" width="62" height="14" border="0" /></a></td>
+            <td width="164" height="25" align="left" valign="middle"><a href="khal.html"><img src="images/N274_8.jpg" width="103" height="14" border="0" /></a></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td width="354" align="left" valign="bottom" class="con9"><table width="354" height="25" border="0" cellpadding="0" cellspacing="0" class="con9">
+      <tr>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="aboutTaoke.html">淘客是？</a>&nbsp;|&nbsp;&nbsp;<a href="proFunction.html">产品功能</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="zfbz.html">版本资费</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="dljm.html">运营合作</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="sysm.html">使用手册</a></td>
+      </tr>
+    </table></td>
+    <td align="left" valign="bottom"><img src="images/N273_6.jpg" width="246" height="21" /></td>
+  </tr>
+</table>
+<table width="771" border="0" align="center" cellpadding="0" cellspacing="0" class="con1">
+  <tr>
+    <td width="18" class="con9">&nbsp;</td>
+    <td width="736" class="con1">
+	  <table width="736" border="0" align="left" cellpadding="0" cellspacing="0" class="con9">
+      <tr>
+        <td width="190" rowspan="2"><img src="images/N27_8.jpg" width="190" height="155" /></td>
+        <td width="300" height="124" bgcolor="#3AB0E2"><table width="260" height="48" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td class="con10"><img src="images/N28_23.jpg" width="166" height="16" /></td>
+            </tr>
+            <tr>
+              <td class="con10">他正在外地与自己网站上的来访客户进行交谈</td>
+            </tr>
+          </table></td>
+        <td width="1" rowspan="2" bgcolor="#CECECE"></td>
+        <td width="243" rowspan="2" align="center" valign="top">
+		<form id="frm" name="frm" method="post"  action="" >
+          <table width="242" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td colspan="2"><img src="images/N273_10.jpg" width="244" height="25" /></td>
+            </tr>
+            <tr>
+              <td height="15" align="center" valign="middle" class="con9b">&nbsp;</td>
+              <td height="15">&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="56" height="25" align="right" valign="middle" class="con9b">用户名</td>
+              <td width="188" height="25"><input name="username" type="text" class="inp" id="username" /></td>
+            </tr>
+            <tr>
+              <td height="25" align="right" valign="middle" class="con9b">密&nbsp;&nbsp;&nbsp;&nbsp;码</td>
+              <td height="25"><input name="password" type="password" class="inp" id="password"  onKeyUp="ifPressReturn()" /></td>
+            </tr>
+            <tr>
+              <td height="45" id="status" valign="bottom">            
+               </td>
+              <td height="45" valign="bottom">&nbsp;&nbsp;&nbsp;<img src="images/N27_12.jpg" width="68" height="25" onClick="submitLoginForm();" style="cursor:hand">&nbsp;&nbsp;&nbsp;<a href="http://client.100im.cn/findMyLoginInfo.jsp"><img src="images/N27_14.jpg" width="68" height="25" border="0" /></a></td>
+            </tr>
+          </table>
+            </form>        </td>
+        <td width="1" rowspan="2" bgcolor="#CECECE"></td>
+      </tr>
+      <tr>
+        <td height="30" bgcolor="#8ECFEF">&nbsp;</td>
+      </tr>
+    </table>
+	</td>
+    <td width="18" align="left" valign="middle" class="con1"><img src="images/N727_12.jpg" width="18" height="155" class="con1" /></td>
+  </tr>
+</table>
+<table width="736" height="346" border="0" align="center" cellpadding="0" cellspacing="0" class="con9">
+  <tr>
+    <td width="489" align="left" valign="top"><table width="480" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="70" align="center" valign="middle"><img src="images/N275_40.jpg" width="268" height="21" /></td>
+      </tr>
+      <tr>
+        <td height="53" align="left" valign="top"><table width="480" height="50" border="0" cellpadding="0" cellspacing="0" class="con9">
+          <tr>
+            <td width="82" rowspan="2" align="center" valign="middle"><img src="images/N27_22.jpg" width="36" height="44" /></td>
+            <td width="398" height="20" align="left" valign="middle" class="con12"><img src="images/N276_49.jpg" width="61" height="17" /></td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" class="con9hui">让您和网站上的来访客户进行主动沟通</td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td height="53" align="left" valign="top"><table width="480" height="50" border="0" cellpadding="0" cellspacing="0" class="con9">
+          <tr>
+            <td width="82" rowspan="2" align="center" valign="middle"><img src="images/N27_26.jpg" width="36" height="34" /></td>
+            <td width="398" height="20" align="left" valign="middle" class="con12"><img src="images/N276_55.jpg" width="61" height="16" /></td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" class="con9hui">在用户需要您的时候，如果您已经离线，短信功能，让用户轻松找到您</td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td height="53" align="left" valign="top"><table width="480" height="50" border="0" cellpadding="0" cellspacing="0" class="con9">
+          <tr>
+            <td width="82" rowspan="2" align="center" valign="middle"><img src="images/N27_32.jpg" width="36" height="32" /></td>
+            <td width="398" height="20" class="con12"><img src="images/N276_63.jpg" width="61" height="16" /></td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" class="con9hui">最有效的营销方式，让您的生意成交率提高3—5倍</td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td height="53" align="left" valign="top"><table width="480" height="50" border="0" cellpadding="0" cellspacing="0" class="con9">
+          <tr>
+            <td width="82" rowspan="2" align="center" valign="middle"><img src="images/N27_34.jpg" width="36" height="34" /></td>
+            <td width="398" height="20" class="con12"><img src="images/N276_67.jpg" width="62" height="22" /></td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" class="con9hui">24小时在线网管，实时监控您的网站或服务器，让您的用户愉快浏览</td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td height="53" align="left" valign="top"><table width="480" height="50" border="0" cellpadding="0" cellspacing="0" class="con9">
+          <tr>
+            <td width="82" rowspan="2" align="center" valign="middle"><img src="images/N27_40.jpg" width="36" height="33" /></td>
+            <td width="398" height="20" class="con12"><img src="images/N276_71.jpg" width="62" height="14" /></td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" class="con9hui">淘客与韩国Ccmedia强手联合，用心打造权威流量统计，为您的网上营销提出指导性建议</td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
+    <td width="247" align="left" valign="top"><table width="246" border="0" align="center" cellpadding="0" cellspacing="0" class="con9">
+      <tr>
+        <td background="images/N27_43.jpg"><table width="230" border="0" align="center" cellpadding="0" cellspacing="0" class="con9">
+          <tr>
+            <td valign="middle" align="center"><hr size="1" noshade="noshade" color="#E8E8E8" width="96%" /></td>
+          </tr>
+          <tr>
+            <td height="25" align="center" valign="middle"><img src="images/N277_39.jpg" width="165" height="15" /></td>
+          </tr>
+          <tr>
+            <td height="43" align="center" valign="middle"><a href="zhuce.htm"><img src="images/N27_19.jpg" width="120" height="33" border="0" /></a></td>
+          </tr>
+          <tr>
+            <td height="25" align="center" valign="middle"><img src="images/N277_58.jpg" width="124" height="14" /></td>
+          </tr>
+          <tr>
+            <td height="25" align="center" valign="middle"><img src="images/N277_63.jpg" width="214" height="14" /></td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td height="16" align="left" valign="top" background="images/N27_43.jpg"><img src="images/N27_57.jpg" width="246" height="16" /></td>
+      </tr>
+      <tr>
+        <td height="30" background="images/N27_43.jpg">&nbsp;&nbsp;<img src="images/N27_28.jpg" width="86" height="21" /></td>
+      </tr>
+      <tr>
+        <td height="30" background="images/N27_43.jpg"><table width="240" border="0" align="center" cellpadding="0" cellspacing="0" class="con9">
+          <tr>
+            <td height="10" align="center" valign="middle"></td>
+            <td height="10"></td>
+          </tr>
+          <tr>
+            <td width="17" height="25" align="center" valign="middle">&middot;</td>
+            <td width="223" height="25" class="con9hui">淘客即将与韩国Ccmedia集团强手推出</td>
+          </tr>
+          <tr>
+            <td height="25" align="center" valign="middle">&middot;</td>
+            <td height="25" class="con9hui">淘客即将与硅谷动力成为合作伙伴</td>
+          </tr>
+          <tr>
+            <td height="25" align="center" valign="middle">&middot;</td>
+            <td height="25" class="con9hui">淘客与北京蜂巢联合科技成为合作伙伴</td>
+          </tr>
+          <tr>
+            <td height="25" align="center" valign="middle">&middot;</td>
+            <td height="25" class="con9hui">搜狐商机与淘客正在合作</td>
+          </tr>
+          <tr>
+            <td height="25" align="center" valign="middle">&middot;</td>
+            <td height="25" class="con9hui">中国IT网与淘客强强联手</td>
+          </tr>
+          <tr>
+            <td height="10" align="center" valign="middle"></td>
+            <td height="10"></td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td height="3"><img src="images/N27_90.jpg" width="246" height="3" /></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<table width="736" border="0" align="center" cellpadding="0" cellspacing="0" class="con9">
+  <tr>
+    <td height="33" align="left" valign="top"><img src="images/N28_92.jpg" width="95" height="27" /></td>
+    <td height="33" align="left" valign="top"><img src="images/N28_94.jpg" width="89" height="27" /></td>
+    <td height="33" align="left" valign="top"><img src="images/N28_96.jpg" width="76" height="27" /></td>
+    <td height="33" align="left" valign="top"><img src="images/N28_98.jpg" width="72" height="27" /></td>
+    <td height="33" align="left" valign="top"><img src="images/N28_100.jpg" width="74" height="27" /></td>
+    <td height="33" align="left" valign="top"><img src="images/N28_102.jpg" width="105" height="27" /></td>
+    <td height="33" align="left" valign="top"><img src="images/N28_104.jpg" width="91" height="27" /></td>
+  </tr>
+</table>
+<table width="736" height="61" border="0" align="center" cellpadding="0" cellspacing="0" class="con9">
+  <tr>
+    <td background="images/N28_113.jpg"><table width="700" height="25" border="0" align="center" cellpadding="0" cellspacing="0" class="con9">
+      <tr>
+        <td align="center" valign="top"><a href="cjwt.html">常见问题</a> <a href="http://bbs.100im.cn">技术论坛</a> <a href="lxwm.html">联系我们</a> <a href="zffs.html">支付方式</a> 广告服务          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;互联时空  版权所有   &copy;2004-2007  京ICP证040834</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</body>
+</html>
+<div id='webimFloat'></div>
+<script> function g(p){var r;d=document.cookie;s=d.indexOf(p+"=");if(s>=0){e=d.indexOf(";", s+p.length+1);r=d.substring(s+p.length+5,e-1)}; return r;} document.write("<scrip"+"t src=\"http://webim.100im.cn/webTalk.jsp?a=-1&frmurl="+escape(top.document.referrer)+"&curURL="+escape(top.document.URL)+"&p="+screen.width+"*"+screen.height+"&vid="+g("vMAC")+"&rt="+g("rt")+"&lvp="+g("lvp")+"&ck="+navigator.cookieEnabled+"\"></scrip"+"t>"); </script>
+<script>
+  var config = {
+    appkey: 'cpj2xarlchjtn',
+  };
+  var im = RongIMLib.init(config);
+
+  var params = {
+    onChanged: function (status) {
+      // status 标识当前连接状态
+      switch (status) {
+        case RongIMLib.ConnectionStatus.CONNECTED:
+          console.log('链接成功');
+          break;
+        case RongIMLib.ConnectionStatus.CONNECTING:
+          console.log('正在链接');
+          break;
+        case RongIMLib.ConnectionStatus.DISCONNECTED:
+          console.log('断开连接');
+          break;
+        case RongIMLib.ConnectionStatus.KICKED_OFFLINE_BY_OTHER_CLIENT:
+          console.log('其他设备登录, 本端被踢');
+          break;
+        case RongIMLib.ConnectionStatus.DOMAIN_INCORRECT:
+          console.log('域名不正确, 请至开发者后台查看安全域名配置');
+          break;
+        case RongIMLib.ConnectionStatus.NETWORK_UNAVAILABLE:
+          console.log('网络不可用, 此时可调用 reconnect 进行重连');
+          break;
+        default:
+          console.log('链接状态为', status);
+          break;
+      }
+    }
+  }
+
+  RongIMClient.setConnectionStatusListener(params);
+
+  var params = {
+    // 接收到的消息
+    onReceived: function (message) {
+      console.info(message);
+    }
+  }
+  };
+  RongIMClient.setOnReceiveMessageListener(params);
+
+  var params = {
+    //status 标识当前监听到的会话状态
+    onChanged: function(status) {
+      console.log(status);
+    }
+  };
+  RongIMClient.setConversationStatusListener(params);
+
+
+</script>
+
+<script>
+  var token = "mKmyKqTSf7aNDinwAFMnz7NXKI3dV3X0+Cd1BOxmtO2pmvsjW2HViWrePIfq0GuTu9jELQqsckv4AhfjCAKgQ==";
+
+  RongIMClient.connect(token, {
+    onSuccess: function(userId) {
+      console.log('连接成功, 用户 ID 为', userId);
+      // 连接已成功, 此时可通过 getConversationList 获取会话列表并展示
+    },
+    onTokenIncorrect: function() {
+      console.log('连接失败, 失败原因: token 无效');
+    },
+    onError: function(errorCode) {
+      console.log('连接失败, 失败原因: ', errorCode);
+    }
+  });
+  var count = 150;
+  var callback = {
+    onSuccess: function(list) {
+      console.log('获取会话列表成功', list);
+    },
+    onError: function(error) {
+      console.log('获取会话列表失败', error);
+    }
+  }
+  RongIMClient.getInstance().getConversationList(callback, null, count);
+</script>

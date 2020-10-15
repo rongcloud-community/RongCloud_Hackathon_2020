@@ -1,0 +1,1796 @@
+1999-12-1 20:18:23 org.apache.coyote.http11.Http11Protocol init
+信息: Initializing Coyote HTTP/1.1 on http-8080
+1999-12-1 20:18:23 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 1253 ms
+1999-12-1 20:18:23 org.apache.catalina.core.StandardService start
+信息: Starting service Catalina
+1999-12-1 20:18:23 org.apache.catalina.core.StandardEngine start
+信息: Starting Servlet Engine: Apache Tomcat/5.0.28
+1999-12-1 20:18:23 org.apache.catalina.core.StandardHost start
+信息: XML validation disabled
+1999-12-1 20:18:23 org.apache.catalina.core.StandardHost getDeployer
+信息: Create Host deployer for direct deployment ( non-jmx ) 
+1999-12-1 20:18:23 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28/conf/Catalina/localhost/admin.xml
+1999-12-1 20:18:24 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+1999-12-1 20:18:24 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.action.ActionResources', returnNull=true
+1999-12-1 20:18:24 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.webapp.admin.ApplicationResources', returnNull=true
+1999-12-1 20:18:25 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28/conf/Catalina/localhost/balancer.xml
+1999-12-1 20:18:25 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28/conf/Catalina/localhost/manager.xml
+1999-12-1 20:18:25 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path  from URL file:/usr/local/jakarta-tomcat-5.0.28/webapps/ROOT
+1999-12-1 20:18:25 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /jsp-examples from URL file:/usr/local/jakarta-tomcat-5.0.28/webapps/jsp-examples
+1999-12-1 20:18:25 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /servlets-examples from URL file:/usr/local/jakarta-tomcat-5.0.28/webapps/servlets-examples
+1999-12-1 20:18:25 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /tomcat-docs from URL file:/usr/local/jakarta-tomcat-5.0.28/webapps/tomcat-docs
+1999-12-1 20:18:25 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /webdav from URL file:/usr/local/jakarta-tomcat-5.0.28/webapps/webdav
+1999-12-1 20:18:26 org.apache.coyote.http11.Http11Protocol start
+信息: Starting Coyote HTTP/1.1 on http-8080
+1999-12-1 20:18:26 org.apache.jk.common.ChannelSocket init
+信息: JK2: ajp13 listening on /0.0.0.0:8009
+1999-12-1 20:18:26 org.apache.jk.server.JkMain start
+信息: Jk running ID=0 time=10/22  config=/usr/local/jakarta-tomcat-5.0.28/conf/jk2.properties
+1999-12-1 20:18:26 org.apache.catalina.startup.Catalina start
+信息: Server startup in 3056 ms
+1999-12-1 20:18:42 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+1999-12-1 20:18:42 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+1999-12-1 20:18:42 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.bean.LocalStrings', returnNull=true
+1999-12-1 20:18:42 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+1999-12-1 20:20:06 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+1999-12-1 20:20:06 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+1999-12-1 20:30:43 org.apache.coyote.http11.Http11Protocol pause
+信息: Pausing Coyote HTTP/1.1 on http-8080
+1999-12-1 20:30:44 org.apache.catalina.core.StandardService stop
+信息: Stopping service Catalina
+1999-12-1 20:30:44 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path 
+1999-12-1 20:30:44 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /manager
+1999-12-1 20:30:44 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /webdav
+1999-12-1 20:30:44 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /servlets-examples
+1999-12-1 20:30:44 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /tomcat-docs
+1999-12-1 20:30:44 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /jsp-examples
+1999-12-1 20:30:44 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /balancer
+1999-12-1 20:30:44 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /admin
+1999-12-1 20:30:44 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,path=/admin,host=localhost
+1999-12-1 20:30:44 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,host=localhost
+1999-12-1 20:30:44 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger
+1999-12-1 20:30:44 org.apache.coyote.http11.Http11Protocol destroy
+信息: Stopping Coyote HTTP/1.1 on http-8080
+1999-12-1 20:30:48 org.apache.coyote.http11.Http11Protocol init
+信息: Initializing Coyote HTTP/1.1 on http-8080
+1999-12-1 20:30:48 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 772 ms
+1999-12-1 20:30:48 org.apache.catalina.core.StandardService start
+信息: Starting service Catalina
+1999-12-1 20:30:48 org.apache.catalina.core.StandardEngine start
+信息: Starting Servlet Engine: Apache Tomcat/5.0.28
+1999-12-1 20:30:48 org.apache.catalina.core.StandardHost start
+信息: XML validation disabled
+1999-12-1 20:30:48 org.apache.catalina.core.StandardHost getDeployer
+信息: Create Host deployer for direct deployment ( non-jmx ) 
+1999-12-1 20:30:48 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28/conf/Catalina/localhost/admin.xml
+1999-12-1 20:30:49 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+1999-12-1 20:30:49 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.action.ActionResources', returnNull=true
+1999-12-1 20:30:49 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.webapp.admin.ApplicationResources', returnNull=true
+1999-12-1 20:30:49 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28/conf/Catalina/localhost/balancer.xml
+1999-12-1 20:30:50 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28/conf/Catalina/localhost/manager.xml
+1999-12-1 20:30:50 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path  from URL file:/usr/local/jakarta-tomcat-5.0.28/webapps/ROOT
+1999-12-1 20:30:50 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /jsp-examples from URL file:/usr/local/jakarta-tomcat-5.0.28/webapps/jsp-examples
+1999-12-1 20:30:50 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /servlets-examples from URL file:/usr/local/jakarta-tomcat-5.0.28/webapps/servlets-examples
+1999-12-1 20:30:50 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /tomcat-docs from URL file:/usr/local/jakarta-tomcat-5.0.28/webapps/tomcat-docs
+1999-12-1 20:30:50 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /webdav from URL file:/usr/local/jakarta-tomcat-5.0.28/webapps/webdav
+1999-12-1 20:30:50 org.apache.coyote.http11.Http11Protocol start
+信息: Starting Coyote HTTP/1.1 on http-8080
+1999-12-1 20:30:50 org.apache.jk.common.ChannelSocket init
+信息: JK2: ajp13 listening on /0.0.0.0:8009
+1999-12-1 20:30:50 org.apache.jk.server.JkMain start
+信息: Jk running ID=0 time=1/38  config=/usr/local/jakarta-tomcat-5.0.28/conf/jk2.properties
+1999-12-1 20:30:50 org.apache.catalina.startup.Catalina start
+信息: Server startup in 2162 ms
+1999-12-1 20:30:50 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+1999-12-1 20:30:50 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+1999-12-1 20:30:50 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.bean.LocalStrings', returnNull=true
+1999-12-1 20:30:50 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+1999-12-1 20:30:57 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+1999-12-1 20:30:57 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+1999-12-1 20:30:57 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+1999-12-1 20:30:57 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+1999-12-1 20:30:57 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+1999-12-1 20:31:09 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+1999-12-1 20:31:09 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.bean.LocalStrings', returnNull=true
+1999-12-1 20:31:09 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+1999-12-1 20:31:09 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.logic.LocalStrings', returnNull=true
+1999-12-1 20:31:09 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.logic.LocalStrings', returnNull=true
+1999-12-1 20:31:09 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.bean.LocalStrings', returnNull=true
+1999-12-1 20:31:09 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+1999-12-1 20:32:41 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.logic.LocalStrings', returnNull=true
+1999-12-1 20:32:59 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+1999-12-2 0:38:55 org.apache.coyote.http11.Http11Protocol init
+信息: Initializing Coyote HTTP/1.1 on http-8081
+1999-12-2 0:38:55 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 919 ms
+1999-12-2 0:38:56 org.apache.catalina.core.StandardService start
+信息: Starting service Catalina
+1999-12-2 0:38:56 org.apache.catalina.core.StandardEngine start
+信息: Starting Servlet Engine: Apache Tomcat/5.0.28
+1999-12-2 0:38:56 org.apache.catalina.core.StandardHost start
+信息: XML validation disabled
+1999-12-2 0:38:56 org.apache.catalina.core.StandardHost getDeployer
+信息: Create Host deployer for direct deployment ( non-jmx ) 
+1999-12-2 0:38:56 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_1/conf/Catalina/localhost/admin.xml
+1999-12-2 0:38:56 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+1999-12-2 0:38:56 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.action.ActionResources', returnNull=true
+1999-12-2 0:38:57 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.webapp.admin.ApplicationResources', returnNull=true
+1999-12-2 0:38:57 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_1/conf/Catalina/localhost/balancer.xml
+1999-12-2 0:38:57 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_1/conf/Catalina/localhost/manager.xml
+1999-12-2 0:38:57 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path  from URL file:/usr/local/jakarta-tomcat-5.0.28_1/webapps/ROOT
+1999-12-2 0:38:57 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /jsp-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_1/webapps/jsp-examples
+1999-12-2 0:38:58 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /servlets-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_1/webapps/servlets-examples
+1999-12-2 0:38:58 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /tomcat-docs from URL file:/usr/local/jakarta-tomcat-5.0.28_1/webapps/tomcat-docs
+1999-12-2 0:38:58 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /webdav from URL file:/usr/local/jakarta-tomcat-5.0.28_1/webapps/webdav
+1999-12-2 0:38:58 org.apache.coyote.http11.Http11Protocol start
+信息: Starting Coyote HTTP/1.1 on http-8081
+1999-12-2 0:38:58 org.apache.jk.common.ChannelSocket init
+信息: Port busy 8009 java.net.BindException: Address already in use
+1999-12-2 0:38:58 org.apache.jk.common.ChannelSocket init
+信息: JK2: ajp13 listening on /0.0.0.0:8010
+1999-12-2 0:38:58 org.apache.jk.server.JkMain start
+信息: Jk running ID=1 time=10/20  config=/usr/local/jakarta-tomcat-5.0.28_1/conf/jk2.properties
+1999-12-2 0:38:58 org.apache.catalina.startup.Catalina start
+信息: Server startup in 2684 ms
+1999-12-2 0:39:37 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+1999-12-2 0:39:37 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+1999-12-2 0:39:37 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.bean.LocalStrings', returnNull=true
+1999-12-2 0:39:37 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+1999-12-2 0:39:49 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+1999-12-2 0:39:49 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+1999-12-2 0:39:49 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+1999-12-2 0:39:49 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+1999-12-2 0:39:49 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+1999-12-2 0:39:54 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+1999-12-2 0:39:54 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.bean.LocalStrings', returnNull=true
+1999-12-2 0:39:54 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+1999-12-2 0:39:54 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.logic.LocalStrings', returnNull=true
+1999-12-2 0:39:54 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.logic.LocalStrings', returnNull=true
+1999-12-2 0:39:54 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.bean.LocalStrings', returnNull=true
+1999-12-2 0:39:54 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+2007-4-11 14:14:57 org.apache.coyote.http11.Http11Protocol pause
+信息: Pausing Coyote HTTP/1.1 on http-8081
+2007-4-11 14:14:58 org.apache.catalina.core.StandardService stop
+信息: Stopping service Catalina
+2007-4-11 14:14:58 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path 
+2007-4-11 14:14:58 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /manager
+2007-4-11 14:14:58 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /webdav
+2007-4-11 14:14:58 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /servlets-examples
+2007-4-11 14:14:58 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /tomcat-docs
+2007-4-11 14:14:58 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /jsp-examples
+2007-4-11 14:14:58 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /balancer
+2007-4-11 14:14:58 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /admin
+2007-4-11 14:14:58 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,path=/admin,host=localhost
+2007-4-11 14:14:58 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,host=localhost
+2007-4-11 14:14:58 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger
+2007-4-11 14:14:58 org.apache.coyote.http11.Http11Protocol destroy
+信息: Stopping Coyote HTTP/1.1 on http-8081
+2007-4-11 14:15:05 org.apache.coyote.http11.Http11Protocol init
+信息: Initializing Coyote HTTP/1.1 on http-8081
+2007-4-11 14:15:05 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 783 ms
+2007-4-11 14:15:06 org.apache.catalina.core.StandardService start
+信息: Starting service Catalina
+2007-4-11 14:15:06 org.apache.catalina.core.StandardEngine start
+信息: Starting Servlet Engine: Apache Tomcat/5.0.28
+2007-4-11 14:15:06 org.apache.catalina.core.StandardHost start
+信息: XML validation disabled
+2007-4-11 14:15:06 org.apache.catalina.core.StandardHost getDeployer
+信息: Create Host deployer for direct deployment ( non-jmx ) 
+2007-4-11 14:15:06 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_1/conf/Catalina/localhost/admin.xml
+2007-4-11 14:15:06 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+2007-4-11 14:15:06 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.action.ActionResources', returnNull=true
+2007-4-11 14:15:06 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.webapp.admin.ApplicationResources', returnNull=true
+2007-4-11 14:15:07 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_1/conf/Catalina/localhost/balancer.xml
+2007-4-11 14:15:07 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_1/conf/Catalina/localhost/manager.xml
+2007-4-11 14:15:07 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path  from URL file:/usr/local/jakarta-tomcat-5.0.28_1/webapps/ROOT
+2007-4-11 14:15:07 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /jsp-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_1/webapps/jsp-examples
+2007-4-11 14:15:07 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /servlets-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_1/webapps/servlets-examples
+2007-4-11 14:15:07 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /tomcat-docs from URL file:/usr/local/jakarta-tomcat-5.0.28_1/webapps/tomcat-docs
+2007-4-11 14:15:07 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /webdav from URL file:/usr/local/jakarta-tomcat-5.0.28_1/webapps/webdav
+2007-4-11 14:15:07 org.apache.coyote.http11.Http11Protocol start
+信息: Starting Coyote HTTP/1.1 on http-8081
+2007-4-11 14:15:08 org.apache.jk.common.ChannelSocket init
+信息: JK2: ajp13 listening on /0.0.0.0:8010
+2007-4-11 14:15:08 org.apache.jk.server.JkMain start
+信息: Jk running ID=0 time=0/20  config=/usr/local/jakarta-tomcat-5.0.28_1/conf/jk2.properties
+2007-4-11 14:15:08 org.apache.catalina.startup.Catalina start
+信息: Server startup in 2125 ms
+2007-4-11 14:21:19 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+2007-4-11 14:21:19 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+2007-4-11 14:21:19 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.bean.LocalStrings', returnNull=true
+2007-4-11 14:21:19 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+2007-4-11 14:23:50 org.apache.coyote.http11.Http11Protocol pause
+信息: Pausing Coyote HTTP/1.1 on http-8081
+2007-4-11 14:23:51 org.apache.catalina.core.StandardService stop
+信息: Stopping service Catalina
+2007-4-11 14:23:51 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path 
+2007-4-11 14:23:51 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /manager
+2007-4-11 14:23:51 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /webdav
+2007-4-11 14:23:51 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /servlets-examples
+2007-4-11 14:23:51 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /tomcat-docs
+2007-4-11 14:23:51 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /jsp-examples
+2007-4-11 14:23:51 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /balancer
+2007-4-11 14:23:51 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /admin
+2007-4-11 14:23:51 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,path=/admin,host=localhost
+2007-4-11 14:23:51 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,host=localhost
+2007-4-11 14:23:51 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger
+2007-4-11 14:23:51 org.apache.coyote.http11.Http11Protocol destroy
+信息: Stopping Coyote HTTP/1.1 on http-8081
+2007-4-11 14:24:25 org.apache.coyote.http11.Http11Protocol init
+信息: Initializing Coyote HTTP/1.1 on http-8081
+2007-4-11 14:24:25 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 761 ms
+2007-4-11 14:24:25 org.apache.catalina.core.StandardService start
+信息: Starting service Catalina
+2007-4-11 14:24:25 org.apache.catalina.core.StandardEngine start
+信息: Starting Servlet Engine: Apache Tomcat/5.0.28
+2007-4-11 14:24:25 org.apache.catalina.core.StandardHost start
+信息: XML validation disabled
+2007-4-11 14:24:25 org.apache.catalina.core.StandardHost getDeployer
+信息: Create Host deployer for direct deployment ( non-jmx ) 
+2007-4-11 14:24:25 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_1/conf/Catalina/localhost/admin.xml
+2007-4-11 14:24:26 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+2007-4-11 14:24:26 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.action.ActionResources', returnNull=true
+2007-4-11 14:24:26 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.webapp.admin.ApplicationResources', returnNull=true
+2007-4-11 14:24:26 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_1/conf/Catalina/localhost/balancer.xml
+2007-4-11 14:24:26 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_1/conf/Catalina/localhost/manager.xml
+2007-4-11 14:24:26 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path  from URL file:/usr/local/jakarta-tomcat-5.0.28_1/webapps/ROOT
+2007-4-11 14:24:27 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /jsp-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_1/webapps/jsp-examples
+2007-4-11 14:24:27 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /servlets-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_1/webapps/servlets-examples
+2007-4-11 14:24:27 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /tomcat-docs from URL file:/usr/local/jakarta-tomcat-5.0.28_1/webapps/tomcat-docs
+2007-4-11 14:24:27 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /webdav from URL file:/usr/local/jakarta-tomcat-5.0.28_1/webapps/webdav
+2007-4-11 14:24:27 org.apache.coyote.http11.Http11Protocol start
+信息: Starting Coyote HTTP/1.1 on http-8081
+2007-4-11 14:24:27 org.apache.jk.common.ChannelSocket init
+信息: JK2: ajp13 listening on /0.0.0.0:8010
+2007-4-11 14:24:27 org.apache.jk.server.JkMain start
+信息: Jk running ID=0 time=0/19  config=/usr/local/jakarta-tomcat-5.0.28_1/conf/jk2.properties
+2007-4-11 14:24:27 org.apache.catalina.startup.Catalina start
+信息: Server startup in 1771 ms
+2007-4-11 14:24:55 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+2007-4-11 14:24:55 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+2007-4-11 14:24:55 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.bean.LocalStrings', returnNull=true
+2007-4-11 14:24:55 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+2007-4-11 14:25:03 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+2007-4-11 14:25:03 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+2007-4-11 14:25:03 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+2007-4-11 14:25:03 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+2007-4-11 14:25:04 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.taglib.html.LocalStrings', returnNull=true
+2007-4-11 14:29:07 org.apache.coyote.http11.Http11Protocol pause
+信息: Pausing Coyote HTTP/1.1 on http-8081
+2007-4-11 14:29:08 org.apache.catalina.core.StandardService stop
+信息: Stopping service Catalina
+2007-4-11 14:29:08 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path 
+2007-4-11 14:29:08 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /manager
+2007-4-11 14:29:08 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /webdav
+2007-4-11 14:29:08 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /servlets-examples
+2007-4-11 14:29:08 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /tomcat-docs
+2007-4-11 14:29:08 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /jsp-examples
+2007-4-11 14:29:08 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /balancer
+2007-4-11 14:29:08 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /admin
+2007-4-11 14:29:08 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,path=/admin,host=localhost
+2007-4-11 14:29:08 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,host=localhost
+2007-4-11 14:29:08 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger
+2007-4-11 14:29:08 org.apache.coyote.http11.Http11Protocol destroy
+信息: Stopping Coyote HTTP/1.1 on http-8081
+2007-4-11 15:13:47 org.apache.coyote.http11.Http11Protocol init
+信息: Initializing Coyote HTTP/1.1 on http-8083
+2007-4-11 15:13:47 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 1227 ms
+2007-4-11 15:13:47 org.apache.catalina.core.StandardService start
+信息: Starting service Catalina
+2007-4-11 15:13:47 org.apache.catalina.core.StandardEngine start
+信息: Starting Servlet Engine: Apache Tomcat/5.0.28
+2007-4-11 15:13:47 org.apache.catalina.core.StandardHost start
+信息: XML validation disabled
+2007-4-11 15:13:47 org.apache.catalina.core.StandardHost getDeployer
+信息: Create Host deployer for direct deployment ( non-jmx ) 
+2007-4-11 15:13:47 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/admin.xml
+2007-4-11 15:13:48 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+2007-4-11 15:13:48 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.action.ActionResources', returnNull=true
+2007-4-11 15:13:48 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.webapp.admin.ApplicationResources', returnNull=true
+2007-4-11 15:13:49 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/balancer.xml
+2007-4-11 15:13:49 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/manager.xml
+2007-4-11 15:13:49 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path  from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT
+2007-4-11 15:13:49 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /jsp-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/jsp-examples
+2007-4-11 15:13:49 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /servlets-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/servlets-examples
+2007-4-11 15:13:50 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /tomcat-docs from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/tomcat-docs
+2007-4-11 15:13:50 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /webdav from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/webdav
+2007-4-11 15:13:50 org.apache.coyote.http11.Http11Protocol start
+信息: Starting Coyote HTTP/1.1 on http-8083
+2007-4-11 15:13:50 org.apache.jk.common.ChannelSocket init
+信息: JK2: ajp13 listening on /0.0.0.0:8012
+2007-4-11 15:13:50 org.apache.jk.server.JkMain start
+信息: Jk running ID=0 time=9/145  config=/usr/local/jakarta-tomcat-5.0.28_3/conf/jk2.properties
+2007-4-11 15:13:50 org.apache.catalina.startup.Catalina start
+信息: Server startup in 2983 ms
+2007-4-11 17:02:52 org.apache.coyote.http11.Http11Protocol pause
+信息: Pausing Coyote HTTP/1.1 on http-8083
+2007-4-11 17:02:53 org.apache.catalina.core.StandardService stop
+信息: Stopping service Catalina
+2007-4-11 17:02:53 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path 
+2007-4-11 17:02:53 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /manager
+2007-4-11 17:02:53 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /webdav
+2007-4-11 17:02:53 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /servlets-examples
+2007-4-11 17:02:53 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /tomcat-docs
+2007-4-11 17:02:53 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /jsp-examples
+2007-4-11 17:02:53 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /balancer
+2007-4-11 17:02:53 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /admin
+2007-4-11 17:02:53 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,path=/admin,host=localhost
+2007-4-11 17:02:53 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,host=localhost
+2007-4-11 17:02:53 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger
+2007-4-11 17:02:53 org.apache.coyote.http11.Http11Protocol destroy
+信息: Stopping Coyote HTTP/1.1 on http-8083
+2007-4-11 17:02:58 org.apache.coyote.http11.Http11Protocol init
+信息: Initializing Coyote HTTP/1.1 on http-8083
+2007-4-11 17:02:58 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 787 ms
+2007-4-11 17:02:58 org.apache.catalina.core.StandardService start
+信息: Starting service Catalina
+2007-4-11 17:02:58 org.apache.catalina.core.StandardEngine start
+信息: Starting Servlet Engine: Apache Tomcat/5.0.28
+2007-4-11 17:02:58 org.apache.catalina.core.StandardHost start
+信息: XML validation disabled
+2007-4-11 17:02:58 org.apache.catalina.core.StandardHost getDeployer
+信息: Create Host deployer for direct deployment ( non-jmx ) 
+2007-4-11 17:02:58 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/admin.xml
+2007-4-11 17:02:59 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+2007-4-11 17:02:59 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.action.ActionResources', returnNull=true
+2007-4-11 17:02:59 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.webapp.admin.ApplicationResources', returnNull=true
+2007-4-11 17:02:59 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/balancer.xml
+2007-4-11 17:02:59 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/manager.xml
+2007-4-11 17:02:59 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path  from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT
+2007-4-11 17:02:59 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /jsp-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/jsp-examples
+2007-4-11 17:03:00 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /servlets-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/servlets-examples
+2007-4-11 17:03:00 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /tomcat-docs from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/tomcat-docs
+2007-4-11 17:03:00 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /webdav from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/webdav
+2007-4-11 17:03:00 org.apache.coyote.http11.Http11Protocol start
+信息: Starting Coyote HTTP/1.1 on http-8083
+2007-4-11 17:03:00 org.apache.jk.common.ChannelSocket init
+信息: JK2: ajp13 listening on /0.0.0.0:8012
+2007-4-11 17:03:00 org.apache.jk.server.JkMain start
+信息: Jk running ID=0 time=0/20  config=/usr/local/jakarta-tomcat-5.0.28_3/conf/jk2.properties
+2007-4-11 17:03:00 org.apache.catalina.startup.Catalina start
+信息: Server startup in 1886 ms
+2007-4-11 17:03:05 org.apache.commons.modeler.Registry registerComponent
+严重: Error registering Catalina:type=RequestProcessor,worker=jk-8012,name=JkRequest7
+javax.management.InstanceAlreadyExistsException: Catalina:type=RequestProcessor,worker=jk-8012,name=JkRequest7
+	at com.sun.jmx.mbeanserver.Repository.addMBean(Repository.java:453)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.internal_addObject(DefaultMBeanServerInterceptor.java:1484)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.registerDynamicMBean(DefaultMBeanServerInterceptor.java:963)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.registerObject(DefaultMBeanServerInterceptor.java:917)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.registerMBean(DefaultMBeanServerInterceptor.java:312)
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.registerMBean(JmxMBeanServer.java:482)
+	at org.apache.commons.modeler.Registry.registerComponent(Registry.java:871)
+	at org.apache.jk.common.ChannelSocket.registerRequest(ChannelSocket.java:436)
+	at org.apache.jk.common.HandlerRequest.decodeRequest(HandlerRequest.java:443)
+	at org.apache.jk.common.HandlerRequest.invoke(HandlerRequest.java:352)
+	at org.apache.jk.common.ChannelSocket.invoke(ChannelSocket.java:743)
+	at org.apache.jk.common.ChannelSocket.processConnection(ChannelSocket.java:675)
+	at org.apache.jk.common.SocketConnection.runIt(ChannelSocket.java:866)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:683)
+	at java.lang.Thread.run(Thread.java:619)
+2007-4-11 17:03:05 org.apache.jk.common.ChannelSocket registerRequest
+警告: Error registering request
+2007-4-11 17:06:58 org.apache.coyote.http11.Http11Protocol pause
+信息: Pausing Coyote HTTP/1.1 on http-8083
+2007-4-11 17:06:59 org.apache.catalina.core.StandardService stop
+信息: Stopping service Catalina
+2007-4-11 17:06:59 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path 
+2007-4-11 17:06:59 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /manager
+2007-4-11 17:06:59 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /webdav
+2007-4-11 17:06:59 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /servlets-examples
+2007-4-11 17:06:59 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /tomcat-docs
+2007-4-11 17:06:59 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /jsp-examples
+2007-4-11 17:06:59 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /balancer
+2007-4-11 17:06:59 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /admin
+2007-4-11 17:06:59 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,path=/admin,host=localhost
+2007-4-11 17:06:59 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,host=localhost
+2007-4-11 17:06:59 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger
+2007-4-11 17:06:59 org.apache.coyote.http11.Http11Protocol destroy
+信息: Stopping Coyote HTTP/1.1 on http-8083
+2007-4-11 17:07:11 org.apache.coyote.http11.Http11Protocol init
+信息: Initializing Coyote HTTP/1.1 on http-8083
+2007-4-11 17:07:11 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 764 ms
+2007-4-11 17:07:11 org.apache.catalina.core.StandardService start
+信息: Starting service Catalina
+2007-4-11 17:07:11 org.apache.catalina.core.StandardEngine start
+信息: Starting Servlet Engine: Apache Tomcat/5.0.28
+2007-4-11 17:07:11 org.apache.catalina.core.StandardHost start
+信息: XML validation disabled
+2007-4-11 17:07:11 org.apache.catalina.core.StandardHost getDeployer
+信息: Create Host deployer for direct deployment ( non-jmx ) 
+2007-4-11 17:07:11 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/admin.xml
+2007-4-11 17:07:11 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+2007-4-11 17:07:11 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.action.ActionResources', returnNull=true
+2007-4-11 17:07:11 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.webapp.admin.ApplicationResources', returnNull=true
+2007-4-11 17:07:12 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/balancer.xml
+2007-4-11 17:07:12 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/manager.xml
+2007-4-11 17:07:12 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path  from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT
+2007-4-11 17:07:12 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /jsp-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/jsp-examples
+2007-4-11 17:07:12 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /servlets-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/servlets-examples
+2007-4-11 17:07:12 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /tomcat-docs from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/tomcat-docs
+2007-4-11 17:07:12 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /webdav from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/webdav
+2007-4-11 17:07:12 org.apache.coyote.http11.Http11Protocol start
+信息: Starting Coyote HTTP/1.1 on http-8083
+2007-4-11 17:07:12 org.apache.jk.common.ChannelSocket init
+信息: JK2: ajp13 listening on /0.0.0.0:8012
+2007-4-11 17:07:12 org.apache.jk.server.JkMain start
+信息: Jk running ID=0 time=0/20  config=/usr/local/jakarta-tomcat-5.0.28_3/conf/jk2.properties
+2007-4-11 17:07:12 org.apache.catalina.startup.Catalina start
+信息: Server startup in 1755 ms
+2007-4-11 21:22:11 org.apache.coyote.http11.Http11Protocol pause
+信息: Pausing Coyote HTTP/1.1 on http-8083
+2007-4-11 21:22:12 org.apache.catalina.core.StandardService stop
+信息: Stopping service Catalina
+2007-4-11 21:22:12 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path 
+2007-4-11 21:22:12 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /manager
+2007-4-11 21:22:12 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /webdav
+2007-4-11 21:22:12 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /servlets-examples
+2007-4-11 21:22:12 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /tomcat-docs
+2007-4-11 21:22:12 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /jsp-examples
+2007-4-11 21:22:12 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /balancer
+2007-4-11 21:22:12 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /admin
+2007-4-11 21:22:12 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,path=/admin,host=localhost
+2007-4-11 21:22:12 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,host=localhost
+2007-4-11 21:22:12 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger
+2007-4-11 21:22:12 org.apache.coyote.http11.Http11Protocol destroy
+信息: Stopping Coyote HTTP/1.1 on http-8083
+2007-4-11 21:27:22 org.apache.coyote.http11.Http11Protocol init
+信息: Initializing Coyote HTTP/1.1 on http-8083
+2007-4-11 21:27:22 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 775 ms
+2007-4-11 21:27:22 org.apache.catalina.core.StandardService start
+信息: Starting service Catalina
+2007-4-11 21:27:22 org.apache.catalina.core.StandardEngine start
+信息: Starting Servlet Engine: Apache Tomcat/5.0.28
+2007-4-11 21:27:22 org.apache.catalina.core.StandardHost start
+信息: XML validation disabled
+2007-4-11 21:27:22 org.apache.catalina.core.StandardHost getDeployer
+信息: Create Host deployer for direct deployment ( non-jmx ) 
+2007-4-11 21:27:22 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/admin.xml
+2007-4-11 21:27:22 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+2007-4-11 21:27:22 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.action.ActionResources', returnNull=true
+2007-4-11 21:27:23 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.webapp.admin.ApplicationResources', returnNull=true
+2007-4-11 21:27:23 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/balancer.xml
+2007-4-11 21:27:23 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/manager.xml
+2007-4-11 21:27:23 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path  from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT
+2007-4-11 21:27:23 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /jsp-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/jsp-examples
+2007-4-11 21:27:23 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /servlets-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/servlets-examples
+2007-4-11 21:27:23 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /tomcat-docs from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/tomcat-docs
+2007-4-11 21:27:23 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /webdav from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/webdav
+2007-4-11 21:27:24 org.apache.coyote.http11.Http11Protocol start
+信息: Starting Coyote HTTP/1.1 on http-8083
+2007-4-11 21:27:24 org.apache.jk.common.ChannelSocket init
+信息: JK2: ajp13 listening on /0.0.0.0:8012
+2007-4-11 21:27:24 org.apache.jk.server.JkMain start
+信息: Jk running ID=0 time=0/20  config=/usr/local/jakarta-tomcat-5.0.28_3/conf/jk2.properties
+2007-4-11 21:27:24 org.apache.catalina.startup.Catalina start
+信息: Server startup in 1801 ms
+2007-4-12 9:28:59 org.apache.coyote.http11.Http11Protocol pause
+信息: Pausing Coyote HTTP/1.1 on http-8083
+2007-4-12 9:29:00 org.apache.catalina.core.StandardService stop
+信息: Stopping service Catalina
+2007-4-12 9:29:00 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path 
+2007-4-12 9:29:00 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /manager
+2007-4-12 9:29:00 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /webdav
+2007-4-12 9:29:00 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /servlets-examples
+2007-4-12 9:29:01 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /tomcat-docs
+2007-4-12 9:29:01 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /jsp-examples
+2007-4-12 9:29:01 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /balancer
+2007-4-12 9:29:01 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /admin
+2007-4-12 9:29:01 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,path=/admin,host=localhost
+2007-4-12 9:29:01 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,host=localhost
+2007-4-12 9:29:01 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger
+2007-4-12 9:29:01 org.apache.coyote.http11.Http11Protocol destroy
+信息: Stopping Coyote HTTP/1.1 on http-8083
+2007-4-12 9:29:05 org.apache.coyote.http11.Http11Protocol init
+信息: Initializing Coyote HTTP/1.1 on http-8083
+2007-4-12 9:29:05 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 832 ms
+2007-4-12 9:29:05 org.apache.catalina.core.StandardService start
+信息: Starting service Catalina
+2007-4-12 9:29:05 org.apache.catalina.core.StandardEngine start
+信息: Starting Servlet Engine: Apache Tomcat/5.0.28
+2007-4-12 9:29:05 org.apache.catalina.core.StandardHost start
+信息: XML validation disabled
+2007-4-12 9:29:05 org.apache.catalina.core.StandardHost getDeployer
+信息: Create Host deployer for direct deployment ( non-jmx ) 
+2007-4-12 9:29:05 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/admin.xml
+2007-4-12 9:29:06 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+2007-4-12 9:29:06 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.action.ActionResources', returnNull=true
+2007-4-12 9:29:06 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.webapp.admin.ApplicationResources', returnNull=true
+2007-4-12 9:29:06 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/balancer.xml
+2007-4-12 9:29:06 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/manager.xml
+2007-4-12 9:29:06 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path  from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT
+2007-4-12 9:29:07 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /jsp-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/jsp-examples
+2007-4-12 9:29:07 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /servlets-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/servlets-examples
+2007-4-12 9:29:07 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /tomcat-docs from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/tomcat-docs
+2007-4-12 9:29:07 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /webdav from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/webdav
+2007-4-12 9:29:07 org.apache.coyote.http11.Http11Protocol start
+信息: Starting Coyote HTTP/1.1 on http-8083
+2007-4-12 9:29:07 org.apache.jk.common.ChannelSocket init
+信息: JK2: ajp13 listening on /0.0.0.0:8012
+2007-4-12 9:29:07 org.apache.jk.server.JkMain start
+信息: Jk running ID=0 time=0/21  config=/usr/local/jakarta-tomcat-5.0.28_3/conf/jk2.properties
+2007-4-12 9:29:07 org.apache.catalina.startup.Catalina start
+信息: Server startup in 1956 ms
+2007-4-12 9:31:53 org.apache.jasper.compiler.Compiler generateClass
+严重: Javac exception 
+Compile failed; see the compiler error output for details.
+	at org.apache.tools.ant.taskdefs.Javac.compile(Javac.java:944)
+	at org.apache.tools.ant.taskdefs.Javac.execute(Javac.java:764)
+	at org.apache.jasper.compiler.Compiler.generateClass(Compiler.java:382)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:472)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:451)
+	at org.apache.jasper.compiler.Compiler.compile(Compiler.java:439)
+	at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:511)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:295)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:292)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:236)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:237)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:157)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:214)
+	at org.apache.catalina.core.StandardValveContext.invokeNext(StandardValveContext.java:104)
+	at org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:520)
+	at org.apache.catalina.core.StandardContextValve.invokeInternal(StandardContextValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:152)
+	at org.apache.catalina.core.StandardValveContext.invokeNext(StandardValveContext.java:104)
+	at org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:520)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.core.StandardValveContext.invokeNext(StandardValveContext.java:104)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:118)
+	at org.apache.catalina.core.StandardValveContext.invokeNext(StandardValveContext.java:102)
+	at org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:520)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.core.StandardValveContext.invokeNext(StandardValveContext.java:104)
+	at org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:520)
+	at org.apache.catalina.core.ContainerBase.invoke(ContainerBase.java:929)
+	at org.apache.coyote.tomcat5.CoyoteAdapter.service(CoyoteAdapter.java:160)
+	at org.apache.jk.server.JkCoyoteHandler.invoke(JkCoyoteHandler.java:300)
+	at org.apache.jk.common.HandlerRequest.invoke(HandlerRequest.java:374)
+	at org.apache.jk.common.ChannelSocket.invoke(ChannelSocket.java:743)
+	at org.apache.jk.common.ChannelSocket.processConnection(ChannelSocket.java:675)
+	at org.apache.jk.common.SocketConnection.runIt(ChannelSocket.java:866)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:683)
+	at java.lang.Thread.run(Thread.java:619)
+2007-4-12 9:31:53 org.apache.jasper.compiler.Compiler generateClass
+严重: Env: Compile: javaFileName=/usr/local/jakarta-tomcat-5.0.28_3/work/Catalina/localhost/_//org/apache/jsp/testDb_jsp.java
+    classpath=/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT/WEB-INF/classes/:/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT/WEB-INF/lib/catalina-root.jar:/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT/WEB-INF/lib/mysql-connector-java-3.0.8-stable-bin.jar:/usr/local/jakarta-tomcat-5.0.28_3/work/Catalina/localhost/_:/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT/WEB-INF/classes/:/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT/WEB-INF/lib/catalina-root.jar:/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT/WEB-INF/lib/mysql-connector-java-3.0.8-stable-bin.jar:/usr/local/jakarta-tomcat-5.0.28_3/shared/classes/:/usr/local/jakarta-tomcat-5.0.28_3/common/classes/:/usr/local/jakarta-tomcat-5.0.28_3/common/lib/ant-launcher.jar:/usr/local/jakarta-tomcat-5.0.28_3/common/lib/ant.jar:/usr/local/jakarta-tomcat-5.0.28_3/common/lib/commons-collections-3.1.jar:/usr/local/jakarta-tomcat-5.0.28_3/common/lib/commons-dbcp-1.2.1.jar:/usr/local/jakarta-tomcat-5.0.28_3/common/lib/commons-el.jar:/usr/local/jakarta-tomcat-5.0.28_3/common/lib/commons-pool-1.2.jar:/usr/local/jakarta-tomcat-5.0.28_3/common/lib/jasper-compiler.jar:/usr/local/jakarta-tomcat-5.0.28_3/common/lib/jasper-runtime.jar:/usr/local/jakarta-tomcat-5.0.28_3/common/lib/jsp-api.jar:/usr/local/jakarta-tomcat-5.0.28_3/common/lib/naming-common.jar:/usr/local/jakarta-tomcat-5.0.28_3/common/lib/naming-factory.jar:/usr/local/jakarta-tomcat-5.0.28_3/common/lib/naming-java.jar:/usr/local/jakarta-tomcat-5.0.28_3/common/lib/naming-resources.jar:/usr/local/jakarta-tomcat-5.0.28_3/common/lib/servlet-api.jar:/usr/java/jdk1.6.0_01/lib/tools.jar:/usr/local/jakarta-tomcat-5.0.28_3/bin/bootstrap.jar:/usr/local/jakarta-tomcat-5.0.28_3/bin/commons-logging-api.jar:/usr/java/jdk1.6.0_01/jre/lib/ext/dnsns.jar:/usr/java/jdk1.6.0_01/jre/lib/ext/sunjce_provider.jar:/usr/java/jdk1.6.0_01/jre/lib/ext/localedata.jar:/usr/java/jdk1.6.0_01/jre/lib/ext/sunpkcs11.jar
+    cp=/usr/java/jdk1.6.0_01/lib/tools.jar:/usr/local/jakarta-tomcat-5.0.28_3/bin/bootstrap.jar:/usr/local/jakarta-tomcat-5.0.28_3/bin/commons-logging-api.jar
+    cp=/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT/WEB-INF/classes
+    cp=/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT/WEB-INF/lib/catalina-root.jar
+    cp=/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT/WEB-INF/lib/mysql-connector-java-3.0.8-stable-bin.jar
+    cp=/usr/local/jakarta-tomcat-5.0.28_3/work/Catalina/localhost/_
+    cp=/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT/WEB-INF/classes
+    cp=/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT/WEB-INF/lib/catalina-root.jar
+    cp=/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT/WEB-INF/lib/mysql-connector-java-3.0.8-stable-bin.jar
+    cp=/usr/local/jakarta-tomcat-5.0.28_3/shared/classes
+    cp=/usr/local/jakarta-tomcat-5.0.28_3/common/classes
+    cp=/usr/local/jakarta-tomcat-5.0.28_3/common/lib/ant-launcher.jar
+    cp=/usr/local/jakarta-tomcat-5.0.28_3/common/lib/ant.jar
+    cp=/usr/local/jakarta-tomcat-5.0.28_3/common/lib/commons-collections-3.1.jar
+    cp=/usr/local/jakarta-tomcat-5.0.28_3/common/lib/commons-dbcp-1.2.1.jar
+    cp=/usr/local/jakarta-tomcat-5.0.28_3/common/lib/commons-el.jar
+    cp=/usr/local/jakarta-tomcat-5.0.28_3/common/lib/commons-pool-1.2.jar
+    cp=/usr/local/jakarta-tomcat-5.0.28_3/common/lib/jasper-compiler.jar
+    cp=/usr/local/jakarta-tomcat-5.0.28_3/common/lib/jasper-runtime.jar
+    cp=/usr/local/jakarta-tomcat-5.0.28_3/common/lib/jsp-api.jar
+    cp=/usr/local/jakarta-tomcat-5.0.28_3/common/lib/naming-common.jar
+    cp=/usr/local/jakarta-tomcat-5.0.28_3/common/lib/naming-factory.jar
+    cp=/usr/local/jakarta-tomcat-5.0.28_3/common/lib/naming-java.jar
+    cp=/usr/local/jakarta-tomcat-5.0.28_3/common/lib/naming-resources.jar
+    cp=/usr/local/jakarta-tomcat-5.0.28_3/common/lib/servlet-api.jar
+    cp=/usr/java/jdk1.6.0_01/lib/tools.jar
+    cp=/usr/local/jakarta-tomcat-5.0.28_3/bin/bootstrap.jar
+    cp=/usr/local/jakarta-tomcat-5.0.28_3/bin/commons-logging-api.jar
+    cp=/usr/java/jdk1.6.0_01/jre/lib/ext/dnsns.jar
+    cp=/usr/java/jdk1.6.0_01/jre/lib/ext/sunjce_provider.jar
+    cp=/usr/java/jdk1.6.0_01/jre/lib/ext/localedata.jar
+    cp=/usr/java/jdk1.6.0_01/jre/lib/ext/sunpkcs11.jar
+    work dir=/usr/local/jakarta-tomcat-5.0.28_3/work/Catalina/localhost/_
+    extension dir=/usr/java/jdk1.6.0_01/jre/lib/ext:/usr/java/packages/lib/ext
+    srcDir=/usr/local/jakarta-tomcat-5.0.28_3/work/Catalina/localhost/_
+    include=org/apache/jsp/testDb_jsp.java
+
+2007-4-12 9:31:53 org.apache.jasper.compiler.Compiler generateClass
+严重: Error compiling file: /usr/local/jakarta-tomcat-5.0.28_3/work/Catalina/localhost/_//org/apache/jsp/testDb_jsp.java     [javac] Compiling 1 source file
+
+/usr/local/jakarta-tomcat-5.0.28_3/work/Catalina/localhost/_/org/apache/jsp/testDb_jsp.java:66: 找不到符号
+符号： 方法 setLocalConnection()
+位置： 类 msg.DbConn
+		db.setLocalConnection();		
+		  ^
+1 错误
+
+2007-4-12 9:33:48 org.apache.coyote.http11.Http11Protocol pause
+信息: Pausing Coyote HTTP/1.1 on http-8083
+2007-4-12 9:33:49 org.apache.catalina.core.StandardService stop
+信息: Stopping service Catalina
+2007-4-12 9:33:49 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path 
+2007-4-12 9:33:49 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /manager
+2007-4-12 9:33:49 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /webdav
+2007-4-12 9:33:49 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /servlets-examples
+2007-4-12 9:33:49 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /tomcat-docs
+2007-4-12 9:33:49 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /jsp-examples
+2007-4-12 9:33:49 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /balancer
+2007-4-12 9:33:49 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /admin
+2007-4-12 9:33:49 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,path=/admin,host=localhost
+2007-4-12 9:33:49 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,host=localhost
+2007-4-12 9:33:49 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger
+2007-4-12 9:33:49 org.apache.coyote.http11.Http11Protocol destroy
+信息: Stopping Coyote HTTP/1.1 on http-8083
+2007-4-12 9:33:51 org.apache.coyote.http11.Http11Protocol init
+信息: Initializing Coyote HTTP/1.1 on http-8083
+2007-4-12 9:33:51 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 762 ms
+2007-4-12 9:33:51 org.apache.catalina.core.StandardService start
+信息: Starting service Catalina
+2007-4-12 9:33:51 org.apache.catalina.core.StandardEngine start
+信息: Starting Servlet Engine: Apache Tomcat/5.0.28
+2007-4-12 9:33:51 org.apache.catalina.core.StandardHost start
+信息: XML validation disabled
+2007-4-12 9:33:51 org.apache.catalina.core.StandardHost getDeployer
+信息: Create Host deployer for direct deployment ( non-jmx ) 
+2007-4-12 9:33:51 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/admin.xml
+2007-4-12 9:33:51 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+2007-4-12 9:33:51 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.action.ActionResources', returnNull=true
+2007-4-12 9:33:51 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.webapp.admin.ApplicationResources', returnNull=true
+2007-4-12 9:33:52 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/balancer.xml
+2007-4-12 9:33:52 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/manager.xml
+2007-4-12 9:33:52 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path  from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT
+2007-4-12 9:33:52 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /jsp-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/jsp-examples
+2007-4-12 9:33:52 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /servlets-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/servlets-examples
+2007-4-12 9:33:52 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /tomcat-docs from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/tomcat-docs
+2007-4-12 9:33:52 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /webdav from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/webdav
+2007-4-12 9:33:52 org.apache.coyote.http11.Http11Protocol start
+信息: Starting Coyote HTTP/1.1 on http-8083
+2007-4-12 9:33:52 org.apache.jk.common.ChannelSocket init
+信息: JK2: ajp13 listening on /0.0.0.0:8012
+2007-4-12 9:33:52 org.apache.jk.server.JkMain start
+信息: Jk running ID=0 time=0/21  config=/usr/local/jakarta-tomcat-5.0.28_3/conf/jk2.properties
+2007-4-12 9:33:52 org.apache.catalina.startup.Catalina start
+信息: Server startup in 1748 ms
+2007-4-12 9:38:45 org.apache.coyote.http11.Http11Protocol pause
+信息: Pausing Coyote HTTP/1.1 on http-8083
+2007-4-12 9:38:46 org.apache.catalina.core.StandardService stop
+信息: Stopping service Catalina
+2007-4-12 9:38:46 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path 
+2007-4-12 9:38:46 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /manager
+2007-4-12 9:38:46 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /webdav
+2007-4-12 9:38:46 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /servlets-examples
+2007-4-12 9:38:46 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /tomcat-docs
+2007-4-12 9:38:46 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /jsp-examples
+2007-4-12 9:38:46 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /balancer
+2007-4-12 9:38:46 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /admin
+2007-4-12 9:38:46 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,path=/admin,host=localhost
+2007-4-12 9:38:46 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,host=localhost
+2007-4-12 9:38:46 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger
+2007-4-12 9:38:46 org.apache.coyote.http11.Http11Protocol destroy
+信息: Stopping Coyote HTTP/1.1 on http-8083
+2007-4-12 9:38:47 org.apache.coyote.http11.Http11Protocol init
+信息: Initializing Coyote HTTP/1.1 on http-8083
+2007-4-12 9:38:47 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 764 ms
+2007-4-12 9:38:48 org.apache.catalina.core.StandardService start
+信息: Starting service Catalina
+2007-4-12 9:38:48 org.apache.catalina.core.StandardEngine start
+信息: Starting Servlet Engine: Apache Tomcat/5.0.28
+2007-4-12 9:38:48 org.apache.catalina.core.StandardHost start
+信息: XML validation disabled
+2007-4-12 9:38:48 org.apache.catalina.core.StandardHost getDeployer
+信息: Create Host deployer for direct deployment ( non-jmx ) 
+2007-4-12 9:38:48 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/admin.xml
+2007-4-12 9:38:48 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+2007-4-12 9:38:48 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.action.ActionResources', returnNull=true
+2007-4-12 9:38:48 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.webapp.admin.ApplicationResources', returnNull=true
+2007-4-12 9:38:49 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/balancer.xml
+2007-4-12 9:38:49 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/manager.xml
+2007-4-12 9:38:49 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path  from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT
+2007-4-12 9:38:49 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /jsp-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/jsp-examples
+2007-4-12 9:38:49 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /servlets-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/servlets-examples
+2007-4-12 9:38:49 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /tomcat-docs from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/tomcat-docs
+2007-4-12 9:38:49 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /webdav from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/webdav
+2007-4-12 9:38:49 org.apache.coyote.http11.Http11Protocol start
+信息: Starting Coyote HTTP/1.1 on http-8083
+2007-4-12 9:38:49 org.apache.jk.common.ChannelSocket init
+信息: JK2: ajp13 listening on /0.0.0.0:8012
+2007-4-12 9:38:49 org.apache.jk.server.JkMain start
+信息: Jk running ID=0 time=0/20  config=/usr/local/jakarta-tomcat-5.0.28_3/conf/jk2.properties
+2007-4-12 9:38:49 org.apache.catalina.startup.Catalina start
+信息: Server startup in 1752 ms
+2007-4-12 9:47:37 org.apache.coyote.http11.Http11Protocol pause
+信息: Pausing Coyote HTTP/1.1 on http-8083
+2007-4-12 9:47:38 org.apache.catalina.core.StandardService stop
+信息: Stopping service Catalina
+2007-4-12 9:47:38 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path 
+2007-4-12 9:47:38 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /manager
+2007-4-12 9:47:38 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /webdav
+2007-4-12 9:47:38 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /servlets-examples
+2007-4-12 9:47:38 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /tomcat-docs
+2007-4-12 9:47:38 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /jsp-examples
+2007-4-12 9:47:38 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /balancer
+2007-4-12 9:47:38 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /admin
+2007-4-12 9:47:38 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,path=/admin,host=localhost
+2007-4-12 9:47:38 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,host=localhost
+2007-4-12 9:47:38 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger
+2007-4-12 9:47:38 org.apache.coyote.http11.Http11Protocol destroy
+信息: Stopping Coyote HTTP/1.1 on http-8083
+2007-4-12 9:47:40 org.apache.coyote.http11.Http11Protocol init
+信息: Initializing Coyote HTTP/1.1 on http-8083
+2007-4-12 9:47:40 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 761 ms
+2007-4-12 9:47:40 org.apache.catalina.core.StandardService start
+信息: Starting service Catalina
+2007-4-12 9:47:40 org.apache.catalina.core.StandardEngine start
+信息: Starting Servlet Engine: Apache Tomcat/5.0.28
+2007-4-12 9:47:40 org.apache.catalina.core.StandardHost start
+信息: XML validation disabled
+2007-4-12 9:47:40 org.apache.catalina.core.StandardHost getDeployer
+信息: Create Host deployer for direct deployment ( non-jmx ) 
+2007-4-12 9:47:40 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/admin.xml
+2007-4-12 9:47:40 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+2007-4-12 9:47:40 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.action.ActionResources', returnNull=true
+2007-4-12 9:47:41 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.webapp.admin.ApplicationResources', returnNull=true
+2007-4-12 9:47:41 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/balancer.xml
+2007-4-12 9:47:41 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/manager.xml
+2007-4-12 9:47:41 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path  from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT
+2007-4-12 9:47:41 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /jsp-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/jsp-examples
+2007-4-12 9:47:41 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /servlets-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/servlets-examples
+2007-4-12 9:47:41 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /tomcat-docs from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/tomcat-docs
+2007-4-12 9:47:41 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /webdav from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/webdav
+2007-4-12 9:47:41 org.apache.coyote.http11.Http11Protocol start
+信息: Starting Coyote HTTP/1.1 on http-8083
+2007-4-12 9:47:42 org.apache.jk.common.ChannelSocket init
+信息: JK2: ajp13 listening on /0.0.0.0:8012
+2007-4-12 9:47:42 org.apache.jk.server.JkMain start
+信息: Jk running ID=0 time=0/19  config=/usr/local/jakarta-tomcat-5.0.28_3/conf/jk2.properties
+2007-4-12 9:47:42 org.apache.catalina.startup.Catalina start
+信息: Server startup in 1744 ms
+2007-4-12 10:11:16 org.apache.coyote.http11.Http11Protocol pause
+信息: Pausing Coyote HTTP/1.1 on http-8083
+2007-4-12 10:11:17 org.apache.catalina.core.StandardService stop
+信息: Stopping service Catalina
+2007-4-12 10:11:17 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path 
+2007-4-12 10:11:17 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /manager
+2007-4-12 10:11:17 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /webdav
+2007-4-12 10:11:17 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /servlets-examples
+2007-4-12 10:11:17 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /tomcat-docs
+2007-4-12 10:11:17 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /jsp-examples
+2007-4-12 10:11:17 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /balancer
+2007-4-12 10:11:17 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /admin
+2007-4-12 10:11:17 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,path=/admin,host=localhost
+2007-4-12 10:11:17 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,host=localhost
+2007-4-12 10:11:17 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger
+2007-4-12 10:11:17 org.apache.coyote.http11.Http11Protocol destroy
+信息: Stopping Coyote HTTP/1.1 on http-8083
+2007-4-12 10:11:20 org.apache.coyote.http11.Http11Protocol init
+信息: Initializing Coyote HTTP/1.1 on http-8083
+2007-4-12 10:11:21 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 761 ms
+2007-4-12 10:11:21 org.apache.catalina.core.StandardService start
+信息: Starting service Catalina
+2007-4-12 10:11:21 org.apache.catalina.core.StandardEngine start
+信息: Starting Servlet Engine: Apache Tomcat/5.0.28
+2007-4-12 10:11:21 org.apache.catalina.core.StandardHost start
+信息: XML validation disabled
+2007-4-12 10:11:21 org.apache.catalina.core.StandardHost getDeployer
+信息: Create Host deployer for direct deployment ( non-jmx ) 
+2007-4-12 10:11:21 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/admin.xml
+2007-4-12 10:11:21 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+2007-4-12 10:11:21 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.action.ActionResources', returnNull=true
+2007-4-12 10:11:21 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.webapp.admin.ApplicationResources', returnNull=true
+2007-4-12 10:11:22 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/balancer.xml
+2007-4-12 10:11:22 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/manager.xml
+2007-4-12 10:11:22 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path  from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT
+2007-4-12 10:11:22 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /jsp-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/jsp-examples
+2007-4-12 10:11:22 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /servlets-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/servlets-examples
+2007-4-12 10:11:22 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /tomcat-docs from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/tomcat-docs
+2007-4-12 10:11:22 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /webdav from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/webdav
+2007-4-12 10:11:22 org.apache.coyote.http11.Http11Protocol start
+信息: Starting Coyote HTTP/1.1 on http-8083
+2007-4-12 10:11:22 org.apache.jk.common.ChannelSocket init
+信息: JK2: ajp13 listening on /0.0.0.0:8012
+2007-4-12 10:11:22 org.apache.jk.server.JkMain start
+信息: Jk running ID=0 time=0/20  config=/usr/local/jakarta-tomcat-5.0.28_3/conf/jk2.properties
+2007-4-12 10:11:22 org.apache.catalina.startup.Catalina start
+信息: Server startup in 1747 ms
+2007-4-12 10:24:27 org.apache.coyote.http11.Http11Protocol pause
+信息: Pausing Coyote HTTP/1.1 on http-8083
+2007-4-12 10:24:28 org.apache.catalina.core.StandardService stop
+信息: Stopping service Catalina
+2007-4-12 10:24:28 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path 
+2007-4-12 10:24:28 org.apache.catalina.core.StandardWrapper unload
+信息: Waiting for 1 instance(s) to be deallocated
+2007-4-12 10:24:29 org.apache.catalina.core.StandardWrapper unload
+信息: Waiting for 1 instance(s) to be deallocated
+2007-4-12 10:24:30 org.apache.coyote.http11.Http11Protocol init
+严重: Error initializing endpoint
+java.net.BindException: Address already in use:8083
+	at org.apache.tomcat.util.net.PoolTcpEndpoint.initEndpoint(PoolTcpEndpoint.java:264)
+	at org.apache.coyote.http11.Http11Protocol.init(Http11Protocol.java:137)
+	at org.apache.coyote.tomcat5.CoyoteConnector.initialize(CoyoteConnector.java:1429)
+	at org.apache.catalina.core.StandardService.initialize(StandardService.java:609)
+	at org.apache.catalina.core.StandardServer.initialize(StandardServer.java:2384)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:507)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:528)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:250)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:424)
+2007-4-12 10:24:30 org.apache.catalina.startup.Catalina load
+严重: Catalina.start
+LifecycleException:  Protocol handler initialization failed: java.net.BindException: Address already in use:8083
+	at org.apache.coyote.tomcat5.CoyoteConnector.initialize(CoyoteConnector.java:1431)
+	at org.apache.catalina.core.StandardService.initialize(StandardService.java:609)
+	at org.apache.catalina.core.StandardServer.initialize(StandardServer.java:2384)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:507)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:528)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:250)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:424)
+2007-4-12 10:24:30 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 738 ms
+2007-4-12 10:24:30 org.apache.catalina.core.StandardService start
+信息: Starting service Catalina
+2007-4-12 10:24:30 org.apache.catalina.core.StandardEngine start
+信息: Starting Servlet Engine: Apache Tomcat/5.0.28
+2007-4-12 10:24:30 org.apache.catalina.core.StandardHost start
+信息: XML validation disabled
+2007-4-12 10:24:30 org.apache.catalina.core.StandardHost getDeployer
+信息: Create Host deployer for direct deployment ( non-jmx ) 
+2007-4-12 10:24:30 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/admin.xml
+2007-4-12 10:24:30 org.apache.catalina.core.StandardWrapper unload
+信息: Waiting for 1 instance(s) to be deallocated
+2007-4-12 10:24:31 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /manager
+2007-4-12 10:24:31 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /webdav
+2007-4-12 10:24:31 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /servlets-examples
+2007-4-12 10:24:31 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /tomcat-docs
+2007-4-12 10:24:31 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /jsp-examples
+2007-4-12 10:24:31 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /balancer
+2007-4-12 10:24:31 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /admin
+2007-4-12 10:24:31 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,path=/admin,host=localhost
+2007-4-12 10:24:31 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,host=localhost
+2007-4-12 10:24:31 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger
+2007-4-12 10:24:31 org.apache.coyote.http11.Http11Protocol destroy
+信息: Stopping Coyote HTTP/1.1 on http-8083
+2007-4-12 10:24:31 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+2007-4-12 10:24:31 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.action.ActionResources', returnNull=true
+2007-4-12 10:24:31 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.webapp.admin.ApplicationResources', returnNull=true
+2007-4-12 10:24:31 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/balancer.xml
+2007-4-12 10:24:31 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/manager.xml
+2007-4-12 10:24:32 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path  from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT
+2007-4-12 10:24:32 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /jsp-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/jsp-examples
+2007-4-12 10:24:32 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /servlets-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/servlets-examples
+2007-4-12 10:24:32 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /tomcat-docs from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/tomcat-docs
+2007-4-12 10:24:32 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /webdav from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/webdav
+2007-4-12 10:24:32 org.apache.coyote.http11.Http11Protocol start
+信息: Starting Coyote HTTP/1.1 on http-8083
+2007-4-12 10:24:32 org.apache.jk.common.ChannelSocket init
+信息: JK2: ajp13 listening on /0.0.0.0:8012
+2007-4-12 10:24:32 org.apache.jk.server.JkMain start
+信息: Jk running ID=0 time=0/19  config=/usr/local/jakarta-tomcat-5.0.28_3/conf/jk2.properties
+2007-4-12 10:24:32 org.apache.catalina.startup.Catalina start
+信息: Server startup in 1860 ms
+2007-4-12 10:28:32 org.apache.catalina.startup.HostConfig restartContext
+信息: restartContext()
+2007-4-12 10:28:32 org.apache.catalina.core.StandardContext reload
+信息: Reloading this Context has started
+2007-4-12 10:28:32 org.apache.catalina.core.StandardWrapper unload
+信息: Waiting for 2 instance(s) to be deallocated
+2007-4-12 10:28:33 org.apache.catalina.core.StandardWrapper unload
+信息: Waiting for 2 instance(s) to be deallocated
+2007-4-12 10:28:36 org.apache.catalina.core.StandardWrapper unload
+信息: Waiting for 2 instance(s) to be deallocated
+2007-4-12 10:28:40 org.apache.catalina.loader.WebappClassLoader findResourceInternal
+信息: Illegal access: this web application instance has been stopped already (the eventual following stack trace is caused by an error thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access, and has no functional impact)
+2007-4-12 10:28:40 org.apache.catalina.loader.WebappClassLoader loadClass
+信息: Illegal access: this web application instance has been stopped already (the eventual following stack trace is caused by an error thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access, and has no functional impact)
+2007-4-12 10:28:40 org.apache.catalina.loader.WebappClassLoader loadClass
+信息: Illegal access: this web application instance has been stopped already (the eventual following stack trace is caused by an error thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access, and has no functional impact)
+2007-4-12 10:28:40 org.apache.catalina.loader.WebappClassLoader loadClass
+信息: Illegal access: this web application instance has been stopped already (the eventual following stack trace is caused by an error thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access, and has no functional impact)
+2007-4-12 10:28:40 org.apache.coyote.tomcat5.CoyoteAdapter service
+严重: An exception or error occurred in the container during the request processing
+java.lang.ThreadDeath
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1229)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1189)
+	at java.beans.Introspector.instantiate(Introspector.java:1460)
+	at java.beans.Introspector.findExplicitBeanInfo(Introspector.java:410)
+	at java.beans.Introspector.<init>(Introspector.java:359)
+	at java.beans.Introspector.getBeanInfo(Introspector.java:159)
+	at org.apache.commons.beanutils.PropertyUtilsBean.getPropertyDescriptors(PropertyUtilsBean.java:896)
+	at org.apache.commons.beanutils.PropertyUtilsBean.getPropertyDescriptors(PropertyUtilsBean.java:926)
+	at org.apache.commons.beanutils.PropertyUtilsBean.getPropertyDescriptor(PropertyUtilsBean.java:801)
+	at org.apache.commons.beanutils.PropertyUtilsBean.getSimpleProperty(PropertyUtilsBean.java:1119)
+	at org.apache.commons.beanutils.PropertyUtilsBean.getNestedProperty(PropertyUtilsBean.java:686)
+	at org.apache.commons.beanutils.PropertyUtilsBean.getProperty(PropertyUtilsBean.java:715)
+	at org.apache.commons.beanutils.PropertyUtils.getProperty(PropertyUtils.java:290)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:255)
+	at org.apache.catalina.core.StandardValveContext.invokeNext(StandardValveContext.java:104)
+	at org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:520)
+	at org.apache.catalina.core.StandardContextValve.invokeInternal(StandardContextValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:152)
+	at org.apache.catalina.core.StandardValveContext.invokeNext(StandardValveContext.java:104)
+	at org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:520)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.core.StandardValveContext.invokeNext(StandardValveContext.java:104)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:118)
+	at org.apache.catalina.core.StandardValveContext.invokeNext(StandardValveContext.java:102)
+	at org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:520)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.core.StandardValveContext.invokeNext(StandardValveContext.java:104)
+	at org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:520)
+	at org.apache.catalina.core.ContainerBase.invoke(ContainerBase.java:929)
+	at org.apache.coyote.tomcat5.CoyoteAdapter.service(CoyoteAdapter.java:160)
+	at org.apache.jk.server.JkCoyoteHandler.invoke(JkCoyoteHandler.java:300)
+	at org.apache.jk.common.HandlerRequest.invoke(HandlerRequest.java:374)
+	at org.apache.jk.common.ChannelSocket.invoke(ChannelSocket.java:743)
+	at org.apache.jk.common.ChannelSocket.processConnection(ChannelSocket.java:675)
+	at org.apache.jk.common.SocketConnection.runIt(ChannelSocket.java:866)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:683)
+	at java.lang.Thread.run(Thread.java:619)
+2007-4-12 10:28:41 org.apache.catalina.loader.WebappClassLoader findResourceInternal
+信息: Illegal access: this web application instance has been stopped already (the eventual following stack trace is caused by an error thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access, and has no functional impact)
+2007-4-12 10:28:41 org.apache.catalina.loader.WebappClassLoader loadClass
+信息: Illegal access: this web application instance has been stopped already (the eventual following stack trace is caused by an error thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access, and has no functional impact)
+2007-4-12 10:28:41 org.apache.coyote.tomcat5.CoyoteAdapter service
+严重: An exception or error occurred in the container during the request processing
+java.lang.ThreadDeath
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1229)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1189)
+	at java.beans.Introspector.instantiate(Introspector.java:1460)
+	at java.beans.Introspector.findExplicitBeanInfo(Introspector.java:410)
+	at java.beans.Introspector.<init>(Introspector.java:359)
+	at java.beans.Introspector.getBeanInfo(Introspector.java:159)
+	at org.apache.commons.beanutils.PropertyUtilsBean.getPropertyDescriptors(PropertyUtilsBean.java:896)
+	at org.apache.commons.beanutils.PropertyUtilsBean.getPropertyDescriptors(PropertyUtilsBean.java:926)
+	at org.apache.commons.beanutils.PropertyUtilsBean.getPropertyDescriptor(PropertyUtilsBean.java:801)
+	at org.apache.commons.beanutils.PropertyUtilsBean.getSimpleProperty(PropertyUtilsBean.java:1119)
+	at org.apache.commons.beanutils.PropertyUtilsBean.getNestedProperty(PropertyUtilsBean.java:686)
+	at org.apache.commons.beanutils.PropertyUtilsBean.getProperty(PropertyUtilsBean.java:715)
+	at org.apache.commons.beanutils.PropertyUtils.getProperty(PropertyUtils.java:290)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:255)
+	at org.apache.catalina.core.StandardValveContext.invokeNext(StandardValveContext.java:104)
+	at org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:520)
+	at org.apache.catalina.core.StandardContextValve.invokeInternal(StandardContextValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:152)
+	at org.apache.catalina.core.StandardValveContext.invokeNext(StandardValveContext.java:104)
+	at org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:520)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.core.StandardValveContext.invokeNext(StandardValveContext.java:104)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:118)
+	at org.apache.catalina.core.StandardValveContext.invokeNext(StandardValveContext.java:102)
+	at org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:520)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.core.StandardValveContext.invokeNext(StandardValveContext.java:104)
+	at org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:520)
+	at org.apache.catalina.core.ContainerBase.invoke(ContainerBase.java:929)
+	at org.apache.coyote.tomcat5.CoyoteAdapter.service(CoyoteAdapter.java:160)
+	at org.apache.jk.server.JkCoyoteHandler.invoke(JkCoyoteHandler.java:300)
+	at org.apache.jk.common.HandlerRequest.invoke(HandlerRequest.java:374)
+	at org.apache.jk.common.ChannelSocket.invoke(ChannelSocket.java:743)
+	at org.apache.jk.common.ChannelSocket.processConnection(ChannelSocket.java:675)
+	at org.apache.jk.common.SocketConnection.runIt(ChannelSocket.java:866)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:683)
+	at java.lang.Thread.run(Thread.java:619)
+2007-4-12 10:28:53 org.apache.coyote.http11.Http11Protocol pause
+信息: Pausing Coyote HTTP/1.1 on http-8083
+2007-4-12 10:28:54 org.apache.catalina.core.StandardService stop
+信息: Stopping service Catalina
+2007-4-12 10:28:54 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path 
+2007-4-12 10:28:54 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /manager
+2007-4-12 10:28:54 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /webdav
+2007-4-12 10:28:54 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /servlets-examples
+2007-4-12 10:28:54 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /tomcat-docs
+2007-4-12 10:28:54 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /jsp-examples
+2007-4-12 10:28:54 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /balancer
+2007-4-12 10:28:54 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /admin
+2007-4-12 10:28:54 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,path=/admin,host=localhost
+2007-4-12 10:28:54 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,host=localhost
+2007-4-12 10:28:54 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger
+2007-4-12 10:28:54 org.apache.coyote.http11.Http11Protocol destroy
+信息: Stopping Coyote HTTP/1.1 on http-8083
+2007-4-12 10:28:58 org.apache.coyote.http11.Http11Protocol init
+信息: Initializing Coyote HTTP/1.1 on http-8083
+2007-4-12 10:28:58 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 762 ms
+2007-4-12 10:28:58 org.apache.catalina.core.StandardService start
+信息: Starting service Catalina
+2007-4-12 10:28:58 org.apache.catalina.core.StandardEngine start
+信息: Starting Servlet Engine: Apache Tomcat/5.0.28
+2007-4-12 10:28:58 org.apache.catalina.core.StandardHost start
+信息: XML validation disabled
+2007-4-12 10:28:58 org.apache.catalina.core.StandardHost getDeployer
+信息: Create Host deployer for direct deployment ( non-jmx ) 
+2007-4-12 10:28:58 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/admin.xml
+2007-4-12 10:28:58 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+2007-4-12 10:28:58 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.action.ActionResources', returnNull=true
+2007-4-12 10:28:58 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.webapp.admin.ApplicationResources', returnNull=true
+2007-4-12 10:28:59 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/balancer.xml
+2007-4-12 10:28:59 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/manager.xml
+2007-4-12 10:28:59 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path  from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT
+2007-4-12 10:28:59 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /jsp-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/jsp-examples
+2007-4-12 10:28:59 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /servlets-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/servlets-examples
+2007-4-12 10:28:59 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /tomcat-docs from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/tomcat-docs
+2007-4-12 10:28:59 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /webdav from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/webdav
+2007-4-12 10:28:59 org.apache.coyote.http11.Http11Protocol start
+信息: Starting Coyote HTTP/1.1 on http-8083
+2007-4-12 10:28:59 org.apache.jk.common.ChannelSocket init
+信息: JK2: ajp13 listening on /0.0.0.0:8012
+2007-4-12 10:28:59 org.apache.jk.server.JkMain start
+信息: Jk running ID=0 time=0/20  config=/usr/local/jakarta-tomcat-5.0.28_3/conf/jk2.properties
+2007-4-12 10:28:59 org.apache.catalina.startup.Catalina start
+信息: Server startup in 1751 ms
+2007-4-12 11:49:00 org.apache.commons.modeler.Registry registerComponent
+严重: Error registering Catalina:type=RequestProcessor,worker=jk-8012,name=JkRequest38
+javax.management.InstanceAlreadyExistsException: Catalina:type=RequestProcessor,worker=jk-8012,name=JkRequest38
+	at com.sun.jmx.mbeanserver.Repository.addMBean(Repository.java:453)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.internal_addObject(DefaultMBeanServerInterceptor.java:1484)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.registerDynamicMBean(DefaultMBeanServerInterceptor.java:963)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.registerObject(DefaultMBeanServerInterceptor.java:917)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.registerMBean(DefaultMBeanServerInterceptor.java:312)
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.registerMBean(JmxMBeanServer.java:482)
+	at org.apache.commons.modeler.Registry.registerComponent(Registry.java:871)
+	at org.apache.jk.common.ChannelSocket.registerRequest(ChannelSocket.java:436)
+	at org.apache.jk.common.HandlerRequest.decodeRequest(HandlerRequest.java:443)
+	at org.apache.jk.common.HandlerRequest.invoke(HandlerRequest.java:352)
+	at org.apache.jk.common.ChannelSocket.invoke(ChannelSocket.java:743)
+	at org.apache.jk.common.ChannelSocket.processConnection(ChannelSocket.java:675)
+	at org.apache.jk.common.SocketConnection.runIt(ChannelSocket.java:866)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:683)
+	at java.lang.Thread.run(Thread.java:619)
+2007-4-12 11:49:00 org.apache.jk.common.ChannelSocket registerRequest
+警告: Error registering request
+2007-4-12 17:37:43 org.apache.coyote.http11.Http11Protocol pause
+信息: Pausing Coyote HTTP/1.1 on http-8083
+2007-4-12 17:37:44 org.apache.catalina.core.StandardService stop
+信息: Stopping service Catalina
+2007-4-12 17:37:44 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path 
+2007-4-12 17:37:44 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /manager
+2007-4-12 17:37:44 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /webdav
+2007-4-12 17:37:44 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /servlets-examples
+2007-4-12 17:37:44 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /tomcat-docs
+2007-4-12 17:37:44 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /jsp-examples
+2007-4-12 17:37:44 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /balancer
+2007-4-12 17:37:44 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /admin
+2007-4-12 17:37:44 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,path=/admin,host=localhost
+2007-4-12 17:37:44 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,host=localhost
+2007-4-12 17:37:44 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger
+2007-4-12 17:37:44 org.apache.coyote.http11.Http11Protocol destroy
+信息: Stopping Coyote HTTP/1.1 on http-8083
+2007-4-12 17:37:47 org.apache.coyote.http11.Http11Protocol init
+信息: Initializing Coyote HTTP/1.1 on http-8083
+2007-4-12 17:37:47 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 767 ms
+2007-4-12 17:37:48 org.apache.catalina.core.StandardService start
+信息: Starting service Catalina
+2007-4-12 17:37:48 org.apache.catalina.core.StandardEngine start
+信息: Starting Servlet Engine: Apache Tomcat/5.0.28
+2007-4-12 17:37:48 org.apache.catalina.core.StandardHost start
+信息: XML validation disabled
+2007-4-12 17:37:48 org.apache.catalina.core.StandardHost getDeployer
+信息: Create Host deployer for direct deployment ( non-jmx ) 
+2007-4-12 17:37:48 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/admin.xml
+2007-4-12 17:37:48 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+2007-4-12 17:37:48 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.action.ActionResources', returnNull=true
+2007-4-12 17:37:48 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.webapp.admin.ApplicationResources', returnNull=true
+2007-4-12 17:37:49 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/balancer.xml
+2007-4-12 17:37:49 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/manager.xml
+2007-4-12 17:37:49 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path  from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT
+2007-4-12 17:37:49 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /jsp-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/jsp-examples
+2007-4-12 17:37:49 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /servlets-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/servlets-examples
+2007-4-12 17:37:49 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /tomcat-docs from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/tomcat-docs
+2007-4-12 17:37:49 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /webdav from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/webdav
+2007-4-12 17:37:49 org.apache.coyote.http11.Http11Protocol start
+信息: Starting Coyote HTTP/1.1 on http-8083
+2007-4-12 17:37:49 org.apache.jk.common.ChannelSocket init
+信息: JK2: ajp13 listening on /0.0.0.0:8012
+2007-4-12 17:37:49 org.apache.jk.server.JkMain start
+信息: Jk running ID=0 time=1/24  config=/usr/local/jakarta-tomcat-5.0.28_3/conf/jk2.properties
+2007-4-12 17:37:49 org.apache.catalina.startup.Catalina start
+信息: Server startup in 1766 ms
+2007-4-12 17:41:11 org.apache.coyote.http11.Http11Protocol pause
+信息: Pausing Coyote HTTP/1.1 on http-8083
+2007-4-12 17:41:12 org.apache.catalina.core.StandardService stop
+信息: Stopping service Catalina
+2007-4-12 17:41:12 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path 
+2007-4-12 17:41:12 org.apache.catalina.core.StandardWrapper unload
+信息: Waiting for 3 instance(s) to be deallocated
+2007-4-12 17:41:13 org.apache.catalina.core.StandardWrapper unload
+信息: Waiting for 3 instance(s) to be deallocated
+2007-4-12 17:41:14 org.apache.coyote.http11.Http11Protocol init
+严重: Error initializing endpoint
+java.net.BindException: Address already in use:8083
+	at org.apache.tomcat.util.net.PoolTcpEndpoint.initEndpoint(PoolTcpEndpoint.java:264)
+	at org.apache.coyote.http11.Http11Protocol.init(Http11Protocol.java:137)
+	at org.apache.coyote.tomcat5.CoyoteConnector.initialize(CoyoteConnector.java:1429)
+	at org.apache.catalina.core.StandardService.initialize(StandardService.java:609)
+	at org.apache.catalina.core.StandardServer.initialize(StandardServer.java:2384)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:507)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:528)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:250)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:424)
+2007-4-12 17:41:14 org.apache.catalina.startup.Catalina load
+严重: Catalina.start
+LifecycleException:  Protocol handler initialization failed: java.net.BindException: Address already in use:8083
+	at org.apache.coyote.tomcat5.CoyoteConnector.initialize(CoyoteConnector.java:1431)
+	at org.apache.catalina.core.StandardService.initialize(StandardService.java:609)
+	at org.apache.catalina.core.StandardServer.initialize(StandardServer.java:2384)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:507)
+	at org.apache.catalina.startup.Catalina.load(Catalina.java:528)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:250)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:424)
+2007-4-12 17:41:14 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 738 ms
+2007-4-12 17:41:14 org.apache.catalina.core.StandardService start
+信息: Starting service Catalina
+2007-4-12 17:41:14 org.apache.catalina.core.StandardEngine start
+信息: Starting Servlet Engine: Apache Tomcat/5.0.28
+2007-4-12 17:41:14 org.apache.catalina.core.StandardHost start
+信息: XML validation disabled
+2007-4-12 17:41:14 org.apache.catalina.core.StandardHost getDeployer
+信息: Create Host deployer for direct deployment ( non-jmx ) 
+2007-4-12 17:41:14 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/admin.xml
+2007-4-12 17:41:14 org.apache.catalina.core.StandardWrapper unload
+信息: Waiting for 3 instance(s) to be deallocated
+2007-4-12 17:41:14 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /manager
+2007-4-12 17:41:14 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /webdav
+2007-4-12 17:41:14 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /servlets-examples
+2007-4-12 17:41:14 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /tomcat-docs
+2007-4-12 17:41:14 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /jsp-examples
+2007-4-12 17:41:14 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /balancer
+2007-4-12 17:41:14 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /admin
+2007-4-12 17:41:14 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,path=/admin,host=localhost
+2007-4-12 17:41:14 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,host=localhost
+2007-4-12 17:41:14 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger
+2007-4-12 17:41:14 org.apache.coyote.http11.Http11Protocol destroy
+信息: Stopping Coyote HTTP/1.1 on http-8083
+2007-4-12 17:41:14 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+2007-4-12 17:41:14 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.action.ActionResources', returnNull=true
+2007-4-12 17:41:15 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.webapp.admin.ApplicationResources', returnNull=true
+2007-4-12 17:41:15 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/balancer.xml
+2007-4-12 17:41:15 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/manager.xml
+2007-4-12 17:41:15 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path  from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT
+2007-4-12 17:41:15 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /jsp-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/jsp-examples
+2007-4-12 17:41:15 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /servlets-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/servlets-examples
+2007-4-12 17:41:15 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /tomcat-docs from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/tomcat-docs
+2007-4-12 17:41:15 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /webdav from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/webdav
+2007-4-12 17:41:15 org.apache.coyote.http11.Http11Protocol start
+信息: Starting Coyote HTTP/1.1 on http-8083
+2007-4-12 17:41:15 org.apache.jk.common.ChannelSocket init
+信息: JK2: ajp13 listening on /0.0.0.0:8012
+2007-4-12 17:41:15 org.apache.jk.server.JkMain start
+信息: Jk running ID=0 time=0/19  config=/usr/local/jakarta-tomcat-5.0.28_3/conf/jk2.properties
+2007-4-12 17:41:16 org.apache.catalina.startup.Catalina start
+信息: Server startup in 1956 ms
+2007-4-13 7:41:18 org.apache.coyote.http11.Http11Protocol pause
+信息: Pausing Coyote HTTP/1.1 on http-8083
+2007-4-13 7:41:19 org.apache.catalina.core.StandardService stop
+信息: Stopping service Catalina
+2007-4-13 7:41:19 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path 
+2007-4-13 7:41:20 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /manager
+2007-4-13 7:41:20 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /webdav
+2007-4-13 7:41:20 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /servlets-examples
+2007-4-13 7:41:20 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /tomcat-docs
+2007-4-13 7:41:20 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /jsp-examples
+2007-4-13 7:41:20 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /balancer
+2007-4-13 7:41:20 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /admin
+2007-4-13 7:41:20 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,path=/admin,host=localhost
+2007-4-13 7:41:20 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,host=localhost
+2007-4-13 7:41:20 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger
+2007-4-13 7:41:20 org.apache.coyote.http11.Http11Protocol destroy
+信息: Stopping Coyote HTTP/1.1 on http-8083
+2007-4-13 7:41:23 org.apache.coyote.http11.Http11Protocol init
+信息: Initializing Coyote HTTP/1.1 on http-8083
+2007-4-13 7:41:23 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 770 ms
+2007-4-13 7:41:23 org.apache.catalina.core.StandardService start
+信息: Starting service Catalina
+2007-4-13 7:41:23 org.apache.catalina.core.StandardEngine start
+信息: Starting Servlet Engine: Apache Tomcat/5.0.28
+2007-4-13 7:41:23 org.apache.catalina.core.StandardHost start
+信息: XML validation disabled
+2007-4-13 7:41:23 org.apache.catalina.core.StandardHost getDeployer
+信息: Create Host deployer for direct deployment ( non-jmx ) 
+2007-4-13 7:41:23 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/admin.xml
+2007-4-13 7:41:23 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+2007-4-13 7:41:23 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.action.ActionResources', returnNull=true
+2007-4-13 7:41:24 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.webapp.admin.ApplicationResources', returnNull=true
+2007-4-13 7:41:24 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/balancer.xml
+2007-4-13 7:41:24 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/manager.xml
+2007-4-13 7:41:24 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path  from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT
+2007-4-13 7:41:24 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /jsp-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/jsp-examples
+2007-4-13 7:41:24 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /servlets-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/servlets-examples
+2007-4-13 7:41:24 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /tomcat-docs from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/tomcat-docs
+2007-4-13 7:41:24 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /webdav from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/webdav
+2007-4-13 7:41:24 org.apache.coyote.http11.Http11Protocol start
+信息: Starting Coyote HTTP/1.1 on http-8083
+2007-4-13 7:41:25 org.apache.jk.common.ChannelSocket init
+信息: JK2: ajp13 listening on /0.0.0.0:8012
+2007-4-13 7:41:25 org.apache.jk.server.JkMain start
+信息: Jk running ID=0 time=1/20  config=/usr/local/jakarta-tomcat-5.0.28_3/conf/jk2.properties
+2007-4-13 7:41:25 org.apache.catalina.startup.Catalina start
+信息: Server startup in 1782 ms
+2007-4-13 7:51:48 org.apache.coyote.http11.Http11Protocol pause
+信息: Pausing Coyote HTTP/1.1 on http-8083
+2007-4-13 7:51:49 org.apache.catalina.core.StandardService stop
+信息: Stopping service Catalina
+2007-4-13 7:51:49 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path 
+2007-4-13 7:51:49 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /manager
+2007-4-13 7:51:49 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /webdav
+2007-4-13 7:51:49 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /servlets-examples
+2007-4-13 7:51:49 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /tomcat-docs
+2007-4-13 7:51:49 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /jsp-examples
+2007-4-13 7:51:49 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /balancer
+2007-4-13 7:51:49 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /admin
+2007-4-13 7:51:49 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,path=/admin,host=localhost
+2007-4-13 7:51:49 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,host=localhost
+2007-4-13 7:51:49 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger
+2007-4-13 7:51:49 org.apache.coyote.http11.Http11Protocol destroy
+信息: Stopping Coyote HTTP/1.1 on http-8083
+2007-4-13 7:51:53 org.apache.coyote.http11.Http11Protocol init
+信息: Initializing Coyote HTTP/1.1 on http-8083
+2007-4-13 7:51:53 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 766 ms
+2007-4-13 7:51:53 org.apache.catalina.core.StandardService start
+信息: Starting service Catalina
+2007-4-13 7:51:53 org.apache.catalina.core.StandardEngine start
+信息: Starting Servlet Engine: Apache Tomcat/5.0.28
+2007-4-13 7:51:53 org.apache.catalina.core.StandardHost start
+信息: XML validation disabled
+2007-4-13 7:51:53 org.apache.catalina.core.StandardHost getDeployer
+信息: Create Host deployer for direct deployment ( non-jmx ) 
+2007-4-13 7:51:53 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/admin.xml
+2007-4-13 7:51:54 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+2007-4-13 7:51:54 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.action.ActionResources', returnNull=true
+2007-4-13 7:51:54 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.webapp.admin.ApplicationResources', returnNull=true
+2007-4-13 7:51:54 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/balancer.xml
+2007-4-13 7:51:55 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/manager.xml
+2007-4-13 7:51:55 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path  from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/ROOT
+2007-4-13 7:51:55 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /jsp-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/jsp-examples
+2007-4-13 7:51:55 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /servlets-examples from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/servlets-examples
+2007-4-13 7:51:55 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /tomcat-docs from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/tomcat-docs
+2007-4-13 7:51:55 org.apache.catalina.core.StandardHostDeployer install
+信息: Installing web application at context path /webdav from URL file:/usr/local/jakarta-tomcat-5.0.28_3/webapps/webdav
+2007-4-13 7:51:55 org.apache.coyote.http11.Http11Protocol start
+信息: Starting Coyote HTTP/1.1 on http-8083
+2007-4-13 7:51:55 org.apache.jk.common.ChannelSocket init
+信息: JK2: ajp13 listening on /0.0.0.0:8012
+2007-4-13 7:51:55 org.apache.jk.server.JkMain start
+信息: Jk running ID=0 time=1/20  config=/usr/local/jakarta-tomcat-5.0.28_3/conf/jk2.properties
+2007-4-13 7:51:55 org.apache.catalina.startup.Catalina start
+信息: Server startup in 1768 ms
+2007-4-13 9:05:30 org.apache.coyote.http11.Http11Protocol pause
+信息: Pausing Coyote HTTP/1.1 on http-8083
+2007-4-13 9:05:31 org.apache.catalina.core.StandardService stop
+信息: Stopping service Catalina
+2007-4-13 9:05:31 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path 
+2007-4-13 9:05:31 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /manager
+2007-4-13 9:05:31 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /webdav
+2007-4-13 9:05:31 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /servlets-examples
+2007-4-13 9:05:31 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /tomcat-docs
+2007-4-13 9:05:31 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /jsp-examples
+2007-4-13 9:05:31 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /balancer
+2007-4-13 9:05:31 org.apache.catalina.core.StandardHostDeployer remove
+信息: Removing web application at context path /admin
+2007-4-13 9:05:31 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,path=/admin,host=localhost
+2007-4-13 9:05:31 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger,host=localhost
+2007-4-13 9:05:31 org.apache.catalina.logger.LoggerBase stop
+信息: unregistering logger Catalina:type=Logger
+2007-4-13 9:05:31 org.apache.coyote.http11.Http11Protocol destroy
+信息: Stopping Coyote HTTP/1.1 on http-8083
+2007-4-13 9:05:33 org.apache.coyote.http11.Http11Protocol init
+信息: Initializing Coyote HTTP/1.1 on http-8083
+2007-4-13 9:05:33 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 762 ms
+2007-4-13 9:05:34 org.apache.catalina.core.StandardService start
+信息: Starting service Catalina
+2007-4-13 9:05:34 org.apache.catalina.core.StandardEngine start
+信息: Starting Servlet Engine: Apache Tomcat/5.0.28
+2007-4-13 9:05:34 org.apache.catalina.core.StandardHost start
+信息: XML validation disabled
+2007-4-13 9:05:34 org.apache.catalina.core.StandardHost getDeployer
+信息: Create Host deployer for direct deployment ( non-jmx ) 
+2007-4-13 9:05:34 org.apache.catalina.core.StandardHostDeployer install
+信息: Processing Context configuration file URL file:/usr/local/jakarta-tomcat-5.0.28_3/conf/Catalina/localhost/admin.xml
+2007-4-13 9:05:34 org.apache.struts.util.PropertyMessageResources <init>
+信息: Initializing, config='org.apache.struts.util.LocalStrings', returnNull=true
+2007-4-
