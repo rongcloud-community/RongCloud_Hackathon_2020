@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.UserDAO">
+    <!--id对应UserDAO接口方法名-->
+    <!--parameterType对应参数类型-->
+    <!--resultType对应返回值类型-->
+    <!--注意sql语句字段和数据库对应-->
+    <select id="getUserById" parameterType="int" resultType="com.example.demo.pojo.User">
+        SELECT * FROM user WHERE id = #{id}
+    </select>
+</mapper>
