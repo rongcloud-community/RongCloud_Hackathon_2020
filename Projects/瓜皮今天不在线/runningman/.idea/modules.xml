@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SportView-master.iml" filepath="$PROJECT_DIR$/SportView-master.iml" group="SportView-master" />
+      <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" group="SportView-master/demo" />
+      <module fileurl="file://$PROJECT_DIR$/dialog_library/dialog_library.iml" filepath="$PROJECT_DIR$/dialog_library/dialog_library.iml" group="SportView-master/dialog_library" />
+      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" group="SportView-master/library" />
+      <module fileurl="file://$PROJECT_DIR$/uikit/uikit.iml" filepath="$PROJECT_DIR$/uikit/uikit.iml" group="SportView-master/uikit" />
+    </modules>
+  </component>
+</project>
