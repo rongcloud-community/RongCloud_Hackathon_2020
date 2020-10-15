@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            border: 1px solid #333333;
+            width: 600px;
+            height: 620px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .set {
+            width: 100%;
+        }
+
+        .set input {
+            margin: 4px 35px;
+        }
+        .set input:first-child{
+            color: #FFFFFF;
+            width: 70px;
+            background-color: #4caf50;
+        }
+        .inner {
+            width: 500px;
+            height: 500px;
+            background-color: #90EE90;
+            margin: 0 auto;
+            overflow: auto;
+            position: relative;
+            top: 40px;
+        }
+
+        .text {
+            width: 100%;
+            height: 100%;
+            font-size: 1.2rem;
+            white-space: pre-wrap;
+            position: absolute;
+        }
+
+        .button3 {
+            display: inline-block;
+            padding: 5px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 6px #999;
+        }
+
+        .button3:hover {
+            background-color: #3e8e41
+        }
+
+        .button3:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(1px);
+        }
+
+        .changeColor {
+            position: absolute;
+            list-style: none;
+            left: 200px;
+            top: 70px;
+        }
+
+        .changeColor li {
+            width: 15px;
+            height: 15px;
+            border: 1px solid #333333;
+            float: left;
+            margin: 5px 5px;
+            cursor: pointer;
+        }
+        #onchange{
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h3 align="center">小说阅读器</h3>
+    <div class="set">
+        <input class="getFilesUrl button3" type="file" value="上传文件">
+        <input class="ScrollPlay button3" type="button" value="自动播放">
+        <input class="ScrollStop button3" type="button" value="停止">
+        <input class="ScrollStop button3" type="button" value="chat" onclick="window.location.href='chat.html'">
+    </div>
+    <ul class="changeColor">
+        <li style="background-color: #90EE90"></li>
+        <li style="background-color: #a3a300"></li>
+        <li style="background-color: #FFFFFF"></li>
+        <li style="background-color: #cccccc"></li>
+        <li style="background-color: darkgreen"></li>
+        <li style="background-color: green"></li>
+        <li style="background-color: pink"></li>
+        <input type="color" id="onchange">
+    </ul>
+    <div class="inner" data-mcs-theme="minimal-dark">
+        <div class="text"></div>
+    </div>
+</div>
+<script>
+
+    //用Ajax获取txt文件
+    let xhr = new XMLHttpRequest();
+    let text = "";
+    let textValue = document.querySelector(".text");
+
+    xhr.onload = function () {
+        if (xhr.readyState === 4) {
+            if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+                text = xhr.responseText;
+                textValue.innerHTML = text;
+            } else {
+                console.log("Request was unsuccessful: " + xhr.status);
+            }
+        }
+    };
+
+    xhr.open("get", 'a.txt', true);
+    xhr.send(null);
+
+
+    //点击滚动播放
+    let speed = -1;
+    let timer = "";
+    let Inner = document.querySelector(".inner");
+    let ScrollPlay = document.querySelector(".ScrollPlay");
+    ScrollPlay.addEventListener('click', ScrollPlayFn);
+
+    //点击方法
+    function ScrollPlayFn() {
+        //先清除上一个定时器
+        clearInterval(timer);
+        //开一个定时器
+        timer = setInterval(ScrollPlayTime, 10);
+    }
+
+    //将textValue的top减少来实现text滚动方法
+    function ScrollPlayTime() {
+        textValue.style.top = textValue.offsetTop + speed + "px";
+    }
+
+    //点击停止滚动
+    let ScrollStop = document.querySelector(".ScrollStop");
+
+    ScrollStop.onclick = function () {
+        clearInterval(timer);
+        timer = "";
+    };
+
+    //鼠标移入移出暂停/开始
+    Inner.onmouseenter =function(){
+        clearInterval(timer);
+    };
+
+    Inner.onmouseleave =function(){
+        if (timer !== "")timer = setInterval(ScrollPlayTime, 10);
+    };
+
+    //点击换背景色
+    let oli = document.querySelectorAll(".changeColor li");
+    let CustomColors = document.querySelector("#onchange");
+
+    for (let i = 0; i < oli.length; i++) {
+        oli[i].onclick = function (e) {
+            //获取点击的颜色
+            let color = e.target.style.backgroundColor;
+            //给inner换肤
+            Inner.style.backgroundColor = color;
+        }
+    }
+    //input颜色选择器换肤
+    CustomColors.onchange = function (e) {
+        Inner.style.backgroundColor = this.value;
+    }
+
+</script>
+</body>
+</html>
