@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>html5扫雷</title>
+
+	<script type="text/javascript" src="mine.js"></script>
+	
+	<link rel="Stylesheet" type="text/css" href="mine.css" />
+	    <script src="http://cdn.ronghub.com/RongIMLib-3.0.0-dev.js"></script>
+    <script>
+        var im = RongIMLib.init({
+            appkey: 'pvxdm17jpej8r'
+        });
+		
+
+        var conversationList = []; // 当前已存在的会话列表
+        im.watch({
+            conversation: function(event){
+                var updatedConversationList = event.updatedConversationList; // 更新的会话列表
+                console.log('更新会话汇总:', updatedConversationList);
+                console.log('最新会话列表:', im.Conversation.merge({
+                    conversationList: conversationList,
+                    updatedConversationList: updatedConversationList
+                }));
+            },
+            message: function(event){
+				console.log('收到新消息', message);
+                var message = event.message;
+                var Words = document.getElementById("words");
+				
+            },
+            status: function(event){
+                var status = event.status;
+                switch (status) {
+                    case RongIMLib.CONNECTION_STATUS.CONNECTED:
+                        console.log('链接成功');
+                        break;
+                    case RongIMLib.CONNECTION_STATUS.CONNECTING:
+                        console.log('正在连接中');
+                        break;
+                    case RongIMLib.CONNECTION_STATUS.DISCONNECTED:
+                        console.log('已主动断开连接');
+                        break;
+                    case RongIMLib.CONNECTION_STATUS.NETWORK_UNAVAILABLE:
+                        console.log('网络不可用'); // SDK 内部会自动进行重连
+                        break;
+                    case RongIMLib.CONNECTION_STATUS.SOCKET_ERROR:
+                        console.log('Socket 链接错误'); // SDK 内部会自动进行重连
+                        break;
+                    case RongIMLib.CONNECTION_STATUS.KICKED_OFFLINE_BY_OTHER_CLIENT:
+                        console.log('其他设备登录, 本端被踢'); // 己端被踢, 不可进行重连. 否则会造成多端循环互踢
+                        break;
+                    case RongIMLib.CONNECTION_STATUS.BLOCKED:
+                        console.log('链接断开, 用户已被封禁');
+                        break;
+                    default:
+                        console.log('链接状态变化为:', status);
+                        break;
+                }
+            }
+        });
+        var user = {
+            token: 'gZSi4oaUP3lTbjgWWWAeq2Zv3QFJNIf0ICOkYcE6M18=@4ujh.cn.rongnav.com;4ujh.cn.rongcfg.com'
+        };
+        var im = RongIMLib.init({ appkey: 'pvxdm17jpej8r' }); // 初始化 IM 实例(单个页面仅需初始化一次)
+        im.connect(user).then(function(user) {
+            console.log('链接成功, 链接用户 id 为: ', user.id);
+			conversation.getMessages(option).then(function(result){
+			  var list = result.list; // 历史消息列表
+			  var hasMore = result.hasMore; // 是否还有历史消息可以获取
+			  console.log('获取历史消息成功', list, hasMore);
+			});
+        }).catch(function(error) {
+            console.log('链接失败: ', error.code, error.msg);
+        });
+
+        var conversation = im.Conversation.get({
+            targetId: 'wanmei',
+            type: RongIMLib.CONVERSATION_TYPE.PRIVATE
+        });
+		
+		var option = {
+		  timestrap: +new Date(),
+		  count: 20
+		};
+		
+
+        function send(sen){
+            conversation.send({
+                messageType: RongIMLib.MESSAGE_TYPE.TEXT, // 'RC:TxtMsg'
+                content: {
+                    content: sen.toString() // 文本内容
+                }
+            }).then(function(message){
+                console.log('发送文字消息成功', message);
+                var message = event.updatedConversationList;
+				document.getElementById("paihangbang").value += sen+"\n";
+            });
+        }
+		
+
+
+
+
+    </script>
+</head>
+<body>
+	<button type="button" onclick="send(123)">Click Me!</button>
+	<div style="display: flex;justify-content: space-between;">
+		<div class = "mine-wrap">
+			<div class = "title clearfix">
+				<div class="title-txt">扫雷</div>
+				<ul class="window-control">
+					<li class="window-min"></li>
+					<li class="window-max"></li>
+					<li class="window-close" onclick="window.close()"></li>
+				</ul>
+			</div>
+			<div class="mine-main clearfix">
+				<div class="mine-menu clearfix">
+					<ul class="mine-menu-ul clearfix">
+						<li class="menu-game">游戏
+							<ul class="menu-sub clearfix">
+								<li><span class="menu-sub-left"><input type="radio" name="mine-type"value ="0"></span><span class="menu-sub-right">初级</span></li>
+								<li><span class="menu-sub-left"><input type="radio" name="mine-type" value ="1"></span><span class="menu-sub-right">中级</span></li>
+								<li><span class="menu-sub-left"><input type="radio" name="mine-type" value ="2"></span><span class="menu-sub-right">高级</span></li>
+								<li><span class="menu-sub-left"><input type="radio" name="mine-type" value ="3"></span><span class="menu-sub-right">自定义</span></li>
+
+							</ul>
+						</li>
+						<li>帮助</li>
+					</ul>
+				</div>
+				<div class="mine-con">
+					<div class="game-tags clearfix">
+						
+						<div class="game-tag-images">
+							<img src="res/d0.bmp">
+							<img src="res/d0.bmp">
+							<img src="res/d0.bmp">
+						</div>
+						
+						<div class="game-face">
+							<img src="res/face_normal.bmp" onclick = "mine1.init()" id="face">
+						</div>
+						
+						<div class="game-time-images">
+							<img src="res/d0.bmp">
+							<img src="res/d0.bmp">
+							<img src="res/d0.bmp">
+						</div>
+						
+					</div>
+					<div class="mine-canvas">
+						<canvas id="mine1" width="" height=""></canvas>
+					</div>
+						<div class="about" style="align-self: flex-end;">
+						<a href="https://trayvonc.github.io/mine/AI.py" target="_blank">AI下载</a></br>	
+					</div>	
+				</div>
+			</div>
+		</div>
+		<!-- 预加载图片资源 -->
+		<div class ="load-images">
+			<img src ="res/blank.bmp" >
+			<img src ="res/0.bmp" >
+			<img src ="res/flag.bmp" >
+			<img src ="res/ask.bmp" >
+			<img src ="res/mine.bmp" >
+			<img src ="res/blood.bmp" >
+			<img src ="res/error.bmp" >
+			<img src ="res/0.bmp" >
+			<img src ="res/1.bmp" >
+			<img src ="res/2.bmp" >
+			<img src ="res/3.bmp" >
+			<img src ="res/4.bmp" >
+			<img src ="res/5.bmp" >
+			<img src ="res/6.bmp" >
+			<img src ="res/7.bmp" >
+			<img src ="res/8.bmp" >
+		</div>
+		
+		<div name = "mydiv" id="mydiv" style="right:200px;top:200px">
+		<textarea id="paihangbang" readonly="True" style="border:0;border-radius:5px;background-color:rgba(241,241,241,.98);width: 355px;height: 250px;padding: 10px;resize: none;" placeholder="排行榜："></textarea>
+		</div>	
+	
+	</div>	
+
+	<script>
+	var mine1;
+	window.onload = function(){
+
+		document.getElementsByClassName('mine-wrap')[0].style.display = "block";
+		
+		mine1 = new Mine("mine1",'face',30,16,98,"game-tag-images","game-time-images");
+		mine1.init();
+
+		var inputEle = document.getElementsByTagName('input');
+
+		for (var i = 0; i < inputEle.length; i++) {
+			inputEle[i].onclick = function(){
+				var width,height,minenum;
+				if(this.value == 0){
+					width =9;height =9;minenum = 10;
+				}
+				else if(this.value == 1){
+					width =16;height =16;minenum = 40;
+				}
+				else if(this.value == 2){
+					width =30;height =16;minenum = 99;
+				}else if(this.value ==3){
+					width =prompt("请输入宽(9-30)");
+					height = width && prompt("请输入高(9-24)");
+					minenum = height && prompt("请输入雷的数量(10-200)");
+					if(!(width && height && minenum)){
+						return;
+					}
+					if(width<9){width = 9;}
+					if(width>30){width = 30;}
+					if(height<9){height = 9;}
+					if(height>24){height = 24;}
+					if(minenum<10){minenum = 10;}
+					if(minenum>200){minenum = 200;}
+					if(minenum>height * width){minenum =10;}
+				}
+				mine1.paneheight = height;//有几行
+				mine1.panewidth = width;//有几列
+				mine1.minenum = minenum;//有几个雷
+
+				mine1.init();
+				document.getElementsByClassName("mine-wrap")[0].style.width = width * mine1.PANE_SIZE + 25 + "px";
+			}
+		};
+
+	}
+
+	</script>
+</body>
