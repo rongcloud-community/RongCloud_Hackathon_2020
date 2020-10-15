@@ -1,0 +1,8 @@
+jwt:
+  secret: 'my$ecretK3y'
+
+oss:
+  access_key: LTAI4GA5D8vGhL4shaSJerkz
+  access_secret: mkmbsr1d9JmvO4wkTCGwqTf59flSlk
+  bucket: dev-002
+  host: https://dev-002.oss-cn-shanghai.aliyuncs.com

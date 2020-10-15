@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+if ARGV.length <= 0
+  puts <<~EOF
+    Usage:
+
+        bin/run path/to/script/file arguments
+
+  EOF
+  exit
+end
+
+require 'bundler'
+require_relative '../config/environment'
+script_path = ARGV.shift
+load script_path

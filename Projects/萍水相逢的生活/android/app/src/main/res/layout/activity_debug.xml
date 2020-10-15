@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DebugActivity">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="18dp"
+        android:layout_y="32dp"
+        android:onClick="goToWebView"
+        android:text="去 WebView"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="34dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="154dp"
+        android:layout_y="123dp"
+        android:onClick="goToCall"
+        android:text="去打电话"
+        tools:layout_editor_absoluteX="281dp"
+        tools:layout_editor_absoluteY="28dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="15dp"
+        android:layout_y="122dp"
+        android:onClick="loginToRongCloud"
+        android:text="登录到融 Cloud"
+        tools:layout_editor_absoluteX="153dp"
+        tools:layout_editor_absoluteY="176dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="39dp"
+        android:layout_y="222dp"
+        android:onClick="sendNotification"
+        android:text="发送通知" />
+
+</AbsoluteLayout>

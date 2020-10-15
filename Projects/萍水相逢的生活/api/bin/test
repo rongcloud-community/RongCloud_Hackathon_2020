@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby
+
+first_opt = ARGV.find_index { |arg| arg.start_with?('-') } || ARGV.length
+files = ARGV[0...first_opt]
+opts = ARGV[first_opt..-1]
+
+if files.empty? && (opts.include?('-h') || opts.include?('--help'))
+  puts <<~HELP
+    用法: bin/test [file] [options]
+
+    示例：
+
+      示例 1, 运行所有的测试：
+
+          bin/test
+
+      示例 2, 运行单个文件的测试：
+
+          bin/test single_file.test.rb
+
+      示例 3, 添加选项参数
+
+          bin/test -v
+          bin/test single_file.test.rb -v
+
+    你可以通过 `bin/test -h` 和 `bin/test single_file.test.rb -h` 命令查看选项参数的信息。
+
+  HELP
+
+  system %{ruby -e "ARGV.push('-h'); require('bundler/setup'); require('minitest/autorun')"}
+  exit 0
+end
+
+files = Dir['test/**/*.test.rb'] if files.empty?
+exec 'ruby', 'lib/testloader.rb', *files, *opts

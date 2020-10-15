@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo
+bundle exec pry -r ./config/environment

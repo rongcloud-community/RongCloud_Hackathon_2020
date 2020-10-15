@@ -1,0 +1,10 @@
+/.bundle
+/vendor
+/db/*.sqlite3
+
+# Ignore settings local
+/config/settings.local.yml
+/config/settings/*.local.yml
+/config/environments/*.local.yml
+
+/.ruby-version

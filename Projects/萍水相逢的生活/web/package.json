@@ -1,0 +1,39 @@
+{
+  "name": "f8",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "browserslist": [
+    "Android >= 7",
+    "IOS >= 11",
+    "Safari >= 11",
+    "Chrome >= 49",
+    "Firefox >= 31",
+    "Samsung >= 5"
+  ],
+  "dependencies": {
+    "ali-oss": "^6.10.0",
+    "axios": "^0.20.0",
+    "core-js": "^3.6.5",
+    "date-fns": "^2.16.1",
+    "dom7": "^2.1.5",
+    "framework7": "^5.7.11",
+    "framework7-icons": "^3.0.1",
+    "framework7-vue": "^5.7.11",
+    "template7": "^1.4.2",
+    "uuid": "^8.3.0",
+    "vue": "^2.6.12",
+    "vue-infinite-loading": "^2.4.5",
+    "vuex": "^3.5.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
