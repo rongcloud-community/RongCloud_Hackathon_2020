@@ -1,0 +1,547 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>企业信息交流系统</title>
+  <script src="http://cdn.ronghub.com/RongIMLib-2.5.9.js"></script>
+<script LANGUAGE="javascript">
+//密码输入框
+<!--
+function checkspace(checkstr) {
+  var str = '';
+  for(i = 0; i < checkstr.length; i++) {
+    str = str + ' ';
+  }
+  return (str == checkstr);
+}
+function check()
+{
+  document.admininfo.submit();
+  }
+  
+  //定义当前是否大写的状态
+window.onload=
+	function()
+	{
+		password1=null;		
+		initCalc();
+	}
+
+var CapsLockValue=0;
+
+var check;
+function setVariables() {
+tablewidth=630;  // logo width, in pixels
+tableheight=20;  // logo height, in pixels
+if (navigator.appName == "Netscape") {
+horz=".left";
+vert=".top";
+docStyle="document.";
+styleDoc="";
+innerW="window.innerWidth";
+innerH="window.innerHeight";
+offsetX="window.pageXOffset";
+offsetY="window.pageYOffset";
+}
+else {
+horz=".pixelLeft";
+vert=".pixelTop";
+docStyle="";
+styleDoc=".style";
+innerW="document.body.clientWidth";
+innerH="document.body.clientHeight";
+offsetX="document.body.scrollLeft";
+offsetY="document.body.scrollTop";
+   }
+}
+function checkLocation() {
+if (check) {
+objectXY="softkeyboard";
+var availableX=eval(innerW);
+var availableY=eval(innerH);
+var currentX=eval(offsetX);
+var currentY=eval(offsetY);
+x=availableX-tablewidth+currentX;
+//y=availableY-tableheight+currentY;
+y=currentY;
+
+evalMove();
+}
+setTimeout("checkLocation()",0);
+}
+function evalMove() {
+//eval(docStyle + objectXY + styleDoc + horz + "=" + x);
+eval(docStyle + objectXY + styleDoc + vert + "=" + y);
+}
+	self.onError=null;
+	currentX = currentY = 0;  
+	whichIt = null;           
+	lastScrollX = 0; lastScrollY = 0;
+	NS = (document.layers) ? 1 : 0;
+	IE = (document.all) ? 1: 0;
+	function heartBeat() {
+		if(IE) { diffY = document.body.scrollTop; diffX = document.body.scrollLeft; }
+	    if(NS) { diffY = self.pageYOffset; diffX = self.pageXOffset; }
+		if(diffY != lastScrollY) {
+	                percent = .1 * (diffY - lastScrollY);
+	                if(percent > 0) percent = Math.ceil(percent);
+	                else percent = Math.floor(percent);
+					if(IE) document.all.softkeyboard.style.pixelTop += percent;
+					if(NS) document.softkeyboard.top += percent; 
+	                lastScrollY = lastScrollY + percent;}
+		if(diffX != lastScrollX) {
+			percent = .1 * (diffX - lastScrollX);
+			if(percent > 0) percent = Math.ceil(percent);
+			else percent = Math.floor(percent);
+			if(IE) document.all.softkeyboard.style.pixelLeft += percent;
+			if(NS) document.softkeyboard.left += percent;
+			lastScrollX = lastScrollX + percent;	}		}
+	function checkFocus(x,y) { 
+	        stalkerx = document.softkeyboard.pageX;
+	        stalkery = document.softkeyboard.pageY;
+	        stalkerwidth = document.softkeyboard.clip.width;
+	        stalkerheight = document.softkeyboard.clip.height;
+	        if( (x > stalkerx && x < (stalkerx+stalkerwidth)) && (y > stalkery && y < (stalkery+stalkerheight))) return true;
+	        else return false;}
+	function grabIt(e) {
+	    check = false;
+		if(IE) {
+			whichIt = event.srcElement;
+			while (whichIt.id.indexOf("softkeyboard") == -1) {
+				whichIt = whichIt.parentElement;
+				if (whichIt == null) { return true; } }
+			whichIt.style.pixelLeft = whichIt.offsetLeft;
+		    whichIt.style.pixelTop = whichIt.offsetTop;
+			currentX = (event.clientX + document.body.scrollLeft);
+	   		currentY = (event.clientY + document.body.scrollTop); 	
+		} else { 
+	        window.captureEvents(Event.MOUSEMOVE);
+	        if(checkFocus (e.pageX,e.pageY)) { 
+	                whichIt = document.softkeyboard;
+	                StalkerTouchedX = e.pageX-document.softkeyboard.pageX;
+	                StalkerTouchedY = e.pageY-document.softkeyboard.pageY;} }
+	    return true;	}
+	function moveIt(e) {
+		if (whichIt == null) { return false; }
+		if(IE) {
+		    newX = (event.clientX + document.body.scrollLeft);
+		    newY = (event.clientY + document.body.scrollTop);
+		    distanceX = (newX - currentX);    distanceY = (newY - currentY);
+		    currentX = newX;    currentY = newY;
+		    whichIt.style.pixelLeft += distanceX;
+		    whichIt.style.pixelTop += distanceY;
+			if(whichIt.style.pixelTop < document.body.scrollTop) whichIt.style.pixelTop = document.body.scrollTop;
+			if(whichIt.style.pixelLeft < document.body.scrollLeft) whichIt.style.pixelLeft = document.body.scrollLeft;
+			if(whichIt.style.pixelLeft > document.body.offsetWidth - document.body.scrollLeft - whichIt.style.pixelWidth - 20) whichIt.style.pixelLeft = document.body.offsetWidth - whichIt.style.pixelWidth - 20;
+			if(whichIt.style.pixelTop > document.body.offsetHeight + document.body.scrollTop - whichIt.style.pixelHeight - 5) whichIt.style.pixelTop = document.body.offsetHeight + document.body.scrollTop - whichIt.style.pixelHeight - 5;
+			event.returnValue = false;
+		} else { 
+			whichIt.moveTo(e.pageX-StalkerTouchedX,e.pageY-StalkerTouchedY);
+	        if(whichIt.left < 0+self.pageXOffset) whichIt.left = 0+self.pageXOffset;
+	        if(whichIt.top < 0+self.pageYOffset) whichIt.top = 0+self.pageYOffset;
+        if( (whichIt.left + whichIt.clip.width) >= (window.innerWidth+self.pageXOffset-17)) whichIt.left = ((window.innerWidth+self.pageXOffset)-whichIt.clip.width)-17;
+	        if( (whichIt.top + whichIt.clip.height) >= (window.innerHeight+self.pageYOffset-17)) whichIt.top = ((window.innerHeight+self.pageYOffset)-whichIt.clip.height)-17;
+	        return false;}
+	    return false;	}
+	function dropIt() {whichIt = null;
+	    if(NS) window.releaseEvents (Event.MOUSEMOVE);
+	    return true;	}
+	if(NS) {window.captureEvents(Event.MOUSEUP|Event.MOUSEDOWN);
+		window.onmousedown = grabIt;
+	 	window.onmousemove = moveIt;
+		window.onmouseup = dropIt;	}
+	if(IE) {
+		document.onmousedown = grabIt;
+	 	document.onmousemove = moveIt;
+		document.onmouseup = dropIt;	}
+//	if(NS || IE) action = window.setInterval("heartBeat()",1);
+
+
+
+	document.write("<DIV align=center id=\"softkeyboard\" name=\"softkeyboard\" style=\"position:absolute; left:0px; top:0px; width:500px; z-index:180;display:none\">  <table id=\"CalcTable\" width=\"\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" bgcolor=\"\">           <FORM id=Calc name=Calc action=\"\" method=post autocomplete=\"off\">       <tr> <td title=\"为了保证后台登陆安全,建议使用密码输入器输入密码!\" align=\"right\" valign=\"middle\" bgcolor=\"\" style=\"cursor: default;height:30\"> <INPUT type=hidden value=\"\" name=password>  <INPUT type=hidden value=ok name=action2>&nbsp<font style=\"font-size:13px;\"></font>&nbsp;&nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp&nbsp;<INPUT style=\"width:100px;height:20px;background-color:#54BAF1;\" type=button value=\"使用键盘输入\" bgtype=\"1\" onclick=\"password1.readOnly=0;password1.focus();softkeyboard.style.display='none';password1.value='';\"><span style=\"width:2px;\"></span></td>      </tr>      <tr align=\"center\">         <td align=\"center\" bgcolor=\"#FFFFFF\"> <table align=\"center\" width=\"%\" border=\"0\" cellspacing=\"1\" cellpadding=\"0\">\n          <tr align=\"left\" valign=\"middle\"> \n            <td> <input type=button value=\" ~ \"></td>\n            <td> <input type=button value=\" ! \"></td>\n            <td> <input type=button  value=\" @ \"></td>\n            <td> <input type=button value=\" # \"></td>\n            <td> <input type=button value=\" $ \"></td>\n            <td> <input type=button value=\" % \"></td>\n            <td> <input type=button value=\" ^ \"></td>\n            <td> <input type=button value=\" & \"></td>\n            <td> <input type=button value=\" * \"></td>\n            <td> <input type=button value=\" ( \"></td>\n            <td> <input type=button value=\" ) \"></td>\n            <td> <input type=button value=\" _ \"></td>\n            <td> <input type=button value=\" + \"></td>\n            <td> <input type=button value=\" | \"></td>\n            <td colspan=\"1\" rowspan=\"2\"> <input name=\"button10\" type=button value=\" 退格\" onclick=\"setpassvalue();\"  onDblClick=\"setpassvalue();\" style=\"width:100px;height:42px\"> \n            </td>\n          </tr>\n          <tr align=\"left\" valign=\"middle\"> \n            <td> <input type=button value=\" ` \"></td>\n            <td> <input type=button value=\" 1 \"></td>\n            <td> <input type=button value=\" 2 \"></td>\n            <td> <input type=button value=\" 3 \"></td>\n            <td> <input type=button value=\" 4 \"></td>\n            <td> <input type=button value=\" 5 \"></td>\n            <td> <input type=button value=\" 6 \"></td>\n            <td> <input type=button value=\" 7 \"></td>\n            <td> <input type=button value=\" 8 \"></td>\n            <td> <input type=button value=\" 9 \"></td>\n            <td> <input name=\"button6\" type=button value=\" 0 \"></td>\n            <td> <input type=button value=\" - \"></td>\n            <td> <input type=button value=\" = \"></td>\n            <td> <input type=button value=\" \\ \"></td>\n            <td> </td>\n          </tr>\n          <tr align=\"left\" valign=\"middle\"> \n            <td> <input type=button value=\" q \"></td>\n            <td> <input type=button value=\" w \"></td>\n            <td> <input type=button value=\" e \"></td>\n            <td> <input type=button value=\" r \"></td>\n            <td> <input type=button value=\" t \"></td>\n            <td> <input type=button value=\" y \"></td>\n            <td> <input type=button value=\" u \"></td>\n            <td> <input type=button value=\" i \"></td>\n            <td> <input type=button value=\" o \"></td>\n            <td> <input name=\"button8\" type=button value=\" p \"></td>\n            <td> <input name=\"button9\" type=button value=\" { \"></td>\n            <td> <input type=button value=\" } \"></td>\n            <td> <input type=button value=\" [ \"></td>\n            <td> <input type=button value=\" ] \"></td>\n            <td><input name=\"button9\" type=button onClick=\"capsLockText();setCapsLock();\"  onDblClick=\"capsLockText();setCapsLock();\" value=\"切换大/小写\" style=\"width:100px;\"></td>\n          </tr>\n          <tr align=\"left\" valign=\"middle\"> \n            <td> <input type=button value=\" a \"></td>\n            <td> <input type=button value=\" s \"></td>\n            <td> <input type=button value=\" d \"></td>\n            <td> <input type=button value=\" f \"></td>\n            <td> <input type=button value=\" g \"></td>\n            <td> <input type=button value=\" h \"></td>\n            <td> <input type=button value=\" j \"></td>\n            <td> <input name=\"button3\" type=button value=\" k \"></td>\n            <td> <input name=\"button4\" type=button value=\" l \"></td>\n            <td> <input name=\"button5\" type=button value=\" : \"></td>\n            <td> <input name=\"button7\" type=button value=\" &quot; \"></td>\n            <td> <input type=button value=\" ; \"></td>\n            <td> <input type=button value=\" ' \"></td>\n            <td rowspan=\"2\" colspan=\"2\"> <input name=\"button12\" type=button onclick=\"OverInput();\" value=\"   确定  \" style=\"width:130px;height:42\"></td>\n          </tr>\n          <tr align=\"left\" valign=\"middle\"> \n            <td> <input name=\"button2\" type=button value=\" z \"></td>\n            <td> <input type=button value=\" x \"></td>\n            <td> <input type=button value=\" c \"></td>\n            <td> <input type=button value=\" v \"></td>\n            <td> <input type=button value=\" b \"></td>\n            <td> <input type=button value=\" n \"></td>\n            <td> <input type=button value=\" m \"></td>\n            <td> <input type=button value=\" &lt; \"></td>\n            <td> <input type=button value=\" &gt; \"></td>\n            <td> <input type=button value=\" ? \"></td>\n            <td> <input type=button value=\" , \"></td>\n            <td> <input type=button value=\" . \"></td>\n            <td> <input type=button value=\" / \"></td>\n          </tr>\n        </table></td>    </FORM>      </tr>  </table></DIV>")
+//给输入的密码框添加新值
+	function addValue(newValue)
+	{
+		if (CapsLockValue==0)
+		{
+			var str=Calc.password.value;
+			if(str.length<password1.maxLength)
+			{
+				Calc.password.value += newValue;
+			}			
+			if(str.length<=password1.maxLength)
+			{
+				password1.value=Calc.password.value;
+			}
+		}
+		else
+		{
+			var str=Calc.password.value;
+			if(str.length<password1.maxLength)
+			{
+				Calc.password.value += newValue.toUpperCase();
+			}
+			if(str.length<=password1.maxLength)
+			{
+				password1.value=Calc.password.value;
+			}
+		}
+	}
+//实现BackSpace键的功能
+	function setpassvalue()
+	{
+		var longnum=Calc.password.value.length;
+		var num
+		num=Calc.password.value.substr(0,longnum-1);
+		Calc.password.value=num;
+		var str=Calc.password.value;
+			password1.value=Calc.password.value;
+	}
+//输入完毕
+	function OverInput()
+	{
+		//m_pass.mempass.value=Calc.password.value;
+		var str=Calc.password.value;
+			password1.value=Calc.password.value;
+			//alert(theForm.value);
+		//theForm.value=m_pass.mempass.value;
+		softkeyboard.style.display="none";
+		Calc.password.value="";
+		password1.readOnly=1;
+		//password1.value=Calc.password.value;
+	}
+//关闭软键盘
+	function closekeyboard(theForm)
+	{
+		//eval("var theForm="+theForm+";");
+		//theForm.value="";
+		softkeyboard.style.display="none";
+		//Calc.password.value="";
+
+	}
+//显示软键盘
+	function showkeyboard()
+	{
+		if(event.y+140)
+		softkeyboard.style.top=event.y+document.body.scrollTop+15;
+		if((event.x-250)>0)
+		{
+			softkeyboard.style.left=event.x-250;
+		}
+		else
+		{
+			softkeyboard.style.left=0;
+		}
+		
+		softkeyboard.style.display="block";
+		password1.readOnly=1;
+		password1.blur();
+		//password1.value="";
+	}
+
+//设置是否大写的值
+function setCapsLock()
+{
+	if (CapsLockValue==0)
+	{
+		CapsLockValue=1
+//		Calc.showCapsLockValue.value="当前是大写 ";
+	}
+	else 
+	{
+		CapsLockValue=0
+//		Calc.showCapsLockValue.value="当前是小写 ";
+	}
+}
+
+
+function setCalcborder()
+{
+	CalcTable.style.border="1px solid #0090FD"
+}
+
+function setHead()
+{
+	CalcTable.cells[0].style.backgroundColor="#7EDEFF"	
+}
+
+function setCalcButtonBg()
+{
+	for(var i=0;i<Calc.elements.length;i++)
+	{
+		if(Calc.elements[i].type=="button"&&Calc.elements[i].bgtype!="1")
+		{
+	//		if(i==10)
+//	alert(123);
+			Calc.elements[i].style.borderTopWidth= 0
+			Calc.elements[i].style.borderRightWidth= 2
+			Calc.elements[i].style.borderBottomWidth= 2
+			Calc.elements[i].style.borderLeftWidth= 0
+			Calc.elements[i].style.borderTopStyle= "none";
+			Calc.elements[i].style.borderRightStyle= "solid";
+			Calc.elements[i].style.borderBottomStyle= "solid";
+			Calc.elements[i].style.borderLeftStyle= "none";
+			//#46AC17
+			Calc.elements[i].style.borderTopColor= "#118ACC";
+			Calc.elements[i].style.borderRightColor= "#118ACC";
+			Calc.elements[i].style.borderBottomColor= "#118ACC";
+			Calc.elements[i].style.borderLeftColor= "#118ACC";
+			//#CBF3B2
+			Calc.elements[i].style.backgroundColor="#ADDEF8";
+
+			
+			
+			var str1=Calc.elements[i].value;
+			str1=str1.trim();
+			/*
+			if(str1=="`") 
+			{
+				Calc.elements[i].style.fontSize=14;
+			}
+			*/
+
+			if(str1.length==1)
+			{
+				//Calc.elements[i].style.fontSize=16;
+				//Calc.elements[i].style.fontWeight='bold';
+			}
+			
+			var thisButtonValue=Calc.elements[i].value;
+			thisButtonValue=thisButtonValue.trim();
+			if(thisButtonValue.length==1)
+			{
+				Calc.elements[i].onclick=
+					function ()
+					{
+						var thisButtonValue=this.value;
+						thisButtonValue=thisButtonValue.trim();
+						addValue(thisButtonValue);
+						//alert(234)
+					}
+				Calc.elements[i].ondblclick=
+					function ()
+					{
+						var thisButtonValue=this.value;
+						thisButtonValue=thisButtonValue.trim();
+						addValue(thisButtonValue);
+						//alert(234)
+					}
+			}
+			
+		}
+	}
+}
+
+function initCalc()
+{
+	setCalcborder();
+	setHead();
+	setCalcButtonBg();
+}
+
+String.prototype.trim = function()
+{
+    // 用正则表达式将前后空格
+    // 用空字符串替代。
+    return this.replace(/(^\s*)|(\s*$)/g, "");
+}
+
+var capsLockFlag;
+capsLockFlag=true;
+
+function capsLockText()
+{
+if(capsLockFlag)//改成大写
+{
+	for(var i=0;i<Calc.elements.length;i++)
+	{
+			var char=Calc.elements[i].value;
+			var char=char.trim()
+		if(Calc.elements[i].type=="button"&&char>="a"&&char<="z"&&char.length==1)
+		{
+		
+			Calc.elements[i].value=" "+String.fromCharCode(char.charCodeAt(0)-32)+" "
+		}
+	}
+}
+else
+{
+	for(var i=0;i<Calc.elements.length;i++)
+	{
+			var char=Calc.elements[i].value;
+			var char=char.trim()
+		if(Calc.elements[i].type=="button"&&char>="A"&&char<="Z"&&char.length==1)
+		{
+		
+			Calc.elements[i].value=" "+String.fromCharCode(char.charCodeAt(0)+32)+" "
+		}
+	}
+}
+capsLockFlag=!capsLockFlag;
+}
+
+window.onload=
+	function ()
+	{
+		password1=null;		
+		initCalc();
+		
+
+	}
+//-->
+</script> 
+
+<link href="css/css.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table width="778" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="100">&nbsp;</td>
+    <td height="25" align="center">企业信息交流系统(CICS)</td>
+    <td width="100">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="1" height="1"></td>
+        <td bgcolor="#3366FF"></td>
+        <td width="1" height="1"></td>
+      </tr>
+      <tr>
+        <td width="1" bgcolor="#3366FF"></td>
+        <td bgcolor="#9BCDFF"><form action="/web/index.do" name="form1" method="post">
+            <table width="70%" border="0" align="right" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width="50" height="40" align="right">用户名:</td>
+                <td width="150"><label>
+                  <input name="username" type="text" class="cicsform" />
+                </label></td>
+                <td><span class="red">(输入用户名)</span></td>
+              </tr>
+              <tr>
+                <td height="40" align="right">密码:</td>
+                <td><label>
+                  <input name="userpassword" type="Password"  maxlength="50" onMouseOut="this.style.background='#3399FF'" onMouseOver="this.style.background='#3399FF'" onFocus="this.select();" readOnly onKeyDown="Calc.password.value=this.value" onChange="Calc.password.value=this.value" onclick= "password1=this;showkeyboard();this.readOnly=1;Calc.password.value=''" class="cicsform" />
+                </label></td>
+                <td><span class="red">(输入密码)</span></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td><input name="Submit" type="submit" class="cicsform" value="登陆" />
+                    <label>
+                    <input name="Submit2" type="reset" class="cicsform" value="重写" />
+                  </label></td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td height="5">&nbsp;</td>
+              </tr>
+            </table>
+        </form></td>
+        <td bgcolor="#3366FF"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td bgcolor="#3366FF"></td>
+        <td></td>
+      </tr>
+    </table></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr><td height="5"></td></tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td align="center">版权所有:&copy;2007-2010  <a href="http://www.chmchm.com" target="_blank">www.chmchm.com</a></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>
+<script>
+  var config = {
+    appkey: 'cpj2xarlchjtn',
+  };
+  var im = RongIMLib.init(config);
+
+  var params = {
+    onChanged: function (status) {
+      // status 标识当前连接状态
+      switch (status) {
+        case RongIMLib.ConnectionStatus.CONNECTED:
+          console.log('链接成功');
+          break;
+        case RongIMLib.ConnectionStatus.CONNECTING:
+          console.log('正在链接');
+          break;
+        case RongIMLib.ConnectionStatus.DISCONNECTED:
+          console.log('断开连接');
+          break;
+        case RongIMLib.ConnectionStatus.KICKED_OFFLINE_BY_OTHER_CLIENT:
+          console.log('其他设备登录, 本端被踢');
+          break;
+        case RongIMLib.ConnectionStatus.DOMAIN_INCORRECT:
+          console.log('域名不正确, 请至开发者后台查看安全域名配置');
+          break;
+        case RongIMLib.ConnectionStatus.NETWORK_UNAVAILABLE:
+          console.log('网络不可用, 此时可调用 reconnect 进行重连');
+          break;
+        default:
+          console.log('链接状态为', status);
+          break;
+      }
+    }
+  }
+
+  RongIMClient.setConnectionStatusListener(params);
+
+  var params = {
+    // 接收到的消息
+    onReceived: function (message) {
+      console.info(message);
+    }
+  }
+  };
+  RongIMClient.setOnReceiveMessageListener(params);
+
+  var params = {
+    //status 标识当前监听到的会话状态
+    onChanged: function(status) {
+      console.log(status);
+    }
+  };
+  RongIMClient.setConversationStatusListener(params);
+
+
+</script>
+
+<script>
+  var token = "mKmyKqTSf7aNDinwAFMnz7NXKI3dV3X0+Cd1BOxmtO2pmvsjW2HViWrePIfq0GuTu9jELQqsckv4AhfjCAKgQ==";
+
+  RongIMClient.connect(token, {
+    onSuccess: function(userId) {
+      console.log('连接成功, 用户 ID 为', userId);
+      // 连接已成功, 此时可通过 getConversationList 获取会话列表并展示
+    },
+    onTokenIncorrect: function() {
+      console.log('连接失败, 失败原因: token 无效');
+    },
+    onError: function(errorCode) {
+      console.log('连接失败, 失败原因: ', errorCode);
+    }
+  });
+  var count = 150;
+  var callback = {
+    onSuccess: function(list) {
+      console.log('获取会话列表成功', list);
+    },
+    onError: function(error) {
+      console.log('获取会话列表失败', error);
+    }
+  }
+  RongIMClient.getInstance().getConversationList(callback, null, count);
+</script>
