@@ -1,0 +1,20 @@
+<script language="javascript">
+function checkData(frm){
+		frm.content.value = document.frames.cnEditBox.getHTML(true);
+		alert(frm.content.value);
+		return false;
+}
+
+</script>
+<html>
+<head>
+</head>
+<body>
+<form name="frm" action="" method="post" onSubmit="return checkData(this);">
+<input name="content" value="" type="hidden" >
+<iframe style="border: none" name="cnEditBox" src="editbox.htm" width="100%" height="400"></iframe> 
+
+<input name="test" value="²âÊÔÄÚÈÝ" type="submit" >
+</form>
+</body>
+</html>

@@ -1,0 +1,123 @@
+* {
+}
+body {
+	FONT: 12px "SimSun"; 
+	COLOR: #111111;
+	PADDING-RIGHT: 20px; 
+	PADDING-LEFT: 20px; 
+	PADDING-BOTTOM: 0px; 
+	MARGIN: 0px; 
+	PADDING-TOP: 0px; 
+	BACKGROUND-COLOR: #fff;
+	background-image: url(../image/bg1.jpg);
+}
+p {
+	FONT: 12px "SimSun"; 
+	COLOR: #111111
+}
+th {
+	FONT: 12px "SimSun"; 
+	COLOR: #111111
+}
+td {
+	FONT: 12px "SimSun"; 
+	COLOR: #111111
+}
+input{
+	FONT: 12px "SimSun"; 
+	COLOR: #111111
+}
+select{
+	FONT: 12px "SimSun"; 
+	COLOR: #111111
+}
+textarea {
+	FONT: 12px "SimSun"; 
+	COLOR: #111111
+}
+ul {
+	PADDING-RIGHT: 0px; 
+	PADDING-LEFT: 0px; 
+	PADDING-BOTTOM: 0px; 
+	MARGIN: 0px; 
+	PADDING-TOP: 0px
+}
+dl{
+	PADDING-RIGHT: 0px; 
+	PADDING-LEFT: 0px; 
+	PADDING-BOTTOM: 0px; 
+	MARGIN: 0px; 
+	PADDING-TOP: 0px
+}
+ol {
+	PADDING-RIGHT: 0px; 
+	PADDING-LEFT: 0px; 
+	PADDING-BOTTOM: 0px; 
+	MARGIN: 0px; 
+	PADDING-TOP: 0px
+}
+form {
+	PADDING-RIGHT: 0px; 
+	PADDING-LEFT: 0px; 
+	PADDING-BOTTOM: 0px; 
+	MARGIN: 0px; 
+	PADDING-TOP: 0px
+}
+ul li{
+	LIST-STYLE-TYPE: none
+}
+ol li{
+	LIST-STYLE-TYPE: none
+}
+dl dt {
+	PADDING-RIGHT: 0px; 
+	PADDING-LEFT: 0px; 
+	PADDING-BOTTOM: 0px; 
+	MARGIN: 0px; 
+	PADDING-TOP: 0px
+}
+table {
+	TEXT-ALIGN: left
+}
+p {
+	PADDING-RIGHT: 0px; 
+	PADDING-LEFT: 0px; 
+	PADDING-BOTTOM: 0px; 
+	MARGIN: 0px; 
+	LINE-HEIGHT: 18px; 
+	PADDING-TOP: 0px
+}
+hr{
+	BORDER-RIGHT: #000 0px solid; 
+	BORDER-TOP: #d1d7dc 1px solid; 
+	BORDER-LEFT: #000 0px solid; 
+	BORDER-BOTTOM: #000 0px solid; 
+	HEIGHT: 0px
+}
+img {
+	BORDER-TOP-WIDTH: 0px; 
+	BORDER-LEFT-WIDTH: 0px; 
+	BORDER-BOTTOM-WIDTH: 0px; 
+	BORDER-RIGHT-WIDTH: 0px
+}
+address {
+	FONT-STYLE: normal
+}
+em {
+	FONT-STYLE: normal
+}
+a:link {
+	COLOR: #04d; 
+	TEXT-DECORATION: none
+}
+a:visited {
+	COLOR: #04d; 
+	TEXT-DECORATION: none
+}
+a:hover {
+	COLOR: #f50; 
+	TEXT-DECORATION: underline
+}
+a:active {
+	COLOR: #f50
+}

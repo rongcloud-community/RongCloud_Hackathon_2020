@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+
+
+
+
+ 
+    <!-- Example filter to set character encoding on each request -->
+    <filter>
+        <filter-name>Set Character Encoding</filter-name>
+        <filter-class>filters.SetCharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>GB2312</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>Set Character Encoding</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <servlet>
+	   <servlet-name>Login Confirm</servlet-name>
+	   <servlet-class>com.login.LoginConfirm</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+	   <servlet-name>Login Confirm</servlet-name>
+	   <url-pattern>/Login</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	   <servlet-name>Regedit Confirm</servlet-name>
+	   <servlet-class>com.regedit.RegeditConfirm</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+	   <servlet-name>Regedit Confirm</servlet-name>
+	   <url-pattern>/Regedit</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	   <servlet-name>Modify User Data</servlet-name>
+	   <servlet-class>com.modify.ModifyUserData</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+	   <servlet-name>Modify User Data</servlet-name>
+	   <url-pattern>/ModifyUserData</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	   <servlet-name>Upload Images File</servlet-name>
+	   <servlet-class>com.upload.UploadImage</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	   <servlet-name>Upload Images File</servlet-name>
+	   <url-pattern>/UploadImage</url-pattern>
+	</servlet-mapping>
+	
+  <servlet>
+    <description>Reply Article</description>
+    <display-name>Reply Article Servlet</display-name>
+    <servlet-name>ReArticleDAO</servlet-name>
+    <servlet-class>com.article.ReArticleDAO</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Send Article</description>
+    <display-name>Send Article Servlet</display-name>
+    <servlet-name>SendArticleDAO</servlet-name>
+    <servlet-class>com.article.SendArticleDAO</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Modify Article</description>
+    <display-name>Modify Article Servlet</display-name>
+    <servlet-name>ModifyArticle</servlet-name>
+    <servlet-class>com.article.ModifyArticle</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Delete Article</description>
+    <display-name>Delete Article Servlet</display-name>
+    <servlet-name>DeleteArticleDAO</servlet-name>
+    <servlet-class>com.article.DeleteArticleDAO</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Delete Reply Article</description>
+    <display-name>Delete Reply Article Servlet</display-name>
+    <servlet-name>DeleteReply</servlet-name>
+    <servlet-class>com.article.DeleteReply</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Search Friends</description>
+    <display-name>Search Friends Servlet</display-name>
+    <servlet-name>FriendsSearch</servlet-name>
+    <servlet-class>com.friends.FriendsSearch</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Add Friends</description>
+    <display-name>Add Friends Servlet</display-name>
+    <servlet-name>FriendsAdd</servlet-name>
+    <servlet-class>com.friends.FriendsAdd</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Delete Friends</description>
+    <display-name>Delete Friends Servlet</display-name>
+    <servlet-name>FriendsDelete</servlet-name>
+    <servlet-class>com.friends.FriendsDelete</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Admin Login  Confirm</description>
+    <display-name>Admin Login  Confirm Servlet</display-name>
+    <servlet-name>AdminLogin</servlet-name>
+    <servlet-class>com.admin.AdminLogin</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Delete User</description>
+    <display-name>Delete User  Servlet</display-name>
+    <servlet-name>DeleteUser</servlet-name>
+    <servlet-class>com.admin.DeleteUser</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Delete Manager</description>
+    <display-name>Delete Managerr  Servlet</display-name>
+    <servlet-name>DeleteManager</servlet-name>
+    <servlet-class>com.admin.DeleteManager</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Set Manager</description>
+    <display-name>Set Manager  Servlet</display-name>
+    <servlet-name>SetManager</servlet-name>
+    <servlet-class>com.admin.SetManager</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Admin Delete ArticleDAO</description>
+    <display-name>Admin Delete ArticleDAOr  Servlet</display-name>
+    <servlet-name>AdminDeleteArticleDAO</servlet-name>
+    <servlet-class>com.admin.AdminDeleteArticleDAO</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Admin Delete Reply</description>
+    <display-name>Admin Delete Reply  Servlet</display-name>
+    <servlet-name>AdminDeleteReply</servlet-name>
+    <servlet-class>com.admin.AdminDeleteReply</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Send Message</description>
+    <display-name>Send Message Servlet</display-name>
+    <servlet-name>SendMessage</servlet-name>
+    <servlet-class>com.admin.SendMessage</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Modify Message</description>
+    <display-name>Modify Message Servlet</display-name>
+    <servlet-name>ModifyMessage</servlet-name>
+    <servlet-class>com.admin.ModifyMessage</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Delete Message</description>
+    <display-name>Delete Message Servlet</display-name>
+    <servlet-name>DeleteMessage</servlet-name>
+    <servlet-class>com.admin.DeleteMessage</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Delete Image</description>
+    <display-name>Delete Image Servlet</display-name>
+    <servlet-name>DeleteImage</servlet-name>
+    <servlet-class>com.upload.DeleteImage</servlet-class>
+  </servlet>
+  <servlet>
+    <description>SetSuper Manager</description>
+    <display-name>SetSuper Manager Servlet</display-name>
+    <servlet-name>SetSuperManager</servlet-name>
+    <servlet-class>com.admin.SetSuperManager</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Liu Yan</description>
+    <display-name>Liu Yanr Servlet</display-name>
+    <servlet-name>LiuYanDAO</servlet-name>
+    <servlet-class>com.liuyan.LiuYanDAO</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Admin ReArticleDAO</description>
+    <display-name>Admin ReArticleDAO Servlet</display-name>
+    <servlet-name>AdminReArticleDAO</servlet-name>
+    <servlet-class>com.admin.AdminReArticleDAO</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Admin Delete LiuYan</description>
+    <display-name>Admin Delete LiuYan Servlet</display-name>
+    <servlet-name>AdminDeleteLiuYan</servlet-name>
+    <servlet-class>com.admin.AdminDeleteLiuYan</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>ReArticleDAO</servlet-name>
+    <url-pattern>/ReArticleDAO</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SendArticleDAO</servlet-name>
+    <url-pattern>/SendArticleDAO</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ModifyArticle</servlet-name>
+    <url-pattern>/ModifyArticle</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteArticleDAO</servlet-name>
+    <url-pattern>/DeleteArticleDAO</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteReply</servlet-name>
+    <url-pattern>/DeleteReply</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FriendsSearch</servlet-name>
+    <url-pattern>/FriendsSearch</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FriendsAdd</servlet-name>
+    <url-pattern>/FriendsAdd</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FriendsDelete</servlet-name>
+    <url-pattern>/FriendsDelete</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdminLogin</servlet-name>
+    <url-pattern>/admin/AdminLogin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteUser</servlet-name>
+    <url-pattern>/admin/DeleteUser</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteManager</servlet-name>
+    <url-pattern>/admin/DeleteManager</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SetManager</servlet-name>
+    <url-pattern>/admin/SetManager</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdminDeleteArticleDAO</servlet-name>
+    <url-pattern>/admin/AdminDeleteArticleDAO</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdminDeleteReply</servlet-name>
+    <url-pattern>/admin/AdminDeleteReply</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SendMessage</servlet-name>
+    <url-pattern>/admin/SendMessage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ModifyMessage</servlet-name>
+    <url-pattern>/admin/ModifyMessage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteMessage</servlet-name>
+    <url-pattern>/admin/DeleteMessage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteImage</servlet-name>
+    <url-pattern>/DeleteImage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SetSuperManager</servlet-name>
+    <url-pattern>/admin/SetSuperManager</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LiuYanDAO</servlet-name>
+    <url-pattern>/LiuYanDAO</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdminReArticleDAO</servlet-name>
+    <url-pattern>/admin/AdminReArticleDAO</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdminDeleteLiuYan</servlet-name>
+    <url-pattern>/admin/AdminDeleteLiuYan</url-pattern>
+  </servlet-mapping>
+  
+  
+  <welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+
+  
+  <!-- error pages definition -->
+	<error-page>
+		<error-code>500</error-code>
+		<location>/commons/500.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/commons/404.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>403</error-code>
+		<location>/commons/403.jsp</location>
+	</error-page>
+  
+
+ 
+</web-app>

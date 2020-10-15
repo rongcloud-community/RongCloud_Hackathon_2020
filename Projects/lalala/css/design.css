@@ -1,0 +1,37 @@
+body 
+{
+  BACKGROUND-POSITION: center 50%;           
+  BACKGROUND-COLOR: #eeeeee
+}
+.headtd 
+{
+	FONT-SIZE: 9pt; BACKGROUND-IMAGE: url()
+}
+A 
+{
+	TEXT-DECORATION: none
+}
+A:hover 
+{
+	TEXT-DECORATION: underline
+}
+A.headlink 
+{
+	COLOR: #ececff; TEXT-DECORATION: none
+}
+A.headlink:hover 
+{
+	COLOR: #ffffff; TEXT-DECORATION: underline
+}
+A.email 
+{
+	COLOR: #cccccc; TEXT-DECORATION: none
+}
+A.email:hover 
+{
+	COLOR: #ff9900; TEXT-DECORATION: underline
+}
+.title 
+{
+	FILTER: DropShadow(Color=#cccccc, OffX=1, OffY=1, Positive=1); COLOR: #424264
+}
