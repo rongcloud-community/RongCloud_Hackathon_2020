@@ -1,0 +1,11 @@
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/RongCloudIM/RongCloudIM" "${PODS_ROOT}/RongCloudRTC/RongCloudRTC"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/RongCloudIM/RongCloudIM"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"bz2" -l"c++" -l"c++abi" -l"iconv" -l"opencore-amrnb" -l"opencore-amrwb" -l"resolv" -l"sqlite3" -l"stdc++" -l"vo-amrwbenc" -l"xml2" -l"z" -framework "AVFoundation" -framework "AssetsLibrary" -framework "AudioToolbox" -framework "CFNetwork" -framework "CoreAudio" -framework "CoreGraphics" -framework "CoreLocation" -framework "CoreMedia" -framework "CoreMotion" -framework "CoreTelephony" -framework "CoreVideo" -framework "GLKit" -framework "ImageIO" -framework "MapKit" -framework "OpenGLES" -framework "QuartzCore" -framework "RongCallKit" -framework "RongCallLib" -framework "RongIMKit" -framework "RongIMLib" -framework "RongRTCLib" -framework "RongSight" -framework "RongSticker" -framework "SafariServices" -framework "SystemConfiguration" -framework "UIKit" -framework "VideoToolbox" -framework "WebKit"
+OTHER_LDFLAGS[arch=i386] = -Wl,-read_only_relocs,suppress
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
+PODS_ROOT = ${SRCROOT}/Pods
+USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES
