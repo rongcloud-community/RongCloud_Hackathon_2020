@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.ronghub.com/RongIMLib-3.0.5-dev.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="index.js" defer></script>
+    <style>
+        .message {
+            word-break: break-all;
+            position: relative;
+            /* width: 150px; */
+            background: #F8C301;
+            border-radius: 5px;
+            margin: 8px 32px;
+            padding: 0.5em;
+        }
+
+        .message p {
+            margin: 0;
+        }
+
+        .message .arrow {
+            position: absolute;
+            top: 8px;
+            left: -16px;
+            width: 0;
+            height: 0;
+            border: solid 8px;
+            border-color: #4D494800 #F8C301 #4D494800 #4D494800;
+        }
+
+        .message .arrow.right {
+            left: auto;
+            right: -16px;
+            border-color: #4D494800 #4D494800 #4D494800 #F8C301;
+        }
+    </style>
+    <title>anonychat</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>anonychat</h2>
+        <p id="info">{{status}}</p>
+        <div id="messagelist" style="height:480px;width:480px;overflow:auto;">
+            <div v-for="e in message" class="message">
+                <div :class="e.class"></div>
+                <p>{{e.text}}</p>
+            </div>
+        </div>
+        <input type="text" name="inputmessage" id="inputmessage">
+        <input type="button" id="send" value="发送">
+    </div>
+</body>
+
+</html>
